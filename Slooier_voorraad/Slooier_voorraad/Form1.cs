@@ -13,7 +13,6 @@ namespace Slooier_voorraad
 		int[] numbers = new int[] { 5, 8, 9, 12, 8, 2, 96, 8, 1, 5 };
 
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
-		//@"E:\TrialData.csv";
 		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
 		public MainPage()
 		{
