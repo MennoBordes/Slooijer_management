@@ -60,7 +60,7 @@ namespace Slooier_voorraad
 				{
 					for (int i = 0; i < row.Cells.Count; i++)
 					{
-						if(row.Cells[1].Value != null && row.Cells[1].Value.ToString().ToLower().Equals(searchValue))
+						if(row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
 						{
 							int rowIndex = row.Index;
 							dataGridView1.Rows[rowIndex].Selected = true;
