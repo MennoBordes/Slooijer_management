@@ -14,6 +14,7 @@ namespace Slooier_voorraad
 
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
+		List<BestelItems> items = new List<BestelItems>();
 		public MainPage()
 		{
 			InitializeComponent();
@@ -26,7 +27,7 @@ namespace Slooier_voorraad
 			var File = string.Concat(CurrentDir, Filepath);
 			using (var reader = new StreamReader(File))
 			{
-				List<BestelItems> items = new List<BestelItems>();
+				//List<BestelItems> items = new List<BestelItems>();
 				while (!reader.EndOfStream)
 				{
 					var line = reader.ReadLine();
@@ -37,13 +38,47 @@ namespace Slooier_voorraad
 						{
 							Benaming = values[0],
 							Nummer = values[1],
-							Omschrijving = values[3]
+							Omschrijving = values[3],
+							Voorraad = 10
 						};
 						items.Add(res);
 					}
 				}
 				dataGridView1.DataSource = items;
 
+			}
+		}
+
+		private void BtnSearch_Click(object sender, EventArgs e)
+		{
+			string searchValue = textBox1.Text.ToLower();
+			dataGridView1.ClearSelection();
+			try
+			{
+				bool valueResult = false;
+				foreach (DataGridViewRow row in dataGridView1.Rows)
+				{
+					for (int i = 0; i < row.Cells.Count; i++)
+					{
+						if(row.Cells[1].Value != null && row.Cells[1].Value.ToString().ToLower().Equals(searchValue))
+						{
+							int rowIndex = row.Index;
+							dataGridView1.Rows[rowIndex].Selected = true;
+							dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.SelectedRows[0].Index;
+							valueResult = true;
+							return;
+						}
+					}
+				}
+				if(!valueResult)
+				{
+					MessageBox.Show("Unable to find " + searchValue, "Not Found");
+					return;
+				}
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message);
 			}
 		}
 	}

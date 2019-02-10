@@ -11,5 +11,6 @@ namespace Slooier_voorraad.Classes
 		public string Benaming { get; set; }
 		public string Nummer { get; set; }
 		public string Omschrijving { get; set; }
+		public int Voorraad { get; set; }
 	}
 }
