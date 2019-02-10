@@ -112,7 +112,16 @@ namespace Slooier_voorraad
 			{
 				int rPos = dataGridView1.CurrentCell.RowIndex;
 				var res = items.ElementAt(rPos);
-				res.Voorraad = res.Voorraad - Convert.ToInt32(TxbVoorraad.Text);
+				int amount = Convert.ToInt32(TxbVoorraad.Text);
+				if(amount > 50) {
+					string message = "Weet je zeker dat je " + amount + " wilt aftrekken van de voorraad?";
+					var result = MessageBox.Show(message,"Warning", MessageBoxButtons.YesNo);
+					if(result == DialogResult.No)
+					{
+						return;
+					}
+				}
+				res.Voorraad = res.Voorraad - amount;
 				DgvLoadData<BestelItems>(dataGridView1, items);
 			}
 			catch (Exception ex)
