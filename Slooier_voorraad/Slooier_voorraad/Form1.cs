@@ -25,6 +25,7 @@ namespace Slooier_voorraad
 		
 		public void Loader(string Filepath)
 		{
+			items.Clear();
 			var File = string.Concat(CurrentDir, Filepath);
 			using (var reader = new StreamReader(File))
 			{
@@ -50,7 +51,7 @@ namespace Slooier_voorraad
 								Benaming = values[0],
 								Nummer = values[1],
 								Omschrijving = values[3],
-								Voorraad = 10
+								Voorraad = 100
 							};
 							items.Add(res);
 						}
@@ -102,15 +103,22 @@ namespace Slooier_voorraad
 		private void DgvLoadData<T>(DataGridView gridView, List<T> data)
 		{
 			gridView.DataSource = data;
+			dataGridView1.Refresh();
 		}
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
 		{
-			int rPos = dataGridView1.CurrentCell.RowIndex;
-			var res = items.ElementAt(rPos);
-			res.Voorraad = res.Voorraad - Convert.ToInt32(TxbVoorraad.Text);
-			DgvLoadData<BestelItems>(dataGridView1, items);
-			dataGridView1.Refresh();
+			try
+			{
+				int rPos = dataGridView1.CurrentCell.RowIndex;
+				var res = items.ElementAt(rPos);
+				res.Voorraad = res.Voorraad - Convert.ToInt32(TxbVoorraad.Text);
+				DgvLoadData<BestelItems>(dataGridView1, items);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 
 		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)

@@ -42,15 +42,14 @@
 			// 
 			// PboxLogo
 			// 
-			this.PboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.PboxLogo.BackColor = System.Drawing.Color.White;
 			this.PboxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PboxLogo.BackgroundImage")));
 			this.PboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.PboxLogo.Location = new System.Drawing.Point(12, 12);
+			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
+			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1160, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1184, 108);
 			this.PboxLogo.TabIndex = 1;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -64,6 +63,7 @@
 			this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dataGridView1.Location = new System.Drawing.Point(262, 126);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(910, 612);
@@ -101,17 +101,17 @@
 			// 
 			this.BtnVoorraadVerlagen.Location = new System.Drawing.Point(13, 265);
 			this.BtnVoorraadVerlagen.Name = "BtnVoorraadVerlagen";
-			this.BtnVoorraadVerlagen.Size = new System.Drawing.Size(178, 23);
+			this.BtnVoorraadVerlagen.Size = new System.Drawing.Size(133, 25);
 			this.BtnVoorraadVerlagen.TabIndex = 6;
-			this.BtnVoorraadVerlagen.Text = "Voorraad verlagen";
+			this.BtnVoorraadVerlagen.Text = "Voorraad verlagen met:";
 			this.BtnVoorraadVerlagen.UseVisualStyleBackColor = true;
 			this.BtnVoorraadVerlagen.Click += new System.EventHandler(this.BtnVoorraadVerlagen_Click);
 			// 
 			// TxbVoorraad
 			// 
-			this.TxbVoorraad.Location = new System.Drawing.Point(13, 294);
+			this.TxbVoorraad.Location = new System.Drawing.Point(152, 268);
 			this.TxbVoorraad.Name = "TxbVoorraad";
-			this.TxbVoorraad.Size = new System.Drawing.Size(179, 20);
+			this.TxbVoorraad.Size = new System.Drawing.Size(39, 20);
 			this.TxbVoorraad.TabIndex = 9;
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
@@ -127,6 +127,7 @@
 			this.Controls.Add(this.BtnSearch);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.PboxLogo);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "MainPage";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
