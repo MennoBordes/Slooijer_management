@@ -36,6 +36,7 @@
 			this.BtnReload = new System.Windows.Forms.Button();
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
+			this.BtnDB = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
@@ -48,6 +49,7 @@
 			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
+			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
 			this.PboxLogo.Size = new System.Drawing.Size(1184, 108);
 			this.PboxLogo.TabIndex = 1;
@@ -57,16 +59,15 @@
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(262, 126);
+			this.dataGridView1.Location = new System.Drawing.Point(262, 127);
 			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(910, 612);
+			this.dataGridView1.Size = new System.Drawing.Size(910, 622);
 			this.dataGridView1.TabIndex = 2;
 			// 
 			// BtnSearch
@@ -115,11 +116,22 @@
 			this.TxbVoorraad.TabIndex = 9;
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
+			// BtnDB
+			// 
+			this.BtnDB.Location = new System.Drawing.Point(13, 334);
+			this.BtnDB.Name = "BtnDB";
+			this.BtnDB.Size = new System.Drawing.Size(75, 23);
+			this.BtnDB.TabIndex = 10;
+			this.BtnDB.Text = "ConnectDB";
+			this.BtnDB.UseVisualStyleBackColor = true;
+			this.BtnDB.Click += new System.EventHandler(this.BtnDB_Click);
+			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 761);
+			this.Controls.Add(this.BtnDB);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
 			this.Controls.Add(this.BtnReload);
@@ -147,6 +159,7 @@
 		private System.Windows.Forms.Button BtnReload;
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
+		private System.Windows.Forms.Button BtnDB;
 	}
 }
 
