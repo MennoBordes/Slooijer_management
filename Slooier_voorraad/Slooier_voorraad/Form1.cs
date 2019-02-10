@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Slooier_voorraad.Classes;
 
@@ -34,21 +35,33 @@ namespace Slooier_voorraad
 					var values = line.Split(';');
 					if (values[0] != "" || values[1] !="" || values[3] != "")
 					{
-						var res = new BestelItems()
+						if(values[0] != "")
 						{
-							Benaming = values[0],
-							Nummer = values[1],
-							Omschrijving = values[3],
-							Voorraad = 10
-						};
-						items.Add(res);
+							var res = new BestelItems()
+							{
+								Benaming = values[0]
+							};
+							items.Add(res);
+						}
+						else
+						{
+							var res = new BestelItems()
+							{
+								Benaming = values[0],
+								Nummer = values[1],
+								Omschrijving = values[3],
+								Voorraad = 10
+							};
+							items.Add(res);
+						}
 					}
 				}
-				dataGridView1.DataSource = items;
-
+				DgvLoadData<BestelItems>(dataGridView1, items);
+				//dataGridView1.DataSource = items;				
 			}
 		}
 
+		
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
 			string searchValue = textBox1.Text.ToLower();
@@ -79,6 +92,32 @@ namespace Slooier_voorraad
 			catch(Exception ex)
 			{
 				MessageBox.Show(ex.Message);
+			}
+		}
+
+		private void BtnReload_Click(object sender, EventArgs e)
+		{
+			Loader(path);
+		}
+		private void DgvLoadData<T>(DataGridView gridView, List<T> data)
+		{
+			gridView.DataSource = data;
+		}
+
+		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
+		{
+			int rPos = dataGridView1.CurrentCell.RowIndex;
+			var res = items.ElementAt(rPos);
+			res.Voorraad = res.Voorraad - Convert.ToInt32(TxbVoorraad.Text);
+			DgvLoadData<BestelItems>(dataGridView1, items);
+			dataGridView1.Refresh();
+		}
+
+		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
 			}
 		}
 	}

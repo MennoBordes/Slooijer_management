@@ -33,6 +33,9 @@
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.BtnSearch = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.BtnReload = new System.Windows.Forms.Button();
+			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
+			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
@@ -72,7 +75,7 @@
 			this.BtnSearch.Name = "BtnSearch";
 			this.BtnSearch.Size = new System.Drawing.Size(178, 23);
 			this.BtnSearch.TabIndex = 3;
-			this.BtnSearch.Text = "Search";
+			this.BtnSearch.Text = "Zoeken";
 			this.BtnSearch.UseVisualStyleBackColor = true;
 			this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
 			// 
@@ -82,13 +85,44 @@
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(179, 20);
 			this.textBox1.TabIndex = 4;
-			this.textBox1.Text = "input";
+			this.textBox1.Text = "Zoekopdracht";
+			// 
+			// BtnReload
+			// 
+			this.BtnReload.Location = new System.Drawing.Point(13, 197);
+			this.BtnReload.Name = "BtnReload";
+			this.BtnReload.Size = new System.Drawing.Size(75, 23);
+			this.BtnReload.TabIndex = 5;
+			this.BtnReload.Text = "Rerun Loader";
+			this.BtnReload.UseVisualStyleBackColor = true;
+			this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
+			// 
+			// BtnVoorraadVerlagen
+			// 
+			this.BtnVoorraadVerlagen.Location = new System.Drawing.Point(13, 265);
+			this.BtnVoorraadVerlagen.Name = "BtnVoorraadVerlagen";
+			this.BtnVoorraadVerlagen.Size = new System.Drawing.Size(178, 23);
+			this.BtnVoorraadVerlagen.TabIndex = 6;
+			this.BtnVoorraadVerlagen.Text = "Voorraad verlagen";
+			this.BtnVoorraadVerlagen.UseVisualStyleBackColor = true;
+			this.BtnVoorraadVerlagen.Click += new System.EventHandler(this.BtnVoorraadVerlagen_Click);
+			// 
+			// TxbVoorraad
+			// 
+			this.TxbVoorraad.Location = new System.Drawing.Point(13, 294);
+			this.TxbVoorraad.Name = "TxbVoorraad";
+			this.TxbVoorraad.Size = new System.Drawing.Size(179, 20);
+			this.TxbVoorraad.TabIndex = 9;
+			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 761);
+			this.Controls.Add(this.TxbVoorraad);
+			this.Controls.Add(this.BtnVoorraadVerlagen);
+			this.Controls.Add(this.BtnReload);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.BtnSearch);
 			this.Controls.Add(this.dataGridView1);
@@ -109,6 +143,9 @@
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.Button BtnSearch;
 		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Button BtnReload;
+		private System.Windows.Forms.Button BtnVoorraadVerlagen;
+		private System.Windows.Forms.TextBox TxbVoorraad;
 	}
 }
 
