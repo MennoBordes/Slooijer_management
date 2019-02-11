@@ -225,5 +225,58 @@ namespace Slooier_voorraad
 				MessageBox.Show(ex.Message);
 			}
 		}
+
+		private void BtnGet_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				string Host = "localhost";
+				string DBName = "Slooier_VoorraadSysteem";
+				string User = "postgres";
+				string Password = "2761";
+				string Port = "5432";
+
+				string ConnString =
+					String.Format(
+						"Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}",
+						Host,
+						User,
+						DBName,
+						Port,
+						Password);
+
+				var conn = new NpgsqlConnection(ConnString);
+				try
+				{
+					conn.Open();
+					var command = conn.CreateCommand();
+					command.CommandText = "SELECT * FROM voorraad";
+					var reader = command.ExecuteReader();
+					List<BestelItems> temp = new List<BestelItems>();
+					while (reader.Read())
+					{
+						var res = new BestelItems()
+						{
+							Nummer = reader.GetString(0),
+							Omschrijving = reader.GetString(2),
+							Voorraad = reader.GetInt32(3),
+							Benaming = reader.GetString(4)
+						};
+						temp.Add(res);
+					}
+					dataGridView1.DataSource = temp;
+					conn.Close();
+				}
+				catch (Exception eex)
+				{
+					MessageBox.Show(eex.Message);
+					throw;
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
 	}
 }

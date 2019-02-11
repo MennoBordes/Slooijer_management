@@ -37,6 +37,7 @@
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.BtnDB = new System.Windows.Forms.Button();
+			this.BtnGet = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
@@ -126,11 +127,22 @@
 			this.BtnDB.UseVisualStyleBackColor = true;
 			this.BtnDB.Click += new System.EventHandler(this.BtnDB_Click);
 			// 
+			// BtnGet
+			// 
+			this.BtnGet.Location = new System.Drawing.Point(13, 364);
+			this.BtnGet.Name = "BtnGet";
+			this.BtnGet.Size = new System.Drawing.Size(133, 23);
+			this.BtnGet.TabIndex = 11;
+			this.BtnGet.Text = "Gegevens ophalen";
+			this.BtnGet.UseVisualStyleBackColor = true;
+			this.BtnGet.Click += new System.EventHandler(this.BtnGet_Click);
+			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1184, 761);
+			this.Controls.Add(this.BtnGet);
 			this.Controls.Add(this.BtnDB);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
@@ -160,6 +172,7 @@
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
 		private System.Windows.Forms.Button BtnDB;
+		private System.Windows.Forms.Button BtnGet;
 	}
 }
 
