@@ -166,26 +166,52 @@ namespace Slooier_voorraad
 				try
 				{
 					conn.Open();
-					//var command = conn.CreateCommand();
-					//MessageBox.Show("Connection Open!");
-					//command.CommandText = "DROP TABLE IF EXISTS magazijn";
-					//command.ExecuteNonQuery();
-
-					var command = conn.CreateCommand();
-					command.CommandText = "SELECT * FROM magazijn";
-					var reader = command.ExecuteReader();
-					while (reader.Read())
-					{
-						Console.WriteLine(
-							String.Format(
-								"Reading from table=({0})",
-								reader.GetInt32(0).ToString()
-								)
-						);
-					}
-
-
-
+					// de benamingen toevoegen
+					//var File = string.Concat(CurrentDir, path);
+					//using (var reader = new StreamReader(File))
+					//{
+					//	while (!reader.EndOfStream)
+					//	{
+					//		var line = reader.ReadLine();
+					//		var values = line.Split(';');
+					//		if (values[0] != "")
+					//		{
+					//			var command = conn.CreateCommand();
+					//			command.CommandText =
+					//				String.Format(
+					//					@"INSERT INTO afdelingen(benaming) VALUES ('{0}');", values[0]
+					//					);
+					//			int nRows = command.ExecuteNonQuery();
+					//			Console.WriteLine("Number of rows inserted={0}", nRows);
+					//		}							
+					//	}
+					//}
+					
+					// de data toevoegen
+					//string afdeling = "";
+					//var File = string.Concat(CurrentDir, path);
+					//using (var reader = new StreamReader(File))
+					//{
+					//	while (!reader.EndOfStream)
+					//	{
+					//		var line = reader.ReadLine();
+					//		var values = line.Split(';');
+					//		if (values[0] != "")
+					//		{
+					//			afdeling = values[0];								
+					//		}
+					//		if(values[1] != "" || values[3] != "")
+					//		{
+					//			var command = conn.CreateCommand();
+					//			command.CommandText =
+					//				String.Format(
+					//					@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}','{1}',{2},'{3}');", values[1], values[3], 100, afdeling
+					//					);
+					//			int nRows = command.ExecuteNonQuery();
+					//			Console.WriteLine("Number of rows inserted={0}", nRows);
+					//		}
+					//	}
+					//}
 					conn.Close();
 				}
 				catch (Exception)
