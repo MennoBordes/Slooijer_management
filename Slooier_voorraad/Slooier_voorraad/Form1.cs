@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Npgsql;
 
 using Slooier_voorraad.Classes;
 
@@ -142,17 +143,52 @@ namespace Slooier_voorraad
 
 		private void BtnDB_Click(object sender, EventArgs e)
 		{
+			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
+			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			try
 			{
-				string ConnString = "Data Source=localhost:5432;Initial Catalog=Slooier_Management;User ID=postgres;Password=1234";
-				SqlConnection DB = new SqlConnection(ConnString);
+				string Host = "localhost";
+				string DBName = "Slooier_VoorraadSysteem";
+				string User = "postgres";
+				string Password = "2761";
+				string Port = "5432";
+
+				string ConnString =
+					String.Format(
+						"Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}",
+						Host,
+						User,
+						DBName,
+						Port,
+						Password);
+				
+				var conn = new NpgsqlConnection(ConnString);
 				try
 				{
-					DB.Open();
-					MessageBox.Show("Connections Open!");
-					DB.Close();
+					conn.Open();
+					//var command = conn.CreateCommand();
+					//MessageBox.Show("Connection Open!");
+					//command.CommandText = "DROP TABLE IF EXISTS magazijn";
+					//command.ExecuteNonQuery();
+
+					var command = conn.CreateCommand();
+					command.CommandText = "SELECT * FROM magazijn";
+					var reader = command.ExecuteReader();
+					while (reader.Read())
+					{
+						Console.WriteLine(
+							String.Format(
+								"Reading from table=({0})",
+								reader.GetInt32(0).ToString()
+								)
+						);
+					}
+
+
+
+					conn.Close();
 				}
-				catch (Exception ex1)
+				catch (Exception)
 				{
 					MessageBox.Show("Can not open connection!");
 					throw;
@@ -161,7 +197,6 @@ namespace Slooier_voorraad
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-				throw;
 			}
 		}
 	}
