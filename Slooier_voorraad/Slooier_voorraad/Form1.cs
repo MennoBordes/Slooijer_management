@@ -16,7 +16,7 @@ namespace Slooier_voorraad
 
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
-		List<BestelItems> items = new List<BestelItems>();
+		List<MagazijnItems> items = new List<MagazijnItems>();
 		string ConnString = String.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
 		public MainPage()
 		{
@@ -82,7 +82,7 @@ namespace Slooier_voorraad
 					}
 				}
 				res.Voorraad = res.Voorraad - amount;
-				DgvLoadData<BestelItems>(DgvData, items);
+				DgvLoadData<MagazijnItems>(DgvData, items);
 			}
 			catch (Exception ex)
 			{
@@ -188,7 +188,7 @@ namespace Slooier_voorraad
 						{
 							while (reader.Read())
 							{
-								var res = new BestelItems()
+								var res = new MagazijnItems()
 								{
 									Benaming = reader.GetString(0),
 									Nummer = reader.GetString(1),
@@ -233,17 +233,25 @@ namespace Slooier_voorraad
 
 		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			BindingSource bs = new BindingSource();
+			//BindingSource bs = new BindingSource();
+			List<BestelItems> BestelItemsList = new List<BestelItems>();
 			foreach (DataGridViewRow row in DgvData.Rows)
 			{
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
-					Console.WriteLine(row);
-					Console.WriteLine(row.Index);
-					bs.Add(row.Cells);
+					var temp = items.ElementAt(row.Index);
+					var temp2 = new BestelItems()
+					{
+						Benaming = temp.Benaming,
+					  Nummer = temp.Nummer,
+						Omschrijving = temp.Omschrijving,
+						Voorraad = temp.Voorraad
+					};
+					BestelItemsList.Add(temp2);
+					//bs.Add(items.ElementAt(row.Index));
 				}
 			}
-			DgvBestellen.DataSource = bs;
+			DgvBestellen.DataSource = BestelItemsList;
 		}
 	}
 }

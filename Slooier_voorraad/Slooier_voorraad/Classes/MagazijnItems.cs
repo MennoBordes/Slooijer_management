@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Slooier_voorraad.Classes
 {
-	class BestelItems
+	public class MagazijnItems
 	{
+		public bool Bestellen { get; set; }
 		public string Benaming { get; set; }
 		public string Nummer { get; set; }
 		public string Omschrijving { get; set; }
 		public int Voorraad { get; set; }
-		public int Bestel_aantal { get; set; }
-		public float Prijs { get; set; }
 	}
 }

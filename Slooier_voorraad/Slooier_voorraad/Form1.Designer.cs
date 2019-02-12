@@ -37,8 +37,8 @@
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.BtnDB = new System.Windows.Forms.Button();
 			this.BtnGet = new System.Windows.Forms.Button();
-			this.DgvBestellen = new System.Windows.Forms.DataGridView();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.DgvBestellen = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvBestellen)).BeginInit();
@@ -54,7 +54,7 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1248, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1180, 108);
 			this.PboxLogo.TabIndex = 1;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -62,11 +62,10 @@
 			// 
 			this.DgvData.AllowUserToAddRows = false;
 			this.DgvData.AllowUserToDeleteRows = false;
-			this.DgvData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.DgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.DgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DgvData.Location = new System.Drawing.Point(240, 127);
+			this.DgvData.Location = new System.Drawing.Point(206, 127);
 			this.DgvData.MultiSelect = false;
 			this.DgvData.Name = "DgvData";
 			this.DgvData.RowHeadersVisible = false;
@@ -132,32 +131,37 @@
 			this.BtnGet.UseVisualStyleBackColor = true;
 			this.BtnGet.Click += new System.EventHandler(this.BtnGet_Click);
 			// 
-			// DgvBestellen
-			// 
-			this.DgvBestellen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DgvBestellen.Location = new System.Drawing.Point(240, 644);
-			this.DgvBestellen.Name = "DgvBestellen";
-			this.DgvBestellen.RowHeadersVisible = false;
-			this.DgvBestellen.Size = new System.Drawing.Size(700, 300);
-			this.DgvBestellen.TabIndex = 12;
-			// 
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.Coral;
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 944);
+			this.panel1.Location = new System.Drawing.Point(0, 945);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1248, 50);
+			this.panel1.Size = new System.Drawing.Size(1180, 50);
 			this.panel1.TabIndex = 13;
+			// 
+			// DgvBestellen
+			// 
+			this.DgvBestellen.AllowUserToAddRows = false;
+			this.DgvBestellen.AllowUserToDeleteRows = false;
+			this.DgvBestellen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.DgvBestellen.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.DgvBestellen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgvBestellen.Location = new System.Drawing.Point(206, 645);
+			this.DgvBestellen.MultiSelect = false;
+			this.DgvBestellen.Name = "DgvBestellen";
+			this.DgvBestellen.RowHeadersVisible = false;
+			this.DgvBestellen.Size = new System.Drawing.Size(700, 300);
+			this.DgvBestellen.TabIndex = 14;
 			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1265, 757);
-			this.Controls.Add(this.panel1);
+			this.ClientSize = new System.Drawing.Size(1197, 757);
 			this.Controls.Add(this.DgvBestellen);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.BtnGet);
 			this.Controls.Add(this.BtnDB);
 			this.Controls.Add(this.TxbVoorraad);
@@ -188,8 +192,8 @@
 		private System.Windows.Forms.TextBox TxbVoorraad;
 		private System.Windows.Forms.Button BtnDB;
 		private System.Windows.Forms.Button BtnGet;
-		private System.Windows.Forms.DataGridView DgvBestellen;
 		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.DataGridView DgvBestellen;
 	}
 }
 
