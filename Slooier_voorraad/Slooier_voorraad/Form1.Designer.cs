@@ -33,7 +33,6 @@
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.BtnSearch = new System.Windows.Forms.Button();
 			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.BtnReload = new System.Windows.Forms.Button();
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.BtnDB = new System.Windows.Forms.Button();
@@ -79,7 +78,7 @@
 			// 
 			// BtnSearch
 			// 
-			this.BtnSearch.Location = new System.Drawing.Point(13, 127);
+			this.BtnSearch.Location = new System.Drawing.Point(13, 161);
 			this.BtnSearch.Name = "BtnSearch";
 			this.BtnSearch.Size = new System.Drawing.Size(178, 23);
 			this.BtnSearch.TabIndex = 3;
@@ -89,21 +88,11 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(12, 157);
+			this.textBox1.Location = new System.Drawing.Point(12, 191);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(179, 20);
 			this.textBox1.TabIndex = 4;
 			this.textBox1.Text = "Zoekopdracht";
-			// 
-			// BtnReload
-			// 
-			this.BtnReload.Location = new System.Drawing.Point(13, 197);
-			this.BtnReload.Name = "BtnReload";
-			this.BtnReload.Size = new System.Drawing.Size(75, 23);
-			this.BtnReload.TabIndex = 5;
-			this.BtnReload.Text = "Rerun Loader";
-			this.BtnReload.UseVisualStyleBackColor = true;
-			this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
 			// 
 			// BtnVoorraadVerlagen
 			// 
@@ -125,17 +114,17 @@
 			// 
 			// BtnDB
 			// 
-			this.BtnDB.Location = new System.Drawing.Point(13, 334);
+			this.BtnDB.Location = new System.Drawing.Point(12, 623);
 			this.BtnDB.Name = "BtnDB";
 			this.BtnDB.Size = new System.Drawing.Size(75, 23);
 			this.BtnDB.TabIndex = 10;
-			this.BtnDB.Text = "ConnectDB";
+			this.BtnDB.Text = "InsertToDB";
 			this.BtnDB.UseVisualStyleBackColor = true;
 			this.BtnDB.Click += new System.EventHandler(this.BtnDB_Click);
 			// 
 			// BtnGet
 			// 
-			this.BtnGet.Location = new System.Drawing.Point(13, 364);
+			this.BtnGet.Location = new System.Drawing.Point(12, 127);
 			this.BtnGet.Name = "BtnGet";
 			this.BtnGet.Size = new System.Drawing.Size(133, 23);
 			this.BtnGet.TabIndex = 11;
@@ -173,7 +162,6 @@
 			this.Controls.Add(this.BtnDB);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
-			this.Controls.Add(this.BtnReload);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.BtnSearch);
 			this.Controls.Add(this.DgvData);
@@ -196,7 +184,6 @@
 		private System.Windows.Forms.DataGridView DgvData;
 		private System.Windows.Forms.Button BtnSearch;
 		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Button BtnReload;
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
 		private System.Windows.Forms.Button BtnDB;

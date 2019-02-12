@@ -22,46 +22,8 @@ namespace Slooier_voorraad
 		{
 			InitializeComponent();
 
-			Loader(path);
+			GetData();
 		}
-
-		public void Loader(string Filepath)
-		{
-			items.Clear();
-			var File = string.Concat(CurrentDir, Filepath);
-			using (var reader = new StreamReader(File))
-			{
-				while (!reader.EndOfStream)
-				{
-					var line = reader.ReadLine();
-					var values = line.Split(';');
-					if (values[0] != "" || values[1] != "" || values[3] != "")
-					{
-						if (values[0] != "")
-						{
-							var res = new BestelItems()
-							{
-								Benaming = values[0]
-							};
-							items.Add(res);
-						}
-						else
-						{
-							var res = new BestelItems()
-							{
-								Benaming = values[0],
-								Nummer = values[1],
-								Omschrijving = values[3],
-								Voorraad = 100
-							};
-							items.Add(res);
-						}
-					}
-				}
-				DgvLoadData<BestelItems>(DgvData, items);
-			}
-		}
-
 
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
@@ -96,10 +58,7 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void BtnReload_Click(object sender, EventArgs e)
-		{
-			Loader(path);
-		}
+
 		private void DgvLoadData<T>(DataGridView gridView, List<T> data)
 		{
 			gridView.DataSource = data;
@@ -212,11 +171,11 @@ namespace Slooier_voorraad
 			InsertData();
 		}
 
-		private void BtnGet_Click(object sender, EventArgs e)
+		private void GetData()
 		{
 			try
 			{
-				using(var conn = new NpgsqlConnection(ConnString))
+				using (var conn = new NpgsqlConnection(ConnString))
 				{
 					conn.Open();
 					using (var cmd = new NpgsqlCommand())
@@ -224,7 +183,7 @@ namespace Slooier_voorraad
 						cmd.Connection = conn;
 						cmd.CommandText = string.Format("SELECT afdelingnaam, nummer, omschrijving, voorraad " +
 													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id);");
-						List<BestelItems> temp = new List<BestelItems>();
+
 						using (var reader = cmd.ExecuteReader())
 						{
 							while (reader.Read())
@@ -237,10 +196,10 @@ namespace Slooier_voorraad
 									Voorraad = reader.GetInt32(3)
 								};
 								Console.WriteLine(res);
-								temp.Add(res);
+								items.Add(res);
 							}
 						}
-						DgvData.DataSource = temp;
+						DgvData.DataSource = items;
 					}
 				}
 			}
@@ -250,9 +209,14 @@ namespace Slooier_voorraad
 			}
 		}
 
+		private void BtnGet_Click(object sender, EventArgs e)
+		{
+			GetData();
+		}
+
 		private void DgvData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			foreach ( DataGridViewColumn dgvc in DgvData.Columns)
+			foreach (DataGridViewColumn dgvc in DgvData.Columns)
 			{
 				dgvc.ReadOnly = true;
 			}
@@ -261,7 +225,7 @@ namespace Slooier_voorraad
 
 		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
 		{
-			if(DgvData.IsCurrentCellDirty)
+			if (DgvData.IsCurrentCellDirty)
 			{
 				DgvData.CommitEdit(DataGridViewDataErrorContexts.Commit);
 			}
@@ -274,7 +238,9 @@ namespace Slooier_voorraad
 			{
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
-					bs.Add(row);
+					Console.WriteLine(row);
+					Console.WriteLine(row.Index);
+					bs.Add(row.Cells);
 				}
 			}
 			DgvBestellen.DataSource = bs;
