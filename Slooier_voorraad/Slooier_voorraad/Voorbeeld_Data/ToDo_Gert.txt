@@ -4,3 +4,5 @@ een aantal worden met dozen tegelijk besteld, waar er vervolgens meerdere items 
 
 
 Bestel optie creëeren
+
+vinkie in de lijst zetten waardoor de aangevinkte op een aparte lijst worden gezet, waarbij kan aangegeven worden hoeveel er besteld moeten worden (gelijk de kosten weergeven?)
