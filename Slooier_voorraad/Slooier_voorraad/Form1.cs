@@ -216,32 +216,32 @@ namespace Slooier_voorraad
 		{
 			try
 			{
-				var conn = new NpgsqlConnection(ConnString);
-				try
+				using(var conn = new NpgsqlConnection(ConnString))
 				{
 					conn.Open();
-					var command = conn.CreateCommand();
-					command.CommandText = "SELECT * FROM voorraad";
-					var reader = command.ExecuteReader();
-					List<BestelItems> temp = new List<BestelItems>();
-					while (reader.Read())
+					using (var cmd = new NpgsqlCommand())
 					{
-						var res = new BestelItems()
+						cmd.Connection = conn;
+						cmd.CommandText = string.Format("SELECT afdelingnaam, nummer, omschrijving, voorraad " +
+													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id);");
+						List<BestelItems> temp = new List<BestelItems>();
+						using (var reader = cmd.ExecuteReader())
 						{
-							Nummer = reader.GetString(0),
-							Omschrijving = reader.GetString(2),
-							Voorraad = reader.GetInt32(3),
-							Benaming = reader.GetString(4)
-						};
-						temp.Add(res);
+							while (reader.Read())
+							{
+								var res = new BestelItems()
+								{
+									Benaming = reader.GetString(0),
+									Nummer = reader.GetString(1),
+									Omschrijving = reader.GetString(2),
+									Voorraad = reader.GetInt32(3)
+								};
+								Console.WriteLine(res);
+								temp.Add(res);
+							}
+						}
+						dataGridView1.DataSource = temp;
 					}
-					dataGridView1.DataSource = temp;
-					conn.Close();
-				}
-				catch (Exception eex)
-				{
-					MessageBox.Show(eex.Message);
-					throw;
 				}
 			}
 			catch (Exception ex)
