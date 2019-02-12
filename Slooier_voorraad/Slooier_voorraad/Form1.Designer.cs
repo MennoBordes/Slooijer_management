@@ -67,9 +67,9 @@
 			this.dataGridView1.Location = new System.Drawing.Point(262, 127);
 			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
 			this.dataGridView1.Size = new System.Drawing.Size(910, 622);
 			this.dataGridView1.TabIndex = 2;
+			this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
 			// 
 			// BtnSearch
 			// 

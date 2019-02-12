@@ -249,5 +249,14 @@ namespace Slooier_voorraad
 				MessageBox.Show(ex.Message);
 			}
 		}
+
+		private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			foreach ( DataGridViewColumn dgvc in dataGridView1.Columns)
+			{
+				dgvc.ReadOnly = true;
+			}
+			dataGridView1.Columns[0].ReadOnly = false;
+		}
 	}
 }

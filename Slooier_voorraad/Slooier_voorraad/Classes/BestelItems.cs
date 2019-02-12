@@ -8,6 +8,7 @@ namespace Slooier_voorraad.Classes
 {
 	public class BestelItems
 	{
+		public bool Bestellen { get; set; }
 		public string Benaming { get; set; }
 		public string Nummer { get; set; }
 		public string Omschrijving { get; set; }
