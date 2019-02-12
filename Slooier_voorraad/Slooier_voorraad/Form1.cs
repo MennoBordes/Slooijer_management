@@ -58,7 +58,7 @@ namespace Slooier_voorraad
 						}
 					}
 				}
-				DgvLoadData<BestelItems>(dataGridView1, items);
+				DgvLoadData<BestelItems>(DgvData, items);
 			}
 		}
 
@@ -66,19 +66,19 @@ namespace Slooier_voorraad
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
 			string searchValue = textBox1.Text.ToLower();
-			dataGridView1.ClearSelection();
+			DgvData.ClearSelection();
 			try
 			{
 				bool valueResult = false;
-				foreach (DataGridViewRow row in dataGridView1.Rows)
+				foreach (DataGridViewRow row in DgvData.Rows)
 				{
 					for (int i = 0; i < row.Cells.Count - 1; i++)
 					{
 						if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
 						{
 							int rowIndex = row.Index;
-							dataGridView1.Rows[rowIndex].Selected = true;
-							dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.SelectedRows[0].Index;
+							DgvData.Rows[rowIndex].Selected = true;
+							DgvData.FirstDisplayedScrollingRowIndex = DgvData.SelectedRows[0].Index;
 							valueResult = true;
 							return;
 						}
@@ -103,14 +103,14 @@ namespace Slooier_voorraad
 		private void DgvLoadData<T>(DataGridView gridView, List<T> data)
 		{
 			gridView.DataSource = data;
-			dataGridView1.Refresh();
+			DgvData.Refresh();
 		}
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				int rPos = dataGridView1.CurrentCell.RowIndex;
+				int rPos = DgvData.CurrentCell.RowIndex;
 				var res = items.ElementAt(rPos);
 				int amount = Convert.ToInt32(TxbVoorraad.Text);
 				if (amount > 50)
@@ -123,7 +123,7 @@ namespace Slooier_voorraad
 					}
 				}
 				res.Voorraad = res.Voorraad - amount;
-				DgvLoadData<BestelItems>(dataGridView1, items);
+				DgvLoadData<BestelItems>(DgvData, items);
 			}
 			catch (Exception ex)
 			{
@@ -240,7 +240,7 @@ namespace Slooier_voorraad
 								temp.Add(res);
 							}
 						}
-						dataGridView1.DataSource = temp;
+						DgvData.DataSource = temp;
 					}
 				}
 			}
@@ -250,13 +250,34 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		private void DgvData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			foreach ( DataGridViewColumn dgvc in dataGridView1.Columns)
+			foreach ( DataGridViewColumn dgvc in DgvData.Columns)
 			{
 				dgvc.ReadOnly = true;
 			}
-			dataGridView1.Columns[0].ReadOnly = false;
+			DgvData.Columns["Bestellen"].ReadOnly = false;
+		}
+
+		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+		{
+			if(DgvData.IsCurrentCellDirty)
+			{
+				DgvData.CommitEdit(DataGridViewDataErrorContexts.Commit);
+			}
+		}
+
+		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			BindingSource bs = new BindingSource();
+			foreach (DataGridViewRow row in DgvData.Rows)
+			{
+				if (Convert.ToBoolean(row.Cells[0].Value))
+				{
+					bs.Add(row);
+				}
+			}
+			DgvBestellen.DataSource = bs;
 		}
 	}
 }
