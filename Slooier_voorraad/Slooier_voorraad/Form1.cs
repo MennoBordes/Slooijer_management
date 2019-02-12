@@ -1,14 +1,10 @@
-﻿using System;
+﻿using Npgsql;
+using Slooier_voorraad.Classes;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Npgsql;
-
-using Slooier_voorraad.Classes;
 
 
 
@@ -21,13 +17,14 @@ namespace Slooier_voorraad
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
 		List<BestelItems> items = new List<BestelItems>();
+		string ConnString = String.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
 		public MainPage()
 		{
 			InitializeComponent();
 
 			Loader(path);
 		}
-		
+
 		public void Loader(string Filepath)
 		{
 			items.Clear();
@@ -38,9 +35,9 @@ namespace Slooier_voorraad
 				{
 					var line = reader.ReadLine();
 					var values = line.Split(';');
-					if (values[0] != "" || values[1] !="" || values[3] != "")
+					if (values[0] != "" || values[1] != "" || values[3] != "")
 					{
-						if(values[0] != "")
+						if (values[0] != "")
 						{
 							var res = new BestelItems()
 							{
@@ -65,7 +62,7 @@ namespace Slooier_voorraad
 			}
 		}
 
-		
+
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
 			string searchValue = textBox1.Text.ToLower();
@@ -75,9 +72,9 @@ namespace Slooier_voorraad
 				bool valueResult = false;
 				foreach (DataGridViewRow row in dataGridView1.Rows)
 				{
-					for (int i = 0; i < row.Cells.Count -1; i++)
+					for (int i = 0; i < row.Cells.Count - 1; i++)
 					{
-						if(row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
+						if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
 						{
 							int rowIndex = row.Index;
 							dataGridView1.Rows[rowIndex].Selected = true;
@@ -87,13 +84,13 @@ namespace Slooier_voorraad
 						}
 					}
 				}
-				if(!valueResult)
+				if (!valueResult)
 				{
 					MessageBox.Show("Unable to find " + searchValue, "Not Found");
 					return;
 				}
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
@@ -116,10 +113,11 @@ namespace Slooier_voorraad
 				int rPos = dataGridView1.CurrentCell.RowIndex;
 				var res = items.ElementAt(rPos);
 				int amount = Convert.ToInt32(TxbVoorraad.Text);
-				if(amount > 50) {
+				if (amount > 50)
+				{
 					string message = "Weet je zeker dat je " + amount + " wilt aftrekken van de voorraad?";
-					var result = MessageBox.Show(message,"Warning", MessageBoxButtons.YesNo);
-					if(result == DialogResult.No)
+					var result = MessageBox.Show(message, "Warning", MessageBoxButtons.YesNo);
+					if (result == DialogResult.No)
 					{
 						return;
 					}
@@ -135,89 +133,70 @@ namespace Slooier_voorraad
 
 		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
 			{
 				e.Handled = true;
 			}
 		}
 
-		private void BtnDB_Click(object sender, EventArgs e)
+		private void InsertData()
 		{
-			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
-			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			try
 			{
-				string Host = "localhost";
-				string DBName = "Slooier_VoorraadSysteem";
-				string User = "postgres";
-				string Password = "2761";
-				string Port = "5432";
+				var File = string.Concat(CurrentDir, path);
+				string afdelingNaam = "";
+				using (var reader = new StreamReader(File))
+				{
+					while (!reader.EndOfStream)
+					{
+						var line = reader.ReadLine();
+						var values = line.Split(';');
+						if (values[0] != "")
+						{
+							afdelingNaam = values[0];
+							using (var conn = new NpgsqlConnection(ConnString))
+							{
+								conn.Open();
+								using (var cmd = new NpgsqlCommand())
+								{
+									cmd.Connection = conn;
+									cmd.CommandText = string.Format(@"INSERT INTO afdelingen(afdelingnaam) VALUES('{0}');", values[0]);
+									cmd.ExecuteNonQuery();
+								}
+							}
+						}
+						if (values[1] != "" || values[3] != "")
+						{
+							using (var conn = new NpgsqlConnection(ConnString))
+							{
+								conn.Open();
+								using (var cmd = new NpgsqlCommand())
+								{
+									cmd.Connection = conn;
+									cmd.CommandText = string.Format(@"SELECT id FROM afdelingen WHERE afdelingnaam = '{0}';", afdelingNaam);
+									int reference = int.MinValue;
+									using (var SqLReader = cmd.ExecuteReader())
+									{
+										while (SqLReader.Read())
+										{
 
-				string ConnString =
-					String.Format(
-						"Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}",
-						Host,
-						User,
-						DBName,
-						Port,
-						Password);
-				
-				var conn = new NpgsqlConnection(ConnString);
-				try
-				{
-					conn.Open();
-					// de benamingen toevoegen
-					//var File = string.Concat(CurrentDir, path);
-					//using (var reader = new StreamReader(File))
-					//{
-					//	while (!reader.EndOfStream)
-					//	{
-					//		var line = reader.ReadLine();
-					//		var values = line.Split(';');
-					//		if (values[0] != "")
-					//		{
-					//			var command = conn.CreateCommand();
-					//			command.CommandText =
-					//				String.Format(
-					//					@"INSERT INTO afdelingen(benaming) VALUES ('{0}');", values[0]
-					//					);
-					//			int nRows = command.ExecuteNonQuery();
-					//			Console.WriteLine("Number of rows inserted={0}", nRows);
-					//		}							
-					//	}
-					//}
-					
-					// de data toevoegen
-					//string afdeling = "";
-					//var File = string.Concat(CurrentDir, path);
-					//using (var reader = new StreamReader(File))
-					//{
-					//	while (!reader.EndOfStream)
-					//	{
-					//		var line = reader.ReadLine();
-					//		var values = line.Split(';');
-					//		if (values[0] != "")
-					//		{
-					//			afdeling = values[0];								
-					//		}
-					//		if(values[1] != "" || values[3] != "")
-					//		{
-					//			var command = conn.CreateCommand();
-					//			command.CommandText =
-					//				String.Format(
-					//					@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}','{1}',{2},'{3}');", values[1], values[3], 100, afdeling
-					//					);
-					//			int nRows = command.ExecuteNonQuery();
-					//			Console.WriteLine("Number of rows inserted={0}", nRows);
-					//		}
-					//	}
-					//}
-					conn.Close();
-				}
-				catch (Exception)
-				{
-					MessageBox.Show("Can not open connection!");
-					throw;
+											reference = SqLReader.GetInt32(0);
+
+										}
+									}
+									if (reference != int.MinValue)
+									{
+										using (var command = new NpgsqlCommand())
+										{
+											command.Connection = conn;
+											command.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}','{1}',{2},{3})", values[1], values[3], 0, reference);
+											command.ExecuteNonQuery();
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			catch (Exception ex)
@@ -226,25 +205,17 @@ namespace Slooier_voorraad
 			}
 		}
 
+		private void BtnDB_Click(object sender, EventArgs e)
+		{
+			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
+			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			InsertData();
+		}
+
 		private void BtnGet_Click(object sender, EventArgs e)
 		{
 			try
 			{
-				string Host = "localhost";
-				string DBName = "Slooier_VoorraadSysteem";
-				string User = "postgres";
-				string Password = "2761";
-				string Port = "5432";
-
-				string ConnString =
-					String.Format(
-						"Server={0}; User Id={1}; Database={2}; Port={3}; Password={4}",
-						Host,
-						User,
-						DBName,
-						Port,
-						Password);
-
 				var conn = new NpgsqlConnection(ConnString);
 				try
 				{
