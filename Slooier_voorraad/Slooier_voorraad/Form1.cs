@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using Equin.ApplicationFramework;
+using Npgsql;
 using Slooier_voorraad.Classes;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace Slooier_voorraad
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
 		List<MagazijnItems> items = new List<MagazijnItems>();
-		string ConnString = String.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+
+		string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+
 		public MainPage()
 		{
 			InitializeComponent();
@@ -58,11 +61,11 @@ namespace Slooier_voorraad
 			}
 		}
 
-
-		private void DgvLoadData<T>(DataGridView gridView, List<T> data)
+		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)
 		{
+			gridView.EndEdit();
 			gridView.DataSource = data;
-			DgvData.Refresh();
+			gridView.Refresh();
 		}
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
@@ -82,7 +85,8 @@ namespace Slooier_voorraad
 					}
 				}
 				res.Voorraad = res.Voorraad - amount;
-				DgvLoadData<MagazijnItems>(DgvData, items);
+				BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
+				DgvLoadData<MagazijnItems>(DgvData, view);
 			}
 			catch (Exception ex)
 			{
@@ -199,7 +203,9 @@ namespace Slooier_voorraad
 								items.Add(res);
 							}
 						}
-						DgvData.DataSource = items;
+						BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
+						DgvLoadData(DgvData, view);
+						//DgvData.DataSource = items;
 					}
 				}
 			}
@@ -231,15 +237,14 @@ namespace Slooier_voorraad
 			}
 		}
 
+		List<BestelItems> BestelItemsList = new List<BestelItems>();
 		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			List<BestelItems> BestelItemsList = new List<BestelItems>();
 			foreach (DataGridViewRow row in DgvData.Rows)
 			{
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
 					var temp = items.ElementAt(row.Index);
-
 					var temp2 = new BestelItems()
 					{
 						Benaming = temp.Benaming,
@@ -247,10 +252,15 @@ namespace Slooier_voorraad
 						Omschrijving = temp.Omschrijving,
 						Voorraad = temp.Voorraad
 					};
-					BestelItemsList.Add(temp2);
+					BestelItemsComparer comparer = new BestelItemsComparer();
+					if (!BestelItemsList.Contains(temp2, comparer))
+					{
+						BestelItemsList.Add(temp2);
+					}
 				}
 			}
-			DgvBestellen.DataSource = BestelItemsList;
+			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
+			DgvLoadData(DgvBestellen, view);
 		}
 	}
 }
