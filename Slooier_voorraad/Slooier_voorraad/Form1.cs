@@ -233,22 +233,21 @@ namespace Slooier_voorraad
 
 		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
-			//BindingSource bs = new BindingSource();
 			List<BestelItems> BestelItemsList = new List<BestelItems>();
 			foreach (DataGridViewRow row in DgvData.Rows)
 			{
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
 					var temp = items.ElementAt(row.Index);
+
 					var temp2 = new BestelItems()
 					{
 						Benaming = temp.Benaming,
-					  Nummer = temp.Nummer,
+						Nummer = temp.Nummer,
 						Omschrijving = temp.Omschrijving,
 						Voorraad = temp.Voorraad
 					};
 					BestelItemsList.Add(temp2);
-					//bs.Add(items.ElementAt(row.Index));
 				}
 			}
 			DgvBestellen.DataSource = BestelItemsList;
