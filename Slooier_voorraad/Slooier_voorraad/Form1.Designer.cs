@@ -153,6 +153,7 @@
 			this.DgvBestellen.RowHeadersVisible = false;
 			this.DgvBestellen.Size = new System.Drawing.Size(700, 300);
 			this.DgvBestellen.TabIndex = 14;
+			this.DgvBestellen.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvBestellen_DataBindingComplete);
 			// 
 			// MainPage
 			// 

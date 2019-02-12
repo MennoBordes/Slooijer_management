@@ -220,6 +220,7 @@ namespace Slooier_voorraad
 			GetData();
 		}
 
+
 		private void DgvData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
 			foreach (DataGridViewColumn dgvc in DgvData.Columns)
@@ -228,6 +229,15 @@ namespace Slooier_voorraad
 			}
 			DgvData.Columns["Bestellen"].ReadOnly = false;
 		}
+		private void DgvBestellen_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			foreach (DataGridViewColumn dgvc in DgvBestellen.Columns)
+			{
+				dgvc.ReadOnly = true;
+			}
+			DgvBestellen.Columns["Bestel_aantal"].ReadOnly = false;
+		}
+
 
 		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
 		{
@@ -238,7 +248,7 @@ namespace Slooier_voorraad
 		}
 
 		List<BestelItems> BestelItemsList = new List<BestelItems>();
-		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		private void AddOrderItem()
 		{
 			foreach (DataGridViewRow row in DgvData.Rows)
 			{
@@ -261,6 +271,11 @@ namespace Slooier_voorraad
 			}
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
+		}
+
+		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			AddOrderItem();
 		}
 	}
 }
