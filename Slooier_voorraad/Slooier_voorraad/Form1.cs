@@ -250,28 +250,48 @@ namespace Slooier_voorraad
 		List<BestelItems> BestelItemsList = new List<BestelItems>();
 		private void AddOrderItem()
 		{
+			var checkedElements = new List<BestelItems>();
 			foreach (DataGridViewRow row in DgvData.Rows)
 			{
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
-					var temp = items.ElementAt(row.Index);
-					var temp2 = new BestelItems()
+					var currentIndex = items.ElementAt(row.Index);
+					var newValue = new BestelItems()
 					{
-						Benaming = temp.Benaming,
-						Nummer = temp.Nummer,
-						Omschrijving = temp.Omschrijving,
-						Voorraad = temp.Voorraad
+						Benaming = currentIndex.Benaming,
+						Nummer = currentIndex.Nummer,
+						Omschrijving = currentIndex.Omschrijving,
+						Voorraad = currentIndex.Voorraad
 					};
+					checkedElements.Add(newValue);
 					BestelItemsComparer comparer = new BestelItemsComparer();
-					if (!BestelItemsList.Contains(temp2, comparer))
+					if (!BestelItemsList.Contains(newValue, comparer))
 					{
-						BestelItemsList.Add(temp2);
+						BestelItemsList.Add(newValue);
 					}
 				}
 			}
+			for (int i = 0; i < BestelItemsList.Count; i++)
+			{
+				bool Present = false;
+				for (int j = 0; j < checkedElements.Count; j++)
+				{
+					BestelItemsComparer comparer = new BestelItemsComparer();
+					if (comparer.Equals(BestelItemsList[i], checkedElements[j]))
+					{
+						Present = true;
+					}
+				}
+				if (!Present)
+				{
+					BestelItemsList.RemoveAt(i);
+				}
+			}
+			BestelItemsList = BestelItemsList.OrderBy(l => l.Benaming).ToList();
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
+
 
 		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
