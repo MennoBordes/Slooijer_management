@@ -75,7 +75,7 @@ namespace Slooier_voorraad
 				int rPos = DgvData.CurrentCell.RowIndex;
 				var res = items.ElementAt(rPos);
 				int amount = Convert.ToInt32(TxbVoorraad.Text);
-				if (amount > 50)
+				if (amount > 10)
 				{
 					string message = "Weet je zeker dat je " + amount + " wilt aftrekken van de voorraad?";
 					var result = MessageBox.Show(message, "Warning", MessageBoxButtons.YesNo);
@@ -167,14 +167,6 @@ namespace Slooier_voorraad
 				MessageBox.Show(ex.Message);
 			}
 		}
-
-		private void BtnDB_Click(object sender, EventArgs e)
-		{
-			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
-			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			InsertData();
-		}
-
 		private void GetData()
 		{
 			try
@@ -203,9 +195,9 @@ namespace Slooier_voorraad
 								items.Add(res);
 							}
 						}
+						items = items.OrderBy(item => item.Benaming).ToList();
 						BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
 						DgvLoadData(DgvData, view);
-						//DgvData.DataSource = items;
 					}
 				}
 			}
@@ -214,6 +206,14 @@ namespace Slooier_voorraad
 				MessageBox.Show(ex.Message);
 			}
 		}
+
+		private void BtnDB_Click(object sender, EventArgs e)
+		{
+			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
+			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			InsertData();
+		}
+
 
 		private void BtnGet_Click(object sender, EventArgs e)
 		{
@@ -287,7 +287,7 @@ namespace Slooier_voorraad
 					BestelItemsList.RemoveAt(i);
 				}
 			}
-			BestelItemsList = BestelItemsList.OrderBy(l => l.Benaming).ToList();
+			BestelItemsList = BestelItemsList.OrderBy(item => item.Benaming).ToList();
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
