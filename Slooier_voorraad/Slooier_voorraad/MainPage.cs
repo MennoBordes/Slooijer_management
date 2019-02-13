@@ -16,10 +16,13 @@ namespace Slooier_voorraad
 		int[] numbers = new int[] { 5, 8, 9, 12, 8, 2, 96, 8, 1, 5 };
 
 		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
-		string path = "..\\..\\Voorbeeld_Data\\TrialData.csv";
-		List<MagazijnItems> items = new List<MagazijnItems>();
-
+		//string InitialDir = "C:\\";
+		string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
 		string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+
+		//Lists used
+		List<MagazijnItems> items = new List<MagazijnItems>();
+		List<BestelItems> BestelItemsList = new List<BestelItems>();
 
 		public MainPage()
 		{
@@ -28,6 +31,8 @@ namespace Slooier_voorraad
 			GetData();
 		}
 
+
+		#region Buttons
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
 			string searchValue = textBox1.Text.ToLower();
@@ -61,13 +66,6 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)
-		{
-			gridView.EndEdit();
-			gridView.DataSource = data;
-			gridView.Refresh();
-		}
-
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
 		{
 			try
@@ -94,6 +92,28 @@ namespace Slooier_voorraad
 			}
 		}
 
+		private void BtnAddFileToDb_Click(object sender, EventArgs e)
+		{
+			using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
+			{
+				openFileDialog1.InitialDirectory = InitialDir;
+				openFileDialog1.Filter = "csv files(*.csv)|*.csv";
+				openFileDialog1.RestoreDirectory = true;
+				if (openFileDialog1.ShowDialog() == DialogResult.OK)
+				{
+					AddDataToExistingDB(openFileDialog1.FileName);
+				}
+			}
+		}
+
+		private void BtnGet_Click(object sender, EventArgs e)
+		{
+			GetData();
+		}
+		#endregion
+
+
+		#region TextBox
 		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -101,72 +121,51 @@ namespace Slooier_voorraad
 				e.Handled = true;
 			}
 		}
+		#endregion
 
-		private void InsertData()
+
+		#region DatagridView
+		private void DgvData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
 		{
-			try
+			foreach (DataGridViewColumn dgvc in DgvData.Columns)
 			{
-				var File = string.Concat(CurrentDir, path);
-				string afdelingNaam = "";
-				using (var reader = new StreamReader(File))
-				{
-					while (!reader.EndOfStream)
-					{
-						var line = reader.ReadLine();
-						var values = line.Split(';');
-						if (values[0] != "")
-						{
-							afdelingNaam = values[0];
-							using (var conn = new NpgsqlConnection(ConnString))
-							{
-								conn.Open();
-								using (var cmd = new NpgsqlCommand())
-								{
-									cmd.Connection = conn;
-									cmd.CommandText = string.Format(@"INSERT INTO afdelingen(afdelingnaam) VALUES('{0}');", values[0]);
-									cmd.ExecuteNonQuery();
-								}
-							}
-						}
-						if (values[1] != "" || values[3] != "")
-						{
-							using (var conn = new NpgsqlConnection(ConnString))
-							{
-								conn.Open();
-								using (var cmd = new NpgsqlCommand())
-								{
-									cmd.Connection = conn;
-									cmd.CommandText = string.Format(@"SELECT id FROM afdelingen WHERE afdelingnaam = '{0}';", afdelingNaam);
-									int reference = int.MinValue;
-									using (var SqLReader = cmd.ExecuteReader())
-									{
-										while (SqLReader.Read())
-										{
-
-											reference = SqLReader.GetInt32(0);
-
-										}
-									}
-									if (reference != int.MinValue)
-									{
-										using (var command = new NpgsqlCommand())
-										{
-											command.Connection = conn;
-											command.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}','{1}',{2},{3})", values[1], values[3], 0, reference);
-											command.ExecuteNonQuery();
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+				dgvc.ReadOnly = true;
 			}
-			catch (Exception ex)
+			DgvData.Columns["Bestellen"].ReadOnly = false;
+		}
+
+		private void DgvBestellen_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			foreach (DataGridViewColumn dgvc in DgvBestellen.Columns)
 			{
-				MessageBox.Show(ex.Message);
+				dgvc.ReadOnly = true;
+			}
+			DgvBestellen.Columns["Bestel_aantal"].ReadOnly = false;
+		}
+
+		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+		{
+			if (DgvData.IsCurrentCellDirty)
+			{
+				DgvData.CommitEdit(DataGridViewDataErrorContexts.Commit);
 			}
 		}
+
+		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			AddOrderItem();
+		}
+		#endregion
+
+
+		#region Functions
+		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)
+		{
+			gridView.EndEdit();
+			gridView.DataSource = data;
+			gridView.Refresh();
+		}
+
 		private void GetData()
 		{
 			try
@@ -204,28 +203,6 @@ namespace Slooier_voorraad
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-			}
-		}
-
-		private void BtnDB_Click(object sender, EventArgs e)
-		{
-			// https://docs.microsoft.com/en-us/azure/postgresql/connect-csharp
-			// Link om met de DB te werken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			InsertData();
-		}
-
-		private void BtnAddFileToDb_Click(object sender, EventArgs e)
-		{
-			using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-			{
-				openFileDialog1.InitialDirectory = "c:\\";
-				openFileDialog1.InitialDirectory = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
-				openFileDialog1.Filter = "csv files(*.csv)|*.csv";
-				openFileDialog1.RestoreDirectory = true;
-				if (openFileDialog1.ShowDialog() == DialogResult.OK)
-				{
-					AddDataToExistingDB(openFileDialog1.FileName);
-				}
 			}
 		}
 
@@ -280,7 +257,7 @@ namespace Slooier_voorraad
 							{
 								conn.Open();
 								bool exists = false;
-								using(var cmd = new NpgsqlCommand())
+								using (var cmd = new NpgsqlCommand())
 								{
 									cmd.Connection = conn;
 									cmd.CommandText = string.Format(@"SELECT nummer, omschrijving FROM voorraad WHERE nummer = '{0}' AND omschrijving = '{1}';", values[1], values[3]);
@@ -290,7 +267,7 @@ namespace Slooier_voorraad
 										{
 											string res = SqLReader.GetString(0).ToLower() + SqLReader.GetString(1).ToLower();
 
-											if(SqLReader.GetString(0).ToLower() == values[1].ToLower() && SqLReader.GetString(1).ToLower() == values[3].ToLower())
+											if (SqLReader.GetString(0).ToLower() == values[1].ToLower() && SqLReader.GetString(1).ToLower() == values[3].ToLower())
 											{
 												exists = true;
 											}
@@ -333,39 +310,6 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void BtnGet_Click(object sender, EventArgs e)
-		{
-			GetData();
-		}
-
-
-		private void DgvData_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-		{
-			foreach (DataGridViewColumn dgvc in DgvData.Columns)
-			{
-				dgvc.ReadOnly = true;
-			}
-			DgvData.Columns["Bestellen"].ReadOnly = false;
-		}
-		private void DgvBestellen_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-		{
-			foreach (DataGridViewColumn dgvc in DgvBestellen.Columns)
-			{
-				dgvc.ReadOnly = true;
-			}
-			DgvBestellen.Columns["Bestel_aantal"].ReadOnly = false;
-		}
-
-
-		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
-		{
-			if (DgvData.IsCurrentCellDirty)
-			{
-				DgvData.CommitEdit(DataGridViewDataErrorContexts.Commit);
-			}
-		}
-
-		List<BestelItems> BestelItemsList = new List<BestelItems>();
 		private void AddOrderItem()
 		{
 			var checkedElements = new List<BestelItems>();
@@ -409,13 +353,6 @@ namespace Slooier_voorraad
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
-
-
-		private void DgvData_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-		{
-			AddOrderItem();
-		}
-
-
+		#endregion
 	}
 }

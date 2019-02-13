@@ -35,7 +35,6 @@
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
-			this.BtnDB = new System.Windows.Forms.Button();
 			this.BtnGet = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.DgvBestellen = new System.Windows.Forms.DataGridView();
@@ -55,7 +54,7 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1197, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1214, 108);
 			this.PboxLogo.TabIndex = 1;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -112,16 +111,6 @@
 			this.TxbVoorraad.TabIndex = 9;
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
-			// BtnDB
-			// 
-			this.BtnDB.Location = new System.Drawing.Point(12, 623);
-			this.BtnDB.Name = "BtnDB";
-			this.BtnDB.Size = new System.Drawing.Size(75, 23);
-			this.BtnDB.TabIndex = 10;
-			this.BtnDB.Text = "InsertToDB";
-			this.BtnDB.UseVisualStyleBackColor = true;
-			this.BtnDB.Click += new System.EventHandler(this.BtnDB_Click);
-			// 
 			// BtnGet
 			// 
 			this.BtnGet.Location = new System.Drawing.Point(12, 127);
@@ -138,7 +127,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 945);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1197, 50);
+			this.panel1.Size = new System.Drawing.Size(1214, 50);
 			this.panel1.TabIndex = 13;
 			// 
 			// DgvBestellen
@@ -171,12 +160,11 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1214, 757);
+			this.ClientSize = new System.Drawing.Size(1231, 757);
 			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.DgvBestellen);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.BtnGet);
-			this.Controls.Add(this.BtnDB);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
 			this.Controls.Add(this.textBox1);
@@ -203,7 +191,6 @@
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
-		private System.Windows.Forms.Button BtnDB;
 		private System.Windows.Forms.Button BtnGet;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView DgvBestellen;
