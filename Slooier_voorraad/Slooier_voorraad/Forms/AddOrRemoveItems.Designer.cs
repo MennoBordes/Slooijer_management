@@ -31,7 +31,9 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrRemoveItems));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.BtnAddFileToDb = new System.Windows.Forms.Button();
+			this.DgvDataDisplay = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DgvDataDisplay)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// PboxLogo
@@ -50,7 +52,7 @@
 			// 
 			// BtnAddFileToDb
 			// 
-			this.BtnAddFileToDb.Location = new System.Drawing.Point(311, 214);
+			this.BtnAddFileToDb.Location = new System.Drawing.Point(12, 122);
 			this.BtnAddFileToDb.Name = "BtnAddFileToDb";
 			this.BtnAddFileToDb.Size = new System.Drawing.Size(178, 23);
 			this.BtnAddFileToDb.TabIndex = 16;
@@ -58,11 +60,25 @@
 			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
 			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
 			// 
+			// DgvDataDisplay
+			// 
+			this.DgvDataDisplay.AllowUserToAddRows = false;
+			this.DgvDataDisplay.AllowUserToDeleteRows = false;
+			this.DgvDataDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgvDataDisplay.Location = new System.Drawing.Point(196, 122);
+			this.DgvDataDisplay.MultiSelect = false;
+			this.DgvDataDisplay.Name = "DgvDataDisplay";
+			this.DgvDataDisplay.ReadOnly = true;
+			this.DgvDataDisplay.RowHeadersVisible = false;
+			this.DgvDataDisplay.Size = new System.Drawing.Size(592, 316);
+			this.DgvDataDisplay.TabIndex = 18;
+			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.DgvDataDisplay);
 			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -70,6 +86,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddOrRemoveItems";
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DgvDataDisplay)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -78,5 +95,6 @@
 
 		private System.Windows.Forms.PictureBox PboxLogo;
 		private System.Windows.Forms.Button BtnAddFileToDb;
+		private System.Windows.Forms.DataGridView DgvDataDisplay;
 	}
 }

@@ -1,15 +1,9 @@
-﻿using System;
-using System.IO;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using Equin.ApplicationFramework;
-using Npgsql;
 
 
 namespace Slooier_voorraad.Forms
@@ -34,14 +28,32 @@ namespace Slooier_voorraad.Forms
 				openFileDialog1.RestoreDirectory = true;
 				if (openFileDialog1.ShowDialog() == DialogResult.OK)
 				{
-					AddDataToExistingDB(openFileDialog1.FileName);
+					var added = AddDataToExistingDB(openFileDialog1.FileName);
+					//DgvDataDisplay.DataSource = added;
+					string res = string.Empty;
+					DataTable dt = new DataTable();
+					dt.Columns.Add(new DataColumn("Toegevoegde gegevens:"));
+					foreach (var item in added)
+					{
+						dt.Rows.Add(item);
+						res = res + item + "\n";
+					}
+					DgvDataDisplay.DataSource = dt;
+				}
+				else
+				{
+					DataTable dt = new DataTable();
+					dt.Columns.Add(new DataColumn("Toegevoegde gegevens:"));
+					dt.Rows.Add("Er was geen bestand geselecteerd");
+					DgvDataDisplay.DataSource = dt;
 				}
 			}
 		}
 
 
-		private void AddDataToExistingDB(string filePath)
+		private List<string> AddDataToExistingDB(string filePath)
 		{
+			List<string> addedData = new List<string>();
 			try
 			{
 				var File = filePath;
@@ -82,6 +94,7 @@ namespace Slooier_voorraad.Forms
 										cmd.CommandText = string.Format(@"INSERT INTO afdelingen(afdelingnaam) VALUES('{0}');", values[0]);
 										cmd.ExecuteNonQuery();
 									}
+									addedData.Add(values[0]);
 								}
 							}
 						}
@@ -131,6 +144,7 @@ namespace Slooier_voorraad.Forms
 											cmd.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}', '{1}', {2}, {3});", values[1], values[3], 0, IdRef);
 											cmd.ExecuteNonQuery();
 										}
+										addedData.Add((values[1], values[3]).ToString());
 									}
 								}
 							}
@@ -142,6 +156,7 @@ namespace Slooier_voorraad.Forms
 			{
 				MessageBox.Show(ex.Message);
 			}
+			return addedData;
 		}
 
 	}
