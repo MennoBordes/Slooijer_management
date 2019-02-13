@@ -54,7 +54,7 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1231, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1265, 108);
 			this.PboxLogo.TabIndex = 1;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -127,7 +127,7 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 945);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1231, 50);
+			this.panel1.Size = new System.Drawing.Size(1265, 50);
 			this.panel1.TabIndex = 13;
 			// 
 			// DgvBestellen
@@ -155,12 +155,12 @@
 			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
 			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
 			// 
-			// MainPage
+			// BestelScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1248, 757);
+			this.ClientSize = new System.Drawing.Size(1282, 757);
 			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.DgvBestellen);
 			this.Controls.Add(this.panel1);
@@ -172,7 +172,7 @@
 			this.Controls.Add(this.DgvData);
 			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-			this.Name = "MainPage";
+			this.Name = "BestelScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
