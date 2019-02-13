@@ -13,8 +13,6 @@ namespace Slooier_voorraad
 {
 	public partial class BestelScreen : Form
 	{
-		//string InitialDir = "C:\\";
-		string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
 		string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
 
 		//Lists used
@@ -27,40 +25,12 @@ namespace Slooier_voorraad
 
 			GetData();
 		}
-
+		
 
 		#region Buttons
 		private void BtnSearch_Click(object sender, EventArgs e)
 		{
-			string searchValue = textBox1.Text.ToLower();
-			DgvData.ClearSelection();
-			try
-			{
-				bool valueResult = false;
-				foreach (DataGridViewRow row in DgvData.Rows)
-				{
-					for (int i = 0; i < row.Cells.Count - 1; i++)
-					{
-						if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
-						{
-							int rowIndex = row.Index;
-							DgvData.Rows[rowIndex].Selected = true;
-							DgvData.FirstDisplayedScrollingRowIndex = DgvData.SelectedRows[0].Index;
-							valueResult = true;
-							return;
-						}
-					}
-				}
-				if (!valueResult)
-				{
-					MessageBox.Show("Unable to find " + searchValue, "Not Found");
-					return;
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
+			Search();
 		}
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
@@ -89,20 +59,6 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void BtnAddFileToDb_Click(object sender, EventArgs e)
-		{
-			using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-			{
-				openFileDialog1.InitialDirectory = InitialDir;
-				openFileDialog1.Filter = "csv files(*.csv)|*.csv";
-				openFileDialog1.RestoreDirectory = true;
-				if (openFileDialog1.ShowDialog() == DialogResult.OK)
-				{
-					AddDataToExistingDB(openFileDialog1.FileName);
-				}
-			}
-		}
-
 		private void BtnGet_Click(object sender, EventArgs e)
 		{
 			GetData();
@@ -116,6 +72,14 @@ namespace Slooier_voorraad
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
 			{
 				e.Handled = true;
+			}
+		}
+
+		private void textBox1_KeyDown(object sender, KeyEventArgs e)
+		{
+			if(e.KeyCode == Keys.Enter)
+			{
+				Search();
 			}
 		}
 		#endregion
@@ -203,102 +167,31 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void AddDataToExistingDB(string filePath)
+		private void Search()
 		{
+			string searchValue = textBox1.Text.ToLower();
+			DgvData.ClearSelection();
 			try
 			{
-				var File = filePath;
-				string afdelingNaam = "";
-				using (var reader = new StreamReader(File))
+				bool valueResult = false;
+				foreach (DataGridViewRow row in DgvData.Rows)
 				{
-					while (!reader.EndOfStream)
+					for (int i = 0; i < row.Cells.Count - 1; i++)
 					{
-						var line = reader.ReadLine();
-						var values = line.Split(';');
-						if (values[0] != "")
+						if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().ToLower().Contains(searchValue))
 						{
-							afdelingNaam = values[0];
-							using (var conn = new NpgsqlConnection(ConnString))
-							{
-								conn.Open();
-								bool exists = false;
-								using (var cmd = new NpgsqlCommand())
-								{
-									cmd.Connection = conn;
-									cmd.CommandText = string.Format(@"SELECT afdelingnaam FROM afdelingen WHERE afdelingnaam = '{0}';", afdelingNaam.ToLower());
-									using (var SqLReader = cmd.ExecuteReader())
-									{
-										while (SqLReader.Read())
-										{
-											if (SqLReader.GetString(0).ToLower() == afdelingNaam.ToLower())
-											{
-												exists = true;
-											}
-										}
-									}
-								}
-								if (!exists)
-								{
-									using (var cmd = new NpgsqlCommand())
-									{
-										cmd.Connection = conn;
-										cmd.CommandText = string.Format(@"INSERT INTO afdelingen(afdelingnaam) VALUES('{0}');", values[0]);
-										cmd.ExecuteNonQuery();
-									}
-								}
-							}
-						}
-						if (values[1] != "" || values[3] != "")
-						{
-							using (var conn = new NpgsqlConnection(ConnString))
-							{
-								conn.Open();
-								bool exists = false;
-								using (var cmd = new NpgsqlCommand())
-								{
-									cmd.Connection = conn;
-									cmd.CommandText = string.Format(@"SELECT nummer, omschrijving FROM voorraad WHERE nummer = '{0}' AND omschrijving = '{1}';", values[1], values[3]);
-									using (var SqLReader = cmd.ExecuteReader())
-									{
-										while (SqLReader.Read())
-										{
-											string res = SqLReader.GetString(0).ToLower() + SqLReader.GetString(1).ToLower();
-
-											if (SqLReader.GetString(0).ToLower() == values[1].ToLower() && SqLReader.GetString(1).ToLower() == values[3].ToLower())
-											{
-												exists = true;
-											}
-										}
-									}
-								}
-								if (!exists)
-								{
-									int IdRef = int.MinValue;
-									using (var cmd = new NpgsqlCommand())
-									{
-										cmd.Connection = conn;
-										cmd.CommandText = string.Format(@"SELECT id FROM afdelingen WHERE afdelingnaam = '{0}';", afdelingNaam);
-										using (var SqlReader = cmd.ExecuteReader())
-										{
-											while (SqlReader.Read())
-											{
-												IdRef = SqlReader.GetInt32(0);
-											}
-										}
-									}
-									if (IdRef != int.MinValue)
-									{
-										using (var cmd = new NpgsqlCommand())
-										{
-											cmd.Connection = conn;
-											cmd.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling) VALUES ('{0}', '{1}', {2}, {3});", values[1], values[3], 0, IdRef);
-											cmd.ExecuteNonQuery();
-										}
-									}
-								}
-							}
+							int rowIndex = row.Index;
+							DgvData.Rows[rowIndex].Selected = true;
+							DgvData.FirstDisplayedScrollingRowIndex = DgvData.SelectedRows[0].Index;
+							valueResult = true;
+							return;
 						}
 					}
+				}
+				if (!valueResult)
+				{
+					MessageBox.Show("De opgegeven waarde is niet gevonden:\n" + searchValue, "Not Found");
+					return;
 				}
 			}
 			catch (Exception ex)
@@ -351,5 +244,7 @@ namespace Slooier_voorraad
 			DgvLoadData(DgvBestellen, view);
 		}
 		#endregion
+
+		
 	}
 }
