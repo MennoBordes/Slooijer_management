@@ -3,10 +3,11 @@ using Npgsql;
 using Slooier_voorraad.Classes;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
 
 
 namespace Slooier_voorraad
@@ -25,7 +26,7 @@ namespace Slooier_voorraad
 
 			GetData();
 		}
-		
+
 
 		#region Buttons
 		private void BtnSearch_Click(object sender, EventArgs e)
@@ -75,9 +76,9 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void textBox1_KeyDown(object sender, KeyEventArgs e)
+		private void TxbZoekInput_KeyDown(object sender, KeyEventArgs e)
 		{
-			if(e.KeyCode == Keys.Enter)
+			if (e.KeyCode == Keys.Enter)
 			{
 				Search();
 			}
@@ -169,7 +170,7 @@ namespace Slooier_voorraad
 
 		private void Search()
 		{
-			string searchValue = textBox1.Text.ToLower();
+			string searchValue = TxbZoekInput.Text.ToLower();
 			DgvData.ClearSelection();
 			try
 			{
@@ -243,8 +244,10 @@ namespace Slooier_voorraad
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
+
+
 		#endregion
 
-		
+
 	}
 }
