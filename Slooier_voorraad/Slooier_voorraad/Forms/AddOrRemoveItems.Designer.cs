@@ -30,6 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrRemoveItems));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
+			this.BtnAddFileToDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -47,11 +48,22 @@
 			this.PboxLogo.TabIndex = 4;
 			this.PboxLogo.TabStop = false;
 			// 
+			// BtnAddFileToDb
+			// 
+			this.BtnAddFileToDb.Location = new System.Drawing.Point(311, 214);
+			this.BtnAddFileToDb.Name = "BtnAddFileToDb";
+			this.BtnAddFileToDb.Size = new System.Drawing.Size(178, 23);
+			this.BtnAddFileToDb.TabIndex = 16;
+			this.BtnAddFileToDb.Text = "Gegevens uit bestand toevoegen";
+			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
+			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
+			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "AddOrRemoveItems";
@@ -65,5 +77,6 @@
 		#endregion
 
 		private System.Windows.Forms.PictureBox PboxLogo;
+		private System.Windows.Forms.Button BtnAddFileToDb;
 	}
 }
