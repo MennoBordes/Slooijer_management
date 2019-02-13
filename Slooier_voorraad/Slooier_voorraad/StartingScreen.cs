@@ -13,6 +13,11 @@ namespace Slooier_voorraad
 {
 	public partial class StartingScreen : Form
 	{
+		public string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
+		//public string InitialDir = "C:\\";
+		public string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
+		public string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+
 		public StartingScreen()
 		{
 			InitializeComponent();
@@ -20,7 +25,7 @@ namespace Slooier_voorraad
 
 		private void BtnAddOrRemove_Click(object sender, EventArgs e)
 		{
-			AddOrRemoveItems addOrRemove = new AddOrRemoveItems();
+			AddOrRemoveItems addOrRemove = new AddOrRemoveItems(ConnString);
 			addOrRemove.Show();
 		}
 
