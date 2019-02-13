@@ -1,6 +1,6 @@
 ﻿namespace Slooier_voorraad
 {
-	partial class MainPage
+	partial class BestelScreen
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BestelScreen));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.BtnSearch = new System.Windows.Forms.Button();

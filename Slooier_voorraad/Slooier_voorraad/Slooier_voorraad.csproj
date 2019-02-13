@@ -79,11 +79,23 @@
   <ItemGroup>
     <Compile Include="Classes\BestelItems.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
-    <Compile Include="MainPage.cs">
+    <Compile Include="Forms\AddOrRemoveItems.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="Forms\AddOrRemoveItems.Designer.cs">
+      <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BestelScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BestelScreen.Designer.cs">
+      <DependentUpon>BestelScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VoorraadCorrectie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VoorraadCorrectie.Designer.cs">
+      <DependentUpon>VoorraadCorrectie.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,8 +105,14 @@
     <Compile Include="StartingScreen.Designer.cs">
       <DependentUpon>StartingScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\AddOrRemoveItems.resx">
+      <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BestelScreen.resx">
+      <DependentUpon>BestelScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoorraadCorrectie.resx">
+      <DependentUpon>VoorraadCorrectie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Slooier_voorraad
 {
-	public partial class MainPage : Form
+	public partial class BestelScreen : Form
 	{
 		int[] numbers = new int[] { 5, 8, 9, 12, 8, 2, 96, 8, 1, 5 };
 
@@ -24,7 +24,7 @@ namespace Slooier_voorraad
 		List<MagazijnItems> items = new List<MagazijnItems>();
 		List<BestelItems> BestelItemsList = new List<BestelItems>();
 
-		public MainPage()
+		public BestelScreen()
 		{
 			InitializeComponent();
 

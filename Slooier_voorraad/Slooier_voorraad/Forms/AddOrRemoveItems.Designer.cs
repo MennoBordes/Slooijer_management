@@ -1,6 +1,6 @@
-﻿namespace Slooier_voorraad
+﻿namespace Slooier_voorraad.Forms
 {
-	partial class StartingScreen
+	partial class AddOrRemoveItems
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,43 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartingScreen));
-			this.BtnAddOrRemove = new System.Windows.Forms.Button();
-			this.BtnAlterStock = new System.Windows.Forms.Button();
-			this.BtnBestellen = new System.Windows.Forms.Button();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrRemoveItems));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// BtnAddOrRemove
-			// 
-			this.BtnAddOrRemove.Location = new System.Drawing.Point(269, 200);
-			this.BtnAddOrRemove.Name = "BtnAddOrRemove";
-			this.BtnAddOrRemove.Size = new System.Drawing.Size(223, 23);
-			this.BtnAddOrRemove.TabIndex = 0;
-			this.BtnAddOrRemove.Text = "Materialen Toevoegen of verwijderen";
-			this.BtnAddOrRemove.UseVisualStyleBackColor = true;
-			this.BtnAddOrRemove.Click += new System.EventHandler(this.BtnAddOrRemove_Click);
-			// 
-			// BtnAlterStock
-			// 
-			this.BtnAlterStock.Location = new System.Drawing.Point(269, 248);
-			this.BtnAlterStock.Name = "BtnAlterStock";
-			this.BtnAlterStock.Size = new System.Drawing.Size(223, 23);
-			this.BtnAlterStock.TabIndex = 1;
-			this.BtnAlterStock.Text = "Voorraad Aanpassen";
-			this.BtnAlterStock.UseVisualStyleBackColor = true;
-			this.BtnAlterStock.Click += new System.EventHandler(this.BtnAlterStock_Click);
-			// 
-			// BtnBestellen
-			// 
-			this.BtnBestellen.Location = new System.Drawing.Point(269, 295);
-			this.BtnBestellen.Name = "BtnBestellen";
-			this.BtnBestellen.Size = new System.Drawing.Size(223, 23);
-			this.BtnBestellen.TabIndex = 2;
-			this.BtnBestellen.Text = "Bestellen";
-			this.BtnBestellen.UseVisualStyleBackColor = true;
-			this.BtnBestellen.Click += new System.EventHandler(this.BtnBestellen_Click);
 			// 
 			// PboxLogo
 			// 
@@ -77,22 +44,19 @@
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
 			this.PboxLogo.Size = new System.Drawing.Size(800, 108);
-			this.PboxLogo.TabIndex = 3;
+			this.PboxLogo.TabIndex = 4;
 			this.PboxLogo.TabStop = false;
 			// 
-			// StartingScreen
+			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.PboxLogo);
-			this.Controls.Add(this.BtnBestellen);
-			this.Controls.Add(this.BtnAlterStock);
-			this.Controls.Add(this.BtnAddOrRemove);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-			this.Name = "StartingScreen";
+			this.Name = "AddOrRemoveItems";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "StartingScreen";
+			this.Text = "AddOrRemoveItems";
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.ResumeLayout(false);
 
@@ -100,9 +64,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button BtnAddOrRemove;
-		private System.Windows.Forms.Button BtnAlterStock;
-		private System.Windows.Forms.Button BtnBestellen;
 		private System.Windows.Forms.PictureBox PboxLogo;
 	}
 }
