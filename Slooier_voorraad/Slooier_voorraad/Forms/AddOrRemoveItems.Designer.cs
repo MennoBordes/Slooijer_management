@@ -31,9 +31,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrRemoveItems));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.BtnAddFileToDb = new System.Windows.Forms.Button();
-			this.DgvDataDisplay = new System.Windows.Forms.DataGridView();
+			this.DgvData = new System.Windows.Forms.DataGridView();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.DgvDataDisplay)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// PboxLogo
@@ -46,13 +48,13 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(800, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1380, 108);
 			this.PboxLogo.TabIndex = 4;
 			this.PboxLogo.TabStop = false;
 			// 
 			// BtnAddFileToDb
 			// 
-			this.BtnAddFileToDb.Location = new System.Drawing.Point(12, 122);
+			this.BtnAddFileToDb.Location = new System.Drawing.Point(12, 578);
 			this.BtnAddFileToDb.Name = "BtnAddFileToDb";
 			this.BtnAddFileToDb.Size = new System.Drawing.Size(178, 23);
 			this.BtnAddFileToDb.TabIndex = 16;
@@ -60,25 +62,36 @@
 			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
 			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
 			// 
-			// DgvDataDisplay
+			// DgvData
 			// 
-			this.DgvDataDisplay.AllowUserToAddRows = false;
-			this.DgvDataDisplay.AllowUserToDeleteRows = false;
-			this.DgvDataDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DgvDataDisplay.Location = new System.Drawing.Point(196, 122);
-			this.DgvDataDisplay.MultiSelect = false;
-			this.DgvDataDisplay.Name = "DgvDataDisplay";
-			this.DgvDataDisplay.ReadOnly = true;
-			this.DgvDataDisplay.RowHeadersVisible = false;
-			this.DgvDataDisplay.Size = new System.Drawing.Size(592, 316);
-			this.DgvDataDisplay.TabIndex = 18;
+			this.DgvData.AllowUserToAddRows = false;
+			this.DgvData.AllowUserToDeleteRows = false;
+			this.DgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.DgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.DgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DgvData.Location = new System.Drawing.Point(6, 19);
+			this.DgvData.MultiSelect = false;
+			this.DgvData.Name = "DgvData";
+			this.DgvData.RowHeadersVisible = false;
+			this.DgvData.Size = new System.Drawing.Size(668, 401);
+			this.DgvData.TabIndex = 19;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.DgvData);
+			this.groupBox1.Location = new System.Drawing.Point(0, 111);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(681, 423);
+			this.groupBox1.TabIndex = 20;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Huidige gegevens";
 			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.DgvDataDisplay);
+			this.ClientSize = new System.Drawing.Size(1380, 757);
+			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -86,7 +99,8 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddOrRemoveItems";
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.DgvDataDisplay)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
+			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -95,6 +109,7 @@
 
 		private System.Windows.Forms.PictureBox PboxLogo;
 		private System.Windows.Forms.Button BtnAddFileToDb;
-		private System.Windows.Forms.DataGridView DgvDataDisplay;
+		private System.Windows.Forms.DataGridView DgvData;
+		private System.Windows.Forms.GroupBox groupBox1;
 	}
 }

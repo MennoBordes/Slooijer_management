@@ -1,8 +1,11 @@
-﻿using Npgsql;
+﻿using Equin.ApplicationFramework;
+using Npgsql;
+using Slooier_voorraad.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -13,10 +16,13 @@ namespace Slooier_voorraad.Forms
 		string ConnString;
 		//string InitialDir = "C:\\";
 		string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
+		List<MagazijnItems> items = new List<MagazijnItems>();
+
 		public AddOrRemoveItems(string ConnString)
 		{
 			InitializeComponent();
 			this.ConnString = ConnString;
+			GetData();
 		}
 
 		private void BtnAddFileToDb_Click(object sender, EventArgs e)
@@ -38,18 +44,17 @@ namespace Slooier_voorraad.Forms
 						dt.Rows.Add(item);
 						res = res + item + "\n";
 					}
-					DgvDataDisplay.DataSource = dt;
+					DgvData.DataSource = dt;
 				}
 				else
 				{
 					DataTable dt = new DataTable();
 					dt.Columns.Add(new DataColumn("Toegevoegde gegevens:"));
 					dt.Rows.Add("Er was geen bestand geselecteerd");
-					DgvDataDisplay.DataSource = dt;
+					DgvData.DataSource = dt;
 				}
 			}
 		}
-
 
 		private List<string> AddDataToExistingDB(string filePath)
 		{
@@ -158,6 +163,52 @@ namespace Slooier_voorraad.Forms
 			}
 			return addedData;
 		}
+		
+		private void GetData()
+		{
+			try
+			{
+				using (var conn = new NpgsqlConnection(ConnString))
+				{
+					conn.Open();
+					using (var cmd = new NpgsqlCommand())
+					{
+						cmd.Connection = conn;
+						cmd.CommandText = string.Format("SELECT afdelingnaam, nummer, omschrijving, voorraad " +
+													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id);");
 
+						using (var reader = cmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								var res = new MagazijnItems()
+								{
+									Benaming = reader.GetString(0),
+									Nummer = reader.GetString(1),
+									Omschrijving = reader.GetString(2),
+									Voorraad = reader.GetInt32(3)
+								};
+								Console.WriteLine(res);
+								items.Add(res);
+							}
+						}
+						items = items.OrderBy(item => item.Benaming).ToList();
+						BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
+						DgvLoadData(DgvData, view);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
+		}
+		
+		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)
+		{
+			gridView.EndEdit();
+			gridView.DataSource = data;
+			gridView.Refresh();
+		}
 	}
 }
