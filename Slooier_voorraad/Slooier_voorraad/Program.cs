@@ -16,7 +16,7 @@ namespace Slooier_voorraad
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainPage());
+			Application.Run(new StartingScreen());
 		}
 	}
 }
