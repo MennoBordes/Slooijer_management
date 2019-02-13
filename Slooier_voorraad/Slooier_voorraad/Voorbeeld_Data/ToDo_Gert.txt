@@ -13,3 +13,5 @@ Bestel optie creëeren
 
 
 Toegevoegde gegevens in AddOrRemoveItems weergeven
+
+Rij uit AddOrRemoveItems kunnen aanpassen en deze vervolgens opslaan in de DB
