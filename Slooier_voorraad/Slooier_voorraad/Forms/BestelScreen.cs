@@ -13,9 +13,6 @@ namespace Slooier_voorraad
 {
 	public partial class BestelScreen : Form
 	{
-		int[] numbers = new int[] { 5, 8, 9, 12, 8, 2, 96, 8, 1, 5 };
-
-		string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		//string InitialDir = "C:\\";
 		string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
 		string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
