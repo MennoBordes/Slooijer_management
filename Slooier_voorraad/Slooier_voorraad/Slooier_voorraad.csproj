@@ -91,7 +91,6 @@
     <Compile Include="Forms\BestelScreen.Designer.cs">
       <DependentUpon>BestelScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CommonFuncs.cs" />
     <Compile Include="Forms\VoorraadCorrectie.cs">
       <SubType>Form</SubType>
     </Compile>
