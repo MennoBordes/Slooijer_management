@@ -39,6 +39,7 @@
 			this.BtnGet = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.DgvBestellen = new System.Windows.Forms.DataGridView();
+			this.BtnAddFileToDb = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvBestellen)).BeginInit();
@@ -155,12 +156,23 @@
 			this.DgvBestellen.TabIndex = 14;
 			this.DgvBestellen.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvBestellen_DataBindingComplete);
 			// 
+			// BtnAddFileToDb
+			// 
+			this.BtnAddFileToDb.Location = new System.Drawing.Point(13, 312);
+			this.BtnAddFileToDb.Name = "BtnAddFileToDb";
+			this.BtnAddFileToDb.Size = new System.Drawing.Size(178, 23);
+			this.BtnAddFileToDb.TabIndex = 15;
+			this.BtnAddFileToDb.Text = "Gegevens uit bestand toevoegen";
+			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
+			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
+			// 
 			// MainPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(1214, 757);
+			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.DgvBestellen);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.BtnGet);
@@ -195,6 +207,7 @@
 		private System.Windows.Forms.Button BtnGet;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView DgvBestellen;
+		private System.Windows.Forms.Button BtnAddFileToDb;
 	}
 }
 
