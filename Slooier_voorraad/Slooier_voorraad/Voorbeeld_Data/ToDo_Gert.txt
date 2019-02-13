@@ -3,9 +3,13 @@ aan de werkplek een nummer hangen en hierop de voorraad afboeken
 een aantal worden met dozen tegelijk besteld, waar er vervolgens meerdere items inzitten. dit met de voorraad bijhouden
 
 
-Bestel optie creëeren
-
 (DONE) vinkie in de lijst zetten waardoor de aangevinkte op een aparte lijst worden gezet, waarbij kan aangegeven worden hoeveel er besteld moeten worden (gelijk de kosten weergeven?) 
 
-Simpele manier maken waarmee gecontroleerd wordt welke gegevens al in de DB staan en deze niet opnieuw toevoegen
-Nieuwe data wel toevoegen
+(DONE) Simpele manier maken waarmee gecontroleerd wordt welke gegevens al in de DB staan en deze niet opnieuw toevoegen-Nieuwe data wel toevoegen
+
+
+
+Bestel optie creëeren
+
+
+Toegevoegde gegevens in AddOrRemoveItems weergeven
