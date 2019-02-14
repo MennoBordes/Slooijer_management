@@ -9,7 +9,10 @@ een aantal worden met dozen tegelijk besteld, waar er vervolgens meerdere items 
 
 
 
-Bestel optie creëeren
+
+
+
+Bestel optie creëeren, uitbreiden met PDF-generator
 
 
 Toegevoegde gegevens in AddOrRemoveItems weergeven
