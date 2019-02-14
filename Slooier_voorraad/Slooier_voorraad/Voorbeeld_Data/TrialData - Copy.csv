@@ -1,0 +1,304 @@
+buitendeurbeslag;;;
+;47ST4472;;buitendeur scharnieren  skg
+;47ST5500;;raam scharnieren 89 x 79 mm
+;42FU3291;;meerpuntsluiting 1800 mm krukbediend 855
+;42FU3301;;meerpuntsluiting 1800 mm cilinderbediend  856
+;;;sluitlijst links hangend tbv 1800 mm
+;;;sluitlijst rechts hangend  tbv 1800 mm
+;42FU3292;;meerpuntsluiting 2000 mm krukbediend  855
+;42FU3302;;meerpuntsluiting 2000 mm cilinderbediend   856
+;;;sluitlijst links hangend  tbv 2000 mm
+;42FU7911;;sluitlijst rechts hangend  tbv 2000 mm
+;42FU4500;;aansluitstuk deur lager dan 1960 mm
+;42FU4515;;aansluitstuk standaard lengte 310 mm
+;42FU4520;;aansluitstuk hoger dan 2380 mm
+;42FU7160;;sluitpot boven dorpel incl inlegplaat
+;42FU7165;;sluitpot onderdorpel  incl inlegplaat 
+;42FU2960;;haakschoot kom kunststof
+;42FU2865;;haakschoot sluitplaat
+;42FU2810;;fuhr sluitplaat dag en nacht
+;42FU2840;;fuhr nacht sluitkom
+;;;fuhr dagsluitplaat kort  14 mm
+;;;fuhr dagsluitplaat middel  17 mm
+;;;fuhr dagsluitplaat lang  25 mm
+;;;fuhr raamsluiting 1280 mm  / plus of min 20 cm
+;;;fuhr stolpraamsluiting
+;;;
+;43HO4252;;veiligheidgarnituur achterdeur F1  rechthoekig
+;43HO4285;;veiligheidgarnituur voordeur F1   rechthoekig
+;;;
+;999058;;nemef veiligheidsslot 4119/17
+;200084;;veiligheids sluitkom vs 4000
+;;;
+;;;
+glaslatten;;;
+;404;;test tekst
+binnendeurbeslag;;;
+;47ST4512;;binnendeur scharnieren
+;200457;;binnendeurslot met pc nemef 1200
+;200043;;binnendeurslot loop nemef 1200
+;200575;;binnendeurslot V en B  nemef 1200
+;200337;;binnendeurslot D en N  nemef 1200
+;200131;;binnendeurslot kast nemef 1200
+;201563;;sluitplaat voor loopslot
+;201756;;sluitplaat voor D en N slot
+;275015;;hoppe deurkruk 113 F1
+;330750;;patentboutjes
+;330775;;patentboutjes huls
+;42HO5501;;kruk op rozet F9 loopslot
+;42HO5504 ;;kruk op rozet F9 V en B slot
+;42HO5502;;kruk op rozet F9 D en N slot
+hang en sluitwerk;;;
+;305466;;raamsluitingen met cilinder opbouw rechtse hand  skg
+;305465;;raamsluitingen met cilinder opbouw linkse hand    skg
+;950127;;raamsluiting met drukknopje rechtse hand
+;;;raamsluiting met drukknopje linkse hand
+;950177;;fuhr raamboompje met stift rechtse hand
+;950176;;fuhr raamboompje met stift linkse hand
+;313139;;leuninghouder opschroevend vlak zadel  vierkant leuning
+;313118;;leuninghouder opschroevend hol zadel   ronde leuning
+;45LU3630;;aanslagprofiel binnenbeglazing
+;45LU2625;;aanslagprofiel draaikiepramen
+;45LU9050;;eindstukjes voor dk profiel
+;45LU4525;;slijtstrip aluminium 40 mm breed
+;ZZ0008919;;bascule kantschuif voor dubbele deur type 896
+;51SI0057;;schuifdeurkom rvs look 125 x 45 mm
+;413980;;inboorpaumelle nikkel
+;255234;;teleuitzetters wit
+;305101;;axaflex wegdraaicombi wit
+;220005;;magneetsluiting wit
+;45LU5105;;autom valdorpel 930 mm
+;;;
+bouwbeslag;;;
+;155830;;hoekjes 40 x 60 mm  per 100
+;155822;;hoekjes 90 x 90 mm zonder ril per 100
+;151255;;kozijnindraai ankers
+;5128;;vlechtdraad voor wapening rol a 25 kg
+;148020;;lijmstrips rvs  250 mm
+;;;veer ankers rvs
+;148415;;spouwhaakjes 250 mm lang rvs
+;148658;;isolatiepluggen voor 100/120 mm isolatie
+;424531;;kruipruimte ventilatie kokers  doos van 20 st
+;424510;;verlengstuk voor ventielatie kokers
+;424515;;stootvoeg ventilatie roosters waalformaat 50 mm
+;;;stootvoeg ventilatie roosters amstelformaat 70 mm
+;155545;;raveeldrager zwaar voor balk 71 x 171 mm
+;;;balkschoenen 70 x 190 mm
+;970420;;oplegvilt 75 mm breed   20 rollen
+;148735;;lijmblok kegjes 450 st
+;150922;;lijmplaat randbeveiliging  50 st
+;150935;;randbekistings anker  100 st
+;151296;;kozijn stelbeugel 2 delig
+;525086;;vloerluik 595 x 795  met 90 mm isolatie
+;429659;;matrand 61 x 81 cm  25 x 25 mm staal
+;155628;;ruitersteun
+;424575;;vogelschroot
+;525501;;vulplaatjes 1 mm  per 645
+;525502;;vulplaatjes 2 mm  per 345
+;525503;;vulplaatjes 3 mm  per 231
+;525504;;vulplaatjes 4 mm  per 147
+;525505;;vulplaatjes 5 mm  per 138
+;;;
+lood en folie;;;
+;42BU0333;;ubiflex grijs 333 mm rol van 12 m
+;42BU0250;;ubiflex grijs 250 mm rol van 12 m
+;42UB1300;;ubiflex zwart 300 mm rol van 12 m
+;42UB 1200;;ubiflex zwart 200 mm rol 6 m
+;;;ubiflex zwart 250 mm rol van 12 m
+;42UB1400;;ubiflex zwart 400 mm  rol van 6 m
+;524952;;DPC folie 150 mm breed
+;483253;;folie transparant 2 x 50 m  type 200
+;483251;;folie transparant 3 x 50m type 100
+;42UB5030;;dampremmende gewapende folie 150 cm rol 50m
+;515182;;dekzeil blauw 4 x 6 m
+;515184;;dekzeil blauw 6 x 8 m
+;515185;;dekzeil blauw 8 x 10 m
+;;;
+lijm en kit;;;
+;516214;;pur schuim bussen rebus statiegeld
+;516222;;purschuimpistool medium
+;516301;;beglazingskit window wit
+;516302;;beglazingskit window grijs
+;516305;;beglazingskit windom bruin
+;516287;;acrylkit wit exterieur
+;516254;;siliconenkit no transparant
+;516252;;siliconenkit no grijs
+;516251;;siliconenkit no wit
+;516253;;siliconenkit no zwart
+;516256;;siliconenkit no trans/grijs
+;516276;;siliconenkit sanitait trans/grijs
+;516405;;power-tec lijmkit wit
+;516410;;constructielijm tix
+;500347;;houtlijm per emmer van 10 kg
+;6SO60040;;spit multimax lijmkokers voor pistool
+;;;
+glas;;;
+;46PL2215;;glasband wit   4 x 9 mm 275 m
+;46PL2210;;glasband wit   3 x 9 mm 275 m
+;46PL2016;;glasband grijs 4 x 9 mm 100 m
+;479074;;dubbelzijdig tape 19 x 3 mm 
+;479072;;dubbelzijdig tape 12 x 3 mm
+;45HE2404;;glasblokjes geel 100 x 24 x4
+;45HE2403;;glasblokjes rood 100 x 24 x3
+;45HE2402;;glasblokjes blauw 100 x 24 x 2
+;45HE 2401;;glasblokjes wit   100 x 24 x 1
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+verf en plakband;;;
+;516631;;ducttape 50 mm
+;516622;;bekistingstape geel
+;479001;;schilderstape 20 mm
+;;;schilderstape 50 mm
+;641383;;verfrol 100 mm superfijn ronde top
+;641361;;verfbakje voor 100 mm roller
+;516820;;kwast plat 50 mm
+;516805;;kwast rond nr 18
+;636384;;schuurbanden 100 x 610 k 80   10 st
+;970104;;houtvulmiddel meranti met verharder
+;601429;;slaglijnpoeder blauw
+;507879;;terspa primer zwart  bus 1 liter
+;507881;;gevelplaat tape zwart 12 x 3 mm
+;507880;;gevelplaat cleaner 1 liter
+;;;
+;;;
+;;;
+kaders;;;
+;946015;;binnendeur kader 15 mm
+;946296;;knipkader 15 mm buitendraaiend
+;946012;;stolpstukjes voor kader 15 mm 
+;946294;;knipkader 12 mm binnendraaiend dk ramen
+;474409;;tochtstrip 4-g 3000 mm zwart
+;455109;;kunststof kozijn hoekstrippen zwart 20x20 mm
+;468034;;traptrede rubber zwart T model rol 25m
+;;;
+;;;
+;;;
+kantine;;;
+;516121;;wc papier per 4 stuks
+;975264;;handdoekrollen per 6 stuks
+;975014;;koffiebekers 3000 stuks
+;975019;;roerstokjes 2000 stuks
+;975186;;thee earl-grey
+;522293;;swarfega handzeep 4 l
+pbm;;;
+;847051;;pleisters 1 rol 5 m
+;515534;;fijnstofmasker met ventiel doos 12 stuks
+;643442;;oorkappen peltor groen
+;515521;;ruimzichtbril veiligheids
+;526401;;bouwhelm kelfort wit
+;526449;;handschoenen xl      per 12
+;526450;;handschoenen xxl   per 12
+;526724;;regenbroek groen maat L
+;526709;;regenjas groen maat L
+;957872;;stofzakken voor starmix stofzuiger set van 5 stuks
+;716503;;stofzakken voor festool stofzuiger set van 5 stuks
+;;;
+;;;
+;;;
+;;;
+hand gereedschap;;;
+;601345;;rolmaat stanley 5 m
+;606033;;handzaag bahco superior
+;623015;;knipex moniertang 250mm
+;623119;;waterpomptang 250 mm
+;;;arrow T 50 handtaiker
+;651334;;waterpas sola 2,0 m
+;514687;;kabelhaspel 25 meter kelfort
+;653022;;vetkrijt  rood
+;600199;;afbreekmesjes per 10 stuks
+;600221;;stanly mesjes  doosje a 100 st
+;487083;;metselkoord 
+;652621;;duimstokken kunststof wit
+;653003;;lira potloden 1 doos a 100 stuks rood
+;516662;;straatbezem 40 cm rood
+;830330;;stekker mannetje 220 v
+;830331;;stekker vrouwtje 220 v
+;AX0048;;altrex pootdop achter klein
+;521911;;wd 40 spuitbus van 450 ml
+;515590;;tyrips 280 x 4,8 mm per 100
+;519804;;spanbanden per set van 2 st 25mm x 2,5 m
+;;;
+;;;
+elektrische gereedschap;;;
+;711255;;accutol schroefmachine combiset 18v 5.0 ah
+;;;accutol boormachine makita
+;711371;;elektriche boormachine makita
+;957700;;elektrische kachel 3 kw 220 v
+;710109;;boorhamer bosch gbh
+;;;festool liniaalzaag
+;950530;;bouwlaser vector 305h
+;815110;;pozidr bits nr 1
+;815111;;pozidr bits nr 2
+;616865;;pozidr bits nr 3  krachtbit
+;609525;;bithouders  75 mm
+;990657;;bit voor makita schroefmachine
+;TT0130;;O ring tbv spijkertacker rond 49 x3,5  mm
+;227121;;slot voor dissel aanhanger
+;226057;;discusslot abus
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+zaagbladen en slijpschijven;;;
+;61LJ1111;;diamantzaagblad universeel 115 mm  steen/beton
+;;;diamantzaagblad universeel 125 mm  steen/beton
+;632178;;metaal doorslijpschijven 125 mm doosje
+;61LJ3123;;universele steenslijp schijf 230 mm  steen /beton
+;62LJ4316;;Festool metaalzaagblad 160 mm  metaal en trespa
+;999503;;arbortech zaagbladenset   steenhapper
+;716154;;festool schaaf wisselbeitel 65 mm
+;WX5121040;;reciprozaagbladen wit voor spijkers
+;612607;;reciprozaagbladen hout
+;612518;;reciprozaagbladen metaal
+;612532;;decoupeerzaagjes hout
+;;;
+nieten;;;
+;6p395062;;brads 30 mm
+;6p095258;;brads 40 mm
+;6p095435;;brads 50 mm
+;33253;;T nagels 55 mm  per 1000
+;33371;;draainagels tacker 70 mm
+;;;draainagels tacker 90 mm
+;6P395994;;brads 30 mm rvs
+;6P395995;;brads 40  mm rvs
+;6P395076;;brads 50 mm rvs
+;33503;;arrow t 50 handtayker nieten 8 mm per 1250 st
+;33190;;tochtstrip nieten haubold 5015
+spijkers;;;
+;515502;;duplex nagels
+;;;draadnagels 27 x 55 mm
+;;;draainagels voor balkschoenen
+;22023;;asfaltnagels 3.0 x 20   5 kg
+;;;
+pluggen;;;
+;138903;;pluggen voor gips en ytong 8 x 40 mm
+;;;pluggen voor gips en ytong 8 x 65 mm
+;;;pluggen voor gips en ytong 10 x 50 mm
+;137505;;pluggen fischer 6 mm
+;137507;;pluggen fischer 8 mm
+;137509;;pluggen fischer 10 mm
+;516903;;spanhulzen 6 x 50 mm
+;;;
+schroeven;;;
+;49HA3112;;kozijnschroeven  7,5 x 112 mm
+;6S058730;;betonschroef 6 x 50 boor 6 mm
+;516972;;gipsschroeven 3.9 x 35 doos op band
+;516971;;gipsschroeven 3.9 x 25 doos op band
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
+;;;
