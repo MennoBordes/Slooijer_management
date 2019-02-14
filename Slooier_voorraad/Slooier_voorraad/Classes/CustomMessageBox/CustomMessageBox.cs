@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Slooier_voorraad.Classes.messageBox
+namespace Slooier_voorraad.Classes.CustomMessageBox
 {
 	/*  FlexibleMessageBox – A flexible replacement for the .NET MessageBox
 	 * 

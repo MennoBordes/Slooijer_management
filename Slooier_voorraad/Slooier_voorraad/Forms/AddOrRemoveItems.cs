@@ -8,7 +8,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 using Slooier_voorraad.Classes;
-using Slooier_voorraad.Classes.messageBox;
+using Slooier_voorraad.Classes.CustomMessageBox;
 
 namespace Slooier_voorraad.Forms
 {

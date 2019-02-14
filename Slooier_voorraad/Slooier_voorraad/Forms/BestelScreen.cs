@@ -2,7 +2,7 @@
 using Npgsql;
 using MigraDoc;
 using Slooier_voorraad.Classes;
-using Slooier_voorraad.Classes.messageBox;
+using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -90,6 +90,7 @@ namespace Slooier_voorraad
 			try
 			{
 				// Proberen om een PDF bestand aan te maken
+
 
 			}
 			catch (Exception ex)
