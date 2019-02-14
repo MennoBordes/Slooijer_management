@@ -1,12 +1,11 @@
 ﻿using Equin.ApplicationFramework;
 using Npgsql;
-using MigraDoc;
 using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.MigraDoc;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -90,7 +89,7 @@ namespace Slooier_voorraad
 			try
 			{
 				// Proberen om een PDF bestand aan te maken
-
+				MigraDocFunctions.MigraDocBeginning();
 
 			}
 			catch (Exception ex)

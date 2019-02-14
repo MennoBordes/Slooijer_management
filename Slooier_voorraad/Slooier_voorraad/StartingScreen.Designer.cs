@@ -33,6 +33,7 @@
 			this.BtnAlterStock = new System.Windows.Forms.Button();
 			this.BtnBestellen = new System.Windows.Forms.Button();
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
+			this.BtnPdFTester = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -80,11 +81,22 @@
 			this.PboxLogo.TabIndex = 3;
 			this.PboxLogo.TabStop = false;
 			// 
+			// BtnPdFTester
+			// 
+			this.BtnPdFTester.Location = new System.Drawing.Point(269, 383);
+			this.BtnPdFTester.Name = "BtnPdFTester";
+			this.BtnPdFTester.Size = new System.Drawing.Size(75, 23);
+			this.BtnPdFTester.TabIndex = 4;
+			this.BtnPdFTester.Text = "PdFTester";
+			this.BtnPdFTester.UseVisualStyleBackColor = true;
+			this.BtnPdFTester.Click += new System.EventHandler(this.BtnPdFTester_Click);
+			// 
 			// StartingScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.BtnPdFTester);
 			this.Controls.Add(this.PboxLogo);
 			this.Controls.Add(this.BtnBestellen);
 			this.Controls.Add(this.BtnAlterStock);
@@ -104,5 +116,6 @@
 		private System.Windows.Forms.Button BtnAlterStock;
 		private System.Windows.Forms.Button BtnBestellen;
 		private System.Windows.Forms.PictureBox PboxLogo;
+		private System.Windows.Forms.Button BtnPdFTester;
 	}
 }

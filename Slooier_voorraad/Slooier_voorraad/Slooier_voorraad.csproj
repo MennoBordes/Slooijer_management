@@ -63,6 +63,12 @@
     <Reference Include="Npgsql, Version=4.0.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.0.4\lib\net451\Npgsql.dll</HintPath>
     </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -87,8 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BestelItems.cs" />
-    <Compile Include="Classes\CustomMessageBox.cs" />
+    <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
+    <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
     <Compile Include="Forms\AddOrRemoveItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Slooijer.jpg" />
     <Content Include="Images\slooijer_header_bew.png" />
     <Content Include="Voorbeeld_Data\ToDo_Gert.txt" />
   </ItemGroup>

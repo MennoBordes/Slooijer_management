@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Slooier_voorraad.Classes.MigraDoc;
 using Slooier_voorraad.Forms;
 
 namespace Slooier_voorraad
@@ -39,6 +40,12 @@ namespace Slooier_voorraad
 		{
 			VoorraadCorrectie voorraad = new VoorraadCorrectie();
 			voorraad.Show();
+		}
+
+		private void BtnPdFTester_Click(object sender, EventArgs e)
+		{
+			// Proberen om een PDF bestand aan te maken
+			MigraDocFunctions.MigraDocBeginning();
 		}
 	}
 }
