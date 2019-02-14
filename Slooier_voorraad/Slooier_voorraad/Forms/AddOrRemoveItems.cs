@@ -1,6 +1,5 @@
 ﻿using Equin.ApplicationFramework;
 using Npgsql;
-using Slooier_voorraad.Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,6 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.messageBox;
 
 namespace Slooier_voorraad.Forms
 {
