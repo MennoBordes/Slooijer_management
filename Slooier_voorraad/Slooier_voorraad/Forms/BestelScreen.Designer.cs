@@ -146,7 +146,7 @@
 			this.DgvBestellen.Name = "DgvBestellen";
 			this.DgvBestellen.RowHeadersVisible = false;
 			this.DgvBestellen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.DgvBestellen.Size = new System.Drawing.Size(692, 500);
+			this.DgvBestellen.Size = new System.Drawing.Size(704, 500);
 			this.DgvBestellen.TabIndex = 14;
 			this.DgvBestellen.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvBestellen_DataBindingComplete);
 			// 
@@ -165,7 +165,7 @@
 			this.groupBox2.Controls.Add(this.DgvBestellen);
 			this.groupBox2.Location = new System.Drawing.Point(664, 111);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(704, 519);
+			this.groupBox2.Size = new System.Drawing.Size(716, 519);
 			this.groupBox2.TabIndex = 16;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Bestellen";
