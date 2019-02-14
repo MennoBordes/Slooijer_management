@@ -35,7 +35,7 @@
 			this.TxbZoekInput = new System.Windows.Forms.TextBox();
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
-			this.BtnGet = new System.Windows.Forms.Button();
+			this.BtnRefresh = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.DgvBestellen = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -116,15 +116,15 @@
 			this.TxbVoorraad.TabIndex = 9;
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
-			// BtnGet
+			// BtnRefresh
 			// 
-			this.BtnGet.Location = new System.Drawing.Point(26, 59);
-			this.BtnGet.Name = "BtnGet";
-			this.BtnGet.Size = new System.Drawing.Size(133, 23);
-			this.BtnGet.TabIndex = 11;
-			this.BtnGet.Text = "Vernieuwen";
-			this.BtnGet.UseVisualStyleBackColor = true;
-			this.BtnGet.Click += new System.EventHandler(this.BtnGet_Click);
+			this.BtnRefresh.Location = new System.Drawing.Point(26, 59);
+			this.BtnRefresh.Name = "BtnRefresh";
+			this.BtnRefresh.Size = new System.Drawing.Size(133, 23);
+			this.BtnRefresh.TabIndex = 11;
+			this.BtnRefresh.Text = "Vernieuwen";
+			this.BtnRefresh.UseVisualStyleBackColor = true;
+			this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
 			// 
 			// panel1
 			// 
@@ -146,7 +146,7 @@
 			this.DgvBestellen.Name = "DgvBestellen";
 			this.DgvBestellen.RowHeadersVisible = false;
 			this.DgvBestellen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.DgvBestellen.Size = new System.Drawing.Size(640, 500);
+			this.DgvBestellen.Size = new System.Drawing.Size(692, 500);
 			this.DgvBestellen.TabIndex = 14;
 			this.DgvBestellen.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvBestellen_DataBindingComplete);
 			// 
@@ -165,7 +165,7 @@
 			this.groupBox2.Controls.Add(this.DgvBestellen);
 			this.groupBox2.Location = new System.Drawing.Point(664, 111);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(652, 519);
+			this.groupBox2.Size = new System.Drawing.Size(704, 519);
 			this.groupBox2.TabIndex = 16;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Bestellen";
@@ -174,7 +174,7 @@
 			// 
 			this.BtnPDF.Location = new System.Drawing.Point(560, 28);
 			this.BtnPDF.Name = "BtnPDF";
-			this.BtnPDF.Size = new System.Drawing.Size(75, 23);
+			this.BtnPDF.Size = new System.Drawing.Size(113, 23);
 			this.BtnPDF.TabIndex = 17;
 			this.BtnPDF.Text = "Generate PDF";
 			this.BtnPDF.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.BtnGet);
+			this.Controls.Add(this.BtnRefresh);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
 			this.Controls.Add(this.TxbZoekInput);
@@ -218,7 +218,7 @@
 		private System.Windows.Forms.TextBox TxbZoekInput;
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
-		private System.Windows.Forms.Button BtnGet;
+		private System.Windows.Forms.Button BtnRefresh;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView DgvBestellen;
 		private System.Windows.Forms.GroupBox groupBox1;

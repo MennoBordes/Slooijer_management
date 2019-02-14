@@ -63,6 +63,7 @@ namespace Slooier_voorraad
 		}
 
 		private void BtnGet_Click(object sender, EventArgs e)
+		private void BtnRefresh_Click(object sender, EventArgs e)
 		{
 			GetData();
 		}
@@ -108,6 +109,7 @@ namespace Slooier_voorraad
 				dgvc.ReadOnly = true;
 			}
 			DgvBestellen.Columns["Bestel_aantal"].ReadOnly = false;
+			DgvBestellen.Columns["Soort"].ReadOnly = false;
 		}
 
 		private void DgvData_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -220,6 +222,8 @@ namespace Slooier_voorraad
 						Nummer = currentIndex.Nummer,
 						Omschrijving = currentIndex.Omschrijving,
 						Voorraad = currentIndex.Voorraad
+						Voorraad = currentIndex.Voorraad,
+						Soort = "Stuks"
 					};
 					checkedElements.Add(newValue);
 					BestelItemsComparer comparer = new BestelItemsComparer();
@@ -249,6 +253,7 @@ namespace Slooier_voorraad
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
+
 
 
 		#endregion

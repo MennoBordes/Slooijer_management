@@ -13,6 +13,7 @@ namespace Slooier_voorraad.Classes
 		public string Omschrijving { get; set; }
 		public int Voorraad { get; set; }
 		public int Bestel_aantal { get; set; }
+		public string Soort { get; set; }
 		public float Prijs { get; set; }
 	}
 
