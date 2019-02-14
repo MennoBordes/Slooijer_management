@@ -3,6 +3,7 @@ using Npgsql;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.messageBox;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -69,6 +70,27 @@ namespace Slooier_voorraad
 		}
 		private void BtnPDF_Click(object sender, EventArgs e)
 		{
+			if (BestelItemsList.Count < 1)
+			{
+				MessageBox.Show("Er zijn geen artikelen gekozen om te bestellen", "Geen artikelen te bestellen!");
+				return;
+			}
+			try
+			{
+				string line = "Aantal--Soort--Nummer--Omschrijving\n";
+				foreach (var row in BestelItemsList)
+				{
+					line = line + $"{row.Bestel_aantal} {row.Soort} -- {row.Nummer} -- {row.Omschrijving}\n";
+
+				}
+
+				FlexibleMessageBox.Show(line, "Te bestellen producten:");
+				//MessageBox.Show(line,"Bestelde artikelen");
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+			}
 		}
 		#endregion
 
@@ -221,7 +243,6 @@ namespace Slooier_voorraad
 						Benaming = currentIndex.Benaming,
 						Nummer = currentIndex.Nummer,
 						Omschrijving = currentIndex.Omschrijving,
-						Voorraad = currentIndex.Voorraad
 						Voorraad = currentIndex.Voorraad,
 						Soort = "Stuks"
 					};
