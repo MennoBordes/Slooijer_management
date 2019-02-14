@@ -1,5 +1,7 @@
 ﻿using Equin.ApplicationFramework;
 using Npgsql;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using Slooier_voorraad.Classes;
 using System;
 using System.Collections.Generic;
@@ -63,6 +65,9 @@ namespace Slooier_voorraad
 		private void BtnGet_Click(object sender, EventArgs e)
 		{
 			GetData();
+		}
+		private void BtnPDF_Click(object sender, EventArgs e)
+		{
 		}
 		#endregion
 
