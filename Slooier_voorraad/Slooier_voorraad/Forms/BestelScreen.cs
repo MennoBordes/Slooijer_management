@@ -1,7 +1,5 @@
 ﻿using Equin.ApplicationFramework;
 using Npgsql;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
 using MigraDoc;
 using Slooier_voorraad.Classes;
 using Slooier_voorraad.Classes.messageBox;
@@ -68,28 +66,6 @@ namespace Slooier_voorraad
 			GetData();
 		}
 
-		private void DrawImageScaled(XGraphics gfx, int number)
-		{
-			//BeginBox(gfx, number, "DrawImage (scaled");
-			XImage image = XImage.FromFile("slooijer_header_bew.png");
-			gfx.DrawImage(image, 0, 0, 250, 140);
-		}
-
-		//private void BeginBox(XGraphics gfx, int number, string title)
-		//{
-		//	const int dEllipse = 15;
-		//	XRect rect = new XRect(0, 20, 300, 200);
-		//	if(number % 2 == 0)
-		//	{
-		//		rect.X = 300 - 5;
-		//	}
-		//	rect.Y = 40 + ((number - 1) / 2) * (200 - 5);
-		//	rect.Inflate(-10, -10);
-		//	// missing
-		//	gfx.DrawRoundedRectangle(new XSolidBrush(,rect))
-		//}
-
-
 		private void BtnPDF_Click(object sender, EventArgs e)
 		{
 			if (BestelItemsList.Count < 1)
@@ -113,66 +89,8 @@ namespace Slooier_voorraad
 			}
 			try
 			{
-				PdfDocument pdfDoc = new PdfDocument();
-				pdfDoc.Info.Title = "Created with PDFsharp";
-				PdfPage page = pdfDoc.AddPage();
+				// Proberen om een PDF bestand aan te maken
 
-				XGraphics gfx = XGraphics.FromPdfPage(page);
-
-				XFont font = new XFont("Verdana", 11, XFontStyle.Regular);
-				int yPoint = 0;
-				string line = string.Empty;
-				foreach (var row in BestelItemsList)
-				{
-					line = $"{row.Nummer}--{row.Omschrijving}--{row.Bestel_aantal}";
-					gfx.DrawString(line, font, XBrushes.Black, new XRect(40, yPoint, page.Width.Point, page.Height.Point), XStringFormats.TopLeft);
-					yPoint += 20;
-				}
-
-				//Save the document
-				const string fileName = "Trial.pdf";
-				pdfDoc.Save(fileName);
-				Process.Start(fileName);
-
-				//PdfPTable pdfTable = new PdfPTable(DgvBestellen.ColumnCount);
-				//pdfTable.DefaultCell.Padding = 3;
-				//pdfTable.DefaultCell.BorderWidth = 1;
-				//pdfTable.WidthPercentage = 30;
-				//pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-
-				//// Adding header Row
-				//foreach (DataGridViewColumn column in DgvBestellen.Columns)
-				//{
-				//	PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-				//	cell.BackgroundColor = new BaseColor(240, 240, 240);
-				//	pdfTable.AddCell(cell);
-				//}
-
-				//// Adding data Row
-				//foreach (DataGridViewRow row in DgvBestellen.Rows)
-				//{
-				//	foreach (DataGridViewCell cell in row.Cells)
-				//	{
-				//		try
-				//		{
-				//			pdfTable.AddCell(cell.Value.ToString());
-				//		}
-				//		catch { }
-				//	}
-				//}
-				//string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
-				//SaveFileDialog saveFileDialog = new SaveFileDialog();
-				//saveFileDialog.Filter = "Pdf files|*.pdf";
-				//saveFileDialog.Title = "Bestelling opslaan";
-				//saveFileDialog.InitialDirectory = InitialDir;
-				//if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
-				//{
-				//	//FileStream fs = (FileStream)saveFileDialog.OpenFile();
-				//	//this.AcceptButton.(fs,);
-				//	//PdfDocument
-
-				//	//fs.Close();
-				//}
 			}
 			catch (Exception ex)
 			{
