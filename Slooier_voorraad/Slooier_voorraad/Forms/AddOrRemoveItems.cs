@@ -159,7 +159,7 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message);
 			}
 			return addedData;
 		}
@@ -200,7 +200,7 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message);
 			}
 		}
 		
