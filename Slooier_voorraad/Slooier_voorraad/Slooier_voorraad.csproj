@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BestelItems.cs" />
+    <Compile Include="Classes\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Forms\AddOrRemoveItems.cs">
       <SubType>Form</SubType>
