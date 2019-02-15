@@ -33,6 +33,7 @@
 			this.BtnAddFileToDb = new System.Windows.Forms.Button();
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.BtnAddOwnData = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -86,11 +87,22 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Huidige gegevens";
 			// 
+			// BtnAddOwnData
+			// 
+			this.BtnAddOwnData.Location = new System.Drawing.Point(688, 112);
+			this.BtnAddOwnData.Name = "BtnAddOwnData";
+			this.BtnAddOwnData.Size = new System.Drawing.Size(122, 23);
+			this.BtnAddOwnData.TabIndex = 21;
+			this.BtnAddOwnData.Text = "Gegevens toevoegen";
+			this.BtnAddOwnData.UseVisualStyleBackColor = true;
+			this.BtnAddOwnData.Click += new System.EventHandler(this.BtnAddOwnData_Click);
+			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1380, 757);
+			this.Controls.Add(this.BtnAddOwnData);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.BtnAddFileToDb);
 			this.Controls.Add(this.PboxLogo);
@@ -98,6 +110,7 @@
 			this.Name = "AddOrRemoveItems";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddOrRemoveItems";
+			this.Shown += new System.EventHandler(this.AddOrRemoveItems_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
 			this.groupBox1.ResumeLayout(false);
@@ -111,5 +124,6 @@
 		private System.Windows.Forms.Button BtnAddFileToDb;
 		private System.Windows.Forms.DataGridView DgvData;
 		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Button BtnAddOwnData;
 	}
 }

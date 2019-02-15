@@ -200,6 +200,7 @@
 			this.Name = "BestelScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
+			this.Shown += new System.EventHandler(this.BestelScreen_Shown);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvBestellen)).EndInit();

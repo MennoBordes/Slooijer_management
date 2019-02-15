@@ -23,10 +23,12 @@ namespace Slooier_voorraad
 		public BestelScreen()
 		{
 			InitializeComponent();
-
-			GetData();
 		}
 
+		private void BestelScreen_Shown(object sender, EventArgs e)
+		{
+			GetData();
+		}
 
 		#region Buttons
 		private void BtnSearch_Click(object sender, EventArgs e)
@@ -280,11 +282,6 @@ namespace Slooier_voorraad
 			BindingListView<BestelItems> view = new BindingListView<BestelItems>(BestelItemsList);
 			DgvLoadData(DgvBestellen, view);
 		}
-
-
-
 		#endregion
-
-
 	}
 }

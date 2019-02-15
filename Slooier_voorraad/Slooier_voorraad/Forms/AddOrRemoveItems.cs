@@ -23,6 +23,10 @@ namespace Slooier_voorraad.Forms
 		{
 			InitializeComponent();
 			this.ConnString = ConnString;
+		}
+
+		private void AddOrRemoveItems_Shown(object sender, EventArgs e)
+		{
 			GetData();
 		}
 
@@ -210,6 +214,9 @@ namespace Slooier_voorraad.Forms
 			gridView.EndEdit();
 			gridView.DataSource = data;
 			gridView.Refresh();
+		}
+		private void BtnAddOwnData_Click(object sender, EventArgs e)
+		{
 		}
 	}
 }
