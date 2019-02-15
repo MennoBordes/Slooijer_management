@@ -96,6 +96,12 @@
     <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
+    <Compile Include="Forms\AddItemPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddItemPopup.Designer.cs">
+      <DependentUpon>AddItemPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddOrRemoveItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     <Compile Include="StartingScreen.Designer.cs">
       <DependentUpon>StartingScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AddItemPopup.resx">
+      <DependentUpon>AddItemPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddOrRemoveItems.resx">
       <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
     </EmbeddedResource>

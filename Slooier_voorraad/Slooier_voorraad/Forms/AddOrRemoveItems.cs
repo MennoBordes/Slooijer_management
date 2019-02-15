@@ -215,8 +215,13 @@ namespace Slooier_voorraad.Forms
 			gridView.DataSource = data;
 			gridView.Refresh();
 		}
+
 		private void BtnAddOwnData_Click(object sender, EventArgs e)
 		{
+			AddItemPopup popup = new AddItemPopup(ConnString);
+			popup.Show();
 		}
+
+		
 	}
 }
