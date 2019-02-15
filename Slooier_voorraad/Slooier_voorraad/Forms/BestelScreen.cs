@@ -82,6 +82,7 @@ namespace Slooier_voorraad
 					line = line + $"{row.Bestel_aantal} {row.Soort} -- {row.Nummer} -- {row.Omschrijving}\n";
 
 				}
+				FlexibleMessageBox.MAX_HEIGHT_FACTOR = 0.7;
 				FlexibleMessageBox.Show(line, "Te bestellen producten:");
 			}
 			catch (Exception ex)
