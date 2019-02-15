@@ -164,6 +164,7 @@ namespace Slooier_voorraad
 
 		private void GetData()
 		{
+			items.Clear();
 			try
 			{
 				using (var conn = new NpgsqlConnection(ConnString))
