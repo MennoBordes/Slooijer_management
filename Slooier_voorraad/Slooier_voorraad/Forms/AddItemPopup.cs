@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms
@@ -48,14 +49,44 @@ namespace Slooier_voorraad.Forms
 
 		private void BtnAddToDb_Click(object sender, EventArgs e)
 		{
-			if (CbbBenaming.SelectedIndex > -1)
+			if (CbbBenaming.SelectedIndex < 0)
 			{
-				Console.WriteLine(CbbBenaming.SelectedIndex);
+				FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer A.U.B. een afdeling!", "Selecteer een afdeling!");
+				return;
 			}
-			else
+			string Afdeling = CbbBenaming.GetItemText(CbbBenaming.SelectedItem);
+			if (TxbNummer.Text.Length == 0)
 			{
-				FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer een afdeling!");
+				string TekstToDisplay = "Let op!\nEr is geen nummer ingevuld.\nWeet u zeker dat er geen nummer ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een nummer in te vullen";
+				DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen nummer ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+				if (result == DialogResult.No)
+				{
+					return;
+				}
 			}
+			string Nummer = TxbNummer.Text;
+			if (TxbOmschrijving.Text.Length == 0)
+			{
+				string TekstToDisplay = "Let op!\nEr is geen omschrijving ingevuld.\nWeet u zeker dat er geen omschrijving ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een omschrijving in te vullen";
+				DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen omschrijving ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+				if (result == DialogResult.No)
+				{
+					return;
+				}
+			}
+			string Omschrijving = TxbOmschrijving.Text;
+			if (TxbPrijs.Text.Length < 4)
+			{
+				string TekstToDisplay = "Let op!\nEr is geen geldige prijs ingevuld.\nVul een geldige prijs in bijv:\n120,00\t0,99\t25,22\t220,0\t22,20";
+				FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
+			}
+			var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+			clone.NumberFormat.NumberDecimalSeparator = ",";
+			clone.NumberFormat.NumberGroupSeparator = ".";
+			string value = TxbPrijs.Text;
+			//value = value.Replace(",", ".");
+			decimal prijs = decimal.Parse(value, clone);
 		}
 
 		private void TxbPrijs_KeyPress(object sender, KeyPressEventArgs e)
