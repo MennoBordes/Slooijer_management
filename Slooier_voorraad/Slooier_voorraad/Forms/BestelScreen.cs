@@ -221,7 +221,8 @@ namespace Slooier_voorraad
 						Nummer = currentIndex.Nummer,
 						Omschrijving = currentIndex.Omschrijving,
 						Voorraad = currentIndex.Voorraad,
-						Soort = "Stuks"
+						Soort = "Stuks",
+						Prijs = currentIndex.Prijs
 					};
 					checkedElements.Add(newValue);
 					BestelItemsComparer comparer = new BestelItemsComparer();
