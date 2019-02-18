@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 using Slooier_voorraad.Classes;
 using Slooier_voorraad.Classes.CustomMessageBox;
+using Slooier_voorraad.Classes.CommonFunctions;
 
 namespace Slooier_voorraad.Forms
 {
@@ -40,7 +41,6 @@ namespace Slooier_voorraad.Forms
 				if (openFileDialog1.ShowDialog() == DialogResult.OK)
 				{
 					var added = AddDataToExistingDB(openFileDialog1.FileName);
-					//DgvDataDisplay.DataSource = added;
 					string res = string.Empty;
 					DataTable dt = new DataTable();
 					dt.Columns.Add(new DataColumn("Toegevoegde gegevens:"));
@@ -171,42 +171,9 @@ namespace Slooier_voorraad.Forms
 		
 		private void GetData()
 		{
-			try
-			{
-				using (var conn = new NpgsqlConnection(ConnString))
-				{
-					conn.Open();
-					using (var cmd = new NpgsqlCommand())
-					{
-						cmd.Connection = conn;
-						cmd.CommandText = string.Format("SELECT afdelingnaam, nummer, omschrijving, voorraad " +
-													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id);");
-
-						using (var reader = cmd.ExecuteReader())
-						{
-							while (reader.Read())
-							{
-								var res = new MagazijnItems()
-								{
-									Benaming = reader.GetString(0),
-									Nummer = reader.GetString(1),
-									Omschrijving = reader.GetString(2),
-									Voorraad = reader.GetInt32(3)
-								};
-								Console.WriteLine(res);
-								items.Add(res);
-							}
-						}
-						items = items.OrderBy(item => item.Benaming).ToList();
-						BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
-						DgvLoadData(DgvData, view);
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				FlexibleMessageBox.Show(ex.Message);
-			}
+			items = CommonFunctions.GetMagazijnItems(items, ConnString);
+			BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
+			DgvLoadData(DgvData, view);
 		}
 		
 		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)

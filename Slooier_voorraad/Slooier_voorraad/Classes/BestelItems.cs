@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Slooier_voorraad.Classes
 {
 	class BestelItems
 	{
+		[Browsable(false)]
+		public int Id { get; set; }
 		public string Benaming { get; set; }
 		public string Nummer { get; set; }
 		public string Omschrijving { get; set; }
 		public int Voorraad { get; set; }
 		public int Bestel_aantal { get; set; }
 		public string Soort { get; set; }
-		public float Prijs { get; set; }
+		public double Prijs { get; set; }
 	}
 
 	// Custom comparer
@@ -24,10 +24,10 @@ namespace Slooier_voorraad.Classes
 		{
 			// check if any of the compared objects is null
 			if (Object.ReferenceEquals(x, null) || Object.ReferenceEquals(y, null)) return false;
-			
+
 			// objects are equal
 			if (Object.ReferenceEquals(x, y)) return true;
-			
+
 			// check whether properties are equal
 			return x.Omschrijving == y.Omschrijving && x.Nummer == y.Nummer;
 		}
