@@ -59,7 +59,7 @@ namespace Slooier_voorraad
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
 
@@ -88,7 +88,7 @@ namespace Slooier_voorraad
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 			try
 			{
@@ -98,7 +98,7 @@ namespace Slooier_voorraad
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
 		#endregion
@@ -202,7 +202,7 @@ namespace Slooier_voorraad
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
 
