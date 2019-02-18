@@ -40,16 +40,18 @@
 			this.BtnAddToDb = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
 			this.TxbPrijs = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// CbbBenaming
 			// 
 			this.CbbBenaming.FormattingEnabled = true;
-			this.CbbBenaming.Location = new System.Drawing.Point(12, 186);
+			this.CbbBenaming.Location = new System.Drawing.Point(360, 159);
 			this.CbbBenaming.MaxDropDownItems = 20;
 			this.CbbBenaming.Name = "CbbBenaming";
-			this.CbbBenaming.Size = new System.Drawing.Size(121, 21);
+			this.CbbBenaming.Size = new System.Drawing.Size(142, 21);
 			this.CbbBenaming.TabIndex = 1;
 			this.CbbBenaming.Text = "Afdeling:";
 			// 
@@ -81,16 +83,16 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(13, 167);
+			this.label2.Location = new System.Drawing.Point(361, 140);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(126, 13);
+			this.label2.Size = new System.Drawing.Size(170, 13);
 			this.label2.TabIndex = 6;
-			this.label2.Text = "Waaronder valt het item?";
+			this.label2.Text = "Onder welke afdeling val het item?";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(184, 167);
+			this.label3.Location = new System.Drawing.Point(361, 193);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(145, 13);
 			this.label3.TabIndex = 7;
@@ -98,7 +100,7 @@
 			// 
 			// TxbNummer
 			// 
-			this.TxbNummer.Location = new System.Drawing.Point(187, 187);
+			this.TxbNummer.Location = new System.Drawing.Point(360, 209);
 			this.TxbNummer.Name = "TxbNummer";
 			this.TxbNummer.Size = new System.Drawing.Size(142, 20);
 			this.TxbNummer.TabIndex = 8;
@@ -106,7 +108,7 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(374, 167);
+			this.label4.Location = new System.Drawing.Point(361, 339);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(172, 13);
 			this.label4.TabIndex = 9;
@@ -114,17 +116,17 @@
 			// 
 			// TxbOmschrijving
 			// 
-			this.TxbOmschrijving.Location = new System.Drawing.Point(377, 187);
+			this.TxbOmschrijving.Location = new System.Drawing.Point(360, 355);
 			this.TxbOmschrijving.Multiline = true;
 			this.TxbOmschrijving.Name = "TxbOmschrijving";
-			this.TxbOmschrijving.Size = new System.Drawing.Size(169, 68);
+			this.TxbOmschrijving.Size = new System.Drawing.Size(142, 68);
 			this.TxbOmschrijving.TabIndex = 10;
 			// 
 			// BtnAddToDb
 			// 
-			this.BtnAddToDb.Location = new System.Drawing.Point(12, 128);
+			this.BtnAddToDb.Location = new System.Drawing.Point(360, 446);
 			this.BtnAddToDb.Name = "BtnAddToDb";
-			this.BtnAddToDb.Size = new System.Drawing.Size(75, 23);
+			this.BtnAddToDb.Size = new System.Drawing.Size(142, 23);
 			this.BtnAddToDb.TabIndex = 11;
 			this.BtnAddToDb.Text = "Toevoegen";
 			this.BtnAddToDb.UseVisualStyleBackColor = true;
@@ -133,7 +135,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(588, 167);
+			this.label5.Location = new System.Drawing.Point(361, 290);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(132, 13);
 			this.label5.TabIndex = 12;
@@ -141,17 +143,36 @@
 			// 
 			// TxbPrijs
 			// 
-			this.TxbPrijs.Location = new System.Drawing.Point(591, 187);
+			this.TxbPrijs.Location = new System.Drawing.Point(360, 306);
 			this.TxbPrijs.Name = "TxbPrijs";
-			this.TxbPrijs.Size = new System.Drawing.Size(129, 20);
+			this.TxbPrijs.Size = new System.Drawing.Size(142, 20);
 			this.TxbPrijs.TabIndex = 13;
 			this.TxbPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbPrijs_KeyPress);
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(361, 242);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(189, 13);
+			this.label6.TabIndex = 14;
+			this.label6.Text = "Is er reeds een voorraad van het item?";
+			// 
+			// TxbVoorraad
+			// 
+			this.TxbVoorraad.Location = new System.Drawing.Point(360, 258);
+			this.TxbVoorraad.Name = "TxbVoorraad";
+			this.TxbVoorraad.Size = new System.Drawing.Size(142, 20);
+			this.TxbVoorraad.TabIndex = 15;
+			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
 			// AddItemPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(874, 450);
+			this.ClientSize = new System.Drawing.Size(874, 552);
+			this.Controls.Add(this.TxbVoorraad);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.TxbPrijs);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.BtnAddToDb);
@@ -186,5 +207,7 @@
 		private System.Windows.Forms.Button BtnAddToDb;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox TxbPrijs;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox TxbVoorraad;
 	}
 }
