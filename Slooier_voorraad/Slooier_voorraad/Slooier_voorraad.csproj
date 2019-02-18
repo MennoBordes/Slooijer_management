@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\BestelItems.cs" />
+    <Compile Include="Classes\CommonFunctions\CommonFunctions.cs" />
     <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
@@ -186,5 +187,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
