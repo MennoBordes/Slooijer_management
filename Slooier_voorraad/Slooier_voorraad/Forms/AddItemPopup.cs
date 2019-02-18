@@ -43,7 +43,7 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
 
@@ -109,6 +109,7 @@ namespace Slooier_voorraad.Forms
 						}
 					}
 					if (IdRef != int.MinValue)
+					try
 					{
 						using (var cmd = new NpgsqlCommand())
 						{
@@ -117,11 +118,17 @@ namespace Slooier_voorraad.Forms
 							cmd.ExecuteNonQuery();
 						}
 					}
+					catch (Exception ex)
+					{
+						FlexibleMessageBox.Show("OEPS\n" + ex.Message,"An Error Occured");
+					}
+
 				}
 			}
 			catch (Exception ex)
 			{
 				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
 
