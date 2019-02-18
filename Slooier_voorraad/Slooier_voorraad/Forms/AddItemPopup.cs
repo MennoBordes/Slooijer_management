@@ -95,6 +95,7 @@ namespace Slooier_voorraad.Forms
 				using (var conn = new NpgsqlConnection(ConnString))
 				{
 					conn.Open();
+					// TODO
 					// Moet nog controleren of het nummer niet al in gebruik is
 					int IdRef = int.MinValue;
 					using (var cmd = new NpgsqlCommand())
