@@ -56,27 +56,24 @@ namespace Slooier_voorraad.Forms
 					FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer A.U.B. een afdeling!", "Selecteer een afdeling!");
 					return;
 				}
+
 				string Afdeling = CbbBenaming.GetItemText(CbbBenaming.SelectedItem);
 				if (TxbNummer.Text.Length == 0)
 				{
 					string TekstToDisplay = "Let op!\nEr is geen nummer ingevuld.\nWeet u zeker dat er geen nummer ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een nummer in te vullen";
 					DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen nummer ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-					if (result == DialogResult.No)
-					{
-						return;
-					}
+					if (result == DialogResult.No) { return; }
 				}
 				string Nummer = TxbNummer.Text;
+
 				if (TxbOmschrijving.Text.Length == 0)
 				{
 					string TekstToDisplay = "Let op!\nEr is geen omschrijving ingevuld.\nWeet u zeker dat er geen omschrijving ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een omschrijving in te vullen";
 					DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen omschrijving ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-					if (result == DialogResult.No)
-					{
-						return;
-					}
+					if (result == DialogResult.No) { return; }
 				}
 				string Omschrijving = TxbOmschrijving.Text;
+
 				if (TxbPrijs.Text.Length < 4)
 				{
 					string TekstToDisplay = "Let op!\nEr is geen geldige prijs ingevuld.\nVul een geldige prijs in bijv:\n120,00\t0,99\t25,22\t220,0\t22,20";
@@ -87,14 +84,18 @@ namespace Slooier_voorraad.Forms
 				clone.NumberFormat.NumberDecimalSeparator = ",";
 				clone.NumberFormat.NumberGroupSeparator = ".";
 				string value = TxbPrijs.Text;
-				//value = value.Replace(",", ".");
 				decimal prijs = decimal.Parse(value, clone);
 
-				int voorraad = int.Parse(TxbVoorraad.Text);
+				double voorraad = 0;
+				if (TxbVoorraad.Text.Length > 0)
+				{
+					voorraad = int.Parse(TxbVoorraad.Text);
+				}
 
 				using (var conn = new NpgsqlConnection(ConnString))
 				{
 					conn.Open();
+					// Moet nog controleren of het nummer niet al in gebruik is
 					int IdRef = int.MinValue;
 					using (var cmd = new NpgsqlCommand())
 					{
@@ -108,14 +109,17 @@ namespace Slooier_voorraad.Forms
 							}
 						}
 					}
-					if (IdRef != int.MinValue)
 					try
 					{
-						using (var cmd = new NpgsqlCommand())
+						if (IdRef != int.MinValue)
 						{
-							cmd.Connection = conn;
-							cmd.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES ('{0}', '{1}', {2}, {3}, {4});", Nummer, Omschrijving, voorraad, IdRef, prijs);
-							cmd.ExecuteNonQuery();
+							using (var cmd = new NpgsqlCommand())
+							{
+								cmd.Connection = conn;
+								cmd.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES ('{0}', '{1}', {2}, {3}, @Variable);", Nummer, Omschrijving, voorraad, IdRef);
+								cmd.Parameters.AddWithValue("@Variable", prijs);
+								cmd.ExecuteNonQuery();
+							}
 						}
 					}
 					catch (Exception ex)
@@ -127,7 +131,6 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
 				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 		}
