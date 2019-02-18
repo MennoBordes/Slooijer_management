@@ -1,15 +1,13 @@
 ﻿using Equin.ApplicationFramework;
 using Npgsql;
+using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.CommonFunctions;
+using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
-
-using Slooier_voorraad.Classes;
-using Slooier_voorraad.Classes.CustomMessageBox;
-using Slooier_voorraad.Classes.CommonFunctions;
 
 namespace Slooier_voorraad.Forms
 {
@@ -164,18 +162,18 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message);
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
 			}
 			return addedData;
 		}
-		
+
 		private void GetData()
 		{
 			items = CommonFunctions.GetMagazijnItems(items, ConnString);
 			BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(items);
 			DgvLoadData(DgvData, view);
 		}
-		
+
 		private void DgvLoadData<T>(DataGridView gridView, BindingListView<T> data)
 		{
 			gridView.EndEdit();
@@ -189,6 +187,6 @@ namespace Slooier_voorraad.Forms
 			popup.Show();
 		}
 
-		
+
 	}
 }
