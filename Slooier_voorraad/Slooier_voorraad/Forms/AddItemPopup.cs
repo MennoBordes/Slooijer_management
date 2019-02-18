@@ -124,9 +124,8 @@ namespace Slooier_voorraad.Forms
 					}
 					catch (Exception ex)
 					{
-						FlexibleMessageBox.Show("OEPS\n" + ex.Message,"An Error Occured");
+						FlexibleMessageBox.Show("OEPS\n" + ex.Message, "An Error Occured");
 					}
-
 				}
 			}
 			catch (Exception ex)
