@@ -1,9 +1,8 @@
 ﻿using Equin.ApplicationFramework;
-using Npgsql;
 using Slooier_voorraad.Classes;
 using Slooier_voorraad.Classes.CommonFunctions;
-using Slooier_voorraad.Classes.MigraDoc;
 using Slooier_voorraad.Classes.CustomMessageBox;
+using Slooier_voorraad.Classes.MigraDoc;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -214,7 +213,7 @@ namespace Slooier_voorraad
 				if (Convert.ToBoolean(row.Cells[0].Value))
 				{
 					var currentIndex = items.ElementAt(row.Index);
-					
+
 					var newValue = new BestelItems()
 					{
 						Benaming = currentIndex.Benaming,
