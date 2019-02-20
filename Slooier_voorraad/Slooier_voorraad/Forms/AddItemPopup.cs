@@ -97,6 +97,23 @@ namespace Slooier_voorraad.Forms
 					conn.Open();
 					// TODO
 					// Moet nog controleren of het nummer niet al in gebruik is
+					using (var cmd = new NpgsqlCommand())
+					{
+						cmd.Connection = conn;
+						cmd.CommandText = string.Format(@"SELECT nummer FROM voorraad WHERE nummer LIKE @nummer");
+						cmd.Parameters.AddWithValue("nummer",Nummer);
+						cmd.Prepare();
+						using(var reader = cmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								string text = $"Het opgegeven nummer bestaat al: {Nummer}";
+								string header = $"{Nummer} bestaat al";
+								FlexibleMessageBox.Show(text,header,MessageBoxButtons.OK,MessageBoxIcon.Error);
+								return;
+							}
+						}
+					}
 					int IdRef = int.MinValue;
 					using (var cmd = new NpgsqlCommand())
 					{
