@@ -103,7 +103,7 @@
 			this.TxbNummer.Location = new System.Drawing.Point(360, 209);
 			this.TxbNummer.Name = "TxbNummer";
 			this.TxbNummer.Size = new System.Drawing.Size(142, 20);
-			this.TxbNummer.TabIndex = 8;
+			this.TxbNummer.TabIndex = 2;
 			// 
 			// label4
 			// 
@@ -120,14 +120,14 @@
 			this.TxbOmschrijving.Multiline = true;
 			this.TxbOmschrijving.Name = "TxbOmschrijving";
 			this.TxbOmschrijving.Size = new System.Drawing.Size(142, 68);
-			this.TxbOmschrijving.TabIndex = 10;
+			this.TxbOmschrijving.TabIndex = 5;
 			// 
 			// BtnAddToDb
 			// 
 			this.BtnAddToDb.Location = new System.Drawing.Point(360, 446);
 			this.BtnAddToDb.Name = "BtnAddToDb";
 			this.BtnAddToDb.Size = new System.Drawing.Size(142, 23);
-			this.BtnAddToDb.TabIndex = 11;
+			this.BtnAddToDb.TabIndex = 6;
 			this.BtnAddToDb.Text = "Toevoegen";
 			this.BtnAddToDb.UseVisualStyleBackColor = true;
 			this.BtnAddToDb.Click += new System.EventHandler(this.BtnAddToDb_Click);
@@ -146,7 +146,7 @@
 			this.TxbPrijs.Location = new System.Drawing.Point(360, 306);
 			this.TxbPrijs.Name = "TxbPrijs";
 			this.TxbPrijs.Size = new System.Drawing.Size(142, 20);
-			this.TxbPrijs.TabIndex = 13;
+			this.TxbPrijs.TabIndex = 4;
 			this.TxbPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbPrijs_KeyPress);
 			// 
 			// label6
@@ -163,7 +163,7 @@
 			this.TxbVoorraad.Location = new System.Drawing.Point(360, 258);
 			this.TxbVoorraad.Name = "TxbVoorraad";
 			this.TxbVoorraad.Size = new System.Drawing.Size(142, 20);
-			this.TxbVoorraad.TabIndex = 15;
+			this.TxbVoorraad.TabIndex = 3;
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
 			// AddItemPopup
