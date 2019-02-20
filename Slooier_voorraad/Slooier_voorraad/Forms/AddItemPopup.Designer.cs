@@ -104,6 +104,7 @@
 			this.TxbNummer.Name = "TxbNummer";
 			this.TxbNummer.Size = new System.Drawing.Size(142, 20);
 			this.TxbNummer.TabIndex = 2;
+			this.TxbNummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNummer_KeyPress);
 			// 
 			// label4
 			// 

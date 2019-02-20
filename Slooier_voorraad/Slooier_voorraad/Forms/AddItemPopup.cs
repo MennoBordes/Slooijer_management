@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using NpgsqlTypes;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Globalization;
@@ -84,41 +85,44 @@ namespace Slooier_voorraad.Forms
 				clone.NumberFormat.NumberDecimalSeparator = ",";
 				clone.NumberFormat.NumberGroupSeparator = ".";
 				string value = TxbPrijs.Text;
-				decimal prijs = decimal.Parse(value, clone);
+				decimal Prijs = decimal.Parse(value, clone);
 
-				double voorraad = 0;
+				double Voorraad = 0;
 				if (TxbVoorraad.Text.Length > 0)
 				{
-					voorraad = int.Parse(TxbVoorraad.Text);
+					Voorraad = int.Parse(TxbVoorraad.Text);
 				}
 
 				using (var conn = new NpgsqlConnection(ConnString))
 				{
 					conn.Open();
-					// TODO
-					// Moet nog controleren of het nummer niet al in gebruik is
 					using (var cmd = new NpgsqlCommand())
 					{
 						cmd.Connection = conn;
 						cmd.CommandText = string.Format(@"SELECT nummer FROM voorraad WHERE nummer LIKE @nummer");
-						cmd.Parameters.AddWithValue("nummer",Nummer);
+						cmd.Parameters.AddWithValue("nummer", Nummer);
 						cmd.Prepare();
-						using(var reader = cmd.ExecuteReader())
+						using (var reader = cmd.ExecuteReader())
 						{
 							while (reader.Read())
 							{
 								string text = $"Het opgegeven nummer bestaat al: {Nummer}";
 								string header = $"{Nummer} bestaat al";
-								FlexibleMessageBox.Show(text,header,MessageBoxButtons.OK,MessageBoxIcon.Error);
+								FlexibleMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
 								return;
 							}
 						}
 					}
 					int IdRef = int.MinValue;
-					using (var cmd = new NpgsqlCommand())
+					string querySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
+					using (var cmd = new NpgsqlCommand(querySelect, conn))
 					{
-						cmd.Connection = conn;
-						cmd.CommandText = string.Format(@"SELECT id FROM afdelingen WHERE afdelingnaam = '{0}';", Afdeling);
+						var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text)
+						{
+							Value = Afdeling
+						};
+						cmd.Parameters.Add(ParAfd);
+						cmd.Prepare();
 						using (var SqlReader = cmd.ExecuteReader())
 						{
 							while (SqlReader.Read())
@@ -131,13 +135,25 @@ namespace Slooier_voorraad.Forms
 					{
 						if (IdRef != int.MinValue)
 						{
-							using (var cmd = new NpgsqlCommand())
+							string queryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @Afdeling, @Prijs);";
+							using (var cmd = new NpgsqlCommand(queryInsert, conn))
 							{
-								cmd.Connection = conn;
-								cmd.CommandText = string.Format(@"INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES ('{0}', '{1}', {2}, {3}, @Variable);", Nummer, Omschrijving, voorraad, IdRef);
-								cmd.Parameters.AddWithValue("@Variable", prijs);
+								// TODO
+								// GAAT NOT NIET HELEMAAL LEKKER
+								var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = Nummer };
+								cmd.Parameters.Add(ParNum);
+								var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = Omschrijving };
+								cmd.Parameters.Add(ParOms);
+								var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = Voorraad };
+								cmd.Parameters.Add(ParVoo);
+								var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = Afdeling };
+								cmd.Parameters.Add(ParAfd);
+								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Integer) { Value = Prijs };
+								cmd.Parameters.Add(ParPri);
+								cmd.Prepare();
 								cmd.ExecuteNonQuery();
 							}
+							FlexibleMessageBox.Show("Toegevoegd");
 						}
 					}
 					catch (Exception ex)
@@ -170,7 +186,16 @@ namespace Slooier_voorraad.Forms
 		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			// Is the key pressed a number?
-			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
+			}
+		}
+
+		private void TxbNummer_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			bool res = char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back;
+			if (!res)
 			{
 				e.Handled = true;
 			}
