@@ -18,10 +18,11 @@ namespace Slooier_voorraad.Forms
 		string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
 		List<MagazijnItems> items = new List<MagazijnItems>();
 
-		public AddOrRemoveItems(string ConnString)
+		public AddOrRemoveItems(string ConnString, FormWindowState windowState)
 		{
 			InitializeComponent();
 			this.ConnString = ConnString;
+			WindowState = windowState;
 		}
 
 		private void AddOrRemoveItems_Shown(object sender, EventArgs e)

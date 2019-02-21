@@ -14,15 +14,17 @@ namespace Slooier_voorraad
 {
 	public partial class BestelScreen : Form
 	{
-		string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+		string ConnString;
 
 		//Lists used
 		List<MagazijnItems> items = new List<MagazijnItems>();
 		List<BestelItems> BestelItemsList = new List<BestelItems>();
 
-		public BestelScreen()
+		public BestelScreen(string ConnString, FormWindowState windowState)
 		{
 			InitializeComponent();
+			this.ConnString = ConnString;
+			WindowState = windowState;
 		}
 
 		private void BestelScreen_Shown(object sender, EventArgs e)
@@ -38,7 +40,7 @@ namespace Slooier_voorraad
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
 		{
-			if(TxbVoorraad.Text.Length <= 0) { return; }
+			if (TxbVoorraad.Text.Length <= 0) { return; }
 			try
 			{
 				int rPos = DgvData.CurrentCell.RowIndex;

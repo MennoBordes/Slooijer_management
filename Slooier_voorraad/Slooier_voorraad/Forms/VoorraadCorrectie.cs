@@ -5,9 +5,12 @@ namespace Slooier_voorraad.Forms
 {
 	public partial class VoorraadCorrectie : Form
 	{
-		public VoorraadCorrectie()
+		string ConnString;
+		public VoorraadCorrectie(string ConnString, FormWindowState windowState)
 		{
 			InitializeComponent();
+			this.ConnString = ConnString;
+			WindowState = windowState;
 		}
 
 		private void PMain_SizeChanged(object sender, EventArgs e)

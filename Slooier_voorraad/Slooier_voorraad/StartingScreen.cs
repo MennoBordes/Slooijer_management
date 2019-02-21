@@ -19,7 +19,7 @@ namespace Slooier_voorraad
 
 		private void BtnAddOrRemove_Click(object sender, EventArgs e)
 		{
-			AddOrRemoveItems AddOrRemoveForm = new AddOrRemoveItems(ConnString);
+			AddOrRemoveItems AddOrRemoveForm = new AddOrRemoveItems(ConnString, WindowState);
 			Hide();
 			AddOrRemoveForm.FormClosed += ReactivateWindow;
 			AddOrRemoveForm.Show();
@@ -27,7 +27,7 @@ namespace Slooier_voorraad
 
 		private void BtnBestellen_Click(object sender, EventArgs e)
 		{
-			BestelScreen BestelForm = new BestelScreen();
+			BestelScreen BestelForm = new BestelScreen(ConnString, WindowState);
 			Hide();
 			BestelForm.FormClosed += ReactivateWindow;
 			BestelForm.Show();
@@ -35,7 +35,7 @@ namespace Slooier_voorraad
 
 		private void BtnAlterStock_Click(object sender, EventArgs e)
 		{
-			VoorraadCorrectie VoorraadForm = new VoorraadCorrectie();
+			VoorraadCorrectie VoorraadForm = new VoorraadCorrectie(ConnString, WindowState);
 			Hide();
 			VoorraadForm.FormClosed += ReactivateWindow;
 			VoorraadForm.Show();
