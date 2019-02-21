@@ -153,18 +153,23 @@ namespace Slooier_voorraad.Forms
 								cmd.Prepare();
 								cmd.ExecuteNonQuery();
 							}
-							FlexibleMessageBox.Show("Toegevoegd");
+							FlexibleMessageBox.Show("Het item is toegevoegd","Succes");
+              TxbNummer.Clear();
+              TxbOmschrijving.Clear();
+              TxbPrijs.Clear();
+              TxbVoorraad.Clear();
+              CbbBenaming.SelectedIndex = -1;
 						}
 					}
 					catch (Exception ex)
 					{
-						FlexibleMessageBox.Show("OEPS\n" + ex.Message, "An Error Occured");
+						FlexibleMessageBox.Show("OEPS\n" + ex.Message, "ER IS IETS FOUT GEGAAN!");
 					}
 				}
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
+				FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
 			}
 		}
 
