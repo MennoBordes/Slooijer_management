@@ -182,14 +182,16 @@ namespace Slooier_voorraad.Forms
 
 		private void BtnAddOwnData_Click(object sender, EventArgs e)
 		{
-			AddItemPopup popup = new AddItemPopup(ConnString);
-			Hide();
-			popup.FormClosed += popup_FormClosed;
-			popup.Show();
+			AddItemPopup Popup = new AddItemPopup(ConnString);
+			Enabled = false;
+			LblDeactive.Visible = true;
+			Popup.FormClosed += Popup_FormClosed;
+			Popup.Show();
 		}
-		private void popup_FormClosed(object sender, FormClosedEventArgs e)
+		private void Popup_FormClosed(object sender, FormClosedEventArgs e)
 		{
-			Show();
+			LblDeactive.Visible = false;
+			Enabled = true;
 		}
 
 		private void AddOrRemoveItems_SizeChanged(object sender, EventArgs e)
@@ -197,6 +199,7 @@ namespace Slooier_voorraad.Forms
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(800, 600);
 			// Set panels to center of the Form
+			LblDeactive.Left = (ClientSize.Width - LblDeactive.Width) / 2;
 			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
 			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
 		}

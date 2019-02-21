@@ -35,6 +35,7 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.BtnAddOwnData = new System.Windows.Forms.Button();
 			this.PMain = new System.Windows.Forms.Panel();
+			this.LblDeactive = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -109,11 +110,25 @@
 			this.PMain.Size = new System.Drawing.Size(956, 429);
 			this.PMain.TabIndex = 22;
 			// 
+			// LblDeactive
+			// 
+			this.LblDeactive.AutoSize = true;
+			this.LblDeactive.BackColor = System.Drawing.Color.Transparent;
+			this.LblDeactive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.LblDeactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblDeactive.Location = new System.Drawing.Point(87, 95);
+			this.LblDeactive.Name = "LblDeactive";
+			this.LblDeactive.Size = new System.Drawing.Size(788, 27);
+			this.LblDeactive.TabIndex = 20;
+			this.LblDeactive.Text = "Let op: Sluit het andere scherm om weer gebruik te maken van dit scherm";
+			this.LblDeactive.Visible = false;
+			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(959, 541);
+			this.Controls.Add(this.LblDeactive);
 			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.PboxLogo);
 			this.Name = "AddOrRemoveItems";
@@ -127,6 +142,7 @@
 			this.groupBox1.ResumeLayout(false);
 			this.PMain.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -138,5 +154,6 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button BtnAddOwnData;
 		private System.Windows.Forms.Panel PMain;
+		private System.Windows.Forms.Label LblDeactive;
 	}
 }
