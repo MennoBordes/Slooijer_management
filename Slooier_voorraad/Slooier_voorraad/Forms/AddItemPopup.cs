@@ -113,7 +113,7 @@ namespace Slooier_voorraad.Forms
 							}
 						}
 					}
-					int IdRef = int.MinValue;
+					int AfdelingId = int.MinValue;
 					string querySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
 					using (var cmd = new NpgsqlCommand(querySelect, conn))
 					{
@@ -127,15 +127,15 @@ namespace Slooier_voorraad.Forms
 						{
 							while (SqlReader.Read())
 							{
-								IdRef = SqlReader.GetInt32(0);
+								AfdelingId = SqlReader.GetInt32(0);
 							}
 						}
 					}
 					try
 					{
-						if (IdRef != int.MinValue)
+						if (AfdelingId != int.MinValue)
 						{
-							string queryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @Afdeling, @Prijs);";
+							string queryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
 							using (var cmd = new NpgsqlCommand(queryInsert, conn))
 							{
 								// TODO
@@ -146,7 +146,7 @@ namespace Slooier_voorraad.Forms
 								cmd.Parameters.Add(ParOms);
 								var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = Voorraad };
 								cmd.Parameters.Add(ParVoo);
-								var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = IdRef };
+								var ParAfd = new NpgsqlParameter("AfdelingId", NpgsqlDbType.Integer) { Value = AfdelingId };
 								cmd.Parameters.Add(ParAfd);
 								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Integer) { Value = Prijs };
 								cmd.Parameters.Add(ParPri);
