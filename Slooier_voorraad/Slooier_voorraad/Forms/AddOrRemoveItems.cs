@@ -162,7 +162,7 @@ namespace Slooier_voorraad.Forms
 			}
 			catch (Exception ex)
 			{
-				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
+				FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
 			}
 			return addedData;
 		}
