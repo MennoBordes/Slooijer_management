@@ -51,10 +51,9 @@ namespace Slooier_voorraad.Forms
 				}
 				else
 				{
-					DataTable dt = new DataTable();
-					dt.Columns.Add(new DataColumn("Toegevoegde gegevens:"));
-					dt.Rows.Add("Er was geen bestand geselecteerd");
-					DgvData.DataSource = dt;
+					string text = "Er was geen bestand geselecteerd,\nProbeer het alstublieft opnieuw.";
+					string header = "Geen bestand geselecteerd!";
+					FlexibleMessageBox.Show(text, header);
 				}
 			}
 		}
@@ -193,5 +192,13 @@ namespace Slooier_voorraad.Forms
 			Show();
 		}
 
+		private void AddOrRemoveItems_SizeChanged(object sender, EventArgs e)
+		{
+			// Set minimumsize
+			MinimumSize = new System.Drawing.Size(800, 600);
+			// Set panels to center of the Form
+			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
+			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
+		}
 	}
 }

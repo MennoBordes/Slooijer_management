@@ -30,6 +30,7 @@
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoorraadCorrectie));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
+			this.PMain = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -47,11 +48,20 @@
 			this.PboxLogo.TabIndex = 4;
 			this.PboxLogo.TabStop = false;
 			// 
+			// PMain
+			// 
+			this.PMain.Location = new System.Drawing.Point(0, 112);
+			this.PMain.Name = "PMain";
+			this.PMain.Size = new System.Drawing.Size(800, 339);
+			this.PMain.TabIndex = 5;
+			this.PMain.SizeChanged += new System.EventHandler(this.PMain_SizeChanged);
+			// 
 			// VoorraadCorrectie
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "VoorraadCorrectie";
@@ -65,5 +75,6 @@
 		#endregion
 
 		private System.Windows.Forms.PictureBox PboxLogo;
+		private System.Windows.Forms.Panel PMain;
 	}
 }

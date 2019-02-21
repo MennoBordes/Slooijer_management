@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Slooier_voorraad.Classes.MigraDoc;
+﻿using Slooier_voorraad.Classes.MigraDoc;
 using Slooier_voorraad.Forms;
+using System;
+using System.Windows.Forms;
 
 namespace Slooier_voorraad
 {
@@ -60,5 +53,13 @@ namespace Slooier_voorraad
 			Show();
 		}
 		#endregion
+		private void StartingScreen_SizeChanged(object sender, EventArgs e)
+		{
+			// Set minimumsize
+			MinimumSize = new System.Drawing.Size(800, 600);
+			// Set panels to center of the Form
+			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
+			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
+		}
 	}
 }

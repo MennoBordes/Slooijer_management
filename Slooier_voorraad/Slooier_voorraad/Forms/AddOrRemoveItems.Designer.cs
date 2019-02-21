@@ -34,9 +34,11 @@
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.BtnAddOwnData = new System.Windows.Forms.Button();
+			this.PMain = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			this.groupBox1.SuspendLayout();
+			this.PMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// PboxLogo
@@ -49,17 +51,17 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1380, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(959, 108);
 			this.PboxLogo.TabIndex = 4;
 			this.PboxLogo.TabStop = false;
 			// 
 			// BtnAddFileToDb
 			// 
-			this.BtnAddFileToDb.Location = new System.Drawing.Point(12, 578);
+			this.BtnAddFileToDb.Location = new System.Drawing.Point(690, 187);
 			this.BtnAddFileToDb.Name = "BtnAddFileToDb";
-			this.BtnAddFileToDb.Size = new System.Drawing.Size(178, 23);
+			this.BtnAddFileToDb.Size = new System.Drawing.Size(231, 23);
 			this.BtnAddFileToDb.TabIndex = 16;
-			this.BtnAddFileToDb.Text = "Gegevens uit bestand toevoegen";
+			this.BtnAddFileToDb.Text = "Meerdere items uit een bestand toevoegen";
 			this.BtnAddFileToDb.UseVisualStyleBackColor = true;
 			this.BtnAddFileToDb.Click += new System.EventHandler(this.BtnAddFileToDb_Click);
 			// 
@@ -80,7 +82,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.DgvData);
-			this.groupBox1.Location = new System.Drawing.Point(0, 111);
+			this.groupBox1.Location = new System.Drawing.Point(3, 3);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(681, 423);
 			this.groupBox1.TabIndex = 20;
@@ -89,31 +91,41 @@
 			// 
 			// BtnAddOwnData
 			// 
-			this.BtnAddOwnData.Location = new System.Drawing.Point(688, 112);
+			this.BtnAddOwnData.Location = new System.Drawing.Point(751, 22);
 			this.BtnAddOwnData.Name = "BtnAddOwnData";
 			this.BtnAddOwnData.Size = new System.Drawing.Size(122, 23);
 			this.BtnAddOwnData.TabIndex = 21;
-			this.BtnAddOwnData.Text = "Gegevens toevoegen";
+			this.BtnAddOwnData.Text = "Items los toevoegen";
 			this.BtnAddOwnData.UseVisualStyleBackColor = true;
 			this.BtnAddOwnData.Click += new System.EventHandler(this.BtnAddOwnData_Click);
+			// 
+			// PMain
+			// 
+			this.PMain.Controls.Add(this.groupBox1);
+			this.PMain.Controls.Add(this.BtnAddFileToDb);
+			this.PMain.Controls.Add(this.BtnAddOwnData);
+			this.PMain.Location = new System.Drawing.Point(0, 111);
+			this.PMain.Name = "PMain";
+			this.PMain.Size = new System.Drawing.Size(956, 429);
+			this.PMain.TabIndex = 22;
 			// 
 			// AddOrRemoveItems
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1380, 757);
-			this.Controls.Add(this.BtnAddOwnData);
-			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.BtnAddFileToDb);
+			this.ClientSize = new System.Drawing.Size(959, 541);
+			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.PboxLogo);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "AddOrRemoveItems";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddOrRemoveItems";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Shown += new System.EventHandler(this.AddOrRemoveItems_Shown);
+			this.SizeChanged += new System.EventHandler(this.AddOrRemoveItems_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
 			this.groupBox1.ResumeLayout(false);
+			this.PMain.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -125,5 +137,6 @@
 		private System.Windows.Forms.DataGridView DgvData;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Button BtnAddOwnData;
+		private System.Windows.Forms.Panel PMain;
 	}
 }

@@ -34,12 +34,16 @@
 			this.BtnBestellen = new System.Windows.Forms.Button();
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.BtnPdFTester = new System.Windows.Forms.Button();
+			this.PButtons = new System.Windows.Forms.Panel();
+			this.PMain = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
+			this.PButtons.SuspendLayout();
+			this.PMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// BtnAddOrRemove
 			// 
-			this.BtnAddOrRemove.Location = new System.Drawing.Point(269, 200);
+			this.BtnAddOrRemove.Location = new System.Drawing.Point(0, 3);
 			this.BtnAddOrRemove.Name = "BtnAddOrRemove";
 			this.BtnAddOrRemove.Size = new System.Drawing.Size(223, 23);
 			this.BtnAddOrRemove.TabIndex = 0;
@@ -49,7 +53,7 @@
 			// 
 			// BtnAlterStock
 			// 
-			this.BtnAlterStock.Location = new System.Drawing.Point(269, 248);
+			this.BtnAlterStock.Location = new System.Drawing.Point(0, 49);
 			this.BtnAlterStock.Name = "BtnAlterStock";
 			this.BtnAlterStock.Size = new System.Drawing.Size(223, 23);
 			this.BtnAlterStock.TabIndex = 1;
@@ -59,7 +63,7 @@
 			// 
 			// BtnBestellen
 			// 
-			this.BtnBestellen.Location = new System.Drawing.Point(269, 295);
+			this.BtnBestellen.Location = new System.Drawing.Point(0, 92);
 			this.BtnBestellen.Name = "BtnBestellen";
 			this.BtnBestellen.Size = new System.Drawing.Size(223, 23);
 			this.BtnBestellen.TabIndex = 2;
@@ -83,29 +87,49 @@
 			// 
 			// BtnPdFTester
 			// 
-			this.BtnPdFTester.Location = new System.Drawing.Point(269, 383);
+			this.BtnPdFTester.Location = new System.Drawing.Point(0, 128);
 			this.BtnPdFTester.Name = "BtnPdFTester";
-			this.BtnPdFTester.Size = new System.Drawing.Size(75, 23);
+			this.BtnPdFTester.Size = new System.Drawing.Size(224, 23);
 			this.BtnPdFTester.TabIndex = 4;
 			this.BtnPdFTester.Text = "PdFTester";
 			this.BtnPdFTester.UseVisualStyleBackColor = true;
 			this.BtnPdFTester.Click += new System.EventHandler(this.BtnPdFTester_Click);
+			// 
+			// PButtons
+			// 
+			this.PButtons.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.PButtons.Controls.Add(this.BtnAddOrRemove);
+			this.PButtons.Controls.Add(this.BtnPdFTester);
+			this.PButtons.Controls.Add(this.BtnAlterStock);
+			this.PButtons.Controls.Add(this.BtnBestellen);
+			this.PButtons.Location = new System.Drawing.Point(237, 13);
+			this.PButtons.Name = "PButtons";
+			this.PButtons.Size = new System.Drawing.Size(224, 151);
+			this.PButtons.TabIndex = 5;
+			// 
+			// PMain
+			// 
+			this.PMain.Controls.Add(this.PButtons);
+			this.PMain.Location = new System.Drawing.Point(12, 111);
+			this.PMain.Name = "PMain";
+			this.PMain.Size = new System.Drawing.Size(699, 294);
+			this.PMain.TabIndex = 6;
 			// 
 			// StartingScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.BtnPdFTester);
+			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.PboxLogo);
-			this.Controls.Add(this.BtnBestellen);
-			this.Controls.Add(this.BtnAlterStock);
-			this.Controls.Add(this.BtnAddOrRemove);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "StartingScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "StartingScreen";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.SizeChanged += new System.EventHandler(this.StartingScreen_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
+			this.PButtons.ResumeLayout(false);
+			this.PMain.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -117,5 +141,7 @@
 		private System.Windows.Forms.Button BtnBestellen;
 		private System.Windows.Forms.PictureBox PboxLogo;
 		private System.Windows.Forms.Button BtnPdFTester;
+		private System.Windows.Forms.Panel PButtons;
+		private System.Windows.Forms.Panel PMain;
 	}
 }
