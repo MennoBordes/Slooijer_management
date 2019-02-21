@@ -146,7 +146,7 @@ namespace Slooier_voorraad.Forms
 								cmd.Parameters.Add(ParOms);
 								var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = Voorraad };
 								cmd.Parameters.Add(ParVoo);
-								var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = Afdeling };
+								var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = IdRef };
 								cmd.Parameters.Add(ParAfd);
 								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Integer) { Value = Prijs };
 								cmd.Parameters.Add(ParPri);
