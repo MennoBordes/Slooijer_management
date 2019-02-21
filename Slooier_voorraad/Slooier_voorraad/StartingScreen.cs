@@ -61,5 +61,14 @@ namespace Slooier_voorraad
 			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
 			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
 		}
+
+		private void StartingScreen_FormClosing(object sender, FormClosingEventArgs e)
+		{
+		}
+
+		private void StartingScreen_Load(object sender, EventArgs e)
+		{
+			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
 	}
 }
