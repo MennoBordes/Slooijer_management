@@ -38,6 +38,7 @@ namespace Slooier_voorraad
 
 		private void BtnVoorraadVerlagen_Click(object sender, EventArgs e)
 		{
+			if(TxbVoorraad.Text.Length <= 0) { return; }
 			try
 			{
 				int rPos = DgvData.CurrentCell.RowIndex;
