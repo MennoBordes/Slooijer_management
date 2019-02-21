@@ -63,10 +63,10 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.PboxLogo);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "VoorraadCorrectie";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "VoorradCorrectie";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.ResumeLayout(false);
 
