@@ -184,9 +184,14 @@ namespace Slooier_voorraad.Forms
 		private void BtnAddOwnData_Click(object sender, EventArgs e)
 		{
 			AddItemPopup popup = new AddItemPopup(ConnString);
+			Hide();
+			popup.FormClosed += popup_FormClosed;
 			popup.Show();
 		}
-
+		private void popup_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			Show();
+		}
 
 	}
 }

@@ -26,20 +26,26 @@ namespace Slooier_voorraad
 
 		private void BtnAddOrRemove_Click(object sender, EventArgs e)
 		{
-			AddOrRemoveItems addOrRemove = new AddOrRemoveItems(ConnString);
-			addOrRemove.Show();
+			AddOrRemoveItems AddOrRemoveForm = new AddOrRemoveItems(ConnString);
+			Hide();
+			AddOrRemoveForm.FormClosed += ReactivateWindow;
+			AddOrRemoveForm.Show();
 		}
 
 		private void BtnBestellen_Click(object sender, EventArgs e)
 		{
-			BestelScreen Bestel = new BestelScreen();
-			Bestel.Show();
+			BestelScreen BestelForm = new BestelScreen();
+			Hide();
+			BestelForm.FormClosed += ReactivateWindow;
+			BestelForm.Show();
 		}
 
 		private void BtnAlterStock_Click(object sender, EventArgs e)
 		{
-			VoorraadCorrectie voorraad = new VoorraadCorrectie();
-			voorraad.Show();
+			VoorraadCorrectie VoorraadForm = new VoorraadCorrectie();
+			Hide();
+			VoorraadForm.FormClosed += ReactivateWindow;
+			VoorraadForm.Show();
 		}
 
 		private void BtnPdFTester_Click(object sender, EventArgs e)
@@ -47,5 +53,12 @@ namespace Slooier_voorraad
 			// Proberen om een PDF bestand aan te maken
 			MigraDocFunctions.MigraDocBeginning();
 		}
+
+		#region Forms
+		private void ReactivateWindow(object sender, FormClosedEventArgs e)
+		{
+			Show();
+		}
+		#endregion
 	}
 }
