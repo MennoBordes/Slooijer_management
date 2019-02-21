@@ -85,9 +85,9 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(361, 140);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(170, 13);
+			this.label2.Size = new System.Drawing.Size(173, 13);
 			this.label2.TabIndex = 6;
-			this.label2.Text = "Onder welke afdeling val het item?";
+			this.label2.Text = "Onder welke afdeling valt het item?";
 			// 
 			// label3
 			// 
