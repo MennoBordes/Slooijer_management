@@ -6,7 +6,7 @@
       <Value Profile="(Default)">maximized</Value>
     </Setting>
     <Setting Name="BackGroundColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Beige</Value>
+      <Value Profile="(Default)">White</Value>
     </Setting>
   </Settings>
 </SettingsFile>

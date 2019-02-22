@@ -37,7 +37,7 @@ namespace Slooier_voorraad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Beige")]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
         public global::System.Drawing.Color BackGroundColor {
             get {
                 return ((global::System.Drawing.Color)(this["BackGroundColor"]));
