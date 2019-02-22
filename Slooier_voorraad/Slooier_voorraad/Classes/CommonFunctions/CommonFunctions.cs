@@ -3,7 +3,7 @@ using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Windows.Forms;
 
 namespace Slooier_voorraad.Classes.CommonFunctions
 {
@@ -49,6 +49,17 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 				FlexibleMessageBox.Show(ex.Message);
 				return items;
 			}
+		}
+
+		public static void SetPanelDimensions(Panel Child, Panel Parent)
+		{
+			Child.Left = (Parent.Width - Child.Width) / 2;
+			Child.Top = (Parent.Height - Child.Height) / 2;
+		}
+		public static void SetPanelDimensions(Panel Child, System.Drawing.Size Parent)
+		{
+			Child.Left = (Parent.Width - Child.Width) / 2;
+			Child.Top = (Parent.Height - Child.Height) / 2;
 		}
 	}
 }

@@ -98,13 +98,12 @@
 			// 
 			// PButtons
 			// 
-			this.PButtons.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.PButtons.Controls.Add(this.BtnSettings);
 			this.PButtons.Controls.Add(this.BtnAddOrRemove);
 			this.PButtons.Controls.Add(this.BtnPdFTester);
 			this.PButtons.Controls.Add(this.BtnAlterStock);
 			this.PButtons.Controls.Add(this.BtnBestellen);
-			this.PButtons.Location = new System.Drawing.Point(237, 13);
+			this.PButtons.Location = new System.Drawing.Point(291, 43);
 			this.PButtons.Name = "PButtons";
 			this.PButtons.Size = new System.Drawing.Size(225, 226);
 			this.PButtons.TabIndex = 5;
@@ -112,9 +111,10 @@
 			// PMain
 			// 
 			this.PMain.Controls.Add(this.PButtons);
-			this.PMain.Location = new System.Drawing.Point(12, 111);
+			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.PMain.Location = new System.Drawing.Point(0, 108);
 			this.PMain.Name = "PMain";
-			this.PMain.Size = new System.Drawing.Size(699, 294);
+			this.PMain.Size = new System.Drawing.Size(800, 342);
 			this.PMain.TabIndex = 6;
 			// 
 			// BtnSettings
@@ -138,7 +138,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "StartingScreen";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartingScreen_FormClosing);
 			this.Load += new System.EventHandler(this.StartingScreen_Load);
 			this.SizeChanged += new System.EventHandler(this.StartingScreen_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();

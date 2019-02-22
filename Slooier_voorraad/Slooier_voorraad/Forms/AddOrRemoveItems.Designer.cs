@@ -135,6 +135,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AddOrRemoveItems";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Load += new System.EventHandler(this.AddOrRemoveItems_Load);
 			this.Shown += new System.EventHandler(this.AddOrRemoveItems_Shown);
 			this.SizeChanged += new System.EventHandler(this.AddOrRemoveItems_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();

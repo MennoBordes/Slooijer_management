@@ -197,12 +197,18 @@ namespace Slooier_voorraad.Forms
 
 		private void AddOrRemoveItems_SizeChanged(object sender, EventArgs e)
 		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			// Set label to center width of the Form
+			LblDeactive.Left = (ClientSize.Width - LblDeactive.Width) / 2;
+		}
+
+		private void AddOrRemoveItems_Load(object sender, EventArgs e)
+		{
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(800, 600);
 			// Set panels to center of the Form
-			LblDeactive.Left = (ClientSize.Width - LblDeactive.Width) / 2;
-			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
-			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 		}
 	}
 }

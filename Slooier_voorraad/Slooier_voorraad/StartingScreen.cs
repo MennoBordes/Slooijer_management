@@ -1,4 +1,5 @@
-﻿using Slooier_voorraad.Classes.MigraDoc;
+﻿using Slooier_voorraad.Classes.CommonFunctions;
+using Slooier_voorraad.Classes.MigraDoc;
 using Slooier_voorraad.Forms;
 using System;
 using System.Windows.Forms;
@@ -52,6 +53,14 @@ namespace Slooier_voorraad
 			MigraDocFunctions.MigraDocBeginning();
 		}
 
+		private void BtnSettings_Click(object sender, EventArgs e)
+		{
+			SettingForm SettingForm = new SettingForm();
+			Enabled = false;
+			SettingForm.FormClosed += ReactivateWindow;
+			SettingForm.Show();
+		}
+
 		#region Forms
 		private void ReactivateWindow(object sender, FormClosedEventArgs e)
 		{
@@ -64,10 +73,8 @@ namespace Slooier_voorraad
 			// Set panels to center of the Form
 			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
 			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
-		}
-
-		private void StartingScreen_FormClosing(object sender, FormClosingEventArgs e)
-		{
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PButtons, PMain);
 		}
 
 		private void StartingScreen_Load(object sender, EventArgs e)
@@ -75,16 +82,11 @@ namespace Slooier_voorraad
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(800, 600);
 
+			// Set panel locations
+			CommonFunctions.SetPanelDimensions(PButtons, PMain);
 			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
-		private void BtnSettings_Click(object sender, EventArgs e)
-		{
-			SettingForm SettingForm = new SettingForm();
-			//Hide();
-			Enabled = false;
-			SettingForm.FormClosed += ReactivateWindow;
-			SettingForm.Show();
-		}
+
 	}
 }

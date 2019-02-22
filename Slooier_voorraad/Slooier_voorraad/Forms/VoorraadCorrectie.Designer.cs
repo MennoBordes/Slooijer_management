@@ -67,6 +67,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "VoorradCorrectie";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Load += new System.EventHandler(this.VoorraadCorrectie_Load);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.ResumeLayout(false);
 

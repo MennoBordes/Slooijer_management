@@ -36,16 +36,17 @@
 			this.BtnVoorraadVerlagen = new System.Windows.Forms.Button();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.BtnRefresh = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.DgvBestellen = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.BtnPDF = new System.Windows.Forms.Button();
+			this.PMain = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvBestellen)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			this.PMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// PboxLogo
@@ -58,7 +59,7 @@
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(1380, 108);
+			this.PboxLogo.Size = new System.Drawing.Size(1391, 108);
 			this.PboxLogo.TabIndex = 1;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -126,15 +127,6 @@
 			this.BtnRefresh.UseVisualStyleBackColor = true;
 			this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
 			// 
-			// panel1
-			// 
-			this.panel1.BackColor = System.Drawing.Color.Coral;
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel1.Location = new System.Drawing.Point(0, 707);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(1380, 50);
-			this.panel1.TabIndex = 13;
-			// 
 			// DgvBestellen
 			// 
 			this.DgvBestellen.AllowUserToAddRows = false;
@@ -153,7 +145,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.DgvData);
-			this.groupBox1.Location = new System.Drawing.Point(12, 111);
+			this.groupBox1.Location = new System.Drawing.Point(6, 3);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(646, 528);
 			this.groupBox1.TabIndex = 15;
@@ -163,9 +155,9 @@
 			// groupBox2
 			// 
 			this.groupBox2.Controls.Add(this.DgvBestellen);
-			this.groupBox2.Location = new System.Drawing.Point(664, 111);
+			this.groupBox2.Location = new System.Drawing.Point(658, 3);
 			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(716, 519);
+			this.groupBox2.Size = new System.Drawing.Size(716, 528);
 			this.groupBox2.TabIndex = 16;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Bestellen";
@@ -180,32 +172,41 @@
 			this.BtnPDF.UseVisualStyleBackColor = true;
 			this.BtnPDF.Click += new System.EventHandler(this.BtnPDF_Click);
 			// 
+			// PMain
+			// 
+			this.PMain.Controls.Add(this.groupBox1);
+			this.PMain.Controls.Add(this.groupBox2);
+			this.PMain.Location = new System.Drawing.Point(0, 111);
+			this.PMain.Name = "PMain";
+			this.PMain.Size = new System.Drawing.Size(1391, 533);
+			this.PMain.TabIndex = 3;
+			// 
 			// BestelScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(1380, 757);
+			this.ClientSize = new System.Drawing.Size(980, 537);
+			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.BtnPDF);
-			this.Controls.Add(this.groupBox2);
-			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.BtnRefresh);
 			this.Controls.Add(this.TxbVoorraad);
 			this.Controls.Add(this.BtnVoorraadVerlagen);
 			this.Controls.Add(this.TxbZoekInput);
 			this.Controls.Add(this.BtnSearch);
 			this.Controls.Add(this.PboxLogo);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "BestelScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.BestelScreen_Load);
 			this.Shown += new System.EventHandler(this.BestelScreen_Shown);
+			this.SizeChanged += new System.EventHandler(this.BestelScreen_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvBestellen)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			this.PMain.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -220,11 +221,11 @@
 		private System.Windows.Forms.Button BtnVoorraadVerlagen;
 		private System.Windows.Forms.TextBox TxbVoorraad;
 		private System.Windows.Forms.Button BtnRefresh;
-		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView DgvBestellen;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Button BtnPDF;
+		private System.Windows.Forms.Panel PMain;
 	}
 }
 

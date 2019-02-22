@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Slooier_voorraad.Classes.CommonFunctions;
+using System;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms
@@ -15,11 +16,16 @@ namespace Slooier_voorraad.Forms
 
 		private void PMain_SizeChanged(object sender, EventArgs e)
 		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+		}
+
+		private void VoorraadCorrectie_Load(object sender, EventArgs e)
+		{
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(800, 600);
 			// Set panels to center of the Form
-			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
-			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 		}
 	}
 }

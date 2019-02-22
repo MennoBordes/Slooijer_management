@@ -255,5 +255,18 @@ namespace Slooier_voorraad
 			DgvLoadData(DgvBestellen, view);
 		}
 		#endregion
+
+		private void BestelScreen_Load(object sender, EventArgs e)
+		{
+			// Set minimumsize
+			MinimumSize = new System.Drawing.Size(800, 600);
+		}
+
+		private void BestelScreen_SizeChanged(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
+			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
+		}
 	}
 }
