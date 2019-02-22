@@ -50,6 +50,7 @@ namespace Slooier_voorraad
 		#region Forms
 		private void ReactivateWindow(object sender, FormClosedEventArgs e)
 		{
+			Enabled = true;
 			Show();
 		}
 		#endregion
@@ -69,6 +70,15 @@ namespace Slooier_voorraad
 		private void StartingScreen_Load(object sender, EventArgs e)
 		{
 			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
+
+		private void BtnSettings_Click(object sender, EventArgs e)
+		{
+			SettingForm SettingForm = new SettingForm();
+			//Hide();
+			Enabled = false;
+			SettingForm.FormClosed += ReactivateWindow;
+			SettingForm.Show();
 		}
 	}
 }

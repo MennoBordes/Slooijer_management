@@ -36,6 +36,7 @@
 			this.BtnPdFTester = new System.Windows.Forms.Button();
 			this.PButtons = new System.Windows.Forms.Panel();
 			this.PMain = new System.Windows.Forms.Panel();
+			this.BtnSettings = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.PButtons.SuspendLayout();
 			this.PMain.SuspendLayout();
@@ -98,13 +99,14 @@
 			// PButtons
 			// 
 			this.PButtons.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.PButtons.Controls.Add(this.BtnSettings);
 			this.PButtons.Controls.Add(this.BtnAddOrRemove);
 			this.PButtons.Controls.Add(this.BtnPdFTester);
 			this.PButtons.Controls.Add(this.BtnAlterStock);
 			this.PButtons.Controls.Add(this.BtnBestellen);
 			this.PButtons.Location = new System.Drawing.Point(237, 13);
 			this.PButtons.Name = "PButtons";
-			this.PButtons.Size = new System.Drawing.Size(224, 151);
+			this.PButtons.Size = new System.Drawing.Size(225, 226);
 			this.PButtons.TabIndex = 5;
 			// 
 			// PMain
@@ -114,6 +116,16 @@
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(699, 294);
 			this.PMain.TabIndex = 6;
+			// 
+			// BtnSettings
+			// 
+			this.BtnSettings.Location = new System.Drawing.Point(0, 175);
+			this.BtnSettings.Name = "BtnSettings";
+			this.BtnSettings.Size = new System.Drawing.Size(225, 23);
+			this.BtnSettings.TabIndex = 5;
+			this.BtnSettings.Text = "Instellingen";
+			this.BtnSettings.UseVisualStyleBackColor = true;
+			this.BtnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
 			// 
 			// StartingScreen
 			// 
@@ -145,5 +157,6 @@
 		private System.Windows.Forms.Button BtnPdFTester;
 		private System.Windows.Forms.Panel PButtons;
 		private System.Windows.Forms.Panel PMain;
+		private System.Windows.Forms.Button BtnSettings;
 	}
 }

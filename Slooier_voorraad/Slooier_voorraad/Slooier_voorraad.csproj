@@ -115,6 +115,12 @@
     <Compile Include="Forms\BestelScreen.Designer.cs">
       <DependentUpon>BestelScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\VoorraadCorrectie.cs">
       <SubType>Form</SubType>
     </Compile>
