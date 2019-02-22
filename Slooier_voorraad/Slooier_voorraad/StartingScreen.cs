@@ -13,7 +13,7 @@ namespace Slooier_voorraad
 		public string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
 		//public string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
 		public string ConnString = string.Format($"Server={Properties.Settings.Default.Server}; " +
-			$"User Id={Properties.Settings.Default.UserId}; " +
+			$"User Id={Properties.Settings.Default.UserName}; " +
 			$"Database={Properties.Settings.Default.Database}; " +
 			$"Port={Properties.Settings.Default.Port}; " +
 			$"Password={Properties.Settings.Default.password}");

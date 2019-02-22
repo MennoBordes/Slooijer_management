@@ -62,12 +62,12 @@ namespace Slooier_voorraad.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("postgres")]
-        public string UserId {
+        public string UserName {
             get {
-                return ((string)(this["UserId"]));
+                return ((string)(this["UserName"]));
             }
             set {
-                this["UserId"] = value;
+                this["UserName"] = value;
             }
         }
         

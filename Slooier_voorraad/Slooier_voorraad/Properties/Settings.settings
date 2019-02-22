@@ -11,7 +11,7 @@
     <Setting Name="Server" Type="System.String" Scope="User">
       <Value Profile="(Default)">localhost</Value>
     </Setting>
-    <Setting Name="UserId" Type="System.String" Scope="User">
+    <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)">postgres</Value>
     </Setting>
     <Setting Name="Database" Type="System.String" Scope="User">
