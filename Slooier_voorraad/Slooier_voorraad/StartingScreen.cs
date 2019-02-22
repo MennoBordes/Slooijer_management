@@ -10,7 +10,12 @@ namespace Slooier_voorraad
 		public string CurrentDir = AppDomain.CurrentDomain.BaseDirectory;
 		//public string InitialDir = "C:\\";
 		public string InitialDir = "A:\\Red Darkness\\Documents\\Documenten\\Github\\Repositories\\Slooier_management\\Slooier_voorraad\\Slooier_voorraad\\Voorbeeld_Data";
-		public string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+		//public string ConnString = string.Format("Server=localhost; User Id=postgres; Database=Slooier_VoorraadSysteem; Port=5432; Password=2761");
+		public string ConnString = string.Format($"Server={Properties.Settings.Default.Server}; " +
+			$"User Id={Properties.Settings.Default.UserId}; " +
+			$"Database={Properties.Settings.Default.Database}; " +
+			$"Port={Properties.Settings.Default.Port}; " +
+			$"Password={Properties.Settings.Default.password}");
 
 		public StartingScreen()
 		{
@@ -56,8 +61,6 @@ namespace Slooier_voorraad
 		#endregion
 		private void StartingScreen_SizeChanged(object sender, EventArgs e)
 		{
-			// Set minimumsize
-			MinimumSize = new System.Drawing.Size(800, 600);
 			// Set panels to center of the Form
 			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
 			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
@@ -69,6 +72,9 @@ namespace Slooier_voorraad
 
 		private void StartingScreen_Load(object sender, EventArgs e)
 		{
+			// Set minimumsize
+			MinimumSize = new System.Drawing.Size(800, 600);
+
 			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
