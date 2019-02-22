@@ -71,8 +71,6 @@ namespace Slooier_voorraad
 		private void StartingScreen_SizeChanged(object sender, EventArgs e)
 		{
 			// Set panels to center of the Form
-			PMain.Left = (ClientSize.Width - PMain.Width) / 2;
-			PMain.Top = (ClientSize.Height - PMain.Height) / 2;
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 			CommonFunctions.SetPanelDimensions(PButtons, PMain);
 		}
