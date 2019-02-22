@@ -20,6 +20,8 @@ namespace Slooier_voorraad.Forms
 
 		private void SettingForm_Load(object sender, EventArgs e)
 		{
+			// Set minimumsize
+			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
 		}
 	}
 }

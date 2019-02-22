@@ -80,8 +80,9 @@ namespace Slooier_voorraad
 		private void StartingScreen_Load(object sender, EventArgs e)
 		{
 			// Set minimumsize
-			MinimumSize = new System.Drawing.Size(800, 600);
-
+			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
+			// Set default location
+			Location = new System.Drawing.Point(Properties.Settings.Default.PX, Properties.Settings.Default.PY);
 			// Set panel locations
 			CommonFunctions.SetPanelDimensions(PButtons, PMain);
 			BackColor = Properties.Settings.Default.BackGroundColor;

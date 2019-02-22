@@ -23,7 +23,7 @@ namespace Slooier_voorraad.Forms
 		private void VoorraadCorrectie_Load(object sender, EventArgs e)
 		{
 			// Set minimumsize
-			MinimumSize = new System.Drawing.Size(800, 600);
+			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 		}

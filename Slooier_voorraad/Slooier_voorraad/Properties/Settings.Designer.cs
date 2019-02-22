@@ -130,5 +130,29 @@ namespace Slooier_voorraad.Properties {
                 this["PY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        public int MinimumSizeX {
+            get {
+                return ((int)(this["MinimumSizeX"]));
+            }
+            set {
+                this["MinimumSizeX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public int MinimumSizeY {
+            get {
+                return ((int)(this["MinimumSizeY"]));
+            }
+            set {
+                this["MinimumSizeY"] = value;
+            }
+        }
     }
 }
