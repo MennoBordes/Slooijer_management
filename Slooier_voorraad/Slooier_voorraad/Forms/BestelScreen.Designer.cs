@@ -186,7 +186,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.ClientSize = new System.Drawing.Size(980, 537);
+			this.ClientSize = new System.Drawing.Size(1376, 681);
 			this.Controls.Add(this.PMain);
 			this.Controls.Add(this.BtnPDF);
 			this.Controls.Add(this.BtnRefresh);
