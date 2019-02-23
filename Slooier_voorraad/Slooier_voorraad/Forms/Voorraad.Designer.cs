@@ -33,9 +33,9 @@
 			this.GbVoorraad = new System.Windows.Forms.GroupBox();
 			this.DgvVoorraad = new System.Windows.Forms.DataGridView();
 			this.PSecLeft = new System.Windows.Forms.Panel();
+			this.BtnSearch = new System.Windows.Forms.Button();
 			this.BtnRefresh = new System.Windows.Forms.Button();
 			this.TxbSearch = new System.Windows.Forms.TextBox();
-			this.BtnSearch = new System.Windows.Forms.Button();
 			this.PMain.SuspendLayout();
 			this.PSecRight.SuspendLayout();
 			this.GbVoorraad.SuspendLayout();
@@ -50,7 +50,7 @@
 			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PMain.Location = new System.Drawing.Point(0, 0);
 			this.PMain.Name = "PMain";
-			this.PMain.Size = new System.Drawing.Size(800, 450);
+			this.PMain.Size = new System.Drawing.Size(849, 450);
 			this.PMain.TabIndex = 0;
 			// 
 			// PSecRight
@@ -59,7 +59,7 @@
 			this.PSecRight.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PSecRight.Location = new System.Drawing.Point(200, 0);
 			this.PSecRight.Name = "PSecRight";
-			this.PSecRight.Size = new System.Drawing.Size(600, 450);
+			this.PSecRight.Size = new System.Drawing.Size(649, 450);
 			this.PSecRight.TabIndex = 2;
 			// 
 			// GbVoorraad
@@ -68,7 +68,7 @@
 			this.GbVoorraad.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.GbVoorraad.Location = new System.Drawing.Point(0, 0);
 			this.GbVoorraad.Name = "GbVoorraad";
-			this.GbVoorraad.Size = new System.Drawing.Size(600, 450);
+			this.GbVoorraad.Size = new System.Drawing.Size(649, 450);
 			this.GbVoorraad.TabIndex = 0;
 			this.GbVoorraad.TabStop = false;
 			this.GbVoorraad.Text = "Voorraad";
@@ -85,7 +85,7 @@
 			this.DgvVoorraad.MultiSelect = false;
 			this.DgvVoorraad.Name = "DgvVoorraad";
 			this.DgvVoorraad.RowHeadersVisible = false;
-			this.DgvVoorraad.Size = new System.Drawing.Size(594, 431);
+			this.DgvVoorraad.Size = new System.Drawing.Size(643, 431);
 			this.DgvVoorraad.TabIndex = 0;
 			this.DgvVoorraad.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvVoorraad_DataBindingComplete);
 			// 
@@ -99,6 +99,16 @@
 			this.PSecLeft.Name = "PSecLeft";
 			this.PSecLeft.Size = new System.Drawing.Size(200, 450);
 			this.PSecLeft.TabIndex = 1;
+			// 
+			// BtnSearch
+			// 
+			this.BtnSearch.Location = new System.Drawing.Point(26, 157);
+			this.BtnSearch.Name = "BtnSearch";
+			this.BtnSearch.Size = new System.Drawing.Size(75, 23);
+			this.BtnSearch.TabIndex = 2;
+			this.BtnSearch.Text = "Zoeken";
+			this.BtnSearch.UseVisualStyleBackColor = true;
+			this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
 			// 
 			// BtnRefresh
 			// 
@@ -117,21 +127,11 @@
 			this.TxbSearch.Size = new System.Drawing.Size(100, 20);
 			this.TxbSearch.TabIndex = 0;
 			// 
-			// BtnSearch
-			// 
-			this.BtnSearch.Location = new System.Drawing.Point(26, 157);
-			this.BtnSearch.Name = "BtnSearch";
-			this.BtnSearch.Size = new System.Drawing.Size(75, 23);
-			this.BtnSearch.TabIndex = 2;
-			this.BtnSearch.Text = "Zoeken";
-			this.BtnSearch.UseVisualStyleBackColor = true;
-			this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-			// 
 			// Voorraad
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(849, 450);
 			this.Controls.Add(this.PMain);
 			this.Name = "Voorraad";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

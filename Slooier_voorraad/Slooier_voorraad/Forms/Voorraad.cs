@@ -32,11 +32,6 @@ namespace Slooier_voorraad.Forms
 			BindingListView<MagazijnItems> view = new BindingListView<MagazijnItems>(ListMagazijnItems);
 			DgvVoorraad.EndEdit();
 			DgvVoorraad.DataSource = view;
-			try
-			{
-				DgvVoorraad.Columns["Bestellen"].Visible = false;
-			}
-			catch (Exception) { }
 			DgvVoorraad.Refresh();
 		}
 
@@ -65,7 +60,6 @@ namespace Slooier_voorraad.Forms
 		private int MatchesFound = 0;
 		private int CurrentRowIndex = 0;
 		private bool MatchFound = false;
-		private bool CancelSearch = false;
 		private DataGridViewCellStyle ResetCellStyle = new DataGridViewCellStyle();
 		private DataGridViewCellStyle FoundMatchCellStyle = new DataGridViewCellStyle();
 
@@ -90,7 +84,6 @@ namespace Slooier_voorraad.Forms
 			// Reset variables
 			CurrentRowIndex = DgvVoorraad.CurrentRow.Index;
 			MatchFound = false;
-			CancelSearch = false;
 			ResetCellStyle.BackColor = Color.White;
 			FoundMatchCellStyle.BackColor = Color.Yellow;
 
@@ -103,7 +96,7 @@ namespace Slooier_voorraad.Forms
 			{
 				for (int RowIndex = 0; RowIndex < DgvVoorraad.Rows.Count; RowIndex++)
 				{
-					foreach (DataGridViewTextBoxCell CellValue in DgvVoorraad.Rows[RowIndex].Cells)
+					foreach (DataGridViewCell CellValue in DgvVoorraad.Rows[RowIndex].Cells)
 					{
 						CellValue.Style = ResetCellStyle;
 					}
@@ -138,6 +131,10 @@ namespace Slooier_voorraad.Forms
 				// Iterate through each cell of current row (RowIndex) and check for a match
 				foreach (DataGridViewCell CellValue in DgvVoorraad.Rows[RowIndex].Cells)
 				{
+					if(CellValue.GetType() == typeof(DataGridViewCheckBoxCell))
+					{
+						continue;
+					}
 					// If match is found, set matchFoundInCell to true;
 					if (CellValue.Value.ToString().ToLower().Contains(SearchString.ToLower()))
 					{
