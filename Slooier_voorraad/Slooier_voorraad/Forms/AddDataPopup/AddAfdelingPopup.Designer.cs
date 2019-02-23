@@ -28,40 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAfdelingPopup));
-			this.PboxLogo = new System.Windows.Forms.PictureBox();
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// PboxLogo
-			// 
-			this.PboxLogo.BackColor = System.Drawing.Color.White;
-			this.PboxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PboxLogo.BackgroundImage")));
-			this.PboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
-			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(800, 108);
-			this.PboxLogo.TabIndex = 6;
-			this.PboxLogo.TabStop = false;
 			// 
 			// AddAfdelingPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.PboxLogo);
+			this.ClientSize = new System.Drawing.Size(899, 482);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "AddAfdelingPopup";
-			this.Text = "AddAfdelingPopup";
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Afdeling toevoegen";
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.PictureBox PboxLogo;
 	}
 }
