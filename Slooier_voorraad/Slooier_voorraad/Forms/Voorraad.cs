@@ -52,6 +52,7 @@ namespace Slooier_voorraad.Forms
 			{
 				column.ReadOnly = true;
 			}
+			DgvVoorraad.Columns["Bestellen"].ReadOnly = false;
 		}
 
 
