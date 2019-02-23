@@ -173,8 +173,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 				FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
 			}
 		}
-
-
+		
 		private void TxbPrijs_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			// Is the key pressed an number or a comma?
@@ -213,6 +212,15 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+		}
+
+		private void AddItemPopup_Load(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
+			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 	}
 }

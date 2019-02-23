@@ -260,6 +260,7 @@ namespace Slooier_voorraad
 		{
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
+			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
 		private void BestelScreen_SizeChanged(object sender, EventArgs e)

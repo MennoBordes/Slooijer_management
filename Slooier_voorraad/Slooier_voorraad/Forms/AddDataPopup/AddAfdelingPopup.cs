@@ -10,5 +10,10 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			InitializeComponent();
 			this.ConnString = ConnString;
 		}
+
+		private void AddAfdelingPopup_Load(object sender, System.EventArgs e)
+		{
+			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
 	}
 }

@@ -196,6 +196,7 @@ namespace Slooier_voorraad.Forms
 			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
 		private void BtnAddItems_Click(object sender, EventArgs e)

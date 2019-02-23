@@ -39,6 +39,7 @@
 			this.Name = "AddAfdelingPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Afdeling toevoegen";
+			this.Load += new System.EventHandler(this.AddAfdelingPopup_Load);
 			this.ResumeLayout(false);
 
 		}

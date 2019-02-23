@@ -91,5 +91,9 @@ namespace Slooier_voorraad
 				popup.Show();
 			}
 		}
+		private void NewStartingScreen_Load(object sender, EventArgs e)
+		{
+			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
 	}
 }

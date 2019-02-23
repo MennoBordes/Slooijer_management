@@ -6,7 +6,7 @@
       <Value Profile="(Default)">maximized</Value>
     </Setting>
     <Setting Name="BackGroundColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
+      <Value Profile="(Default)">Gainsboro</Value>
     </Setting>
     <Setting Name="Server" Type="System.String" Scope="User">
       <Value Profile="(Default)">localhost</Value>

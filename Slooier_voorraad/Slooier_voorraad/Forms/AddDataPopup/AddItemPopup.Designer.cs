@@ -28,10 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddItemPopup));
 			this.CbbBenaming = new System.Windows.Forms.ComboBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.PboxLogo = new System.Windows.Forms.PictureBox();
+			this.LblMain = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.TxbNummer = new System.Windows.Forms.TextBox();
@@ -43,12 +41,11 @@
 			this.label6 = new System.Windows.Forms.Label();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.PMain = new System.Windows.Forms.Panel();
-			this.FlpMain = new System.Windows.Forms.FlowLayoutPanel();
 			this.PSecundary = new System.Windows.Forms.Panel();
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
+			this.FlpMain = new System.Windows.Forms.FlowLayoutPanel();
 			this.PMain.SuspendLayout();
-			this.FlpMain.SuspendLayout();
 			this.PSecundary.SuspendLayout();
+			this.FlpMain.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// CbbBenaming
@@ -61,30 +58,16 @@
 			this.CbbBenaming.TabIndex = 1;
 			this.CbbBenaming.Text = "Afdeling:";
 			// 
-			// label1
+			// LblMain
 			// 
-			this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(222, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(461, 16);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Hier kan één item per keer toegevoegd worden aan de Database.";
-			// 
-			// PboxLogo
-			// 
-			this.PboxLogo.BackColor = System.Drawing.Color.White;
-			this.PboxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PboxLogo.BackgroundImage")));
-			this.PboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
-			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(880, 108);
-			this.PboxLogo.TabIndex = 5;
-			this.PboxLogo.TabStop = false;
+			this.LblMain.Dock = System.Windows.Forms.DockStyle.Top;
+			this.LblMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblMain.Location = new System.Drawing.Point(0, 0);
+			this.LblMain.Name = "LblMain";
+			this.LblMain.Size = new System.Drawing.Size(470, 16);
+			this.LblMain.TabIndex = 2;
+			this.LblMain.Text = "Hier kan één item per keer toegevoegd worden aan de Database.";
+			this.LblMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// label2
 			// 
@@ -177,12 +160,21 @@
 			// PMain
 			// 
 			this.PMain.Controls.Add(this.PSecundary);
-			this.PMain.Controls.Add(this.label1);
+			this.PMain.Controls.Add(this.LblMain);
 			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PMain.Location = new System.Drawing.Point(0, 108);
+			this.PMain.Location = new System.Drawing.Point(0, 0);
 			this.PMain.Name = "PMain";
-			this.PMain.Size = new System.Drawing.Size(880, 399);
+			this.PMain.Size = new System.Drawing.Size(470, 366);
 			this.PMain.TabIndex = 15;
+			// 
+			// PSecundary
+			// 
+			this.PSecundary.Controls.Add(this.FlpMain);
+			this.PSecundary.Controls.Add(this.BtnAddToDb);
+			this.PSecundary.Location = new System.Drawing.Point(165, 35);
+			this.PSecundary.Name = "PSecundary";
+			this.PSecundary.Size = new System.Drawing.Size(179, 319);
+			this.PSecundary.TabIndex = 16;
 			// 
 			// FlpMain
 			// 
@@ -202,42 +194,32 @@
 			this.FlpMain.Size = new System.Drawing.Size(179, 296);
 			this.FlpMain.TabIndex = 15;
 			// 
-			// PSecundary
-			// 
-			this.PSecundary.Controls.Add(this.FlpMain);
-			this.PSecundary.Controls.Add(this.BtnAddToDb);
-			this.PSecundary.Location = new System.Drawing.Point(337, 37);
-			this.PSecundary.Name = "PSecundary";
-			this.PSecundary.Size = new System.Drawing.Size(179, 319);
-			this.PSecundary.TabIndex = 16;
-			// 
 			// AddItemPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(880, 507);
+			this.ClientSize = new System.Drawing.Size(470, 366);
 			this.Controls.Add(this.PMain);
-			this.Controls.Add(this.PboxLogo);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "AddItemPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Item toevoegen";
+			this.Load += new System.EventHandler(this.AddItemPopup_Load);
 			this.Shown += new System.EventHandler(this.AddItemPopup_Shown);
 			this.SizeChanged += new System.EventHandler(this.AddItemPopup_SizeChanged);
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.PMain.ResumeLayout(false);
-			this.PMain.PerformLayout();
+			this.PSecundary.ResumeLayout(false);
 			this.FlpMain.ResumeLayout(false);
 			this.FlpMain.PerformLayout();
-			this.PSecundary.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 		private System.Windows.Forms.ComboBox CbbBenaming;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.PictureBox PboxLogo;
+		private System.Windows.Forms.Label LblMain;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox TxbNummer;
