@@ -101,11 +101,5 @@ namespace Slooier_voorraad
 			Properties.Settings.Default.PY = Location.Y;
 			Properties.Settings.Default.Save();
 		}
-
-		private void button1_Click(object sender, EventArgs e)
-		{
-			DefaultForm form = new DefaultForm(ConnString);
-			form.Show();
-		}
 	}
 }
