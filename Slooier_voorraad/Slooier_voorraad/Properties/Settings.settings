@@ -24,10 +24,10 @@
       <Value Profile="(Default)">2761</Value>
     </Setting>
     <Setting Name="PX" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">800</Value>
     </Setting>
     <Setting Name="PY" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">200</Value>
     </Setting>
     <Setting Name="MinimumSizeX" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">800</Value>

@@ -109,7 +109,7 @@ namespace Slooier_voorraad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
         public int PX {
             get {
                 return ((int)(this["PX"]));
@@ -121,7 +121,7 @@ namespace Slooier_voorraad.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
         public int PY {
             get {
                 return ((int)(this["PY"]));
