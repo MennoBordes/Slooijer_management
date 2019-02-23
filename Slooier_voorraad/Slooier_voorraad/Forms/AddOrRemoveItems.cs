@@ -3,6 +3,7 @@ using Npgsql;
 using Slooier_voorraad.Classes;
 using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
+using Slooier_voorraad.Forms.AddDataPopup;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -181,20 +182,6 @@ namespace Slooier_voorraad.Forms
 			gridView.Refresh();
 		}
 
-		private void BtnAddOwnData_Click(object sender, EventArgs e)
-		{
-			AddItemPopup Popup = new AddItemPopup(ConnString);
-			Enabled = false;
-			LblDeactive.Visible = true;
-			Popup.FormClosed += Popup_FormClosed;
-			Popup.Show();
-		}
-		private void Popup_FormClosed(object sender, FormClosedEventArgs e)
-		{
-			LblDeactive.Visible = false;
-			Enabled = true;
-		}
-
 		private void AddOrRemoveItems_SizeChanged(object sender, EventArgs e)
 		{
 			// Set panels to center of the Form
@@ -209,6 +196,30 @@ namespace Slooier_voorraad.Forms
 			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+		}
+
+		private void BtnAddItems_Click(object sender, EventArgs e)
+		{
+			AddItemPopup Popup = new AddItemPopup(ConnString);
+			Enabled = false;
+			LblDeactive.Visible = true;
+			Popup.FormClosed += Popup_FormClosed;
+			Popup.Show();
+		}
+
+		private void Popup_FormClosed(object sender, FormClosedEventArgs e)
+		{
+			LblDeactive.Visible = false;
+			Enabled = true;
+		}
+
+		private void BtnAddAfdeling_Click(object sender, EventArgs e)
+		{
+			AddAfdelingPopup Popup = new AddAfdelingPopup(ConnString);
+			Enabled = false;
+			LblDeactive.Visible = true;
+			Popup.FormClosed += Popup_FormClosed;
+			Popup.Show();
 		}
 	}
 }

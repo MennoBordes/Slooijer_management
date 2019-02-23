@@ -1,4 +1,4 @@
-﻿namespace Slooier_voorraad.Forms
+﻿namespace Slooier_voorraad.Forms.AddDataPopup
 {
 	partial class AddItemPopup
 	{

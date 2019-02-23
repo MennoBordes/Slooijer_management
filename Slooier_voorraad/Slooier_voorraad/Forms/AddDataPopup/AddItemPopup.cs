@@ -5,7 +5,7 @@ using System;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace Slooier_voorraad.Forms
+namespace Slooier_voorraad.Forms.AddDataPopup
 {
 	public partial class AddItemPopup : Form
 	{

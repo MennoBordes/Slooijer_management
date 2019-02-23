@@ -33,9 +33,10 @@
 			this.BtnAddFileToDb = new System.Windows.Forms.Button();
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.BtnAddOwnData = new System.Windows.Forms.Button();
+			this.BtnAddItems = new System.Windows.Forms.Button();
 			this.PMain = new System.Windows.Forms.Panel();
 			this.LblDeactive = new System.Windows.Forms.Label();
+			this.BtnAddAfdeling = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			this.groupBox1.SuspendLayout();
@@ -90,21 +91,22 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Huidige gegevens";
 			// 
-			// BtnAddOwnData
+			// BtnAddItems
 			// 
-			this.BtnAddOwnData.Location = new System.Drawing.Point(751, 22);
-			this.BtnAddOwnData.Name = "BtnAddOwnData";
-			this.BtnAddOwnData.Size = new System.Drawing.Size(122, 23);
-			this.BtnAddOwnData.TabIndex = 21;
-			this.BtnAddOwnData.Text = "Items los toevoegen";
-			this.BtnAddOwnData.UseVisualStyleBackColor = true;
-			this.BtnAddOwnData.Click += new System.EventHandler(this.BtnAddOwnData_Click);
+			this.BtnAddItems.Location = new System.Drawing.Point(751, 51);
+			this.BtnAddItems.Name = "BtnAddItems";
+			this.BtnAddItems.Size = new System.Drawing.Size(122, 23);
+			this.BtnAddItems.TabIndex = 21;
+			this.BtnAddItems.Text = "Items toevoegen";
+			this.BtnAddItems.UseVisualStyleBackColor = true;
+			this.BtnAddItems.Click += new System.EventHandler(this.BtnAddItems_Click);
 			// 
 			// PMain
 			// 
+			this.PMain.Controls.Add(this.BtnAddAfdeling);
 			this.PMain.Controls.Add(this.groupBox1);
 			this.PMain.Controls.Add(this.BtnAddFileToDb);
-			this.PMain.Controls.Add(this.BtnAddOwnData);
+			this.PMain.Controls.Add(this.BtnAddItems);
 			this.PMain.Location = new System.Drawing.Point(0, 111);
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(956, 429);
@@ -122,6 +124,16 @@
 			this.LblDeactive.TabIndex = 20;
 			this.LblDeactive.Text = "Let op: Sluit het andere scherm om weer gebruik te maken van dit scherm";
 			this.LblDeactive.Visible = false;
+			// 
+			// BtnAddAfdeling
+			// 
+			this.BtnAddAfdeling.Location = new System.Drawing.Point(751, 22);
+			this.BtnAddAfdeling.Name = "BtnAddAfdeling";
+			this.BtnAddAfdeling.Size = new System.Drawing.Size(122, 23);
+			this.BtnAddAfdeling.TabIndex = 22;
+			this.BtnAddAfdeling.Text = "Afdeling toevoegen";
+			this.BtnAddAfdeling.UseVisualStyleBackColor = true;
+			this.BtnAddAfdeling.Click += new System.EventHandler(this.BtnAddAfdeling_Click);
 			// 
 			// AddOrRemoveItems
 			// 
@@ -153,8 +165,9 @@
 		private System.Windows.Forms.Button BtnAddFileToDb;
 		private System.Windows.Forms.DataGridView DgvData;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button BtnAddOwnData;
+		private System.Windows.Forms.Button BtnAddItems;
 		private System.Windows.Forms.Panel PMain;
 		private System.Windows.Forms.Label LblDeactive;
+		private System.Windows.Forms.Button BtnAddAfdeling;
 	}
 }
