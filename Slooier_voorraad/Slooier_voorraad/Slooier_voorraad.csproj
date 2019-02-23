@@ -122,12 +122,6 @@
     <Compile Include="Forms\BestelScreen.Designer.cs">
       <DependentUpon>BestelScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DefaultForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\DefaultForm.Designer.cs">
-      <DependentUpon>DefaultForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\SettingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,9 +159,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BestelScreen.resx">
       <DependentUpon>BestelScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DefaultForm.resx">
-      <DependentUpon>DefaultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
