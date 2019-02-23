@@ -86,7 +86,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 				clone.NumberFormat.NumberDecimalSeparator = ",";
 				clone.NumberFormat.NumberGroupSeparator = ".";
 				string value = TxbPrijs.Text;
-				decimal Prijs = decimal.Parse(value, clone);
+				double Prijs = double.Parse(value, clone);
 
 				double Voorraad = 0;
 				if (TxbVoorraad.Text.Length > 0)
@@ -149,7 +149,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 								cmd.Parameters.Add(ParVoo);
 								var ParAfd = new NpgsqlParameter("AfdelingId", NpgsqlDbType.Integer) { Value = AfdelingId };
 								cmd.Parameters.Add(ParAfd);
-								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Integer) { Value = Prijs };
+								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = Prijs };
 								cmd.Parameters.Add(ParPri);
 								cmd.Prepare();
 								cmd.ExecuteNonQuery();
