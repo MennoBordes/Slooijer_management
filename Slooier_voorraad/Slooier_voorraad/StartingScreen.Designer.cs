@@ -35,8 +35,8 @@
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.BtnPdFTester = new System.Windows.Forms.Button();
 			this.PButtons = new System.Windows.Forms.Panel();
-			this.PMain = new System.Windows.Forms.Panel();
 			this.BtnSettings = new System.Windows.Forms.Button();
+			this.PMain = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.PButtons.SuspendLayout();
 			this.PMain.SuspendLayout();
@@ -108,15 +108,6 @@
 			this.PButtons.Size = new System.Drawing.Size(225, 226);
 			this.PButtons.TabIndex = 5;
 			// 
-			// PMain
-			// 
-			this.PMain.Controls.Add(this.PButtons);
-			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PMain.Location = new System.Drawing.Point(0, 108);
-			this.PMain.Name = "PMain";
-			this.PMain.Size = new System.Drawing.Size(800, 342);
-			this.PMain.TabIndex = 6;
-			// 
 			// BtnSettings
 			// 
 			this.BtnSettings.Location = new System.Drawing.Point(0, 175);
@@ -126,6 +117,15 @@
 			this.BtnSettings.Text = "Instellingen";
 			this.BtnSettings.UseVisualStyleBackColor = true;
 			this.BtnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
+			// 
+			// PMain
+			// 
+			this.PMain.Controls.Add(this.PButtons);
+			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.PMain.Location = new System.Drawing.Point(0, 108);
+			this.PMain.Name = "PMain";
+			this.PMain.Size = new System.Drawing.Size(800, 342);
+			this.PMain.TabIndex = 6;
 			// 
 			// StartingScreen
 			// 
@@ -137,7 +137,6 @@
 			this.Name = "StartingScreen";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "StartingScreen";
-			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.Load += new System.EventHandler(this.StartingScreen_Load);
 			this.SizeChanged += new System.EventHandler(this.StartingScreen_SizeChanged);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
