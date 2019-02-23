@@ -6,7 +6,7 @@ namespace Slooier_voorraad.Classes
 	{
 		[Browsable(false)]
 		public int Id { get; set; }
-		[Browsable(false)]
+		//[Browsable(false)]
 		public bool Bestellen { get; set; }
 		public string Benaming { get; set; }
 		public string Nummer { get; set; }
