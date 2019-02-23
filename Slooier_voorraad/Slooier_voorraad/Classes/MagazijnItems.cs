@@ -12,7 +12,7 @@ namespace Slooier_voorraad.Classes
 		public string Nummer { get; set; }
 		public string Omschrijving { get; set; }
 		public int Voorraad { get; set; }
-		[Browsable(false)]
+		//[Browsable(false)]
 		public double Prijs { get; set; }
 	}
 }

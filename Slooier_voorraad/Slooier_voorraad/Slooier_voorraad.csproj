@@ -203,6 +203,7 @@
     <None Include="Voorbeeld_Data\TrialData - Copy.csv" />
     <None Include="Voorbeeld_Data\TrialData.csv" />
     <None Include="Voorbeeld_Data\TrialData.xlsx" />
+    <None Include="Voorbeeld_Data\TrialDataV2.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

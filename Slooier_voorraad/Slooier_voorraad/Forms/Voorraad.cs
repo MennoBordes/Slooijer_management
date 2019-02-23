@@ -132,6 +132,7 @@ namespace Slooier_voorraad.Forms
 				// Iterate through each cell of current row (RowIndex) and check for a match
 				foreach (DataGridViewCell CellValue in DgvVoorraad.Rows[RowIndex].Cells)
 				{
+					// Ignore checkboxes
 					if(CellValue.GetType() == typeof(DataGridViewCheckBoxCell))
 					{
 						continue;
