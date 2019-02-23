@@ -22,6 +22,7 @@ namespace Slooier_voorraad.Forms
 		{
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
+			Location = new System.Drawing.Point(Properties.Settings.Default.PX, Properties.Settings.Default.PY);
 		}
 	}
 }
