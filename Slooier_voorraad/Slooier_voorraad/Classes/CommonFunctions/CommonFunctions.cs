@@ -21,7 +21,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 					{
 						cmd.Connection = conn;
 						cmd.CommandText = string.Format("SELECT voorraad.id, afdelingnaam, nummer, omschrijving, voorraad, prijs " +
-													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id);");
+													"FROM voorraad INNER JOIN afdelingen ON (voorraad.afdeling = afdelingen.id) ORDER BY afdelingnaam, omschrijving;");
 
 						using (var reader = cmd.ExecuteReader())
 						{
