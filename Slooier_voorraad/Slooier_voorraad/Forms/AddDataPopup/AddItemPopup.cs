@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using NpgsqlTypes;
+using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Globalization;
@@ -204,6 +205,14 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			{
 				e.Handled = true;
 			}
+		}
+
+		private void AddItemPopup_SizeChanged(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
+			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
 		}
 	}
 }
