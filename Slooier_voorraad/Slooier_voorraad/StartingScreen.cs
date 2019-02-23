@@ -77,13 +77,29 @@ namespace Slooier_voorraad
 
 		private void StartingScreen_Load(object sender, EventArgs e)
 		{
+			//this.CenterToScreen();
 			// Set minimumsize
 			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
 			// Set default location
-			Location = new System.Drawing.Point(Properties.Settings.Default.PX, Properties.Settings.Default.PY);
+			CenterFormToScreen();
+			//Location = new System.Drawing.Point(Properties.Settings.Default.PX, Properties.Settings.Default.PY);
 			// Set panel locations
 			CommonFunctions.SetPanelDimensions(PButtons, PMain);
 			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
+		protected void CenterFormToScreen()
+		{
+			Screen screen = Screen.FromControl(this);
+
+			System.Drawing.Rectangle workingArea = screen.WorkingArea;
+			Location = new System.Drawing.Point()
+			{
+				X = Math.Max(workingArea.X, workingArea.X + (workingArea.Width - Width) / 2),
+				Y = Math.Max(workingArea.Y, workingArea.Y + (workingArea.Height - Height) / 2)
+			};
+			Properties.Settings.Default.PX = Location.X;
+			Properties.Settings.Default.PY = Location.Y;
+			Properties.Settings.Default.Save();
 		}
 
 
