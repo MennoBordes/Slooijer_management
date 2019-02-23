@@ -91,9 +91,37 @@ namespace Slooier_voorraad
 				popup.Show();
 			}
 		}
+
+		private void bestandToevoegenToolStripMenuItem1_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private void NewStartingScreen_Load(object sender, EventArgs e)
 		{
 			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
+
+		private void voorraadBekijkenToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			bool IsOpen = false;
+			foreach (Form f in Application.OpenForms)
+			{
+				if (f.Text == "Voorraad")
+				{
+					IsOpen = true;
+					f.Focus();
+					break;
+				}
+			}
+			if (!IsOpen)
+			{
+				Voorraad popup = new Voorraad(ConnString)
+				{
+					MdiParent = this
+				};
+				popup.Show();
+			}
 		}
 	}
 }

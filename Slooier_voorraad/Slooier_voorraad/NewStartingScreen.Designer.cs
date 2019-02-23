@@ -44,6 +44,7 @@
 			this.artikelAanpassenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.afdelingAanpassenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.artikelVerwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.voorraadBekijkenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.MenuBar.SuspendLayout();
 			this.SuspendLayout();
@@ -76,6 +77,8 @@
 			// 
 			// menuToolStripMenuItem
 			// 
+			this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.voorraadBekijkenToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
 			this.menuToolStripMenuItem.Text = "&Voorraad";
@@ -135,6 +138,7 @@
 			this.bestandToevoegenToolStripMenuItem1.Name = "bestandToevoegenToolStripMenuItem1";
 			this.bestandToevoegenToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.bestandToevoegenToolStripMenuItem1.Text = "Bestand  toevoegen";
+			this.bestandToevoegenToolStripMenuItem1.Click += new System.EventHandler(this.bestandToevoegenToolStripMenuItem1_Click);
 			// 
 			// afdelingToevoegenToolStripMenuItem1
 			// 
@@ -168,6 +172,13 @@
 			this.artikelVerwijderenToolStripMenuItem.Name = "artikelVerwijderenToolStripMenuItem";
 			this.artikelVerwijderenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.artikelVerwijderenToolStripMenuItem.Text = "Artikel verwijderen";
+			// 
+			// voorraadBekijkenToolStripMenuItem
+			// 
+			this.voorraadBekijkenToolStripMenuItem.Name = "voorraadBekijkenToolStripMenuItem";
+			this.voorraadBekijkenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.voorraadBekijkenToolStripMenuItem.Text = "Voorraad bekijken";
+			this.voorraadBekijkenToolStripMenuItem.Click += new System.EventHandler(this.voorraadBekijkenToolStripMenuItem_Click);
 			// 
 			// NewStartingScreen
 			// 
@@ -207,5 +218,6 @@
 		private System.Windows.Forms.ToolStripMenuItem afdelingAanpassenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem verwijderenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem artikelVerwijderenToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem voorraadBekijkenToolStripMenuItem;
 	}
 }
