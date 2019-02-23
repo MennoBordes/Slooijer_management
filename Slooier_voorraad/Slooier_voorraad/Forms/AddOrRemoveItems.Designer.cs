@@ -29,33 +29,19 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrRemoveItems));
-			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.BtnAddFileToDb = new System.Windows.Forms.Button();
 			this.DgvData = new System.Windows.Forms.DataGridView();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.BtnAddItems = new System.Windows.Forms.Button();
 			this.PMain = new System.Windows.Forms.Panel();
-			this.LblDeactive = new System.Windows.Forms.Label();
 			this.BtnAddAfdeling = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
+			this.LblDeactive = new System.Windows.Forms.Label();
+			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).BeginInit();
 			this.groupBox1.SuspendLayout();
 			this.PMain.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// PboxLogo
-			// 
-			this.PboxLogo.BackColor = System.Drawing.Color.White;
-			this.PboxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PboxLogo.BackgroundImage")));
-			this.PboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
-			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(959, 108);
-			this.PboxLogo.TabIndex = 4;
-			this.PboxLogo.TabStop = false;
 			// 
 			// BtnAddFileToDb
 			// 
@@ -112,6 +98,16 @@
 			this.PMain.Size = new System.Drawing.Size(956, 429);
 			this.PMain.TabIndex = 22;
 			// 
+			// BtnAddAfdeling
+			// 
+			this.BtnAddAfdeling.Location = new System.Drawing.Point(751, 22);
+			this.BtnAddAfdeling.Name = "BtnAddAfdeling";
+			this.BtnAddAfdeling.Size = new System.Drawing.Size(122, 23);
+			this.BtnAddAfdeling.TabIndex = 22;
+			this.BtnAddAfdeling.Text = "Afdeling toevoegen";
+			this.BtnAddAfdeling.UseVisualStyleBackColor = true;
+			this.BtnAddAfdeling.Click += new System.EventHandler(this.BtnAddAfdeling_Click);
+			// 
 			// LblDeactive
 			// 
 			this.LblDeactive.AutoSize = true;
@@ -125,15 +121,19 @@
 			this.LblDeactive.Text = "Let op: Sluit het andere scherm om weer gebruik te maken van dit scherm";
 			this.LblDeactive.Visible = false;
 			// 
-			// BtnAddAfdeling
+			// PboxLogo
 			// 
-			this.BtnAddAfdeling.Location = new System.Drawing.Point(751, 22);
-			this.BtnAddAfdeling.Name = "BtnAddAfdeling";
-			this.BtnAddAfdeling.Size = new System.Drawing.Size(122, 23);
-			this.BtnAddAfdeling.TabIndex = 22;
-			this.BtnAddAfdeling.Text = "Afdeling toevoegen";
-			this.BtnAddAfdeling.UseVisualStyleBackColor = true;
-			this.BtnAddAfdeling.Click += new System.EventHandler(this.BtnAddAfdeling_Click);
+			this.PboxLogo.BackColor = System.Drawing.Color.White;
+			this.PboxLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PboxLogo.BackgroundImage")));
+			this.PboxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.PboxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Top;
+			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
+			this.PboxLogo.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+			this.PboxLogo.Name = "PboxLogo";
+			this.PboxLogo.Size = new System.Drawing.Size(959, 108);
+			this.PboxLogo.TabIndex = 4;
+			this.PboxLogo.TabStop = false;
 			// 
 			// AddOrRemoveItems
 			// 
@@ -150,18 +150,16 @@
 			this.Load += new System.EventHandler(this.AddOrRemoveItems_Load);
 			this.Shown += new System.EventHandler(this.AddOrRemoveItems_Shown);
 			this.SizeChanged += new System.EventHandler(this.AddOrRemoveItems_SizeChanged);
-			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DgvData)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.PMain.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.PictureBox PboxLogo;
 		private System.Windows.Forms.Button BtnAddFileToDb;
 		private System.Windows.Forms.DataGridView DgvData;
 		private System.Windows.Forms.GroupBox groupBox1;
@@ -169,5 +167,6 @@
 		private System.Windows.Forms.Panel PMain;
 		private System.Windows.Forms.Label LblDeactive;
 		private System.Windows.Forms.Button BtnAddAfdeling;
+		private System.Windows.Forms.PictureBox PboxLogo;
 	}
 }
