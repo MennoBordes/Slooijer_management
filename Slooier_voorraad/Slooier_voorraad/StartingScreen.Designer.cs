@@ -37,6 +37,7 @@
 			this.PButtons = new System.Windows.Forms.Panel();
 			this.BtnSettings = new System.Windows.Forms.Button();
 			this.PMain = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.PButtons.SuspendLayout();
 			this.PMain.SuspendLayout();
@@ -98,6 +99,7 @@
 			// 
 			// PButtons
 			// 
+			this.PButtons.Controls.Add(this.button1);
 			this.PButtons.Controls.Add(this.BtnSettings);
 			this.PButtons.Controls.Add(this.BtnAddOrRemove);
 			this.PButtons.Controls.Add(this.BtnPdFTester);
@@ -126,6 +128,16 @@
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(800, 342);
 			this.PMain.TabIndex = 6;
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(75, 204);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 6;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// StartingScreen
 			// 
@@ -156,5 +168,6 @@
 		private System.Windows.Forms.Panel PButtons;
 		private System.Windows.Forms.Panel PMain;
 		private System.Windows.Forms.Button BtnSettings;
+		private System.Windows.Forms.Button button1;
 	}
 }
