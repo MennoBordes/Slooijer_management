@@ -139,8 +139,6 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 							string queryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
 							using (var cmd = new NpgsqlCommand(queryInsert, conn))
 							{
-								// TODO
-								// GAAT NOT NIET HELEMAAL LEKKER
 								var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = Nummer };
 								cmd.Parameters.Add(ParNum);
 								var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = Omschrijving };
@@ -164,7 +162,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 					}
 					catch (Exception ex)
 					{
-						FlexibleMessageBox.Show("OEPS\n" + ex.Message, "ER IS IETS FOUT GEGAAN!");
+						FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
 					}
 				}
 			}
