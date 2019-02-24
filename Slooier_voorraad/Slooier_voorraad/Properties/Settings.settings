@@ -35,5 +35,8 @@
     <Setting Name="MinimumSizeY" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">600</Value>
     </Setting>
+    <Setting Name="InitialDir" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

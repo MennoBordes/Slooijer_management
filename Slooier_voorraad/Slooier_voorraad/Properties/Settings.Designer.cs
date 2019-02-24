@@ -154,5 +154,17 @@ namespace Slooier_voorraad.Properties {
                 this["MinimumSizeY"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\\\")]
+        public string InitialDir {
+            get {
+                return ((string)(this["InitialDir"]));
+            }
+            set {
+                this["InitialDir"] = value;
+            }
+        }
     }
 }
