@@ -95,8 +95,36 @@ namespace Slooier_voorraad
 
 		private void bestandToevoegenToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-
+      using (OpenFileDialog FileReader = new OpenFileDialog())
+      {
+        FileReader.InitialDirectory = Properties.Settings.Default.InitialDir;
+        FileReader.Filter = "csv files(*.csv)|*.csv";
+        FileReader.RestoreDirectory = true;
+        if(FileReader.ShowDialog() == DialogResult.OK)
+        {
+          var added = AddDataToExistingDB(FileReader.FileName);
+        }
+        else
+        {
+          string text = "Er was geen bestand geselecteerd,\nProbeer het alstublieft opnieuw.";
+          string header = "Geen bestand geselecteerd!";
+          FlexibleMessageBox.Show(text, header);
+        }
+      }
 		}
+
+    private List<string> AddDataToExistingDB(string FilePath)
+    {
+      List<string> addedData = new List<string>();
+      try
+      {
+      }
+      catch (Exception ex)
+      {
+        FlexibleMessageBox.Show(ex.Message);
+      }
+      return addedData;
+    }
 
 		private void NewStartingScreen_Load(object sender, EventArgs e)
 		{
@@ -109,24 +137,24 @@ namespace Slooier_voorraad
 
 		private void voorraadBekijkenToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Voorraad")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				Voorraad popup = new Voorraad(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
-		}
+      bool IsOpen = false;
+      foreach (Form f in Application.OpenForms)
+      {
+        if (f.Text == "Voorraad")
+        {
+          IsOpen = true;
+          f.Focus();
+          break;
+        }
+      }
+      if (!IsOpen)
+      {
+        Voorraad popup = new Voorraad(ConnString)
+        {
+          MdiParent = this
+        };
+        popup.Show();
+      }
+    }
 	}
 }
