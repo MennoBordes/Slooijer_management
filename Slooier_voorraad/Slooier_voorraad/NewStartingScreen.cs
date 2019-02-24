@@ -1,6 +1,7 @@
 ﻿using Slooier_voorraad.Forms;
 using Slooier_voorraad.Forms.AddDataPopup;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad
@@ -100,6 +101,10 @@ namespace Slooier_voorraad
 		private void NewStartingScreen_Load(object sender, EventArgs e)
 		{
 			BackColor = Properties.Settings.Default.BackGroundColor;
+      this.MenuBar.Items.OfType<ToolStripMenuItem>().ToList().ForEach(x =>
+      {
+        x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
+      });
 		}
 
 		private void voorraadBekijkenToolStripMenuItem_Click(object sender, EventArgs e)
