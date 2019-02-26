@@ -18,3 +18,11 @@ Bestel optie creëeren, uitbreiden met PDF-generator
 Toegevoegde gegevens in AddOrRemoveItems weergeven
 
 Rij uit AddOrRemoveItems kunnen aanpassen en deze vervolgens opslaan in de DB
+
+
+
+Wanneer de voorraad onder een minimum komt, een melding geven dat de minimum voorraad is bereikt
+vervolgens een popup- weergeven, of dat het artikel besteld moet worden of genegeerd.
+tevens een maximum voorraad instellen voor het bestellen van artikelen, waar overheen gegaan kan worden indien de gebruiker dat aangeeft
+
+waneer aan het zoeken op artikelen alleen de gevonden resultaten weergeven, zodat het dicht bij elkaar zit en makkelijker te vinden is.
