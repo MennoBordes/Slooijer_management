@@ -75,7 +75,12 @@ namespace Slooier_voorraad.Forms
 			// Check the input
 			if (string.IsNullOrWhiteSpace(UserInput))
 			{
-				FlexibleMessageBox.Show("Geen waarde ingevuld om naar te zoeken!", "Ongeldige invoerwaarde!");
+				FlexibleMessageBox.Show("Geen waarde ingevuld om naar te zoeken!", "Ongeldige invoerwaarde!",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+				return;
+			}
+			if(UserInput.Length < 3)
+			{
+				FlexibleMessageBox.Show("De zoekopdracht is te kort.\nProbeer een langere zoekopdracht.", "Zoekopdracht Te Kort!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				return;
 			}
 
