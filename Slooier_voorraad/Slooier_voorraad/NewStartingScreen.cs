@@ -136,6 +136,23 @@ namespace Slooier_voorraad
 			}
 		}
 
+				using (NpgsqlConnection conn = new NpgsqlConnection(ConnString))
+				{
+					foreach (DataRow Rows in usableDataset.Rows)
+					{
+						foreach (var item in Rows.ItemArray)
+						{
+
+						}
+						Console.WriteLine(Rows);
+
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				FlexibleMessageBox.Show(ex.Message);
+			}
 		private DataSet ReadExcelFile(string FilePath)
 		{
 			using (var stream = File.Open(FilePath, FileMode.Open, FileAccess.Read))
