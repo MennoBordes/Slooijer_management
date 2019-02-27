@@ -133,7 +133,7 @@ namespace Slooier_voorraad.Forms
 				foreach (DataGridViewCell CellValue in DgvVoorraad.Rows[RowIndex].Cells)
 				{
 					// Ignore checkboxes
-					if(CellValue.GetType() == typeof(DataGridViewCheckBoxCell))
+					if (CellValue.GetType() == typeof(DataGridViewCheckBoxCell))
 					{
 						continue;
 					}
