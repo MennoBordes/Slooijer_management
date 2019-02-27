@@ -132,27 +132,169 @@ namespace Slooier_voorraad
 				if (FileReader.ShowDialog() == DialogResult.OK)
 				{
 					var ExcelDataFile = ReadExcelFile(FileReader.FileName);
+					var Added = AddExcelToDB(ExcelDataFile);
+					string message = $"Er zijn ({Added.Afdelingen}) afdelingen toegevoegd.\nEr zijn ({Added.Items}) items toegevoegd.";
+					string header = "Toegevoegd:";
+					FlexibleMessageBox.Show(message, header);
 				}
 			}
 		}
 
-				using (NpgsqlConnection conn = new NpgsqlConnection(ConnString))
+		private (int Afdelingen, int Items) AddExcelToDB(DataSet NewdataSet)
+		{
+			DataTable usableDataset = NewdataSet.Tables[0];
+			int AfdelingenAdded = 0;
+			int ItemsAdded = 0;
+			try
+			{
+				if (usableDataset.Columns.Count != 4 || usableDataset.TableName != "Artikelen" || usableDataset.Columns[0].ColumnName != "Benaming" || usableDataset.Columns[1].ColumnName != "Nummer" || usableDataset.Columns[2].ColumnName != "Omschrijving" || usableDataset.Columns[3].ColumnName != "Prijs")
 				{
-					foreach (DataRow Rows in usableDataset.Rows)
+					DialogResult result = FlexibleMessageBox.Show("Het geselecteerde Bestand voldoet niet aan de eisen!", "Verkeerd Bestand Gekozen", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+					if (result == DialogResult.Cancel)
 					{
-						foreach (var item in Rows.ItemArray)
-						{
-
-						}
-						Console.WriteLine(Rows);
-
+						return (0, 0);
+					}
+					else if (result == DialogResult.Retry)
+					{
+						TrialExcelReader();
 					}
 				}
-			}
+
+				using (NpgsqlConnection conn = new NpgsqlConnection(ConnString))
+				{
+					conn.Open();
+					string afdelingNaam = string.Empty;
+					bool currentAfdelingExists = false;
+					int CurrentAfdelingId = int.MinValue;
+					foreach (DataRow Rows in usableDataset.Rows)
+					{
+						// First check whether the afdeling given in the dataset already exists in the DB
+						string possibleNewAfdeling = Rows.ItemArray[0].ToString();
+						if (possibleNewAfdeling != "" && possibleNewAfdeling != afdelingNaam)
+						{
+							currentAfdelingExists = false;
+							CurrentAfdelingId = int.MinValue;
+							afdelingNaam = Rows.ItemArray[0].ToString().ToLower();
+							string command = "SELECT afdelingnaam, id FROM afdelingen WHERE afdelingnaam = @Afdelingnaam;";
+							using (NpgsqlCommand cmd = new NpgsqlCommand(command, conn))
+							{
+								var ParAfd = new NpgsqlParameter("Afdelingnaam", NpgsqlDbType.Text) { Value = afdelingNaam };
+								cmd.Parameters.Add(ParAfd);
+								cmd.Prepare();
+								using (var SqlReader = cmd.ExecuteReader())
+								{
+									while (SqlReader.Read())
+									{
+										if (SqlReader.GetString(0).ToLower() == afdelingNaam)
+										{
+											currentAfdelingExists = true;
+											CurrentAfdelingId = SqlReader.GetInt32(1);
+										}
+									}
+								}
+							}
+							// If the afdeling doesn't exist yet, add it
+							if (!currentAfdelingExists)
+							{
+								command = "INSERT INTO afdelingen(afdelingnaam) VALUES (@Afdelingnaam) RETURNING id;";
+								using (NpgsqlCommand cmd = new NpgsqlCommand(command, conn))
+								{
+									var ParAfd = new NpgsqlParameter("Afdelingnaam", NpgsqlDbType.Text)
+									{
+										Value = afdelingNaam
+									};
+									cmd.Parameters.Add(ParAfd);
+									cmd.Prepare();
+									cmd.ExecuteNonQuery();
+
+								}
+								// Get the row at which the new afdeling has been inserted
+
+								AfdelingenAdded++;
+							}
+						}
+						// Check if afdeling exists
+						string Tcommand = "SELECT afdelingnaam, id FROM afdelingen WHERE afdelingnaam = @Afdelingnaam;";
+						using (NpgsqlCommand cmd = new NpgsqlCommand(Tcommand, conn))
+						{
+							var ParAfd = new NpgsqlParameter("Afdelingnaam", NpgsqlDbType.Text) { Value = afdelingNaam };
+							cmd.Parameters.Add(ParAfd);
+							cmd.Prepare();
+							using (var SqlReader = cmd.ExecuteReader())
+							{
+								while (SqlReader.Read())
+								{
+									if (SqlReader.GetString(0).ToLower() == afdelingNaam)
+									{
+										currentAfdelingExists = true;
+										CurrentAfdelingId = SqlReader.GetInt32(1);
+									}
+								}
+							}
+						}
+						// Check whether the row contains a number for the item
+						bool CurrentItemExists = false;
+						string Nummer = Rows.ItemArray[1].ToString();
+						string Omschrijving = Rows.ItemArray[2].ToString();
+						if (Nummer != "" || Omschrijving != "")
+						{
+							string command = "SELECT nummer, omschrijving FROM voorraad WHERE nummer = @Nummer AND omschrijving = @Omschrijving;";
+							using (NpgsqlCommand cmd = new NpgsqlCommand(command, conn))
+							{
+								var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text)
+								{
+									Value = Nummer
+								};
+								var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text)
+								{
+									Value = Omschrijving
+								};
+								cmd.Parameters.Add(ParNum);
+								cmd.Parameters.Add(ParOms);
+								cmd.Prepare();
+								using (var SqlReader = cmd.ExecuteReader())
+								{
+									while (SqlReader.Read())
+									{
+										CurrentItemExists = true;
+									}
+								}
+							}
+							if (!CurrentItemExists)
+							{
+								string ItemOmschrijving = Rows.ItemArray[2].ToString();
+								int ItemVoorraad = 0;
+								double temp = 0.0;
+								double Prijs = GetDouble(Rows.ItemArray[3].ToString(), temp);
+								command = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES(@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
+								using (NpgsqlCommand cmd = new NpgsqlCommand(command, conn))
+								{
+									var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = Nummer };
+									cmd.Parameters.Add(ParNum);
+									var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = ItemOmschrijving };
+									cmd.Parameters.Add(ParOms);
+									var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = ItemVoorraad };
+									cmd.Parameters.Add(ParVoo);
+									var ParAfd = new NpgsqlParameter("AfdelingId", NpgsqlDbType.Integer) { Value = CurrentAfdelingId };
+									cmd.Parameters.Add(ParAfd);
+									var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = Prijs };
+									cmd.Parameters.Add(ParPri);
+									cmd.Prepare();
+									cmd.ExecuteNonQuery();
+								}
+								ItemsAdded++;
+							}
+						}
+					} // Foreach Row
+				} // DB connection
+			} // Try
 			catch (Exception ex)
 			{
 				FlexibleMessageBox.Show(ex.Message);
 			}
+			return (AfdelingenAdded, ItemsAdded);
+		}
+
 		private DataSet ReadExcelFile(string FilePath)
 		{
 			using (var stream = File.Open(FilePath, FileMode.Open, FileAccess.Read))
