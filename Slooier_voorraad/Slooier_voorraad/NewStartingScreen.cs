@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using NpgsqlTypes;
+﻿using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using Slooier_voorraad.Classes.StartingScreenFunctions;
 using Slooier_voorraad.Forms;
@@ -34,33 +35,9 @@ namespace Slooier_voorraad
 				x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
 			});
 
-			CheckDBConnection(ConnString);
+			Properties.Settings.Default.DBConnectionValid = CommonFunctions.CheckDBConnection(ConnString);
 		}
-
 		#endregion
-
-		private void CheckDBConnection(string ConnectionString)
-		{
-			try
-			{
-				using(var conn = new NpgsqlConnection(ConnectionString))
-				{
-					conn.Open();
-				}
-			}
-			catch (NpgsqlException ex)
-			{
-				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			catch(SocketException ex)
-			{
-				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			catch(Exception ex)
-			{
-				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
 
 		private void SelectExcelFile()
 		{
@@ -205,5 +182,14 @@ namespace Slooier_voorraad
 		}
 		#endregion
 
+		private void TmrDbCheck_Tick(object sender, EventArgs e)
+		{
+			bool current = Properties.Settings.Default.DBConnectionValid;
+			bool check = CommonFunctions.CheckDBConnection(ConnString);
+			if(current != check)
+			{
+				Properties.Settings.Default.DBConnectionValid = check;
+			}
+		}
 	}
 }

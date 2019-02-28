@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Classes.CommonFunctions
@@ -60,10 +61,39 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 			Child.Left = (Parent.Width - Child.Width) / 2;
 			Child.Top = (Parent.Height - Child.Height) / 2;
 		}
+
 		public static void SetPanelDimensions(Panel Child, System.Drawing.Size Parent)
 		{
 			Child.Left = (Parent.Width - Child.Width) / 2;
 			Child.Top = (Parent.Height - Child.Height) / 2;
+		}
+
+		public static bool CheckDBConnection(string ConnectionString)
+		{
+			try
+			{
+				using (var conn = new NpgsqlConnection(ConnectionString))
+				{
+					conn.Open();
+					conn.Close();
+				}
+				return true;
+			}
+			catch (NpgsqlException ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			catch (SocketException ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			catch (Exception ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
 		}
 	}
 }

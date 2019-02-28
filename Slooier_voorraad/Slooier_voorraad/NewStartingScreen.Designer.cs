@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewStartingScreen));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			this.MenuBar = new System.Windows.Forms.MenuStrip();
@@ -46,6 +47,7 @@
 			this.InstellingenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.SluitenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.AfdelingVerwijderenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
+			this.TmrDbCheck = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.MenuBar.SuspendLayout();
 			this.SuspendLayout();
@@ -188,6 +190,12 @@
 			this.AfdelingVerwijderenToolStripMenuBar.Size = new System.Drawing.Size(183, 22);
 			this.AfdelingVerwijderenToolStripMenuBar.Text = "Afdeling verwijderen";
 			// 
+			// TmrDbCheck
+			// 
+			this.TmrDbCheck.Enabled = true;
+			this.TmrDbCheck.Interval = 60000;
+			this.TmrDbCheck.Tick += new System.EventHandler(this.TmrDbCheck_Tick);
+			// 
 			// NewStartingScreen
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,5 +236,6 @@
 		private System.Windows.Forms.ToolStripMenuItem ArtikelVerwijderenToolStripMenuBar;
 		private System.Windows.Forms.ToolStripMenuItem VoorraadBekijkenToolStripMenuBar;
 		private System.Windows.Forms.ToolStripMenuItem AfdelingVerwijderenToolStripMenuBar;
+		private System.Windows.Forms.Timer TmrDbCheck;
 	}
 }
