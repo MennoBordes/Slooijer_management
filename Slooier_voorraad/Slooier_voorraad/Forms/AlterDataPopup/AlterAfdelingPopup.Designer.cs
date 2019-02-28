@@ -57,9 +57,9 @@
 			this.PSecundary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.PSecundary.Controls.Add(this.FlpNew);
 			this.PSecundary.Controls.Add(this.BtnAlterAfdeling);
-			this.PSecundary.Location = new System.Drawing.Point(165, 35);
+			this.PSecundary.Location = new System.Drawing.Point(299, 47);
 			this.PSecundary.Name = "PSecundary";
-			this.PSecundary.Size = new System.Drawing.Size(179, 319);
+			this.PSecundary.Size = new System.Drawing.Size(179, 159);
 			this.PSecundary.TabIndex = 16;
 			// 
 			// FlpNew
@@ -71,7 +71,7 @@
 			this.FlpNew.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.FlpNew.Location = new System.Drawing.Point(0, 0);
 			this.FlpNew.Name = "FlpNew";
-			this.FlpNew.Size = new System.Drawing.Size(177, 294);
+			this.FlpNew.Size = new System.Drawing.Size(177, 134);
 			this.FlpNew.TabIndex = 15;
 			// 
 			// label2
@@ -98,9 +98,9 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(3, 53);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(155, 26);
+			this.label3.Size = new System.Drawing.Size(148, 26);
 			this.label3.TabIndex = 7;
-			this.label3.Text = "Welke naam moet de gekozen afdeling krijgen?";
+			this.label3.Text = "Welke nieuwe naam moet de gekozen afdeling krijgen?";
 			// 
 			// TxbNewName
 			// 
@@ -112,7 +112,7 @@
 			// BtnAlterAfdeling
 			// 
 			this.BtnAlterAfdeling.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.BtnAlterAfdeling.Location = new System.Drawing.Point(0, 294);
+			this.BtnAlterAfdeling.Location = new System.Drawing.Point(0, 134);
 			this.BtnAlterAfdeling.Name = "BtnAlterAfdeling";
 			this.BtnAlterAfdeling.Size = new System.Drawing.Size(177, 23);
 			this.BtnAlterAfdeling.TabIndex = 6;
