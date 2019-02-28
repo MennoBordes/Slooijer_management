@@ -4,7 +4,7 @@ using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
+//using System.Drawing;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms
@@ -90,8 +90,8 @@ namespace Slooier_voorraad.Forms
 			// Reset variables
 			CurrentRowIndex = DgvVoorraad.CurrentRow.Index;
 			MatchFound = false;
-			ResetCellStyle.BackColor = Color.White;
-			FoundMatchCellStyle.BackColor = Color.Yellow;
+			ResetCellStyle.BackColor = System.Drawing.Color.White;
+			FoundMatchCellStyle.BackColor = System.Drawing.Color.Yellow;
 
 			// Select current row
 			DgvVoorraad.ClearSelection();
