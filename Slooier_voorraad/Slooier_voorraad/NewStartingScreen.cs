@@ -7,6 +7,7 @@ using Slooier_voorraad.Forms.AddDataPopup;
 using System;
 using System.Data;
 using System.Linq;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad
@@ -33,9 +34,34 @@ namespace Slooier_voorraad
 				x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
 			});
 
+			CheckDBConnection(ConnString);
 		}
 
 		#endregion
+
+		private void CheckDBConnection(string ConnectionString)
+		{
+			try
+			{
+				using(var conn = new NpgsqlConnection(ConnectionString))
+				{
+					conn.Open();
+				}
+			}
+			catch (NpgsqlException ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			catch(SocketException ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			catch(Exception ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
 		private void SelectExcelFile()
 		{
 			using (OpenFileDialog FileReader = new OpenFileDialog())
