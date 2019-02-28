@@ -181,6 +181,9 @@
     <EmbeddedResource Include="Forms\AddOrRemoveItems.resx">
       <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlterDataPopup\AlterAfdelingPopup.resx">
+      <DependentUpon>AlterAfdelingPopup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AlterDataPopup\AlterItemPopup.resx">
       <DependentUpon>AlterItemPopup.cs</DependentUpon>
     </EmbeddedResource>
