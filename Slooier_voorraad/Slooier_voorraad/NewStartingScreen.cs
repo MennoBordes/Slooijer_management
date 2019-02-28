@@ -133,14 +133,14 @@ namespace Slooier_voorraad
 				{
 					var ExcelDataFile = ReadExcelFile(FileReader.FileName);
 					var Added = AddExcelToDB(ExcelDataFile);
-					string message = $"Er zijn ({Added.Afdelingen}) afdelingen toegevoegd.\nEr zijn ({Added.Items}) items toegevoegd.";
+					string message = $"Er zijn ({Added.Afdelingen}) afdelingen toegevoegd.\nEr zijn ({Added.Artikelen}) artikelen toegevoegd.";
 					string header = "Toegevoegd:";
 					FlexibleMessageBox.Show(message, header);
 				}
 			}
 		}
 
-		private (int Afdelingen, int Items) AddExcelToDB(DataSet NewdataSet)
+		private (int Afdelingen, int Artikelen) AddExcelToDB(DataSet NewdataSet)
 		{
 			DataTable usableDataset = NewdataSet.Tables[0];
 			int AfdelingenAdded = 0;
