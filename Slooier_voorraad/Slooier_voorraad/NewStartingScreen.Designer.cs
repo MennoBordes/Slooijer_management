@@ -208,6 +208,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "NewStartingScreen";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NewStartingScreen_FormClosing);
 			this.Load += new System.EventHandler(this.NewStartingScreen_Load);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.MenuBar.ResumeLayout(false);

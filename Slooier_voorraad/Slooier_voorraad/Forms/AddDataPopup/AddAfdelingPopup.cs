@@ -5,10 +5,10 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 	public partial class AddAfdelingPopup : Form
 	{
 		string ConnString;
-		public AddAfdelingPopup(string ConnString)
+		public AddAfdelingPopup()
 		{
 			InitializeComponent();
-			this.ConnString = ConnString;
+			this.ConnString = Properties.Settings.Default.DBConnectionString;
 		}
 
 		private void AddAfdelingPopup_Load(object sender, System.EventArgs e)

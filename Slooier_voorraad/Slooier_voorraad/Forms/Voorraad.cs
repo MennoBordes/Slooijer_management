@@ -15,10 +15,10 @@ namespace Slooier_voorraad.Forms
 
 		List<MagazijnItems> ListMagazijnItems = new List<MagazijnItems>();
 		List<BestelItems> ListBestelItems = new List<BestelItems>();
-		public Voorraad(string ConnString)
+		public Voorraad()
 		{
 			InitializeComponent();
-			this.ConnString = ConnString;
+			this.ConnString = Properties.Settings.Default.DBConnectionString;
 		}
 
 		private void Voorraad_Shown(object sender, EventArgs e)

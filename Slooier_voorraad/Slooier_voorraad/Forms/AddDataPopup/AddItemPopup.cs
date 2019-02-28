@@ -11,10 +11,10 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 	public partial class AddItemPopup : Form
 	{
 		string ConnString;
-		public AddItemPopup(string ConnString)
+		public AddItemPopup()
 		{
 			InitializeComponent();
-			this.ConnString = ConnString;
+			this.ConnString = Properties.Settings.Default.DBConnectionString;
 		}
 
 		private void AddItemPopup_Shown(object sender, EventArgs e)

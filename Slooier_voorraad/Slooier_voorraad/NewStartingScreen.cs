@@ -36,6 +36,12 @@ namespace Slooier_voorraad
 			});
 
 			Properties.Settings.Default.DBConnectionValid = CommonFunctions.CheckDBConnection(ConnString);
+			Properties.Settings.Default.DBConnectionString = ConnString;
+		}
+
+		private void NewStartingScreen_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			Properties.Settings.Default.Save();
 		}
 		#endregion
 

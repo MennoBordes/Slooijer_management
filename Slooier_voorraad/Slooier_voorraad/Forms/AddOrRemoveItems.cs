@@ -201,7 +201,7 @@ namespace Slooier_voorraad.Forms
 
 		private void BtnAddItems_Click(object sender, EventArgs e)
 		{
-			AddItemPopup Popup = new AddItemPopup(ConnString);
+			AddItemPopup Popup = new AddItemPopup();
 			Enabled = false;
 			LblDeactive.Visible = true;
 			Popup.FormClosed += Popup_FormClosed;
@@ -216,7 +216,7 @@ namespace Slooier_voorraad.Forms
 
 		private void BtnAddAfdeling_Click(object sender, EventArgs e)
 		{
-			AddAfdelingPopup Popup = new AddAfdelingPopup(ConnString);
+			AddAfdelingPopup Popup = new AddAfdelingPopup();
 			Enabled = false;
 			LblDeactive.Visible = true;
 			Popup.FormClosed += Popup_FormClosed;
