@@ -13,96 +13,29 @@ namespace Slooier_voorraad
 {
 	public partial class NewStartingScreen : Form
 	{
+		#region Initializers
 		public string ConnString = string.Format($"Server={Properties.Settings.Default.Server}; " +
 			$"User Id={Properties.Settings.Default.UserName}; " +
 			$"Database={Properties.Settings.Default.Database}; " +
 			$"Port={Properties.Settings.Default.Port}; " +
-			$"Password={Properties.Settings.Default.password}");
+			$"Password={Properties.Settings.Default.password};");
+
 		public NewStartingScreen()
 		{
 			InitializeComponent();
 		}
 
-		private void instellingenToolStripMenuItem_Click(object sender, EventArgs e)
+		private void NewStartingScreen_Load(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
+			BackColor = Properties.Settings.Default.BackGroundColor;
+			MenuBar.Items.OfType<ToolStripMenuItem>().ToList().ForEach(x =>
 			{
-				if (f.Text == "Instellingen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (IsOpen == false)
-			{
-				SettingForm f = new SettingForm
-				{
-					MdiParent = this
-				};
-				f.Show();
-			}
+				x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
+			});
+
 		}
 
-		private void sluitenToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			foreach (Form frm in MdiChildren)
-			{
-				frm.Visible = false;
-				frm.Dispose();
-			}
-		}
-
-		private void afdelingToevoegenToolStripMenuItem1_Click(object sender, EventArgs e)
-		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Afdeling toevoegen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				AddAfdelingPopup popup = new AddAfdelingPopup(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
-		}
-
-		private void artikelToevoegenToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Item toevoegen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				AddItemPopup popup = new AddItemPopup(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
-		}
-
-		private void bestandToevoegenToolStripMenuItem1_Click(object sender, EventArgs e)
-		{
-			SelectExcelFile();
-		}
-
+		#endregion
 		private void SelectExcelFile()
 		{
 			using (OpenFileDialog FileReader = new OpenFileDialog())
@@ -142,16 +75,88 @@ namespace Slooier_voorraad
 			}
 		}
 
-		private void NewStartingScreen_Load(object sender, EventArgs e)
+		#region MenuBar
+		private void SluitenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			BackColor = Properties.Settings.Default.BackGroundColor;
-			MenuBar.Items.OfType<ToolStripMenuItem>().ToList().ForEach(x =>
+			foreach (Form frm in MdiChildren)
 			{
-				x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
-			});
+				frm.Visible = false;
+				frm.Dispose();
+			}
 		}
 
-		private void voorraadBekijkenToolStripMenuItem_Click(object sender, EventArgs e)
+		private void InstellingenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			bool IsOpen = false;
+			foreach (Form f in Application.OpenForms)
+			{
+				if (f.Text == "Instellingen")
+				{
+					IsOpen = true;
+					f.Focus();
+					break;
+				}
+			}
+			if (IsOpen == false)
+			{
+				SettingForm f = new SettingForm
+				{
+					MdiParent = this
+				};
+				f.Show();
+			}
+		}
+
+		private void AfdelingToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			bool IsOpen = false;
+			foreach (Form f in Application.OpenForms)
+			{
+				if (f.Text == "Afdeling toevoegen")
+				{
+					IsOpen = true;
+					f.Focus();
+					break;
+				}
+			}
+			if (!IsOpen)
+			{
+				AddAfdelingPopup popup = new AddAfdelingPopup(ConnString)
+				{
+					MdiParent = this
+				};
+				popup.Show();
+			}
+		}
+
+		private void ArtikelToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			bool IsOpen = false;
+			foreach (Form f in Application.OpenForms)
+			{
+				if (f.Text == "Item toevoegen")
+				{
+					IsOpen = true;
+					f.Focus();
+					break;
+				}
+			}
+			if (!IsOpen)
+			{
+				AddItemPopup popup = new AddItemPopup(ConnString)
+				{
+					MdiParent = this
+				};
+				popup.Show();
+			}
+		}
+
+		private void BestandToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			SelectExcelFile();
+		}
+
+		private void VoorraadBekijkenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
 			bool IsOpen = false;
 			foreach (Form f in Application.OpenForms)
@@ -172,5 +177,7 @@ namespace Slooier_voorraad
 				popup.Show();
 			}
 		}
+		#endregion
+
 	}
 }
