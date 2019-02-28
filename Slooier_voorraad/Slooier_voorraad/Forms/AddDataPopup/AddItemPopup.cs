@@ -4,6 +4,7 @@ using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms.AddDataPopup
@@ -14,12 +15,29 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		public AddItemPopup()
 		{
 			InitializeComponent();
-			this.ConnString = Properties.Settings.Default.DBConnectionString;
+			ConnString = Properties.Settings.Default.DBConnectionString;
 		}
 
 		private void AddItemPopup_Shown(object sender, EventArgs e)
 		{
 			GetBenamingen();
+		}
+
+		private void AddItemPopup_SizeChanged(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
+			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+		}
+
+		private void AddItemPopup_Load(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
+			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
 		private void GetBenamingen()
@@ -58,30 +76,58 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 					FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer A.U.B. een afdeling!", "Selecteer een afdeling!");
 					return;
 				}
-
 				string Afdeling = CbbBenaming.GetItemText(CbbBenaming.SelectedItem);
-				if (TxbNummer.Text.Length == 0)
-				{
-					string TekstToDisplay = "Let op!\nEr is geen nummer ingevuld.\nWeet u zeker dat er geen nummer ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een nummer in te vullen";
-					DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen nummer ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-					if (result == DialogResult.No) { return; }
-				}
-				string Nummer = TxbNummer.Text;
 
-				if (TxbOmschrijving.Text.Length == 0)
+				string Nummer = TxbNummer.Text;
+				if (IsStringValid(Nummer))
 				{
-					string TekstToDisplay = "Let op!\nEr is geen omschrijving ingevuld.\nWeet u zeker dat er geen omschrijving ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een omschrijving in te vullen";
-					DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen omschrijving ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-					if (result == DialogResult.No) { return; }
+					if (Nummer.Length == 0)
+					{
+						string TekstToDisplay = "Let op!\nEr is geen nummer ingevuld.\nWeet u zeker dat er geen nummer ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een nummer in te vullen";
+						DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen nummer ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+						if (result == DialogResult.No) { return; }
+					}
 				}
+				else
+				{
+					StringInValidDisplay("Nummer");
+					return;
+				}
+
 				string Omschrijving = TxbOmschrijving.Text;
+				if (IsStringValid(Omschrijving))
+				{
+					if (Omschrijving.Length == 0)
+					{
+						string TekstToDisplay = "Let op!\nEr is geen omschrijving ingevuld.\nWeet u zeker dat er geen omschrijving ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een omschrijving in te vullen";
+						DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen omschrijving ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+						if (result == DialogResult.No) { return; }
+					}
+				}
+				else
+				{
+					StringInValidDisplay("Omschrijving");
+					return;
+				}
+
 
 				if (TxbPrijs.Text.Length < 4)
 				{
-					string TekstToDisplay = "Let op!\nEr is geen geldige prijs ingevuld.\nVul een geldige prijs in bijv:\n120,00\t0,99\t25,22\t220,0\t22,20";
-					FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return;
+					var regexItem = new Regex("^[0-9]*$");
+					if (regexItem.IsMatch(TxbPrijs.Text))
+					{
+						string TekstToDisplay = "Er is geen geldige prijs ingevuld. Vul een geldige prijs in.\nBijvoorbeeld:\t120,00\t0,99\t25,22\t220,0\t18,20";
+						FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+						return;
+					}
+					else
+					{
+						string message = $"De opgegeven waarde in Prijs mag geen andere tekens bevatten dan:\n(0-9)";
+						string header = "Verkeerd teken gevonden";
+						FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					}
 				}
+
 				var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
 				clone.NumberFormat.NumberDecimalSeparator = ",";
 				clone.NumberFormat.NumberGroupSeparator = ".";
@@ -152,12 +198,12 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 								cmd.Prepare();
 								cmd.ExecuteNonQuery();
 							}
-							FlexibleMessageBox.Show("Het item is toegevoegd","Succes");
-              TxbNummer.Clear();
-              TxbOmschrijving.Clear();
-              TxbPrijs.Clear();
-              TxbVoorraad.Clear();
-              CbbBenaming.SelectedIndex = -1;
+							FlexibleMessageBox.Show("Het item is toegevoegd", "Succes");
+							TxbNummer.Clear();
+							TxbOmschrijving.Clear();
+							TxbPrijs.Clear();
+							TxbVoorraad.Clear();
+							CbbBenaming.SelectedIndex = -1;
 						}
 					}
 					catch (Exception ex)
@@ -171,11 +217,11 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 				FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
 			}
 		}
-		
+
 		private void TxbPrijs_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			// Is the key pressed an number or a comma?
-			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+			if (e.KeyChar != (char)Keys.Back && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
 			{
 				e.Handled = true;
 			}
@@ -189,7 +235,8 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			// Is the key pressed a number?
-			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+			bool res = char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back;
+			if (!res)
 			{
 				e.Handled = true;
 			}
@@ -204,21 +251,22 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			}
 		}
 
-		private void AddItemPopup_SizeChanged(object sender, EventArgs e)
+		private void StringInValidDisplay(string WhereFrom)
 		{
-			// Set panels to center of the Form
-			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
-			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+			string message = $"De opgegeven waarde in {WhereFrom} mag geen andere tekens bevatten dan:\n(a-z A-Z 0-9)";
+			string header = "Verkeerd teken gevonden";
+			FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 		}
 
-		private void AddItemPopup_Load(object sender, EventArgs e)
+		private bool IsStringValid(string StringToCheck)
 		{
-			// Set panels to center of the Form
-			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
-			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
-			BackColor = Properties.Settings.Default.BackGroundColor;
+			var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+
+			if (regexItem.IsMatch(StringToCheck))
+			{
+				return true;
+			}
+			return false;
 		}
 	}
 }

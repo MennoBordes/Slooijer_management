@@ -51,7 +51,7 @@
 			// CbbBenaming
 			// 
 			this.CbbBenaming.FormattingEnabled = true;
-			this.CbbBenaming.Location = new System.Drawing.Point(3, 16);
+			this.CbbBenaming.Location = new System.Drawing.Point(3, 29);
 			this.CbbBenaming.MaxDropDownItems = 20;
 			this.CbbBenaming.Name = "CbbBenaming";
 			this.CbbBenaming.Size = new System.Drawing.Size(171, 21);
@@ -74,14 +74,14 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(3, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(173, 13);
+			this.label2.Size = new System.Drawing.Size(148, 26);
 			this.label2.TabIndex = 6;
 			this.label2.Text = "Onder welke afdeling valt het item?";
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 40);
+			this.label3.Location = new System.Drawing.Point(3, 53);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(145, 13);
 			this.label3.TabIndex = 7;
@@ -89,7 +89,7 @@
 			// 
 			// TxbNummer
 			// 
-			this.TxbNummer.Location = new System.Drawing.Point(3, 56);
+			this.TxbNummer.Location = new System.Drawing.Point(3, 69);
 			this.TxbNummer.Name = "TxbNummer";
 			this.TxbNummer.Size = new System.Drawing.Size(171, 20);
 			this.TxbNummer.TabIndex = 2;
@@ -98,15 +98,15 @@
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(3, 170);
+			this.label4.Location = new System.Drawing.Point(3, 183);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(172, 13);
+			this.label4.Size = new System.Drawing.Size(147, 26);
 			this.label4.TabIndex = 9;
 			this.label4.Text = "Welke omschrijving heeft het item?";
 			// 
 			// TxbOmschrijving
 			// 
-			this.TxbOmschrijving.Location = new System.Drawing.Point(3, 186);
+			this.TxbOmschrijving.Location = new System.Drawing.Point(3, 212);
 			this.TxbOmschrijving.Multiline = true;
 			this.TxbOmschrijving.Name = "TxbOmschrijving";
 			this.TxbOmschrijving.Size = new System.Drawing.Size(171, 68);
@@ -115,9 +115,9 @@
 			// BtnAddToDb
 			// 
 			this.BtnAddToDb.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.BtnAddToDb.Location = new System.Drawing.Point(0, 296);
+			this.BtnAddToDb.Location = new System.Drawing.Point(0, 294);
 			this.BtnAddToDb.Name = "BtnAddToDb";
-			this.BtnAddToDb.Size = new System.Drawing.Size(179, 23);
+			this.BtnAddToDb.Size = new System.Drawing.Size(177, 23);
 			this.BtnAddToDb.TabIndex = 6;
 			this.BtnAddToDb.Text = "Toevoegen";
 			this.BtnAddToDb.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 131);
+			this.label5.Location = new System.Drawing.Point(3, 144);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(132, 13);
 			this.label5.TabIndex = 12;
@@ -134,7 +134,7 @@
 			// 
 			// TxbPrijs
 			// 
-			this.TxbPrijs.Location = new System.Drawing.Point(3, 147);
+			this.TxbPrijs.Location = new System.Drawing.Point(3, 160);
 			this.TxbPrijs.Name = "TxbPrijs";
 			this.TxbPrijs.Size = new System.Drawing.Size(171, 20);
 			this.TxbPrijs.TabIndex = 4;
@@ -143,7 +143,7 @@
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(3, 79);
+			this.label6.Location = new System.Drawing.Point(3, 92);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(164, 26);
 			this.label6.TabIndex = 14;
@@ -151,7 +151,7 @@
 			// 
 			// TxbVoorraad
 			// 
-			this.TxbVoorraad.Location = new System.Drawing.Point(3, 108);
+			this.TxbVoorraad.Location = new System.Drawing.Point(3, 121);
 			this.TxbVoorraad.Name = "TxbVoorraad";
 			this.TxbVoorraad.Size = new System.Drawing.Size(171, 20);
 			this.TxbVoorraad.TabIndex = 3;
@@ -169,6 +169,7 @@
 			// 
 			// PSecundary
 			// 
+			this.PSecundary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.PSecundary.Controls.Add(this.FlpMain);
 			this.PSecundary.Controls.Add(this.BtnAddToDb);
 			this.PSecundary.Location = new System.Drawing.Point(165, 35);
@@ -191,7 +192,7 @@
 			this.FlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.FlpMain.Location = new System.Drawing.Point(0, 0);
 			this.FlpMain.Name = "FlpMain";
-			this.FlpMain.Size = new System.Drawing.Size(179, 296);
+			this.FlpMain.Size = new System.Drawing.Size(177, 294);
 			this.FlpMain.TabIndex = 15;
 			// 
 			// AddItemPopup
