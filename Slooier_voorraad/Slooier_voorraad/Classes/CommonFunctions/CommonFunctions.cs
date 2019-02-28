@@ -102,6 +102,28 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 {
 	public class StartingScreenFunctions
 	{
+		public struct GenericFormOpener<T> where T : Form, new()
+		{
+			public T TheForm { get; private set; }
+			public void Show(Form parent)
+			{
+				foreach (Form form in Application.OpenForms)
+				{
+					if (form.GetType() == typeof(T))
+					{
+						form.WindowState = FormWindowState.Normal;
+						form.Focus();
+						return;
+					}
+				}
+				TheForm = new T
+				{
+					MdiParent = parent
+				};
+				TheForm.Show();
+			}
+		}
+
 		public static double GetDouble(string value, double defaultValue)
 		{
 			if (!double.TryParse(value, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out double result) &&

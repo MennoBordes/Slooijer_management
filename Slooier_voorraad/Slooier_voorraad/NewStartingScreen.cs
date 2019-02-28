@@ -1,5 +1,3 @@
-﻿using Npgsql;
-using NpgsqlTypes;
 ﻿using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using Slooier_voorraad.Classes.StartingScreenFunctions;
@@ -8,7 +6,6 @@ using Slooier_voorraad.Forms.AddDataPopup;
 using System;
 using System.Data;
 using System.Linq;
-using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad
@@ -55,16 +52,16 @@ namespace Slooier_voorraad
 				if (FileReader.ShowDialog() == DialogResult.OK)
 				{
 					DataSet ExcelDataSet = StartingScreenFunctions.ReadExcelFile(FileReader.FileName);
-					if(ExcelDataSet.Tables.Count < 1 || ExcelDataSet.Tables[0].Rows.Count < 1)
+					if (ExcelDataSet.Tables.Count < 1 || ExcelDataSet.Tables[0].Rows.Count < 1)
 					{
 						string mess = "Er is iets fout gegaan bij het openen van het geselecteerde bestand.\nIndien het bestand al open is in een ander programma dient u dat proggramma eerst te sluiten.\n\nProbeer het daarna opnieuw.";
 						string head = "An Error Occured";
-						FlexibleMessageBox.Show(mess, head,MessageBoxButtons.OK,MessageBoxIcon.Error);
+						FlexibleMessageBox.Show(mess, head, MessageBoxButtons.OK, MessageBoxIcon.Error);
 						return;
 					}
 					(int Afdelingen, int Artikelen) = StartingScreenFunctions.AddExcelToDB(ExcelDataSet, ConnString);
 					// the following will result if the selected file isn't according to the format.
-					if(Afdelingen == int.MinValue && Artikelen == int.MinValue)
+					if (Afdelingen == int.MinValue && Artikelen == int.MinValue)
 					{
 						DialogResult result = FlexibleMessageBox.Show("Het geselecteerde Bestand voldoet niet aan de eisen!", "Verkeerd Bestand", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 						if (result == DialogResult.Cancel)
@@ -84,6 +81,28 @@ namespace Slooier_voorraad
 			}
 		}
 
+		//struct GenericFormOpener<T> where T : Form, new()
+		//{
+		//	public T TheForm { get; private set; }
+		//	public void Show(Form parent)
+		//	{
+		//		foreach (Form form in Application.OpenForms)
+		//		{
+		//			if (form.GetType() == typeof(T))
+		//			{
+		//				form.WindowState = FormWindowState.Normal;
+		//				form.Focus();
+		//				return;
+		//			}
+		//		}
+		//		TheForm = new T
+		//		{
+		//			MdiParent = parent
+		//		};
+		//		TheForm.Show();
+		//	}
+		//}
+
 		#region MenuBar
 		private void SluitenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
@@ -94,70 +113,24 @@ namespace Slooier_voorraad
 			}
 		}
 
+		StartingScreenFunctions.GenericFormOpener<SettingForm> mSettingForm;
+		StartingScreenFunctions.GenericFormOpener<AddAfdelingPopup> mAddAfdelingForm;
+		StartingScreenFunctions.GenericFormOpener<AddItemPopup> mAddItemForm;
+		StartingScreenFunctions.GenericFormOpener<Voorraad> mVoorraadForm;
+
 		private void InstellingenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Instellingen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (IsOpen == false)
-			{
-				SettingForm f = new SettingForm
-				{
-					MdiParent = this
-				};
-				f.Show();
-			}
+			mSettingForm.Show(this);
 		}
 
 		private void AfdelingToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Afdeling toevoegen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				AddAfdelingPopup popup = new AddAfdelingPopup(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
+			mAddAfdelingForm.Show(this);
 		}
 
 		private void ArtikelToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Item toevoegen")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				AddItemPopup popup = new AddItemPopup(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
+			mAddItemForm.Show(this);
 		}
 
 		private void BestandToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
@@ -167,24 +140,7 @@ namespace Slooier_voorraad
 
 		private void VoorraadBekijkenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			bool IsOpen = false;
-			foreach (Form f in Application.OpenForms)
-			{
-				if (f.Text == "Voorraad")
-				{
-					IsOpen = true;
-					f.Focus();
-					break;
-				}
-			}
-			if (!IsOpen)
-			{
-				Voorraad popup = new Voorraad(ConnString)
-				{
-					MdiParent = this
-				};
-				popup.Show();
-			}
+			mVoorraadForm.Show(this);
 		}
 		#endregion
 
@@ -192,7 +148,7 @@ namespace Slooier_voorraad
 		{
 			bool current = Properties.Settings.Default.DBConnectionValid;
 			bool check = CommonFunctions.CheckDBConnection(ConnString);
-			if(current != check)
+			if (current != check)
 			{
 				Properties.Settings.Default.DBConnectionValid = check;
 			}
