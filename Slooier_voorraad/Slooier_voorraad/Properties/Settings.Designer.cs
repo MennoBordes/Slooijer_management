@@ -178,5 +178,17 @@ namespace Slooier_voorraad.Properties {
                 this["DBConnectionValid"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DBConnectionString {
+            get {
+                return ((string)(this["DBConnectionString"]));
+            }
+            set {
+                this["DBConnectionString"] = value;
+            }
+        }
     }
 }
