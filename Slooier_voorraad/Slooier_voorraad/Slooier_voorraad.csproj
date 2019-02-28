@@ -122,6 +122,18 @@
     <Compile Include="Forms\AddOrRemoveItems.Designer.cs">
       <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AlterDataPopup\AlterAfdelingPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AlterDataPopup\AlterAfdelingPopup.Designer.cs">
+      <DependentUpon>AlterAfdelingPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AlterDataPopup\AlterItemPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AlterDataPopup\AlterItemPopup.Designer.cs">
+      <DependentUpon>AlterItemPopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BestelScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddOrRemoveItems.resx">
       <DependentUpon>AddOrRemoveItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AlterDataPopup\AlterItemPopup.resx">
+      <DependentUpon>AlterItemPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BestelScreen.resx">
       <DependentUpon>BestelScreen.cs</DependentUpon>
