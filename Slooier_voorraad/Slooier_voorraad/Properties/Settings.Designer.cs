@@ -166,5 +166,17 @@ namespace Slooier_voorraad.Properties {
                 this["InitialDir"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DBConnectionValid {
+            get {
+                return ((bool)(this["DBConnectionValid"]));
+            }
+            set {
+                this["DBConnectionValid"] = value;
+            }
+        }
     }
 }
