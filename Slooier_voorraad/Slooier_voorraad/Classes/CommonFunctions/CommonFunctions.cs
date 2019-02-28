@@ -100,7 +100,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 		{
 			bool current = Properties.Settings.Default.DBConnectionValid;
 			bool check = CheckDBConnection(Properties.Settings.Default.DBConnectionString);
-			if(current != check)
+			if (current != check)
 			{
 				Properties.Settings.Default.DBConnectionValid = check;
 			}
@@ -127,10 +127,19 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 						return;
 					}
 				}
-				TheForm = new T
+				TheForm = new T();
+				bool DbConVal = Properties.Settings.Default.DBConnectionValid;
+				if (!DbConVal)
 				{
-					MdiParent = parent
-				};
+					string message = "Het is niet gelukt om een verbinding met de Database tot stand te brengen.\n\nIndien u wijzigingen heeft gemaakt in de verbindingsinstellingen kan het zijn dat deze niet goed werken.\nIndien dit niet het geval is, controleer dan uw internetverbinding.";
+					string header = "Geen Verbinding";
+					FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					if (TheForm.Text != "Instellingen")
+					{
+						return;
+					}
+				}
+				TheForm.MdiParent = parent;
 				TheForm.Show();
 			}
 		}
