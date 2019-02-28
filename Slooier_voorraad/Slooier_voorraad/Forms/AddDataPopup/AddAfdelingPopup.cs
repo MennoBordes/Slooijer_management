@@ -1,4 +1,9 @@
-﻿using System.Windows.Forms;
+﻿using Npgsql;
+using Slooier_voorraad.Classes.CommonFunctions;
+using Slooier_voorraad.Classes.CustomMessageBox;
+using System;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms.AddDataPopup
 {
@@ -8,12 +13,20 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		public AddAfdelingPopup()
 		{
 			InitializeComponent();
-			this.ConnString = Properties.Settings.Default.DBConnectionString;
+			ConnString = Properties.Settings.Default.DBConnectionString;
 		}
 
-		private void AddAfdelingPopup_Load(object sender, System.EventArgs e)
+		private void AddAfdelingPopup_Load(object sender, EventArgs e)
 		{
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 			BackColor = Properties.Settings.Default.BackGroundColor;
+		}
+
+		private void AddAfdelingPopup_SizeChanged(object sender, EventArgs e)
+		{
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 		}
 	}
 }
