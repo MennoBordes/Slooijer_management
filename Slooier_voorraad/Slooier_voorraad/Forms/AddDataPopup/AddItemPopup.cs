@@ -113,19 +113,17 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 				if (TxbPrijs.Text.Length < 4)
 				{
-					var regexItem = new Regex("^[0-9]*$");
-					if (regexItem.IsMatch(TxbPrijs.Text))
-					{
 						string TekstToDisplay = "Er is geen geldige prijs ingevuld. Vul een geldige prijs in.\nBijvoorbeeld:\t120,00\t0,99\t25,22\t220,0\t18,20";
 						FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 						return;
-					}
-					else
-					{
-						string message = $"De opgegeven waarde in Prijs mag geen andere tekens bevatten dan:\n(0-9)";
-						string header = "Verkeerd teken gevonden";
-						FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-					}
+				}
+				var regexItem = new Regex("^[0-9,]*$");
+				if (!regexItem.IsMatch(TxbPrijs.Text))
+				{
+					string message = $"De opgegeven waarde in Prijs mag geen andere tekens bevatten dan:\n(0-9 ,)";
+					string header = "Verkeerd teken gevonden";
+					FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+					return;
 				}
 
 				var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
@@ -198,7 +196,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 								cmd.Prepare();
 								cmd.ExecuteNonQuery();
 							}
-							FlexibleMessageBox.Show("Het item is toegevoegd", "Succes");
+							FlexibleMessageBox.Show("Het artikel is toegevoegd", "Succes");
 							TxbNummer.Clear();
 							TxbOmschrijving.Clear();
 							TxbPrijs.Clear();
