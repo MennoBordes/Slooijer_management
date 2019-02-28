@@ -125,11 +125,13 @@ namespace Slooier_voorraad
 
 		private void TmrDbCheck_Tick(object sender, EventArgs e)
 		{
-			bool current = Properties.Settings.Default.DBConnectionValid;
-			bool check = CommonFunctions.CheckDBConnection(ConnString);
-			if (current != check)
+			bool currentStatus = Properties.Settings.Default.DBConnectionValid;
+			bool CheckResult = CommonFunctions.TimedChecker();
+			if (CheckResult == false && CheckResult != currentStatus)
 			{
-				Properties.Settings.Default.DBConnectionValid = check;
+				string message = "Het is niet gelukt om een verbinding met de Database in stand te brengen.\n\nControlleer uw internetverbinding!";
+				string header = "DataBase Connectie";
+				FlexibleMessageBox.Show(message, header,MessageBoxButtons.OK,MessageBoxIcon.Warning);
 			}
 		}
 	}

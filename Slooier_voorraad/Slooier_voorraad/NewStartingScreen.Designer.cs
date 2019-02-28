@@ -44,9 +44,9 @@
 			this.AfdelingAanpassenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.verwijderenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ArtikelVerwijderenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
+			this.AfdelingVerwijderenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.InstellingenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.SluitenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
-			this.AfdelingVerwijderenToolStripMenuBar = new System.Windows.Forms.ToolStripMenuItem();
 			this.TmrDbCheck = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.MenuBar.SuspendLayout();
@@ -89,7 +89,7 @@
 			// VoorraadBekijkenToolStripMenuBar
 			// 
 			this.VoorraadBekijkenToolStripMenuBar.Name = "VoorraadBekijkenToolStripMenuBar";
-			this.VoorraadBekijkenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.VoorraadBekijkenToolStripMenuBar.Size = new System.Drawing.Size(168, 22);
 			this.VoorraadBekijkenToolStripMenuBar.Text = "Voorraad bekijken";
 			this.VoorraadBekijkenToolStripMenuBar.Click += new System.EventHandler(this.VoorraadBekijkenToolStripMenuBar_Click);
 			// 
@@ -110,27 +110,27 @@
             this.ArtikelToevoegenToolStripMenuBar,
             this.BestandToevoegenToolStripMenuBar});
 			this.losArtikelToevoegenToolStripMenuItem.Name = "losArtikelToevoegenToolStripMenuItem";
-			this.losArtikelToevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.losArtikelToevoegenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.losArtikelToevoegenToolStripMenuItem.Text = "&Toevoegen";
 			// 
 			// AfdelingToevoegenToolStripMenuBar
 			// 
 			this.AfdelingToevoegenToolStripMenuBar.Name = "AfdelingToevoegenToolStripMenuBar";
-			this.AfdelingToevoegenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.AfdelingToevoegenToolStripMenuBar.Size = new System.Drawing.Size(178, 22);
 			this.AfdelingToevoegenToolStripMenuBar.Text = "Afdeling toevoegen";
 			this.AfdelingToevoegenToolStripMenuBar.Click += new System.EventHandler(this.AfdelingToevoegenToolStripMenuBar_Click);
 			// 
 			// ArtikelToevoegenToolStripMenuBar
 			// 
 			this.ArtikelToevoegenToolStripMenuBar.Name = "ArtikelToevoegenToolStripMenuBar";
-			this.ArtikelToevoegenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.ArtikelToevoegenToolStripMenuBar.Size = new System.Drawing.Size(178, 22);
 			this.ArtikelToevoegenToolStripMenuBar.Text = "Artikel toevoegen";
 			this.ArtikelToevoegenToolStripMenuBar.Click += new System.EventHandler(this.ArtikelToevoegenToolStripMenuBar_Click);
 			// 
 			// BestandToevoegenToolStripMenuBar
 			// 
 			this.BestandToevoegenToolStripMenuBar.Name = "BestandToevoegenToolStripMenuBar";
-			this.BestandToevoegenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.BestandToevoegenToolStripMenuBar.Size = new System.Drawing.Size(178, 22);
 			this.BestandToevoegenToolStripMenuBar.Text = "Bestand  toevoegen";
 			this.BestandToevoegenToolStripMenuBar.Click += new System.EventHandler(this.BestandToevoegenToolStripMenuBar_Click);
 			// 
@@ -140,19 +140,19 @@
             this.ArtikelAanpassenToolStripMenuBar,
             this.AfdelingAanpassenToolStripMenuBar});
 			this.artikelAanpassenToolStripMenuItem.Name = "artikelAanpassenToolStripMenuItem";
-			this.artikelAanpassenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.artikelAanpassenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.artikelAanpassenToolStripMenuItem.Text = "&Aanpassen";
 			// 
 			// ArtikelAanpassenToolStripMenuBar
 			// 
 			this.ArtikelAanpassenToolStripMenuBar.Name = "ArtikelAanpassenToolStripMenuBar";
-			this.ArtikelAanpassenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.ArtikelAanpassenToolStripMenuBar.Size = new System.Drawing.Size(177, 22);
 			this.ArtikelAanpassenToolStripMenuBar.Text = "Artikel aanpassen";
 			// 
 			// AfdelingAanpassenToolStripMenuBar
 			// 
 			this.AfdelingAanpassenToolStripMenuBar.Name = "AfdelingAanpassenToolStripMenuBar";
-			this.AfdelingAanpassenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
+			this.AfdelingAanpassenToolStripMenuBar.Size = new System.Drawing.Size(177, 22);
 			this.AfdelingAanpassenToolStripMenuBar.Text = "Afdeling aanpassen";
 			// 
 			// verwijderenToolStripMenuItem
@@ -161,7 +161,7 @@
             this.ArtikelVerwijderenToolStripMenuBar,
             this.AfdelingVerwijderenToolStripMenuBar});
 			this.verwijderenToolStripMenuItem.Name = "verwijderenToolStripMenuItem";
-			this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.verwijderenToolStripMenuItem.Text = "&Verwijderen";
 			// 
 			// ArtikelVerwijderenToolStripMenuBar
@@ -169,6 +169,12 @@
 			this.ArtikelVerwijderenToolStripMenuBar.Name = "ArtikelVerwijderenToolStripMenuBar";
 			this.ArtikelVerwijderenToolStripMenuBar.Size = new System.Drawing.Size(183, 22);
 			this.ArtikelVerwijderenToolStripMenuBar.Text = "Artikel verwijderen";
+			// 
+			// AfdelingVerwijderenToolStripMenuBar
+			// 
+			this.AfdelingVerwijderenToolStripMenuBar.Name = "AfdelingVerwijderenToolStripMenuBar";
+			this.AfdelingVerwijderenToolStripMenuBar.Size = new System.Drawing.Size(183, 22);
+			this.AfdelingVerwijderenToolStripMenuBar.Text = "Afdeling verwijderen";
 			// 
 			// InstellingenToolStripMenuBar
 			// 
@@ -183,12 +189,6 @@
 			this.SluitenToolStripMenuBar.Size = new System.Drawing.Size(55, 20);
 			this.SluitenToolStripMenuBar.Text = "&Sluiten";
 			this.SluitenToolStripMenuBar.Click += new System.EventHandler(this.SluitenToolStripMenuBar_Click);
-			// 
-			// AfdelingVerwijderenToolStripMenuBar
-			// 
-			this.AfdelingVerwijderenToolStripMenuBar.Name = "AfdelingVerwijderenToolStripMenuBar";
-			this.AfdelingVerwijderenToolStripMenuBar.Size = new System.Drawing.Size(183, 22);
-			this.AfdelingVerwijderenToolStripMenuBar.Text = "Afdeling verwijderen";
 			// 
 			// TmrDbCheck
 			// 

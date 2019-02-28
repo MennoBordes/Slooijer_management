@@ -95,6 +95,17 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 				return false;
 			}
 		}
+
+		public static bool TimedChecker()
+		{
+			bool current = Properties.Settings.Default.DBConnectionValid;
+			bool check = CheckDBConnection(Properties.Settings.Default.DBConnectionString);
+			if(current != check)
+			{
+				Properties.Settings.Default.DBConnectionValid = check;
+			}
+			return Properties.Settings.Default.DBConnectionValid;
+		}
 	}
 }
 
