@@ -108,7 +108,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 					}
 				}
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
 				return new DataSet();
 			}
