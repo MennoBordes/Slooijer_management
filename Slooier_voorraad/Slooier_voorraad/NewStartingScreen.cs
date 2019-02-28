@@ -81,28 +81,6 @@ namespace Slooier_voorraad
 			}
 		}
 
-		//struct GenericFormOpener<T> where T : Form, new()
-		//{
-		//	public T TheForm { get; private set; }
-		//	public void Show(Form parent)
-		//	{
-		//		foreach (Form form in Application.OpenForms)
-		//		{
-		//			if (form.GetType() == typeof(T))
-		//			{
-		//				form.WindowState = FormWindowState.Normal;
-		//				form.Focus();
-		//				return;
-		//			}
-		//		}
-		//		TheForm = new T
-		//		{
-		//			MdiParent = parent
-		//		};
-		//		TheForm.Show();
-		//	}
-		//}
-
 		#region MenuBar
 		private void SluitenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
@@ -113,6 +91,7 @@ namespace Slooier_voorraad
 			}
 		}
 
+		// references to all forms that can be openend
 		StartingScreenFunctions.GenericFormOpener<SettingForm> mSettingForm;
 		StartingScreenFunctions.GenericFormOpener<AddAfdelingPopup> mAddAfdelingForm;
 		StartingScreenFunctions.GenericFormOpener<AddItemPopup> mAddItemForm;
