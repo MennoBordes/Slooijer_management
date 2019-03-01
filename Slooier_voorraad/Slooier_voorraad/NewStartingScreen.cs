@@ -128,12 +128,12 @@ namespace Slooier_voorraad
 
 		private void ArtikelAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			mAlterAfdelingForm.Show(this);
+			mAlterItemForm.Show(this);
 		}
 
 		private void AfdelingAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			mAlterItemForm.Show(this);
+			mAlterAfdelingForm.Show(this);
 		}
 		#endregion
 
