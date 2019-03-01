@@ -108,6 +108,7 @@
 			// 
 			// FlpNew
 			// 
+			this.FlpNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.FlpNew.Controls.Add(this.label2);
 			this.FlpNew.Controls.Add(this.CbbHuidigeNaam);
 			this.FlpNew.Controls.Add(this.label3);
@@ -125,6 +126,7 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.PMain);
 			this.Name = "AlterAfdelingPopup";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AlterAfdelingPopup";
 			this.Load += new System.EventHandler(this.AlterAfdelingPopup_Load);
 			this.SizeChanged += new System.EventHandler(this.AlterAfdelingPopup_SizeChanged);

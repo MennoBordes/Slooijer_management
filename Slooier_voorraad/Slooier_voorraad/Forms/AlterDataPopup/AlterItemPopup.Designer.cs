@@ -342,6 +342,7 @@
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.PMain);
 			this.Name = "AlterItemPopup";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AlterItemPopup";
 			this.Load += new System.EventHandler(this.AlterItemPopup_Load);
 			this.PMain.ResumeLayout(false);
