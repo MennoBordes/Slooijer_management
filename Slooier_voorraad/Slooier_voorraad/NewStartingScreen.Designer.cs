@@ -110,7 +110,7 @@
             this.ArtikelToevoegenToolStripMenuBar,
             this.BestandToevoegenToolStripMenuBar});
 			this.losArtikelToevoegenToolStripMenuItem.Name = "losArtikelToevoegenToolStripMenuItem";
-			this.losArtikelToevoegenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.losArtikelToevoegenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.losArtikelToevoegenToolStripMenuItem.Text = "&Toevoegen";
 			// 
 			// AfdelingToevoegenToolStripMenuBar
@@ -140,20 +140,22 @@
             this.ArtikelAanpassenToolStripMenuBar,
             this.AfdelingAanpassenToolStripMenuBar});
 			this.artikelAanpassenToolStripMenuItem.Name = "artikelAanpassenToolStripMenuItem";
-			this.artikelAanpassenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.artikelAanpassenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.artikelAanpassenToolStripMenuItem.Text = "&Aanpassen";
 			// 
 			// ArtikelAanpassenToolStripMenuBar
 			// 
 			this.ArtikelAanpassenToolStripMenuBar.Name = "ArtikelAanpassenToolStripMenuBar";
-			this.ArtikelAanpassenToolStripMenuBar.Size = new System.Drawing.Size(177, 22);
+			this.ArtikelAanpassenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
 			this.ArtikelAanpassenToolStripMenuBar.Text = "Artikel aanpassen";
+			this.ArtikelAanpassenToolStripMenuBar.Click += new System.EventHandler(this.ArtikelAanpassenToolStripMenuBar_Click);
 			// 
 			// AfdelingAanpassenToolStripMenuBar
 			// 
 			this.AfdelingAanpassenToolStripMenuBar.Name = "AfdelingAanpassenToolStripMenuBar";
-			this.AfdelingAanpassenToolStripMenuBar.Size = new System.Drawing.Size(177, 22);
+			this.AfdelingAanpassenToolStripMenuBar.Size = new System.Drawing.Size(180, 22);
 			this.AfdelingAanpassenToolStripMenuBar.Text = "Afdeling aanpassen";
+			this.AfdelingAanpassenToolStripMenuBar.Click += new System.EventHandler(this.AfdelingAanpassenToolStripMenuBar_Click);
 			// 
 			// verwijderenToolStripMenuItem
 			// 
@@ -161,7 +163,7 @@
             this.ArtikelVerwijderenToolStripMenuBar,
             this.AfdelingVerwijderenToolStripMenuBar});
 			this.verwijderenToolStripMenuItem.Name = "verwijderenToolStripMenuItem";
-			this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.verwijderenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.verwijderenToolStripMenuItem.Text = "&Verwijderen";
 			// 
 			// ArtikelVerwijderenToolStripMenuBar

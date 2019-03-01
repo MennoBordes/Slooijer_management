@@ -2,6 +2,7 @@
 using Slooier_voorraad.Classes.CustomMessageBox;
 using Slooier_voorraad.Classes.StartingScreenFunctions;
 using Slooier_voorraad.Forms;
+using Slooier_voorraad.Forms.AlterDataPopup;
 using Slooier_voorraad.Forms.AddDataPopup;
 using System;
 using System.Data;
@@ -82,6 +83,7 @@ namespace Slooier_voorraad
 		}
 
 		#region MenuBar
+		// Close all open form in the parent
 		private void SluitenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
 			foreach (Form frm in MdiChildren)
@@ -96,6 +98,8 @@ namespace Slooier_voorraad
 		StartingScreenFunctions.GenericFormOpener<AddAfdelingPopup> mAddAfdelingForm;
 		StartingScreenFunctions.GenericFormOpener<AddItemPopup> mAddItemForm;
 		StartingScreenFunctions.GenericFormOpener<Voorraad> mVoorraadForm;
+		StartingScreenFunctions.GenericFormOpener<AlterAfdelingPopup> mAlterAfdelingForm;
+		StartingScreenFunctions.GenericFormOpener<AlterItemPopup> mAlterItemForm;
 
 		private void InstellingenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
@@ -120,6 +124,16 @@ namespace Slooier_voorraad
 		private void VoorraadBekijkenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
 			mVoorraadForm.Show(this);
+		}
+
+		private void ArtikelAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			mAlterAfdelingForm.Show(this);
+		}
+
+		private void AfdelingAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
+		{
+			mAlterItemForm.Show(this);
 		}
 		#endregion
 
