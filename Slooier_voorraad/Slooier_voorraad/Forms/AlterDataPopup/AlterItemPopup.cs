@@ -16,7 +16,9 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		private void AlterItemPopup_Load(object sender, EventArgs e)
 		{
 			BackColor = Properties.Settings.Default.BackGroundColor;
-			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 		}
 
 		private void LblMain_SizeChanged(object sender, EventArgs e)

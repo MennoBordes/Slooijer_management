@@ -16,7 +16,8 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		private void AlterAfdelingPopup_Load(object sender, EventArgs e)
 		{
 			BackColor = Properties.Settings.Default.BackGroundColor;
-			MinimumSize = new System.Drawing.Size(Properties.Settings.Default.MinimumSizeX, Properties.Settings.Default.MinimumSizeY);
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(FlpNew, PMain);
 		}
 
 		private void AlterAfdelingPopup_SizeChanged(object sender, EventArgs e)

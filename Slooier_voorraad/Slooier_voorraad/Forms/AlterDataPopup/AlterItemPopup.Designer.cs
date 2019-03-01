@@ -71,14 +71,14 @@
 			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PMain.Location = new System.Drawing.Point(0, 0);
 			this.PMain.Name = "PMain";
-			this.PMain.Size = new System.Drawing.Size(800, 450);
+			this.PMain.Size = new System.Drawing.Size(403, 367);
 			this.PMain.TabIndex = 16;
 			// 
 			// FlpCurrent
 			// 
 			this.FlpCurrent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.FlpCurrent.Controls.Add(this.FlpOld);
-			this.FlpCurrent.Location = new System.Drawing.Point(76, 42);
+			this.FlpCurrent.Location = new System.Drawing.Point(12, 40);
 			this.FlpCurrent.Name = "FlpCurrent";
 			this.FlpCurrent.Size = new System.Drawing.Size(179, 319);
 			this.FlpCurrent.TabIndex = 17;
@@ -206,7 +206,7 @@
 			this.PSecundary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.PSecundary.Controls.Add(this.FlpNew);
 			this.PSecundary.Controls.Add(this.BtnAlterArtikel);
-			this.PSecundary.Location = new System.Drawing.Point(305, 41);
+			this.PSecundary.Location = new System.Drawing.Point(209, 40);
 			this.PSecundary.Name = "PSecundary";
 			this.PSecundary.Size = new System.Drawing.Size(179, 319);
 			this.PSecundary.TabIndex = 16;
@@ -329,7 +329,7 @@
 			this.LblMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LblMain.Location = new System.Drawing.Point(0, 0);
 			this.LblMain.Name = "LblMain";
-			this.LblMain.Size = new System.Drawing.Size(800, 16);
+			this.LblMain.Size = new System.Drawing.Size(403, 16);
 			this.LblMain.TabIndex = 2;
 			this.LblMain.Text = "verander de inhoud van artikelen";
 			this.LblMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -339,8 +339,9 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.ClientSize = new System.Drawing.Size(403, 367);
 			this.Controls.Add(this.PMain);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
 			this.Name = "AlterItemPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "AlterItemPopup";
