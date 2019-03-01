@@ -23,8 +23,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		{
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
-			CommonFunctions.SetPanelDimensions(FlpNew, PSecundary);
+			CommonFunctions.SetPanelDimensions(FlpNew, PMain);
 		}
 	}
 }
