@@ -18,14 +18,12 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			BackColor = Properties.Settings.Default.BackGroundColor;
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 		}
 
 		private void LblMain_SizeChanged(object sender, EventArgs e)
 		{
 			// Set panels to center of the Form
 			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 			//CommonFunctions.SetPanelDimensions(FlpNew, PSecundary);
 		}
 	}
