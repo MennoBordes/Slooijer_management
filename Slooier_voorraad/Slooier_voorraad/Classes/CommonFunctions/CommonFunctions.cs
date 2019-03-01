@@ -68,6 +68,11 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 			Child.Top = (Parent.Height - Child.Height) / 2;
 		}
 
+		public static void SetPanelDimensions(Panel[] Children, Panel parent)
+		{
+			// set childs to each take a portion of the parent
+		}
+
 		public static bool CheckDBConnection(string ConnectionString)
 		{
 			try
