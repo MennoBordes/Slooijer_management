@@ -33,5 +33,5 @@ namespace Slooier_Voorraad_WPF
 				}
 			}
 		}
-	}
+  }
 }

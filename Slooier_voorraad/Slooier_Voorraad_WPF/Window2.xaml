@@ -5,20 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Slooier_Voorraad_WPF"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="800">
-    <Border Padding="3">
-        <StackPanel>
-            <TextBlock Text="SomeText"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="SomeButton"/>
-                <Button Grid.Column="1" Content="SomeButton"/>
-                <Button Grid.Column="2" Content="SomeButton"/>
-            </Grid>
-        </StackPanel>
-    </Border>
+        Title="Window2" Height="450" Width="900" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight">
+  <Border Padding="3" Background="Gray">
+    <Grid>
+      <Button x:Name="ButtonTester" Content="Button" HorizontalAlignment="Left" Margin="47,139,0,0" VerticalAlignment="Top" Width="75" Click="ButtonTester_Click"/>
+      <DataGrid x:Name="DataGridTester" HorizontalAlignment="Left" Height="394" Margin="172,10,0,0" VerticalAlignment="Top" Width="706"/>
+
+    </Grid>
+  </Border>
 </Window>
