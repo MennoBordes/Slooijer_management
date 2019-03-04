@@ -17,6 +17,7 @@
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
 
+    <!-- Left grid with the dashboard options -->
     <Grid Grid.Row="1">
       <Grid.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -37,6 +38,7 @@
       </Grid>
     </Grid>
 
+    <!-- Buttons on the top right of the screen -->
     <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarTitle_MouseDown">
       <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
         <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
