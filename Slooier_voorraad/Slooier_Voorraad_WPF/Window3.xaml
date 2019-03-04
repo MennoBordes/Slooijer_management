@@ -7,50 +7,129 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Window3" Height="600" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-  <Grid>
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="200"/>
-      <ColumnDefinition Width="*"/>
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="30"/>
-      <RowDefinition Height="*"/>
-    </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-    <!-- Left grid with the dashboard options -->
-    <Grid Grid.Row="1">
-      <Grid.Background>
-        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-          <GradientStop Color="#FFC5C5C5" Offset="1"/>
-          <GradientStop Color="#FFCECDCD"/>
-        </LinearGradientBrush>
-      </Grid.Background>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="100"/>
-        <RowDefinition Height="*"/>
-      </Grid.RowDefinitions>
-      <Grid.Effect>
-        <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
-      </Grid.Effect>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCFCFCF">
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-      <Grid Background="#FFA466E4">
-        <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-      </Grid>
+                    <Rectangle Height="120" Margin="20" Fill="White" RadiusY="10" RadiusX="10"/>
+                    <Grid Margin="25" Height="120">
+                        <Grid Width="35" Height="50" Background="#FFFFAF24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,0">
+                            <Grid.Effect>
+                                <DropShadowEffect BlurRadius="10" RenderingBias="Quality" Color="White"/>
+                            </Grid.Effect>
+                            <materialDesign:PackIcon Kind="ContentCopy" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Foreground="White" Width="20" Height="20"/>
+                        </Grid>
+                        <TextBlock Text="Gebruikte ruimte" HorizontalAlignment="Right" FontFamily="Global Sans Serif" Margin="5" VerticalAlignment="Top" Foreground="Gray"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="20">
+                            <TextBlock Text="49/50" FontFamily="Global Sans Serif" VerticalAlignment="Center" Foreground="Gray" FontSize="45"/>
+                            <TextBlock Text="GB" FontFamily="Global Sans Serif" Margin="0 5" VerticalAlignment="Bottom" Foreground="Gray" FontSize="20"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+
+        </Grid>
+
+        <!-- Left grid with the dashboard options -->
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="LightGray"/>
+                    <GradientStop Color="#FFAAAAAA" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+
+            <!-- Dashboard Header -->
+            <Grid Background="#FFA466E4">
+                <TextBlock Text="DASHBOARD" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Swis721 BlkEx BT" FontSize="22" TextDecorations="{x:Null}" Foreground="#FFBC96EA"/>
+            </Grid>
+
+            <!-- Dashboard Buttons -->
+            <StackPanel Grid.Row="1">
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                        <TextBlock Text="Dashboard" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
+                        <TextBlock Text="Profiel" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="ContentPaste" VerticalAlignment="Center"/>
+                        <TextBlock Text="Tabels" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="TShirtCrewOutline" VerticalAlignment="Center"/>
+                        <TextBlock Text="Producten" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="TruckDelivery" VerticalAlignment="Center"/>
+                        <TextBlock Text="Leveranciers" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <materialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+                        <TextBlock Text="Instellingen" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Global Sans Serif" FontSize="20"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <!-- Buttons on the top right of the screen -->
+        <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarTitle_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="Bell"/>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <materialDesign:PackIcon Kind="Account"/>
+                </Button>
+                <Button x:Name="ButtonPower" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
-
-    <!-- Buttons on the top right of the screen -->
-    <Grid x:Name="GridBarTitle" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarTitle_MouseDown">
-      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
-        <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-          <materialDesign:PackIcon Kind="Bell"/>
-        </Button>
-        <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-          <materialDesign:PackIcon Kind="Account"/>
-        </Button>
-        <Button x:Name="ButtonPower" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonPower_Click">
-          <materialDesign:PackIcon Kind="Power"/>
-        </Button>
-      </StackPanel>
-    </Grid>
-  </Grid>
 </Window>
