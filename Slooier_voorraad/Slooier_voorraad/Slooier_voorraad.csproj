@@ -104,6 +104,18 @@
     <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
+    <Compile Include="Controls\Header.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Header.Designer.cs">
+      <DependentUpon>Header.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MenuBar.Designer.cs">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddDataPopup\AddAfdelingPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +184,12 @@
     <Compile Include="StartingScreen.Designer.cs">
       <DependentUpon>StartingScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controls\Header.resx">
+      <DependentUpon>Header.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MenuBar.resx">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddDataPopup\AddAfdelingPopup.resx">
       <DependentUpon>AddAfdelingPopup.cs</DependentUpon>
     </EmbeddedResource>

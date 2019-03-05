@@ -160,7 +160,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 			return result;
 		}
 
-		public static DataSet ReadExcelFile(string FilePath)
+		private static DataSet ReadExcelFile(string FilePath)
 		{
 			try
 			{
@@ -191,7 +191,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 			}
 		}
 
-		public static (int, int) AddExcelToDB(DataSet NewdataSet, string ConnString)
+		private static (int, int) AddExcelToDB(DataSet NewdataSet, string ConnString)
 		{
 			DataTable usableDataset = NewdataSet.Tables[0];
 			int AfdelingenAdded = 0;
@@ -346,6 +346,45 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 				FlexibleMessageBox.Show(ex.Message);
 			}
 			return (AfdelingenAdded, ItemsAdded);
+		}
+
+		public static void SelectExcelFile(string ConnString)
+		{
+			using (OpenFileDialog FileReader = new OpenFileDialog())
+			{
+				FileReader.InitialDirectory = Properties.Settings.Default.InitialDir;
+				FileReader.Filter = "Excel files(*.xlsx)|*.xlsx";
+				FileReader.RestoreDirectory = true;
+				if (FileReader.ShowDialog() == DialogResult.OK)
+				{
+					DataSet ExcelDataSet = ReadExcelFile(FileReader.FileName);
+					if (ExcelDataSet.Tables.Count < 1 || ExcelDataSet.Tables[0].Rows.Count < 1)
+					{
+						string mess = "Er is iets fout gegaan bij het openen van het geselecteerde bestand.\nIndien het bestand al open is in een ander programma dient u dat proggramma eerst te sluiten.\n\nProbeer het daarna opnieuw.";
+						string head = "An Error Occured";
+						FlexibleMessageBox.Show(mess, head, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+					(int Afdelingen, int Artikelen) = AddExcelToDB(ExcelDataSet, ConnString);
+					// the following will result if the selected file isn't according to the format.
+					if (Afdelingen == int.MinValue && Artikelen == int.MinValue)
+					{
+						DialogResult result = FlexibleMessageBox.Show("Het geselecteerde Bestand voldoet niet aan de eisen!", "Verkeerd Bestand", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+						if (result == DialogResult.Cancel)
+						{
+							return;
+						}
+						else if (result == DialogResult.Retry)
+						{
+							SelectExcelFile(ConnString);
+							return;
+						}
+					}
+					string message = $"Er zijn ({Afdelingen}) afdelingen toegevoegd.\nEr zijn ({Artikelen}) artikelen toegevoegd.";
+					string header = "Toegevoegd:";
+					FlexibleMessageBox.Show(message, header);
+				}
+			}
 		}
 	}
 }
