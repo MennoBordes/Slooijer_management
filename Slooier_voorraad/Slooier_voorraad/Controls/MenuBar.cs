@@ -2,6 +2,7 @@
 using Slooier_voorraad.Forms;
 using Slooier_voorraad.Forms.AddDataPopup;
 using Slooier_voorraad.Forms.AlterDataPopup;
+using Slooier_voorraad.Forms.DeleteDataPopup;
 using System;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace Slooier_voorraad.Controls
 		StartingScreenFunctions.GenericFormOpener<Voorraad> mVoorraadForm;
 		StartingScreenFunctions.GenericFormOpener<AlterAfdelingPopup> mAlterAfdelingForm;
 		StartingScreenFunctions.GenericFormOpener<AlterItemPopup> mAlterItemForm;
+		StartingScreenFunctions.GenericFormOpener<DeleteAfdelingPopup> mDeleteAfdelingForm;
+		StartingScreenFunctions.GenericFormOpener<DeleteItemPopup> mDeleteItemForm;
 
 		private void VoorraadBekijkenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
@@ -55,12 +58,12 @@ namespace Slooier_voorraad.Controls
 
 		private void ArtikelVerwijderenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-
+			mDeleteItemForm.Show(this.ParentForm);
 		}
 
 		private void AfdelingVerwijderenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-
+			mDeleteAfdelingForm.Show(this.ParentForm);
 		}
 
 		private void InstellingenToolStripMenuBar_Click(object sender, EventArgs e)

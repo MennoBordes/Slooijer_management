@@ -42,7 +42,7 @@
 			this.PboxLogo.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.PboxLogo.Location = new System.Drawing.Point(0, 0);
 			this.PboxLogo.Name = "PboxLogo";
-			this.PboxLogo.Size = new System.Drawing.Size(900, 100);
+			this.PboxLogo.Size = new System.Drawing.Size(900, 118);
 			this.PboxLogo.TabIndex = 6;
 			this.PboxLogo.TabStop = false;
 			// 
@@ -50,9 +50,10 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.DarkRed;
 			this.Controls.Add(this.PboxLogo);
 			this.Name = "Header";
-			this.Size = new System.Drawing.Size(900, 100);
+			this.Size = new System.Drawing.Size(900, 118);
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).EndInit();
 			this.ResumeLayout(false);
 
