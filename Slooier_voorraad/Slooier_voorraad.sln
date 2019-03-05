@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slooier_voorraad", "Slooier
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Slooier_Voorraad_WPF", "Slooier_Voorraad_WPF\Slooier_Voorraad_WPF.csproj", "{4AC91583-0F4B-4085-BE5F-D8FDF1CB6CD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMDemo", "MVVMDemo\MVVMDemo.csproj", "{ED6E287B-C608-4D8B-9A1C-745E4EC789F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4AC91583-0F4B-4085-BE5F-D8FDF1CB6CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC91583-0F4B-4085-BE5F-D8FDF1CB6CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AC91583-0F4B-4085-BE5F-D8FDF1CB6CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6E287B-C608-4D8B-9A1C-745E4EC789F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6E287B-C608-4D8B-9A1C-745E4EC789F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6E287B-C608-4D8B-9A1C-745E4EC789F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6E287B-C608-4D8B-9A1C-745E4EC789F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
