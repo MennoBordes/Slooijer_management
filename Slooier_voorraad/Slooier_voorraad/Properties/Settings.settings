@@ -44,5 +44,8 @@
     <Setting Name="DBConnectionString" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="OuterBorderColor" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">74, 57, 182</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

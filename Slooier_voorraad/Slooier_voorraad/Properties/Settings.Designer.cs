@@ -190,5 +190,14 @@ namespace Slooier_voorraad.Properties {
                 this["DBConnectionString"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("74, 57, 182")]
+        public global::System.Drawing.Color OuterBorderColor {
+            get {
+                return ((global::System.Drawing.Color)(this["OuterBorderColor"]));
+            }
+        }
     }
 }
