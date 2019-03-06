@@ -120,11 +120,11 @@
     <Compile Include="Controls\DefaultBackground.Designer.cs">
       <DependentUpon>DefaultBackground.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Header.cs">
+    <Compile Include="Controls\HeaderImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\Header.Designer.cs">
-      <DependentUpon>Header.cs</DependentUpon>
+    <Compile Include="Controls\HeaderImage.Designer.cs">
+      <DependentUpon>HeaderImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\MenuBar.cs">
       <SubType>UserControl</SubType>
@@ -215,8 +215,8 @@
     <EmbeddedResource Include="Controls\DefaultBackground.resx">
       <DependentUpon>DefaultBackground.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Header.resx">
-      <DependentUpon>Header.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\HeaderImage.resx">
+      <DependentUpon>HeaderImage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MenuBar.resx">
       <DependentUpon>MenuBar.cs</DependentUpon>

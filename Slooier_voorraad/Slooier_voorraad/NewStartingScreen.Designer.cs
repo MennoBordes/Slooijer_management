@@ -30,8 +30,8 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.TmrDbCheck = new System.Windows.Forms.Timer(this.components);
+			this.header1 = new Slooier_voorraad.Controls.HeaderImage();
 			this.menuBar1 = new Slooier_voorraad.Controls.MenuBar();
-			this.header1 = new Slooier_voorraad.Controls.Header();
 			this.SuspendLayout();
 			// 
 			// TmrDbCheck
@@ -40,21 +40,23 @@
 			this.TmrDbCheck.Interval = 60000;
 			this.TmrDbCheck.Tick += new System.EventHandler(this.TmrDbCheck_Tick);
 			// 
-			// menuBar1
-			// 
-			this.menuBar1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.menuBar1.Location = new System.Drawing.Point(0, 0);
-			this.menuBar1.Name = "menuBar1";
-			this.menuBar1.Size = new System.Drawing.Size(110, 710);
-			this.menuBar1.TabIndex = 9;
-			// 
 			// header1
 			// 
+			this.header1.BackColor = System.Drawing.Color.DarkRed;
 			this.header1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.header1.Location = new System.Drawing.Point(110, 0);
 			this.header1.Name = "header1";
 			this.header1.Size = new System.Drawing.Size(1149, 100);
 			this.header1.TabIndex = 10;
+			// 
+			// menuBar1
+			// 
+			this.menuBar1.BackColor = System.Drawing.Color.DarkRed;
+			this.menuBar1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.menuBar1.Location = new System.Drawing.Point(0, 0);
+			this.menuBar1.Name = "menuBar1";
+			this.menuBar1.Size = new System.Drawing.Size(110, 710);
+			this.menuBar1.TabIndex = 9;
 			// 
 			// NewStartingScreen
 			// 
@@ -77,6 +79,6 @@
 		#endregion
 		private System.Windows.Forms.Timer TmrDbCheck;
 		private Controls.MenuBar menuBar1;
-		private Controls.Header header1;
+		private Controls.HeaderImage header1;
 	}
 }

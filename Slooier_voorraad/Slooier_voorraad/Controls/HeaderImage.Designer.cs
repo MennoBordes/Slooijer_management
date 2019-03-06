@@ -1,6 +1,6 @@
 ﻿namespace Slooier_voorraad.Controls
 {
-	partial class Header
+	partial class HeaderImage
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Header));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HeaderImage));
 			this.PboxLogo = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.PboxLogo)).BeginInit();
 			this.SuspendLayout();

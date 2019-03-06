@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Slooier_voorraad.Controls
 {
-	public partial class Header : UserControl
+	public partial class HeaderImage : UserControl
 	{
-		public Header()
+		public HeaderImage()
 		{
 			InitializeComponent();
 		}
