@@ -28,34 +28,167 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
+			this.components = new System.ComponentModel.Container();
+			this.HeaderBar = new System.Windows.Forms.Panel();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.minMaxButton = new Slooier_voorraad.UI.MinMaxButton();
+			this.CloseButton = new Slooier_voorraad.UI.CloseButton();
+			this.RightSide = new Slooier_voorraad.UI.OuterFormBorder();
+			this.BottomSide = new Slooier_voorraad.UI.OuterFormBorder();
+			this.LeftSide = new Slooier_voorraad.UI.OuterFormBorder();
+			this.MainWorkingArea = new System.Windows.Forms.Panel();
+			this.HeaderText = new System.Windows.Forms.Label();
+			this.HeaderBar.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// button1
+			// HeaderBar
 			// 
-			this.button1.Location = new System.Drawing.Point(93, 0);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(57, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Sluiten";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this.HeaderBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.HeaderBar.Controls.Add(this.HeaderText);
+			this.HeaderBar.Controls.Add(this.minMaxButton);
+			this.HeaderBar.Controls.Add(this.CloseButton);
+			this.HeaderBar.Cursor = System.Windows.Forms.Cursors.Default;
+			this.HeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.HeaderBar.Location = new System.Drawing.Point(10, 0);
+			this.HeaderBar.Name = "HeaderBar";
+			this.HeaderBar.Size = new System.Drawing.Size(476, 27);
+			this.HeaderBar.TabIndex = 1;
+			this.HeaderBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseDown);
+			this.HeaderBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseMove);
+			this.HeaderBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.HeaderBar_MouseUp);
+			// 
+			// minMaxButton
+			// 
+			this.minMaxButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.minMaxButton.BmmBackColor = System.Drawing.Color.Gray;
+			this.minMaxButton.CFormState = Slooier_voorraad.UI.MinMaxButton.CustomFormState.Normal;
+			this.minMaxButton.DisplayText = "_KLJS";
+			this.minMaxButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.minMaxButton.ForeColor = System.Drawing.Color.White;
+			this.minMaxButton.Location = new System.Drawing.Point(405, 0);
+			this.minMaxButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
+			this.minMaxButton.MouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(200)))), ((int)(((byte)(240)))));
+			this.minMaxButton.Name = "minMaxButton";
+			this.minMaxButton.Size = new System.Drawing.Size(31, 24);
+			this.minMaxButton.TabIndex = 5;
+			this.minMaxButton.Text = "minMaxButton";
+			this.minMaxButton.TextLocation_X = 6;
+			this.minMaxButton.TextLocation_Y = 6;
+			this.toolTip1.SetToolTip(this.minMaxButton, "Minimize");
+			this.minMaxButton.UseVisualStyleBackColor = true;
+			this.minMaxButton.Click += new System.EventHandler(this.minMaxButton_Click);
+			// 
+			// CloseButton
+			// 
+			this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.CloseButton.BCBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(20)))), ((int)(((byte)(40)))));
+			this.CloseButton.DisplayText = "X";
+			this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.CloseButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.CloseButton.ForeColor = System.Drawing.Color.Black;
+			this.CloseButton.Location = new System.Drawing.Point(442, 0);
+			this.CloseButton.MouseClickColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(73)))), ((int)(((byte)(73)))));
+			this.CloseButton.MouseHoverColor = System.Drawing.Color.Red;
+			this.CloseButton.Name = "CloseButton";
+			this.CloseButton.Size = new System.Drawing.Size(31, 24);
+			this.CloseButton.TabIndex = 0;
+			this.CloseButton.Text = "X";
+			this.CloseButton.TextLocation_X = 5;
+			this.CloseButton.TextLocation_Y = -2;
+			this.toolTip1.SetToolTip(this.CloseButton, "Close");
+			this.CloseButton.UseVisualStyleBackColor = true;
+			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+			// 
+			// RightSide
+			// 
+			this.RightSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RightSide.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.RightSide.Dock = System.Windows.Forms.DockStyle.Right;
+			this.RightSide.Location = new System.Drawing.Point(486, 0);
+			this.RightSide.Name = "RightSide";
+			this.RightSide.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RightSide.Size = new System.Drawing.Size(10, 306);
+			this.RightSide.TabIndex = 4;
+			this.RightSide.MouseDown += new System.Windows.Forms.MouseEventHandler(this.RightSide_MouseDown);
+			this.RightSide.MouseMove += new System.Windows.Forms.MouseEventHandler(this.RightSide_MouseMove);
+			this.RightSide.MouseUp += new System.Windows.Forms.MouseEventHandler(this.RightSide_MouseUp);
+			// 
+			// BottomSide
+			// 
+			this.BottomSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomSide.Cursor = System.Windows.Forms.Cursors.SizeNS;
+			this.BottomSide.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.BottomSide.Location = new System.Drawing.Point(10, 306);
+			this.BottomSide.Name = "BottomSide";
+			this.BottomSide.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomSide.Size = new System.Drawing.Size(486, 10);
+			this.BottomSide.TabIndex = 3;
+			this.BottomSide.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BottomSide_MouseDown);
+			this.BottomSide.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BottomSide_MouseMove);
+			this.BottomSide.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BottomSide_MouseUp);
+			// 
+			// LeftSide
+			// 
+			this.LeftSide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftSide.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.LeftSide.Dock = System.Windows.Forms.DockStyle.Left;
+			this.LeftSide.Location = new System.Drawing.Point(0, 0);
+			this.LeftSide.Name = "LeftSide";
+			this.LeftSide.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftSide.Size = new System.Drawing.Size(10, 316);
+			this.LeftSide.TabIndex = 2;
+			this.LeftSide.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LeftSide_MouseDown);
+			this.LeftSide.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LeftSide_MouseMove);
+			this.LeftSide.MouseUp += new System.Windows.Forms.MouseEventHandler(this.LeftSide_MouseUp);
+			// 
+			// MainWorkingArea
+			// 
+			this.MainWorkingArea.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.MainWorkingArea.Location = new System.Drawing.Point(10, 27);
+			this.MainWorkingArea.Name = "MainWorkingArea";
+			this.MainWorkingArea.Size = new System.Drawing.Size(476, 279);
+			this.MainWorkingArea.TabIndex = 5;
+			// 
+			// HeaderText
+			// 
+			this.HeaderText.AutoSize = true;
+			this.HeaderText.ForeColor = System.Drawing.Color.White;
+			this.HeaderText.Location = new System.Drawing.Point(3, 6);
+			this.HeaderText.Name = "HeaderText";
+			this.HeaderText.Size = new System.Drawing.Size(168, 13);
+			this.HeaderText.TabIndex = 6;
+			this.HeaderText.Text = "HeaderText, overwritten by parent";
+			this.HeaderText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// DefaultBackground
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.MainWorkingArea);
+			this.Controls.Add(this.HeaderBar);
+			this.Controls.Add(this.RightSide);
+			this.Controls.Add(this.BottomSide);
+			this.Controls.Add(this.LeftSide);
 			this.Name = "DefaultBackground";
-			this.Size = new System.Drawing.Size(153, 150);
+			this.Size = new System.Drawing.Size(496, 316);
 			this.Load += new System.EventHandler(this.DefaultBackground_Load);
+			this.HeaderBar.ResumeLayout(false);
+			this.HeaderBar.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private UI.CloseButton CloseButton;
+		private System.Windows.Forms.Panel HeaderBar;
+		private UI.OuterFormBorder LeftSide;
+		private UI.OuterFormBorder BottomSide;
+		private UI.OuterFormBorder RightSide;
+		private UI.MinMaxButton minMaxButton;
+		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.Panel MainWorkingArea;
+		private System.Windows.Forms.Label HeaderText;
 	}
 }

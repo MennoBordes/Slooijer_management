@@ -80,6 +80,7 @@
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -211,6 +212,15 @@
     </Compile>
     <Compile Include="StartingScreen.Designer.cs">
       <DependentUpon>StartingScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CloseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\MinMaxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\OuterFormBorder.cs">
+      <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Controls\DefaultBackground.resx">
       <DependentUpon>DefaultBackground.cs</DependentUpon>
