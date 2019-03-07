@@ -61,6 +61,11 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.BtnAlterArtikel = new System.Windows.Forms.Button();
 			this.LblMain = new System.Windows.Forms.Label();
+			this.DefaultMenuBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.PMain.SuspendLayout();
 			this.PCurrent.SuspendLayout();
 			this.FlpCurrent.SuspendLayout();
@@ -68,6 +73,7 @@
 			this.PNew.SuspendLayout();
 			this.FlpNew.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.defaultBackGround1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// PMain
@@ -75,8 +81,7 @@
 			this.PMain.Controls.Add(this.PCurrent);
 			this.PMain.Controls.Add(this.PNew);
 			this.PMain.Controls.Add(this.LblMain);
-			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PMain.Location = new System.Drawing.Point(0, 0);
+			this.PMain.Location = new System.Drawing.Point(6, 6);
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(835, 323);
 			this.PMain.TabIndex = 16;
@@ -420,16 +425,72 @@
 			this.LblMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.LblMain.SizeChanged += new System.EventHandler(this.LblMain_SizeChanged);
 			// 
+			// DefaultMenuBar
+			// 
+			this.DefaultMenuBar.AutoSize = true;
+			this.DefaultMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DefaultMenuBar.Location = new System.Drawing.Point(0, 0);
+			this.DefaultMenuBar.Name = "DefaultMenuBar";
+			this.DefaultMenuBar.Size = new System.Drawing.Size(872, 27);
+			this.DefaultMenuBar.TabIndex = 20;
+			// 
+			// LeftBorder
+			// 
+			this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.LeftBorder.Dock = System.Windows.Forms.DockStyle.Left;
+			this.LeftBorder.Location = new System.Drawing.Point(0, 27);
+			this.LeftBorder.Name = "LeftBorder";
+			this.LeftBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Size = new System.Drawing.Size(8, 348);
+			this.LeftBorder.TabIndex = 21;
+			// 
+			// RightBorder
+			// 
+			this.RightBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RightBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.RightBorder.Dock = System.Windows.Forms.DockStyle.Right;
+			this.RightBorder.Location = new System.Drawing.Point(864, 27);
+			this.RightBorder.Name = "RightBorder";
+			this.RightBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RightBorder.Size = new System.Drawing.Size(8, 348);
+			this.RightBorder.TabIndex = 22;
+			// 
+			// BottomBorder
+			// 
+			this.BottomBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Cursor = System.Windows.Forms.Cursors.SizeNS;
+			this.BottomBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.BottomBorder.Location = new System.Drawing.Point(8, 367);
+			this.BottomBorder.Name = "BottomBorder";
+			this.BottomBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Size = new System.Drawing.Size(856, 8);
+			this.BottomBorder.TabIndex = 23;
+			// 
+			// defaultBackGround1
+			// 
+			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
+			this.defaultBackGround1.Controls.Add(this.PMain);
+			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
+			this.defaultBackGround1.Name = "defaultBackGround1";
+			this.defaultBackGround1.Size = new System.Drawing.Size(856, 340);
+			this.defaultBackGround1.TabIndex = 24;
+			// 
 			// AlterItemPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(835, 323);
-			this.Controls.Add(this.PMain);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.ClientSize = new System.Drawing.Size(872, 375);
+			this.Controls.Add(this.defaultBackGround1);
+			this.Controls.Add(this.BottomBorder);
+			this.Controls.Add(this.RightBorder);
+			this.Controls.Add(this.LeftBorder);
+			this.Controls.Add(this.DefaultMenuBar);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "AlterItemPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "AlterItemPopup";
+			this.Text = "Artikel Aanpassen";
 			this.Load += new System.EventHandler(this.AlterItemPopup_Load);
 			this.PMain.ResumeLayout(false);
 			this.PCurrent.ResumeLayout(false);
@@ -442,7 +503,9 @@
 			this.FlpNew.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
+			this.defaultBackGround1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -481,5 +544,10 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Label label12;
+		private Controls.DefaultHeaderBar DefaultMenuBar;
+		private UI.OuterFormBorder LeftBorder;
+		private UI.OuterFormBorder RightBorder;
+		private UI.OuterFormBorder BottomBorder;
+		private UI.DefaultBackGround defaultBackGround1;
 	}
 }

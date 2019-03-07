@@ -43,9 +43,15 @@
 			this.PMain = new System.Windows.Forms.Panel();
 			this.PSecundary = new System.Windows.Forms.Panel();
 			this.FlpMain = new System.Windows.Forms.FlowLayoutPanel();
+			this.HeaderBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.RigthBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.PMain.SuspendLayout();
 			this.PSecundary.SuspendLayout();
 			this.FlpMain.SuspendLayout();
+			this.defaultBackGround1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// CbbBenaming
@@ -161,8 +167,7 @@
 			// 
 			this.PMain.Controls.Add(this.PSecundary);
 			this.PMain.Controls.Add(this.LblMain);
-			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PMain.Location = new System.Drawing.Point(0, 0);
+			this.PMain.Location = new System.Drawing.Point(6, 6);
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(470, 366);
 			this.PMain.TabIndex = 15;
@@ -195,18 +200,74 @@
 			this.FlpMain.Size = new System.Drawing.Size(177, 294);
 			this.FlpMain.TabIndex = 15;
 			// 
+			// HeaderBar
+			// 
+			this.HeaderBar.AutoSize = true;
+			this.HeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.HeaderBar.Location = new System.Drawing.Point(0, 0);
+			this.HeaderBar.Name = "HeaderBar";
+			this.HeaderBar.Size = new System.Drawing.Size(498, 27);
+			this.HeaderBar.TabIndex = 16;
+			// 
+			// LeftBorder
+			// 
+			this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.LeftBorder.Dock = System.Windows.Forms.DockStyle.Left;
+			this.LeftBorder.Location = new System.Drawing.Point(0, 27);
+			this.LeftBorder.Name = "LeftBorder";
+			this.LeftBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Size = new System.Drawing.Size(8, 387);
+			this.LeftBorder.TabIndex = 17;
+			// 
+			// RigthBorder
+			// 
+			this.RigthBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RigthBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.RigthBorder.Dock = System.Windows.Forms.DockStyle.Right;
+			this.RigthBorder.Location = new System.Drawing.Point(490, 27);
+			this.RigthBorder.Name = "RigthBorder";
+			this.RigthBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.RigthBorder.Size = new System.Drawing.Size(8, 387);
+			this.RigthBorder.TabIndex = 18;
+			// 
+			// BottomBorder
+			// 
+			this.BottomBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Cursor = System.Windows.Forms.Cursors.SizeNS;
+			this.BottomBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.BottomBorder.Location = new System.Drawing.Point(8, 406);
+			this.BottomBorder.Name = "BottomBorder";
+			this.BottomBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Size = new System.Drawing.Size(482, 8);
+			this.BottomBorder.TabIndex = 19;
+			// 
+			// defaultBackGround1
+			// 
+			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
+			this.defaultBackGround1.Controls.Add(this.PMain);
+			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
+			this.defaultBackGround1.Name = "defaultBackGround1";
+			this.defaultBackGround1.Size = new System.Drawing.Size(482, 379);
+			this.defaultBackGround1.TabIndex = 20;
+			// 
 			// AddItemPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(470, 366);
-			this.Controls.Add(this.PMain);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.ClientSize = new System.Drawing.Size(498, 414);
+			this.Controls.Add(this.defaultBackGround1);
+			this.Controls.Add(this.BottomBorder);
+			this.Controls.Add(this.RigthBorder);
+			this.Controls.Add(this.LeftBorder);
+			this.Controls.Add(this.HeaderBar);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "AddItemPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Item toevoegen";
+			this.Text = "Artikel toevoegen";
 			this.Load += new System.EventHandler(this.AddItemPopup_Load);
 			this.Shown += new System.EventHandler(this.AddItemPopup_Shown);
 			this.SizeChanged += new System.EventHandler(this.AddItemPopup_SizeChanged);
@@ -214,7 +275,9 @@
 			this.PSecundary.ResumeLayout(false);
 			this.FlpMain.ResumeLayout(false);
 			this.FlpMain.PerformLayout();
+			this.defaultBackGround1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -234,5 +297,10 @@
 		private System.Windows.Forms.Panel PMain;
 		private System.Windows.Forms.FlowLayoutPanel FlpMain;
 		private System.Windows.Forms.Panel PSecundary;
+		private Controls.DefaultHeaderBar HeaderBar;
+		private UI.OuterFormBorder LeftBorder;
+		private UI.OuterFormBorder RigthBorder;
+		private UI.OuterFormBorder BottomBorder;
+		private UI.DefaultBackGround defaultBackGround1;
 	}
 }

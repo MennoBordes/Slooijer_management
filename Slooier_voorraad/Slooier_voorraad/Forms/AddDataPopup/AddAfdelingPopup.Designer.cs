@@ -35,17 +35,22 @@
 			this.TxbAfdeling = new System.Windows.Forms.TextBox();
 			this.BtnAddToDb = new System.Windows.Forms.Button();
 			this.LblMain = new System.Windows.Forms.Label();
+			this.defaultHeaderBar1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.outerFormBorder1 = new Slooier_voorraad.UI.OuterFormBorder();
+			this.outerFormBorder2 = new Slooier_voorraad.UI.OuterFormBorder();
+			this.outerFormBorder3 = new Slooier_voorraad.UI.OuterFormBorder();
+			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.PMain.SuspendLayout();
 			this.PSecundary.SuspendLayout();
 			this.FlpMain.SuspendLayout();
+			this.defaultBackGround1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// PMain
 			// 
 			this.PMain.Controls.Add(this.PSecundary);
 			this.PMain.Controls.Add(this.LblMain);
-			this.PMain.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.PMain.Location = new System.Drawing.Point(0, 0);
+			this.PMain.Location = new System.Drawing.Point(6, 3);
 			this.PMain.Name = "PMain";
 			this.PMain.Size = new System.Drawing.Size(499, 367);
 			this.PMain.TabIndex = 16;
@@ -108,13 +113,69 @@
 			this.LblMain.Text = "Hier kan één afdeling per keer toegevoegd worden aan de Database.";
 			this.LblMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
+			// defaultHeaderBar1
+			// 
+			this.defaultHeaderBar1.AutoSize = true;
+			this.defaultHeaderBar1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.defaultHeaderBar1.Location = new System.Drawing.Point(0, 0);
+			this.defaultHeaderBar1.Name = "defaultHeaderBar1";
+			this.defaultHeaderBar1.Size = new System.Drawing.Size(526, 27);
+			this.defaultHeaderBar1.TabIndex = 17;
+			// 
+			// outerFormBorder1
+			// 
+			this.outerFormBorder1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder1.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.outerFormBorder1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.outerFormBorder1.Location = new System.Drawing.Point(0, 27);
+			this.outerFormBorder1.Name = "outerFormBorder1";
+			this.outerFormBorder1.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder1.Size = new System.Drawing.Size(8, 384);
+			this.outerFormBorder1.TabIndex = 18;
+			// 
+			// outerFormBorder2
+			// 
+			this.outerFormBorder2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder2.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.outerFormBorder2.Dock = System.Windows.Forms.DockStyle.Right;
+			this.outerFormBorder2.Location = new System.Drawing.Point(518, 27);
+			this.outerFormBorder2.Name = "outerFormBorder2";
+			this.outerFormBorder2.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder2.Size = new System.Drawing.Size(8, 384);
+			this.outerFormBorder2.TabIndex = 19;
+			// 
+			// outerFormBorder3
+			// 
+			this.outerFormBorder3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder3.Cursor = System.Windows.Forms.Cursors.SizeNS;
+			this.outerFormBorder3.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.outerFormBorder3.Location = new System.Drawing.Point(8, 403);
+			this.outerFormBorder3.Name = "outerFormBorder3";
+			this.outerFormBorder3.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.outerFormBorder3.Size = new System.Drawing.Size(510, 8);
+			this.outerFormBorder3.TabIndex = 20;
+			// 
+			// defaultBackGround1
+			// 
+			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
+			this.defaultBackGround1.Controls.Add(this.PMain);
+			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
+			this.defaultBackGround1.Name = "defaultBackGround1";
+			this.defaultBackGround1.Size = new System.Drawing.Size(510, 376);
+			this.defaultBackGround1.TabIndex = 21;
+			// 
 			// AddAfdelingPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(499, 367);
-			this.Controls.Add(this.PMain);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+			this.ClientSize = new System.Drawing.Size(526, 411);
+			this.Controls.Add(this.defaultBackGround1);
+			this.Controls.Add(this.outerFormBorder3);
+			this.Controls.Add(this.outerFormBorder2);
+			this.Controls.Add(this.outerFormBorder1);
+			this.Controls.Add(this.defaultHeaderBar1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "AddAfdelingPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Afdeling toevoegen";
@@ -124,7 +185,9 @@
 			this.PSecundary.ResumeLayout(false);
 			this.FlpMain.ResumeLayout(false);
 			this.FlpMain.PerformLayout();
+			this.defaultBackGround1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -137,5 +200,10 @@
 		private System.Windows.Forms.TextBox TxbAfdeling;
 		private System.Windows.Forms.Button BtnAddToDb;
 		private System.Windows.Forms.Label LblMain;
+		private Controls.DefaultHeaderBar defaultHeaderBar1;
+		private UI.OuterFormBorder outerFormBorder1;
+		private UI.OuterFormBorder outerFormBorder2;
+		private UI.OuterFormBorder outerFormBorder3;
+		private UI.DefaultBackGround defaultBackGround1;
 	}
 }
