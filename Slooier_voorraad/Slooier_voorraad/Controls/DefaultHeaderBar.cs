@@ -4,13 +4,12 @@ using System.Windows.Forms;
 
 namespace Slooier_voorraad.Controls
 {
-	public partial class DefaultBackground : UserControl
+	public partial class DefaultHeaderBar : UserControl
 	{
 		#region Initializers
-		public DefaultBackground()
+		public DefaultHeaderBar()
 		{
 			InitializeComponent();
-			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
 		private void DefaultBackground_Load(object sender, System.EventArgs e)
@@ -53,6 +52,12 @@ namespace Slooier_voorraad.Controls
 		}
 
 		#region Header Buttons
+		private void CloseButton_Click(object sender, System.EventArgs e)
+		{
+			Properties.Settings.Default.Save();
+			Parent.Dispose();
+		}
+
 		private bool isWindowMaximized = false;
 
 		// To store the size and place of the normal window
@@ -93,9 +98,6 @@ namespace Slooier_voorraad.Controls
 		private bool isLeftPanelDragged = false;
 		private bool isRightPanelDragged = false;
 		private bool isBottomPanelDragged = false;
-
-		private Point offset;
-
 
 		#endregion
 		#region Left Side Panel
@@ -207,13 +209,5 @@ namespace Slooier_voorraad.Controls
 		#endregion
 
 		#endregion
-
-		private void CloseButton_Click(object sender, System.EventArgs e)
-		{
-			Properties.Settings.Default.Save();
-			Parent.Dispose();
-		}
-
-		
 	}
 }
