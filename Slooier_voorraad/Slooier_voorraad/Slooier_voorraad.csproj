@@ -115,11 +115,11 @@
     <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
-    <Compile Include="Controls\DefaultBackground.cs">
+    <Compile Include="Controls\DefaultHeaderBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DefaultBackground.Designer.cs">
-      <DependentUpon>DefaultBackground.cs</DependentUpon>
+    <Compile Include="Controls\DefaultHeaderBar.Designer.cs">
+      <DependentUpon>DefaultHeaderBar.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\HeaderImage.cs">
       <SubType>UserControl</SubType>
@@ -216,14 +216,17 @@
     <Compile Include="UI\CloseButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\DefaultBackGround.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\MinMaxButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\OuterFormBorder.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Controls\DefaultBackground.resx">
-      <DependentUpon>DefaultBackground.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\DefaultHeaderBar.resx">
+      <DependentUpon>DefaultHeaderBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\HeaderImage.resx">
       <DependentUpon>HeaderImage.cs</DependentUpon>
