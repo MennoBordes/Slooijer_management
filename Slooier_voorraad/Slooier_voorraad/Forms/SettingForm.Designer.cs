@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.defaultBackground1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.DefaultHeaderBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
 			this.GbDB = new System.Windows.Forms.GroupBox();
 			this.LblUserName = new System.Windows.Forms.Label();
 			this.LblServer = new System.Windows.Forms.Label();
@@ -40,15 +40,15 @@
 			this.defaultBackGround2.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// defaultBackground1
+			// DefaultHeaderBar
 			// 
-			this.defaultBackground1.AutoSize = true;
-			this.defaultBackground1.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackground1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.defaultBackground1.Location = new System.Drawing.Point(0, 0);
-			this.defaultBackground1.Name = "defaultBackground1";
-			this.defaultBackground1.Size = new System.Drawing.Size(800, 27);
-			this.defaultBackground1.TabIndex = 1;
+			this.DefaultHeaderBar.AutoSize = true;
+			this.DefaultHeaderBar.BackColor = System.Drawing.Color.Gainsboro;
+			this.DefaultHeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DefaultHeaderBar.Location = new System.Drawing.Point(0, 0);
+			this.DefaultHeaderBar.Name = "DefaultHeaderBar";
+			this.DefaultHeaderBar.Size = new System.Drawing.Size(800, 27);
+			this.DefaultHeaderBar.TabIndex = 1;
 			// 
 			// GbDB
 			// 
@@ -132,7 +132,7 @@
 			this.Controls.Add(this.BottomBorder);
 			this.Controls.Add(this.RightBorder);
 			this.Controls.Add(this.LeftBorder);
-			this.Controls.Add(this.defaultBackground1);
+			this.Controls.Add(this.DefaultHeaderBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "SettingForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -149,7 +149,7 @@
 
     #endregion
 
-    private Controls.DefaultHeaderBar defaultBackground1;
+    private Controls.DefaultHeaderBar DefaultHeaderBar;
     private System.Windows.Forms.GroupBox GbDB;
     private System.Windows.Forms.Label LblUserName;
     private System.Windows.Forms.Label LblServer;

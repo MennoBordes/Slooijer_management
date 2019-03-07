@@ -28,23 +28,23 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.defaultBackground1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.DefaultHeaderBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
 			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.defaultBackGround2 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.SuspendLayout();
 			// 
-			// defaultBackground1
+			// DefaultHeaderBar
 			// 
-			this.defaultBackground1.AutoSize = true;
-			this.defaultBackground1.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackground1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.defaultBackground1.Location = new System.Drawing.Point(0, 0);
-			this.defaultBackground1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.defaultBackground1.Name = "defaultBackground1";
-			this.defaultBackground1.Size = new System.Drawing.Size(800, 27);
-			this.defaultBackground1.TabIndex = 0;
+			this.DefaultHeaderBar.AutoSize = true;
+			this.DefaultHeaderBar.BackColor = System.Drawing.Color.Gainsboro;
+			this.DefaultHeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DefaultHeaderBar.Location = new System.Drawing.Point(0, 0);
+			this.DefaultHeaderBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.DefaultHeaderBar.Name = "DefaultHeaderBar";
+			this.DefaultHeaderBar.Size = new System.Drawing.Size(800, 27);
+			this.DefaultHeaderBar.TabIndex = 0;
 			// 
 			// LeftBorder
 			// 
@@ -97,7 +97,7 @@
 			this.Controls.Add(this.BottomBorder);
 			this.Controls.Add(this.RightBorder);
 			this.Controls.Add(this.LeftBorder);
-			this.Controls.Add(this.defaultBackground1);
+			this.Controls.Add(this.DefaultHeaderBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "DeleteAfdelingPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -109,7 +109,7 @@
 
 		#endregion
 
-		private Controls.DefaultHeaderBar defaultBackground1;
+		private Controls.DefaultHeaderBar DefaultHeaderBar;
 		private UI.OuterFormBorder LeftBorder;
 		private UI.OuterFormBorder RightBorder;
 		private UI.OuterFormBorder BottomBorder;

@@ -38,7 +38,7 @@
 			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
-			this.defaultBackground1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.DefaultHeaderBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
 			this.defaultBackGround2 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.FlpNew.SuspendLayout();
 			this.defaultBackGround2.SuspendLayout();
@@ -157,15 +157,15 @@
 			this.LeftBorder.Size = new System.Drawing.Size(8, 348);
 			this.LeftBorder.TabIndex = 17;
 			// 
-			// defaultBackground1
+			// DefaultHeaderBar
 			// 
-			this.defaultBackground1.AutoSize = true;
-			this.defaultBackground1.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackground1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.defaultBackground1.Location = new System.Drawing.Point(8, 0);
-			this.defaultBackground1.Name = "defaultBackground1";
-			this.defaultBackground1.Size = new System.Drawing.Size(435, 27);
-			this.defaultBackground1.TabIndex = 16;
+			this.DefaultHeaderBar.AutoSize = true;
+			this.DefaultHeaderBar.BackColor = System.Drawing.Color.Gainsboro;
+			this.DefaultHeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
+			this.DefaultHeaderBar.Location = new System.Drawing.Point(8, 0);
+			this.DefaultHeaderBar.Name = "DefaultHeaderBar";
+			this.DefaultHeaderBar.Size = new System.Drawing.Size(435, 27);
+			this.DefaultHeaderBar.TabIndex = 16;
 			// 
 			// defaultBackGround2
 			// 
@@ -184,7 +184,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(451, 348);
 			this.Controls.Add(this.defaultBackGround2);
-			this.Controls.Add(this.defaultBackground1);
+			this.Controls.Add(this.DefaultHeaderBar);
 			this.Controls.Add(this.BottomBorder);
 			this.Controls.Add(this.LeftBorder);
 			this.Controls.Add(this.RightBorder);
@@ -208,7 +208,7 @@
 		private System.Windows.Forms.Label LblMain;
 		private System.Windows.Forms.FlowLayoutPanel FlpNew;
 		private System.Windows.Forms.Button BtnAlterAfdeling;
-		private Controls.DefaultHeaderBar defaultBackground1;
+		private Controls.DefaultHeaderBar DefaultHeaderBar;
 		private UI.OuterFormBorder LeftBorder;
 		private UI.OuterFormBorder RightBorder;
 		private UI.OuterFormBorder BottomBorder;
