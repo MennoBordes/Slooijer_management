@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-      this.defaultBackground1 = new Slooier_voorraad.Controls.DefaultBackground();
+      this.defaultBackground1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
       this.SuspendLayout();
       // 
       // defaultBackground1
@@ -60,6 +60,6 @@
 
 		#endregion
 
-		private Controls.DefaultBackground defaultBackground1;
+		private Controls.DefaultHeaderBar defaultBackground1;
 	}
 }
