@@ -194,7 +194,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
         TheForm.Show();
       }
 
-      public void Show<U>(Form parent, bool DataToTake=false, (string PropertyName, string Property)[] variable = null)
+      public void Show(Form parent, bool DataToTake=false, List<string> variable = null)
       {
         // Check whether the current form is open or not
         if (IsFormOpen())

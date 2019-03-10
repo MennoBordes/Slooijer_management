@@ -55,7 +55,6 @@ namespace Slooier_voorraad.Controls
       (string,int)[] t = new (string,int)[5];
       t[0] = ("IdRef", 55);
 
-
       mAlterItemForm.Show<int>(this.ParentForm, t);
       mAlterItemForm.Show(this.ParentForm);
     }

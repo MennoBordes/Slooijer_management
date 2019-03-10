@@ -1,4 +1,5 @@
-﻿using Slooier_voorraad.Classes.CommonFunctions;
+﻿using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.CommonFunctions;
 using System;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
     public void Tester()
     {
       Console.WriteLine("***********************************");
+      string s = Global.IniVar.sResult1;
     }
 
     public int IdRef = 0;
