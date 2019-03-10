@@ -44,7 +44,7 @@ namespace Slooier_voorraad.Controls
 
 		private void BestandToevoegenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			StartingScreenFunctions.SelectExcelFile(ConnString);
+			StartingScreenFunctions.SelectExcelFile();
 		}
 
 		private void ArtikelAanpassenToolStripMenuBar_Click(object sender, EventArgs e)

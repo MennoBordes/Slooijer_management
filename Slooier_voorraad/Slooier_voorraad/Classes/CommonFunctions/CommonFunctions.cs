@@ -13,8 +13,17 @@ using System.Windows.Forms;
 
 namespace Slooier_voorraad.Classes.CommonFunctions
 {
+	/// <summary>
+	/// A class that contains a number of common functions, which are called from multiple places
+	/// </summary>
   public class CommonFunctions
   {
+		/// <summary>
+		/// Returns a list of items, as returned from the database
+		/// </summary>
+		/// <param name="items"> The list in which the items should return </param>
+		/// <param name="ConnString"> The connection string to the DataBase </param>
+		/// <returns> Returns a list of MagazijnItems </returns>
     public static List<MagazijnItems> GetMagazijnItems(List<MagazijnItems> items, string ConnString)
     {
       items.Clear();
@@ -57,23 +66,43 @@ namespace Slooier_voorraad.Classes.CommonFunctions
       }
     }
 
+		/// <summary>
+		/// Set a panel to the center of the parent
+		/// </summary>
+		/// <param name="Child"> The element whose location should be set </param>
+		/// <param name="Parent"> The element whose size will be used to center the child </param>
     public static void SetPanelDimensions(Panel Child, Panel Parent)
     {
       Child.Left = (Parent.Width - Child.Width) / 2;
       Child.Top = (Parent.Height - Child.Height) / 2;
     }
 
-    public static void SetPanelDimensions(Panel Child, System.Drawing.Size Parent)
+		/// <summary>
+		/// Set a panel to the center of the parent, in case the parent is the main form
+		/// </summary>
+		/// <param name="Child"> The element whose location should be set </param>
+		/// <param name="Parent"> The element whose size will be used to center the child </param>
+		public static void SetPanelDimensions(Panel Child, System.Drawing.Size Parent)
     {
       Child.Left = (Parent.Width - Child.Width) / 2;
       Child.Top = (Parent.Height - Child.Height) / 2;
     }
 
-    public static void SetPanelDimensions(Panel[] Children, Panel parent)
+		/// <summary>
+		/// A number of children, who should all be given an equal part of the parent
+		/// </summary>
+		/// <param name="Children"> The element whose location should be set </param>
+		/// <param name="parent"> The element whose size will be used to center the child </param>
+		public static void SetPanelDimensions(Panel[] Children, Panel parent)
     {
       // set childs to each take a portion of the parent
     }
 
+		/// <summary>
+		/// A function which checks whether the connection with the DataBase still works
+		/// </summary>
+		/// <param name="ConnectionString"> The connection parameters to the database </param>
+		/// <returns> Returns a boolean </returns>
     public static bool CheckDBConnection(string ConnectionString)
     {
       try
@@ -102,6 +131,10 @@ namespace Slooier_voorraad.Classes.CommonFunctions
       }
     }
 
+		/// <summary>
+		/// A timer function which periodically checks for database availability
+		/// </summary>
+		/// <returns> Returns a boolean </returns>
     public static bool TimedChecker()
     {
       bool current = Properties.Settings.Default.DBConnectionValid;
@@ -246,6 +279,12 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
       }
     }
 
+		/// <summary>
+		/// Returns a double from a string
+		/// </summary>
+		/// <param name="value"> The string which contains a double </param>
+		/// <param name="defaultValue"> The default return type, in case the string couldn't be converted </param>
+		/// <returns> Returns a double </returns>
     public static double GetDouble(string value, double defaultValue)
     {
       if (!double.TryParse(value, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out double result) &&
@@ -257,6 +296,11 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
       return result;
     }
 
+		/// <summary>
+		/// A function which takes the path to a excel file, and reads all content
+		/// </summary>
+		/// <param name="FilePath"> The path to the excel file </param>
+		/// <returns> Returns a dataset containing all read data </returns>
     private static DataSet ReadExcelFile(string FilePath)
     {
       try
@@ -288,14 +332,23 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
       }
     }
 
-    private static (int, int) AddExcelToDB(DataSet NewdataSet, string ConnString)
+
+		/// <summary>
+		/// Takes a dataset and adds it to the database
+		/// </summary>
+		/// <param name="NewdataSet"> The dataset containing the new data which should be inserted </param>
+		/// <returns> Returns a integer tuple, in which the first stands for the amount of afdelingen added, and the latter stand for the amount of artikelen added. </returns>
+		private static (int, int) AddExcelToDB(DataSet NewdataSet)
     {
+			string ConnString = Properties.Settings.Default.DBConnectionString;
       DataTable usableDataset = NewdataSet.Tables[0];
       int AfdelingenAdded = 0;
       int ItemsAdded = 0;
       try
       {
-        if (usableDataset.Columns.Count != 5 || usableDataset.TableName != "Artikelen" || usableDataset.Columns[0].ColumnName != "Benaming" || usableDataset.Columns[1].ColumnName != "Nummer" || usableDataset.Columns[2].ColumnName != "Omschrijving" || usableDataset.Columns[3].ColumnName != "Prijs" || usableDataset.Columns[4].ColumnName != "Voorraad")
+        if (usableDataset.Columns.Count != 5 || usableDataset.TableName != "Artikelen" || usableDataset.Columns[0].ColumnName != "Benaming" || 
+					usableDataset.Columns[1].ColumnName != "Nummer" || usableDataset.Columns[2].ColumnName != "Omschrijving" || 
+					usableDataset.Columns[3].ColumnName != "Prijs" || usableDataset.Columns[4].ColumnName != "Voorraad")
         {
           return (int.MinValue, int.MinValue);
         }
@@ -445,7 +498,10 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
       return (AfdelingenAdded, ItemsAdded);
     }
 
-    public static void SelectExcelFile(string ConnString)
+		/// <summary>
+		/// Opens a window in which the user can select an Excel file
+		/// </summary>
+    public static void SelectExcelFile()
     {
       using (OpenFileDialog FileReader = new OpenFileDialog())
       {
@@ -462,7 +518,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
             FlexibleMessageBox.Show(mess, head, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
           }
-          (int Afdelingen, int Artikelen) = AddExcelToDB(ExcelDataSet, ConnString);
+          (int Afdelingen, int Artikelen) = AddExcelToDB(ExcelDataSet);
           // the following will result if the selected file isn't according to the format.
           if (Afdelingen == int.MinValue && Artikelen == int.MinValue)
           {
@@ -473,7 +529,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
             }
             else if (result == DialogResult.Retry)
             {
-              SelectExcelFile(ConnString);
+              SelectExcelFile();
               return;
             }
           }
