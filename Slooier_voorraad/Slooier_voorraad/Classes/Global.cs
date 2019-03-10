@@ -10,8 +10,7 @@ namespace Slooier_voorraad.Classes
   {
     internal static class IniVar
     {
-      public static List<string> sResult1;
-      public static List<string> sResult2;
+			public static List<Tuple<string,int>> Items;
     }
   }
 }

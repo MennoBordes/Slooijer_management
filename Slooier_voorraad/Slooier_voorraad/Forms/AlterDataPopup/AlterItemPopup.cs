@@ -12,13 +12,19 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		public AlterItemPopup()
 		{
 			InitializeComponent();
-      Tester();
+      //Tester();
 			this.ConnString = Properties.Settings.Default.DBConnectionString;
 		}
-    public void Tester()
+
+		private void AlterItemPopup_Shown(object sender, EventArgs e)
+		{
+			Tester();
+		}
+
+		public void Tester()
     {
       Console.WriteLine("***********************************");
-      string s = Global.IniVar.sResult1;
+      var s = Global.IniVar.Items;
     }
 
     public int IdRef = 0;

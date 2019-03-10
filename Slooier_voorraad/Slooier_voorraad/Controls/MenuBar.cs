@@ -4,6 +4,7 @@ using Slooier_voorraad.Forms.AddDataPopup;
 using Slooier_voorraad.Forms.AlterDataPopup;
 using Slooier_voorraad.Forms.DeleteDataPopup;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Controls
@@ -48,14 +49,14 @@ namespace Slooier_voorraad.Controls
 
 		private void ArtikelAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-      //var t = new Tuple<string, int>[5];
+			//var t = new Tuple<string, int>[5];
 
-      //t[0] = Tuple.Create("IdRef", 55);
+			//t[0] = Tuple.Create("IdRef", 55);
 
-      (string,int)[] t = new (string,int)[5];
-      t[0] = ("IdRef", 55);
+			List<Tuple<string, int>> ls = new List<Tuple<string,int>>();
+			ls.Add(new Tuple<string, int>("Test",55));
 
-      mAlterItemForm.Show<int>(this.ParentForm, t);
+      mAlterItemForm.Show(this.ParentForm, true, ls);
       mAlterItemForm.Show(this.ParentForm);
     }
 

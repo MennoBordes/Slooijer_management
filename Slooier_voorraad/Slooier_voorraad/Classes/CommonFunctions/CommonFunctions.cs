@@ -194,7 +194,13 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
         TheForm.Show();
       }
 
-      public void Show(Form parent, bool DataToTake=false, List<string> variable = null)
+			/// <summary>
+			/// Opens the instance of the T form, additionally saves variable in Global.cs
+			/// </summary>
+			/// <param name="parent"></param>
+			/// <param name="DataToTake"></param>
+			/// <param name="variable"></param>
+      public void Show(Form parent, bool DataToTake=false, List<Tuple<string, int>> variable = null)
       {
         // Check whether the current form is open or not
         if (IsFormOpen())
@@ -215,8 +221,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 
         if (DataToTake)
         {
-          Global.IniVar.sResult1 = variable[0].PropertyName;
-          Global.IniVar.sResult2 = variable[0].Property;
+					Global.IniVar.Items = variable;
         }
 
         // Set the form parent
