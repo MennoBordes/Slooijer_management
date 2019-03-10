@@ -22,8 +22,8 @@ namespace Slooier_voorraad.Controls
 		StartingScreenFunctions.GenericFormOpener<AddItemPopup> mAddItemForm;
 		StartingScreenFunctions.GenericFormOpener<Voorraad> mVoorraadForm;
 		StartingScreenFunctions.GenericFormOpener<AlterAfdelingPopup> mAlterAfdelingForm;
-		StartingScreenFunctions.GenericFormOpener<AlterItemPopup> mAlterItemForm;
-		StartingScreenFunctions.GenericFormOpener<DeleteAfdelingPopup> mDeleteAfdelingForm;
+    StartingScreenFunctions.GenericFormOpener<AlterItemPopup> mAlterItemForm;
+    StartingScreenFunctions.GenericFormOpener<DeleteAfdelingPopup> mDeleteAfdelingForm;
 		StartingScreenFunctions.GenericFormOpener<DeleteItemPopup> mDeleteItemForm;
 
 		private void VoorraadBekijkenToolStripMenuBar_Click(object sender, EventArgs e)
@@ -48,8 +48,17 @@ namespace Slooier_voorraad.Controls
 
 		private void ArtikelAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
-			mAlterItemForm.Show(this.ParentForm);
-		}
+      //var t = new Tuple<string, int>[5];
+
+      //t[0] = Tuple.Create("IdRef", 55);
+
+      (string,int)[] t = new (string,int)[5];
+      t[0] = ("IdRef", 55);
+
+
+      mAlterItemForm.Show<int>(this.ParentForm, t);
+      mAlterItemForm.Show(this.ParentForm);
+    }
 
 		private void AfdelingAanpassenToolStripMenuBar_Click(object sender, EventArgs e)
 		{
