@@ -51,11 +51,11 @@
     <Reference Include="Equin.ApplicationFramework.BindingListView, Version=1.4.5222.35545, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Equin.ApplicationFramework.BindingListView.1.4.5222.35545\lib\net40-Client\Equin.ApplicationFramework.BindingListView.dll</HintPath>
     </Reference>
-    <Reference Include="ExcelDataReader, Version=3.4.2.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelDataReader.3.4.2\lib\net45\ExcelDataReader.dll</HintPath>
+    <Reference Include="ExcelDataReader, Version=3.5.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.5.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
-    <Reference Include="ExcelDataReader.DataSet, Version=3.4.2.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
-      <HintPath>..\packages\ExcelDataReader.DataSet.3.4.2\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.5.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.5.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
     </Reference>
     <Reference Include="MigraDoc.DocumentObjectModel, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
@@ -66,8 +66,8 @@
     <Reference Include="MigraDoc.RtfRendering, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
     </Reference>
-    <Reference Include="Npgsql, Version=4.0.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Npgsql.4.0.4\lib\net451\Npgsql.dll</HintPath>
+    <Reference Include="Npgsql, Version=4.0.5.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.4.0.5\lib\net451\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
@@ -76,8 +76,19 @@
       <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -102,8 +113,27 @@
     <Compile Include="Classes\BestelItems.cs" />
     <Compile Include="Classes\CommonFunctions\CommonFunctions.cs" />
     <Compile Include="Classes\CustomMessageBox\CustomMessageBox.cs" />
+    <Compile Include="Classes\Global.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
+    <Compile Include="Controls\DefaultHeaderBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DefaultHeaderBar.Designer.cs">
+      <DependentUpon>DefaultHeaderBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\HeaderImage.Designer.cs">
+      <DependentUpon>HeaderImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MenuBar.Designer.cs">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddDataPopup\AddAfdelingPopup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +164,26 @@
     <Compile Include="Forms\AlterDataPopup\AlterItemPopup.Designer.cs">
       <DependentUpon>AlterItemPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AlterDataPopup\FormInheriter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\BestelScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\BestelScreen.Designer.cs">
       <DependentUpon>BestelScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteDataPopup\DeleteAfdelingPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteDataPopup\DeleteAfdelingPopup.Designer.cs">
+      <DependentUpon>DeleteAfdelingPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteDataPopup\DeleteItemPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteDataPopup\DeleteItemPopup.Designer.cs">
+      <DependentUpon>DeleteItemPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SettingForm.cs">
       <SubType>Form</SubType>
@@ -172,6 +217,27 @@
     <Compile Include="StartingScreen.Designer.cs">
       <DependentUpon>StartingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CloseButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\DefaultBackGround.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\MinMaxButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\OuterFormBorder.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Controls\DefaultHeaderBar.resx">
+      <DependentUpon>DefaultHeaderBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HeaderImage.resx">
+      <DependentUpon>HeaderImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MenuBar.resx">
+      <DependentUpon>MenuBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddDataPopup\AddAfdelingPopup.resx">
       <DependentUpon>AddAfdelingPopup.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\BestelScreen.resx">
       <DependentUpon>BestelScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteDataPopup\DeleteAfdelingPopup.resx">
+      <DependentUpon>DeleteAfdelingPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteDataPopup\DeleteItemPopup.resx">
+      <DependentUpon>DeleteItemPopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingForm.resx">
       <DependentUpon>SettingForm.cs</DependentUpon>
@@ -224,10 +296,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Voorbeeld_Data\TrialData - Copy.csv" />
-    <None Include="Voorbeeld_Data\TrialData.csv" />
-    <None Include="Voorbeeld_Data\TrialData.xlsx" />
-    <None Include="Voorbeeld_Data\TrialDataV2.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

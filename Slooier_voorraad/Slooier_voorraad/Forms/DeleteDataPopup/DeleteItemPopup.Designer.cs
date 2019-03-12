@@ -1,6 +1,6 @@
-﻿namespace Slooier_voorraad.Forms
+﻿namespace Slooier_voorraad.Forms.DeleteDataPopup
 {
-	partial class SettingForm
+	partial class DeleteItemPopup
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,15 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.DefaultHeaderBar = new Slooier_voorraad.Controls.DefaultHeaderBar();
-			this.GbDB = new System.Windows.Forms.GroupBox();
-			this.LblUserName = new System.Windows.Forms.Label();
-			this.LblServer = new System.Windows.Forms.Label();
 			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
-			this.defaultBackGround2 = new Slooier_voorraad.UI.DefaultBackGround();
-			this.GbDB.SuspendLayout();
-			this.defaultBackGround2.SuspendLayout();
+			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.SuspendLayout();
 			// 
 			// DefaultHeaderBar
@@ -46,39 +41,10 @@
 			this.DefaultHeaderBar.BackColor = System.Drawing.Color.Gainsboro;
 			this.DefaultHeaderBar.Dock = System.Windows.Forms.DockStyle.Top;
 			this.DefaultHeaderBar.Location = new System.Drawing.Point(0, 0);
+			this.DefaultHeaderBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.DefaultHeaderBar.Name = "DefaultHeaderBar";
 			this.DefaultHeaderBar.Size = new System.Drawing.Size(800, 27);
-			this.DefaultHeaderBar.TabIndex = 1;
-			// 
-			// GbDB
-			// 
-			this.GbDB.BackColor = System.Drawing.Color.Transparent;
-			this.GbDB.Controls.Add(this.LblUserName);
-			this.GbDB.Controls.Add(this.LblServer);
-			this.GbDB.Location = new System.Drawing.Point(6, 6);
-			this.GbDB.Name = "GbDB";
-			this.GbDB.Size = new System.Drawing.Size(234, 161);
-			this.GbDB.TabIndex = 0;
-			this.GbDB.TabStop = false;
-			this.GbDB.Text = "Database connectie";
-			// 
-			// LblUserName
-			// 
-			this.LblUserName.AutoSize = true;
-			this.LblUserName.Location = new System.Drawing.Point(7, 44);
-			this.LblUserName.Name = "LblUserName";
-			this.LblUserName.Size = new System.Drawing.Size(93, 13);
-			this.LblUserName.TabIndex = 1;
-			this.LblUserName.Text = "Gebruikers naam: ";
-			// 
-			// LblServer
-			// 
-			this.LblServer.AutoSize = true;
-			this.LblServer.Location = new System.Drawing.Point(7, 20);
-			this.LblServer.Name = "LblServer";
-			this.LblServer.Size = new System.Drawing.Size(44, 13);
-			this.LblServer.TabIndex = 0;
-			this.LblServer.Text = "Server: ";
+			this.DefaultHeaderBar.TabIndex = 0;
 			// 
 			// LeftBorder
 			// 
@@ -89,7 +55,7 @@
 			this.LeftBorder.Name = "LeftBorder";
 			this.LeftBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
 			this.LeftBorder.Size = new System.Drawing.Size(8, 423);
-			this.LeftBorder.TabIndex = 2;
+			this.LeftBorder.TabIndex = 1;
 			// 
 			// RightBorder
 			// 
@@ -100,7 +66,7 @@
 			this.RightBorder.Name = "RightBorder";
 			this.RightBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
 			this.RightBorder.Size = new System.Drawing.Size(8, 423);
-			this.RightBorder.TabIndex = 3;
+			this.RightBorder.TabIndex = 2;
 			// 
 			// BottomBorder
 			// 
@@ -111,51 +77,42 @@
 			this.BottomBorder.Name = "BottomBorder";
 			this.BottomBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
 			this.BottomBorder.Size = new System.Drawing.Size(784, 8);
-			this.BottomBorder.TabIndex = 4;
+			this.BottomBorder.TabIndex = 3;
 			// 
-			// defaultBackGround2
+			// defaultBackGround1
 			// 
-			this.defaultBackGround2.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackGround2.Controls.Add(this.GbDB);
-			this.defaultBackGround2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.defaultBackGround2.Location = new System.Drawing.Point(8, 27);
-			this.defaultBackGround2.Name = "defaultBackGround2";
-			this.defaultBackGround2.Size = new System.Drawing.Size(784, 415);
-			this.defaultBackGround2.TabIndex = 5;
+			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
+			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
+			this.defaultBackGround1.Name = "defaultBackGround1";
+			this.defaultBackGround1.Size = new System.Drawing.Size(784, 415);
+			this.defaultBackGround1.TabIndex = 4;
 			// 
-			// SettingForm
+			// DeleteItemPopup
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.defaultBackGround2);
+			this.Controls.Add(this.defaultBackGround1);
 			this.Controls.Add(this.BottomBorder);
 			this.Controls.Add(this.RightBorder);
 			this.Controls.Add(this.LeftBorder);
 			this.Controls.Add(this.DefaultHeaderBar);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "SettingForm";
+			this.Name = "DeleteItemPopup";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Instellingen";
-			this.Load += new System.EventHandler(this.SettingForm_Load);
-			this.SizeChanged += new System.EventHandler(this.SettingForm_SizeChanged);
-			this.GbDB.ResumeLayout(false);
-			this.GbDB.PerformLayout();
-			this.defaultBackGround2.ResumeLayout(false);
+			this.Text = "Artikel Verwijderen";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
 		}
 
-    #endregion
+		#endregion
 
-    private Controls.DefaultHeaderBar DefaultHeaderBar;
-    private System.Windows.Forms.GroupBox GbDB;
-    private System.Windows.Forms.Label LblUserName;
-    private System.Windows.Forms.Label LblServer;
+		private Controls.DefaultHeaderBar DefaultHeaderBar;
 		private UI.OuterFormBorder LeftBorder;
 		private UI.OuterFormBorder RightBorder;
 		private UI.OuterFormBorder BottomBorder;
-		private UI.DefaultBackGround defaultBackGround2;
+		private UI.DefaultBackGround defaultBackGround1;
 	}
 }

@@ -4,6 +4,9 @@ using System.ComponentModel;
 
 namespace Slooier_voorraad.Classes
 {
+	/// <summary>
+	/// Contains a list of items which can be ordered
+	/// </summary>
 	class BestelItems
 	{
 		[Browsable(false)]
