@@ -4,5 +4,24 @@
 
     <FontFamily x:Key="LatoRegular" >pack://application:,,,/Fonts/#Lato Regular</FontFamily>
     <FontFamily x:Key="LatoThin" >pack://application:,,,/Fonts/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LatoHeavy" >pack://application:,,,/Fonts/#Lato Heavy</FontFamily>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+    </Style>
     
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="BaseButtonStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoHeavy}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}"/>
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}"/>
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}"/>
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}"/>
+
 </ResourceDictionary>

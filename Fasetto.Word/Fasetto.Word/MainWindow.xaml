@@ -10,8 +10,6 @@
         Icon="Images/Logo/logo-small.png"
         Title="MainWindow" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <StackPanel>
-        <TextBlock Text="Welcome, friend!" FontSize="40"/>
-        <TextBlock Text="Welcome, friend!" FontFamily="{StaticResource LatoThin}" FontSize="40"/>
-        <TextBlock Text="Welcome, friend!" FontFamily="{StaticResource LatoRegular}" FontSize="40"/>
+        
     </StackPanel>
 </Window>
