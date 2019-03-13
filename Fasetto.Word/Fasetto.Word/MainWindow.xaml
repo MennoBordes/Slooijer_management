@@ -48,8 +48,8 @@
 
                                         <!-- Title Bar -->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
-                                        <!-- Drop shadow-->
-                                        <RowDefinition Height="auto"/>
+                                        <!-- Drop shadow--><!--
+                                        <RowDefinition Height="auto"/>-->
                                         <!-- Window Content-->
                                         <RowDefinition Height="*"/>
 
@@ -89,9 +89,9 @@
                                         
                                     </Grid>
 
-                                    <!-- Drop shadow -->
+                                    <!-- Drop shadow --><!--
                                     <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
-                                        <!-- Underling -->
+                                        --><!-- Underling --><!--
                                         <Border.BorderBrush>
                                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                                 <GradientStop Color="{StaticResource ForeGroundLight}" Offset="0.0"/>
@@ -100,18 +100,17 @@
                                             </LinearGradientBrush>
                                         </Border.BorderBrush>
                                         
-                                        <!-- Drop shadow -->
+                                        --><!-- Drop shadow --><!--
                                         <Border.Background>
                                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                                 <GradientStop Color="{StaticResource BackGroundVeryLight}" Offset="0.0"/>
                                                 <GradientStop Color="{StaticResource ForeGroundLight}" Offset="1.0"/>
                                             </LinearGradientBrush>
-                                        </Border.Background>
-                                        
-                                    </Border>
+                                        </Border.Background>                                        
+                                    </Border>-->
                                     
                                     <!-- Page Content-->
-                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
                                     </Border>
                                 </Grid>
@@ -135,6 +134,6 @@
 
 
     <Grid Background="{StaticResource ForeGroundLightBrush}">
-
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
     </Grid>
 </Window>

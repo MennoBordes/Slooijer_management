@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 
 namespace Fasetto.Word.ViewModel
@@ -52,7 +51,7 @@ namespace Fasetto.Word.ViewModel
 		/// <summary>
 		/// The padding of the inner content of the main window
 		/// </summary>
-		public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+		public Thickness InnerContentPadding { get; set; } = new Thickness(0);
 
 		/// <summary>
 		/// The margin around the window to allow for a drop shadow
@@ -102,9 +101,12 @@ namespace Fasetto.Word.ViewModel
 		/// <summary>
 		/// The height of the title bar / caption of the window
 		/// </summary>
-		public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder
-); } }
+		public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
 
+		/// <summary>
+		/// The current page of the application
+		/// </summary>
+		public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 		#endregion
 
 		#region Commands
