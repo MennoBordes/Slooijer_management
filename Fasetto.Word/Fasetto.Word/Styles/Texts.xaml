@@ -6,7 +6,7 @@
         <Setter Property="Foreground" Value="{StaticResource ForeGroundMainBrush}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="0 4"/>
+        <Setter Property="Margin" Value="0 6"/>
     </Style>
 
 </ResourceDictionary>

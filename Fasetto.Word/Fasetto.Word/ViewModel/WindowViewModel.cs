@@ -50,6 +50,11 @@ namespace Fasetto.Word.ViewModel
 		public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
 
 		/// <summary>
+		/// The padding of the inner content of the main window
+		/// </summary>
+		public Thickness InnerContentPadding { get { return new Thickness(ResizeBorder); } }
+
+		/// <summary>
 		/// The margin around the window to allow for a drop shadow
 		/// </summary>
 		public int OuterMarginSize
@@ -152,6 +157,9 @@ namespace Fasetto.Word.ViewModel
 			MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
 			CloseCommand = new RelayCommand(() => mWindow.Close());
 			MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
+
+			// Fix window resize issue
+			var resizer = new WindowResizer(mWindow);
 		}
 
 		#endregion

@@ -89,6 +89,31 @@
                                         
                                     </Grid>
 
+                                    <!-- Drop shadow -->
+                                    <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
+                                        <!-- Underling -->
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="{StaticResource ForeGroundLight}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource ForeGroundVeryDark}" Offset="0.5"/>
+                                                <GradientStop Color="{StaticResource ForeGroundLight}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                        
+                                        <!-- Drop shadow -->
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientStop Color="{StaticResource BackGroundVeryLight}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource ForeGroundLight}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        
+                                    </Border>
+                                    
+                                    <!-- Page Content-->
+                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
                                 </Grid>
 
                             </Grid>
@@ -109,7 +134,7 @@
     </WindowChrome.WindowChrome>
 
 
-    <Grid Background="Blue">
-        <Button Content="Test"/>
+    <Grid Background="{StaticResource ForeGroundLightBrush}">
+
     </Grid>
 </Window>
