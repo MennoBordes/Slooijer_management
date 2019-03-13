@@ -38,17 +38,18 @@
 
                                 <!-- The main window content -->
                                 <Grid>
-                                    
+
                                     <!-- Corner clipping -->
                                     <Grid.OpacityMask>
                                         <VisualBrush Visual="{Binding ElementName=Container}"/>
                                     </Grid.OpacityMask>
-                                    
+
                                     <Grid.RowDefinitions>
 
                                         <!-- Title Bar -->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
-                                        <!-- Drop shadow--><!--
+                                        <!-- Drop shadow-->
+                                        <!--
                                         <RowDefinition Height="auto"/>-->
                                         <!-- Window Content-->
                                         <RowDefinition Height="*"/>
@@ -67,33 +68,37 @@
                                             <ColumnDefinition Width="auto"/>
 
                                         </Grid.ColumnDefinitions>
-                                        
+
                                         <!-- Icon -->
                                         <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
                                             <Image Source="/Images/Logo/logo-small.png"/>
                                         </Button>
-                                        
+
                                         <!-- Title -->
-                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="3">
                                             <StackPanel>
-                                                <TextBlock FontFamily="{StaticResource LatoBold}">
-                                                    <Run Text="W" Foreground="{StaticResource WordOrangeBrush}"/><Run Text="O" Foreground="{StaticResource WordBlueBrush}"/><Run Text="R" Foreground="{StaticResource WordRedBrush}"/><Run Text="D" Foreground="{StaticResource WordGreenBrush}"/>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}" FontSize="{StaticResource FontSizeLarge}" Margin="0,0,0,-5">
+                                                    <Run Text="S" Foreground="{StaticResource WordRedBrush}"/><Run Text="l" Foreground="{StaticResource WordBlackBrush}"/><Run Text="o" Foreground="{StaticResource WordBlackBrush}"/><Run Text="o" Foreground="{StaticResource WordBlackBrush}"/><Run Text="ij" Foreground="{StaticResource WordRedBrush}"/><Run Text="e" Foreground="{StaticResource WordBlackBrush}"/><Run Text="r" Foreground="{StaticResource WordBlackBrush}"/>
                                                 </TextBlock>
+                                                <TextBlock Text="By Menno" Foreground="{StaticResource ForeGroundDarkBrush}" TextAlignment="Center"/>
                                             </StackPanel>
                                         </Viewbox>
-                                        
+
                                         <!-- Window Buttons -->
                                         <StackPanel Grid.Column="2" Orientation="Horizontal">
                                             <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Content="_"/>
                                             <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Content="[ ]"/>
                                             <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="X"/>
                                         </StackPanel>
-                                        
+
                                     </Grid>
 
-                                    <!-- Drop shadow --><!--
+                                    <!-- Drop shadow -->
+                                    <!--
                                     <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
-                                        --><!-- Underling --><!--
+                                        -->
+                                    <!-- Underling -->
+                                    <!--
                                         <Border.BorderBrush>
                                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                                 <GradientStop Color="{StaticResource ForeGroundLight}" Offset="0.0"/>
@@ -102,7 +107,9 @@
                                             </LinearGradientBrush>
                                         </Border.BorderBrush>
                                         
-                                        --><!-- Drop shadow --><!--
+                                        -->
+                                    <!-- Drop shadow -->
+                                    <!--
                                         <Border.Background>
                                             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                                                 <GradientStop Color="{StaticResource BackGroundVeryLight}" Offset="0.0"/>
@@ -110,11 +117,12 @@
                                             </LinearGradientBrush>
                                         </Border.Background>                                        
                                     </Border>-->
-                                    
+
                                     <!-- Page Content-->
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
                                     </Border>
+
                                 </Grid>
 
                             </Grid>
