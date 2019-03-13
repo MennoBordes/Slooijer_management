@@ -24,6 +24,9 @@ namespace Fasetto.Word.ViewModel
 		/// The radius of the adges of the window
 		/// </summary>
 		private int mWindowRadius = 10;
+
+		private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
+
 		#endregion
 
 		#region Public Properties
@@ -39,9 +42,14 @@ namespace Fasetto.Word.ViewModel
 		public double WindowMinimumHeight { get; set; } = 400;
 
 		/// <summary>
+		/// True if the window should be borderless because it is docked or maximized
+		/// </summary>
+		public bool Borderless { get { return (mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked); } }
+
+		/// <summary>
 		/// The size of the resize border around the window
 		/// </summary>
-		public int ResizeBorder { get; set; } = 6;
+		public int ResizeBorder { get { return Borderless ? 0 : 6; } }
 
 		/// <summary>
 		/// The size of the resize border around the window, taking into account the outer margin
