@@ -10,6 +10,7 @@
         x:Name="AppWindow"
         WindowStartupLocation="CenterScreen"
         Icon="Images/Logo/logo-small.png"
+        MinHeight="{Binding WindowMinimumHeight}" MinWidth="{Binding WindowMinimumWidth}"
         Title="Welcome, friend!" Height="600" Width="900">
 
     <Window.Resources>
