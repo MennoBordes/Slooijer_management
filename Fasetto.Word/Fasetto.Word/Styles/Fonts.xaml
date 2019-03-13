@@ -10,6 +10,10 @@
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
     </Style>
     
+    <Style TargetType="{x:Type Control}" x:Key="BaseControlStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoHeavy}"/>
+    </Style>
+    
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
         <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
     </Style>
