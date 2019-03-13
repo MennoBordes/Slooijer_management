@@ -74,10 +74,12 @@
                                         </Button>
                                         
                                         <!-- Title -->
-                                        <Viewbox Grid.Column="1" Margin="0">
-                                            <TextBlock Style="{StaticResource HeaderText}"
-                                                       Text="{Binding RelativeSource={RelativeSource TemplatedParent},
-                                                Path=Title, FallbackValue='Welcome, Friend!'}"/>
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
+                                            <StackPanel>
+                                                <TextBlock FontFamily="{StaticResource LatoBold}">
+                                                    <Run Text="W" Foreground="{StaticResource WordOrangeBrush}"/><Run Text="O" Foreground="{StaticResource WordBlueBrush}"/><Run Text="R" Foreground="{StaticResource WordRedBrush}"/><Run Text="D" Foreground="{StaticResource WordGreenBrush}"/>
+                                                </TextBlock>
+                                            </StackPanel>
                                         </Viewbox>
                                         
                                         <!-- Window Buttons -->
