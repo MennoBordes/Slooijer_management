@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Runtime.InteropServices;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Fasetto.Word.ViewModel
 {
@@ -55,7 +57,7 @@ namespace Fasetto.Word.ViewModel
 		/// <summary>
 		/// The margin around the window to allow for a drop shadow
 		/// </summary>
-		public Thickness OutermarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
+		public Thickness OuterMarginSizeThickness { get { return new Thickness(OuterMarginSize); } }
 
 		/// <summary>
 		/// The radius of the adges of the window
@@ -77,6 +79,40 @@ namespace Fasetto.Word.ViewModel
 		/// </summary>
 		public CornerRadius WindowCornerRadius { get { return new CornerRadius(WindowRadius); } }
 
+		/// <summary>
+		/// The height of the title bar / caption of the window
+		/// </summary>
+		public int TitleHeight { get; set; } = 42;
+
+		/// <summary>
+		/// The height of the title bar / caption of the window
+		/// </summary>
+		public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder
+); } }
+
+		#endregion
+
+		#region Commands
+
+		/// <summary>
+		/// The command to minimize the window
+		/// </summary>
+		public ICommand MinimizeCommand { get; set; }
+
+		/// <summary>
+		/// The command to maximize the window
+		/// </summary>
+		public ICommand MaximizeCommand { get; set; }
+
+		/// <summary>
+		/// The command to close the window
+		/// </summary>
+		public ICommand CloseCommand { get; set; }
+
+		/// <summary>
+		/// The command to show the system menu of the window
+		/// </summary>
+		public ICommand MenuCommand { get; set; }
 
 		#endregion
 
@@ -96,13 +132,34 @@ namespace Fasetto.Word.ViewModel
 				OnPropertyChanged(nameof(ResizeBorder));
 				OnPropertyChanged(nameof(ResizeBorderThickness));
 				OnPropertyChanged(nameof(OuterMarginSize));
-				OnPropertyChanged(nameof(OutermarginSizeThickness));
+				OnPropertyChanged(nameof(OuterMarginSizeThickness));
 				OnPropertyChanged(nameof(WindowRadius));
 				OnPropertyChanged(nameof(WindowCornerRadius));
 			};
+
+			// Create commands
+			MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+			MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
+			CloseCommand = new RelayCommand(() => mWindow.Close());
+			MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetMousePosition()));
 		}
 
 		#endregion
 
+		#region Private Helpers
+
+		/// <summary>
+		/// Gets the current mouse position on the screen
+		/// </summary>
+		/// <returns></returns>
+		private Point GetMousePosition()
+		{
+			// Position of the mouse relative to the window
+			var position = Mouse.GetPosition(mWindow);
+
+			// Add the window position to its a "ToScreen"
+			return new Point(position.X + mWindow.Left, position.Y + mWindow.Top);
+		}
+		#endregion
 	}
 }
