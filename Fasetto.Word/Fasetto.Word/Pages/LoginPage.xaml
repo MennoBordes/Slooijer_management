@@ -5,14 +5,56 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Fasetto.Word"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="700"
       Title="LoginPage">
 
     <Border Background="{StaticResource WordBlueBrush}">
         <Grid>
+            <!-- Blue background image-->
             <Grid.Background>
                 <ImageBrush TileMode="Tile" ViewportUnits="Absolute" Viewport="0 0 500 500" ImageSource="/Images/Backgrounds/emoji-background.png"/>
             </Grid.Background>
+
+            <!-- Main content scroll -->
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
+                    TextBlock.TextAlignment="Center">
+
+                    <!-- Login mian content white box-->
+                    <Border Background="{StaticResource ForeGroundLightBrush}" CornerRadius="10"
+                            Padding="15 50 15 15" Width="330" Margin="50 50 50 0">
+
+                        <StackPanel>
+                            <!-- Sign Up Header -->
+                            <TextBlock Text="Sign Up" 
+                                   FontSize="{StaticResource FontSizeLarge}" 
+                                   FontFamily="{StaticResource LatoRegular}" 
+                                   Foreground="{StaticResource WordBlueBrush}"/>
+
+                            <!-- Aign up subtext -->
+                            <TextBlock Text="It's about to get fun" FontSize="{StaticResource FontSizeLarge}"
+                                       Foreground="{StaticResource ForeGroundDarkBrush}"/>
+
+                            <!-- Email -->
+                            <TextBox/>
+
+                            <!-- Password -->
+                            <TextBox/>
+
+                            <!-- Next button -->
+                            <Button Content="Next" HorizontalAlignment="Center"/>
+
+                        </StackPanel>
+                    </Border>
+
+                    <Button Style="{StaticResource TextButton}" Content="I already have an account"
+                            HorizontalAlignment="Center"/>
+
+                </StackPanel>
+            </ScrollViewer>
+
         </Grid>
     </Border>
 </Page>
