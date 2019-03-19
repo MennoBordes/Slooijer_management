@@ -45,7 +45,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
                 var res = new MagazijnItems()
                 {
                   Id = reader.GetInt32(0),
-                  Benaming = reader.GetString(1),
+                  Afdeling = reader.GetString(1),
                   Nummer = reader.GetString(2),
                   Omschrijving = reader.GetString(3),
                   Voorraad = reader.GetInt32(4),
@@ -54,7 +54,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
                 items.Add(res);
               }
             }
-            items = items.OrderBy(item => item.Benaming).ToList();
+            items = items.OrderBy(item => item.Afdeling).ToList();
             return items;
           }
         }
