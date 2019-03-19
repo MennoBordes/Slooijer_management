@@ -182,6 +182,11 @@ namespace Slooier_voorraad.Forms
 		}
 
 		StartingScreenFunctions.GenericFormOpener<AlterDataPopup.AlterItemPopup> mAlterArtikel;
+		/// <summary>
+		/// When double clicked, opens the form to alter the data
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void DgvVoorraad_DoubleClick(object sender, EventArgs e)
 		{
 			// Get the currently sellected row

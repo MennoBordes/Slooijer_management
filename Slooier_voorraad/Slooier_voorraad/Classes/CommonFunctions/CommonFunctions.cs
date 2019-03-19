@@ -2,7 +2,6 @@
 using Npgsql;
 using NpgsqlTypes;
 using Slooier_voorraad.Classes.CustomMessageBox;
-using Slooier_voorraad.Forms.AlterDataPopup;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +15,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 	/// <summary>
 	/// A class that contains a number of common functions, which are called from multiple places
 	/// </summary>
-  public class CommonFunctions
+	public class CommonFunctions
   {
 		/// <summary>
 		/// Returns a list of items, as returned from the database
@@ -145,12 +144,46 @@ namespace Slooier_voorraad.Classes.CommonFunctions
       }
       return Properties.Settings.Default.DBConnectionValid;
     }
-  }
+
+		/// <summary>
+		/// Gets all afdelingen from the database
+		/// </summary>
+		/// <returns></returns>
+		public static List<string> GetAfdelingen()
+		{
+			string ConnString = Properties.Settings.Default.DBConnectionString;
+			List<string> Result = new List<string>();
+			try
+			{
+				using (var conn = new NpgsqlConnection(ConnString))
+				{
+					conn.Open();
+					string SelectQuery = "SELECT afdelingnaam FROM afdelingen";
+					using (var cmd = new NpgsqlCommand(SelectQuery, conn))
+					{
+						using (var reader = cmd.ExecuteReader())
+						{
+							while (reader.Read())
+							{
+								Result.Add(reader.GetString(0));
+							}
+						}
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
+				return new List<string>();
+			}
+			return Result;
+		}
+	}
 }
 
 namespace Slooier_voorraad.Classes.StartingScreenFunctions
 {
-  public class StartingScreenFunctions
+	public class StartingScreenFunctions
   {
 		/// <summary>
 		/// A Structure which is used to open forms as Mdi children

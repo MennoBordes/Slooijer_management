@@ -3,6 +3,7 @@ using NpgsqlTypes;
 using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -12,6 +13,9 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 	public partial class AddItemPopup : Form
 	{
 		string ConnString;
+
+		#region Initializers
+
 		public AddItemPopup()
 		{
 			InitializeComponent();
@@ -23,14 +27,6 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			GetBenamingen();
 		}
 
-		private void AddItemPopup_SizeChanged(object sender, EventArgs e)
-		{
-			// Set panels to center of the Form
-			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
-			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
-			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
-		}
-
 		private void AddItemPopup_Load(object sender, EventArgs e)
 		{
 			// Set panels to center of the Form
@@ -40,30 +36,26 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			BackColor = Properties.Settings.Default.BackGroundColor;
 		}
 
+		#endregion
+
+		private void AddItemPopup_SizeChanged(object sender, EventArgs e)
+		{
+			// Set panels to center of the Form
+			CommonFunctions.SetPanelDimensions(PMain, ClientSize);
+			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
+			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
+		}
+		
+		/// <summary>
+		/// Retrieve and store all afdelingen to a combobox
+		/// </summary>
 		private void GetBenamingen()
 		{
+			var result = CommonFunctions.GetAfdelingen();
 			CbbBenaming.Items.Clear();
-			try
+			foreach(string item in result)
 			{
-				using (var conn = new NpgsqlConnection(ConnString))
-				{
-					conn.Open();
-					string SelectQuery = "SELECT afdelingnaam FROM afdelingen";
-					using (var cmd = new NpgsqlCommand(SelectQuery, conn))
-					{
-						using (var reader = cmd.ExecuteReader())
-						{
-							while (reader.Read())
-							{
-								CbbBenaming.Items.Add(reader.GetString(0));
-							}
-						}
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				FlexibleMessageBox.Show(ex.Message, "An Error Occured");
+				CbbBenaming.Items.Add(item);
 			}
 		}
 
