@@ -423,11 +423,11 @@
 			// 
 			// BtnAlterArtikel
 			// 
-			this.BtnAlterArtikel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.BtnAlterArtikel.BackColor = System.Drawing.SystemColors.Control;
+			this.BtnAlterArtikel.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.BtnAlterArtikel.Location = new System.Drawing.Point(3, 254);
 			this.BtnAlterArtikel.Name = "BtnAlterArtikel";
-			this.BtnAlterArtikel.Size = new System.Drawing.Size(177, 23);
+			this.BtnAlterArtikel.Size = new System.Drawing.Size(440, 23);
 			this.BtnAlterArtikel.TabIndex = 6;
 			this.BtnAlterArtikel.Text = "Aanpassen";
 			this.BtnAlterArtikel.UseVisualStyleBackColor = false;
