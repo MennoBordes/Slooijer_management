@@ -8,8 +8,16 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 {
 	public partial class AlterItemPopup : FormInheriter
 	{
+		#region Variables
 		string ConnString;
 		MagazijnItems CurrentItem;
+
+		private const string lblOmschrijving = "Welke omschrijving heeft het artikel?";
+		private const string lblPrijs = "Welke prijs heeft het artikel?";
+		private const string lblVoorraad = "Wat is de voorraad van het artikel?";
+		private const string lblNummer = "Welk nummer moet het artikel krijgen?";
+
+		#endregion
 
 		#region Initializers
 
@@ -25,11 +33,11 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			// Set panels to center of the Form
 			//CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 			CurrentItem = Global.AlterItem;
-			CurrentSetter();
-		}
 
-		private void AlterItemPopup_Shown(object sender, EventArgs e)
-		{
+			// Sets the currently selected element
+			CurrentSetter();
+
+			// Sets the combobox to have all afdelingen from the database
 			GetBenamingen();
 		}
 
@@ -62,15 +70,16 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			TxbCurrentVoorraad.Text = CurrentItem.Voorraad.ToString();
 
 			CurrentId = CurrentItem.Id;
+
+			LblNewNummer.Text = lblNummer;
+			LblNewOmschrijving.Text = lblOmschrijving;
+			LblNewPrijs.Text = lblPrijs;
+			LblNewVoorraad.Text = lblVoorraad;
 		}
 
-		#region Alter Artikel in the database
+		#region Alter Artikel in the Database
 
-		#region Private Variables
-		private const string lblOmschrijving = "Welke omschrijving heeft het artikel?";
-		private const string lblPrijs = "Welke prijs heeft het artikel?";
-		private const string lblVoorraad = "Wat is de voorraad van het artikel?";
-		private const string lblNummer = "Welk nummer moet het artikel krijgen?";
+		#region Private Variables		
 
 		private int CurrentId;
 		private string NewAfdeling;

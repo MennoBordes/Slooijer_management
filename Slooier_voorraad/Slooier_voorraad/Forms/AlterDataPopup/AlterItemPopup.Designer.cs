@@ -512,7 +512,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Artikel Aanpassen";
 			this.Load += new System.EventHandler(this.AlterItemPopup_Load);
-			this.Shown += new System.EventHandler(this.AlterItemPopup_Shown);
 			this.PMain.ResumeLayout(false);
 			this.PCurrent.ResumeLayout(false);
 			this.FlpCurrent.ResumeLayout(false);
