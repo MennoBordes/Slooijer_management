@@ -50,13 +50,13 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.TxbNewOmschrijving = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.LblNewOmschrijving = new System.Windows.Forms.Label();
 			this.TxbNewPrijs = new System.Windows.Forms.TextBox();
-			this.label5 = new System.Windows.Forms.Label();
+			this.LblNewPrijs = new System.Windows.Forms.Label();
 			this.TxbNewVoorraad = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
+			this.LblNewVoorraad = new System.Windows.Forms.Label();
 			this.TxbNewNummer = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
+			this.LblNewNummer = new System.Windows.Forms.Label();
 			this.CbbNewAfdeling = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.BtnAlterArtikel = new System.Windows.Forms.Button();
@@ -306,13 +306,13 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.95454F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.04546F));
 			this.tableLayoutPanel1.Controls.Add(this.TxbNewOmschrijving, 1, 5);
-			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 5);
+			this.tableLayoutPanel1.Controls.Add(this.LblNewOmschrijving, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.TxbNewPrijs, 1, 4);
-			this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+			this.tableLayoutPanel1.Controls.Add(this.LblNewPrijs, 0, 4);
 			this.tableLayoutPanel1.Controls.Add(this.TxbNewVoorraad, 1, 2);
-			this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
+			this.tableLayoutPanel1.Controls.Add(this.LblNewVoorraad, 0, 2);
 			this.tableLayoutPanel1.Controls.Add(this.TxbNewNummer, 1, 1);
-			this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.LblNewNummer, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.CbbNewAfdeling, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 31);
@@ -324,7 +324,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 197);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 217);
 			this.tableLayoutPanel1.TabIndex = 15;
 			// 
 			// TxbNewOmschrijving
@@ -334,16 +334,17 @@
 			this.TxbNewOmschrijving.Name = "TxbNewOmschrijving";
 			this.TxbNewOmschrijving.Size = new System.Drawing.Size(171, 68);
 			this.TxbNewOmschrijving.TabIndex = 5;
+			this.TxbNewOmschrijving.TextChanged += new System.EventHandler(this.TxbNewOmschrijving_TextChanged);
 			// 
-			// label4
+			// LblNewOmschrijving
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(6, 123);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(199, 12);
-			this.label4.TabIndex = 9;
-			this.label4.Text = "Welke omschrijving heeft het artikel?";
+			this.LblNewOmschrijving.AutoSize = true;
+			this.LblNewOmschrijving.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblNewOmschrijving.Location = new System.Drawing.Point(6, 123);
+			this.LblNewOmschrijving.Name = "LblNewOmschrijving";
+			this.LblNewOmschrijving.Size = new System.Drawing.Size(199, 12);
+			this.LblNewOmschrijving.TabIndex = 9;
+			this.LblNewOmschrijving.Text = "Welke omschrijving heeft het artikel?";
 			// 
 			// TxbNewPrijs
 			// 
@@ -351,17 +352,17 @@
 			this.TxbNewPrijs.Name = "TxbNewPrijs";
 			this.TxbNewPrijs.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewPrijs.TabIndex = 4;
-			this.TxbNewPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNewPrijs_KeyPress);
+			this.TxbNewPrijs.TextChanged += new System.EventHandler(this.TxbNewPrijs_TextChanged);
 			// 
-			// label5
+			// LblNewPrijs
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(6, 94);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(153, 12);
-			this.label5.TabIndex = 12;
-			this.label5.Text = "Welke prijs heeft het artikel?";
+			this.LblNewPrijs.AutoSize = true;
+			this.LblNewPrijs.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblNewPrijs.Location = new System.Drawing.Point(6, 94);
+			this.LblNewPrijs.Name = "LblNewPrijs";
+			this.LblNewPrijs.Size = new System.Drawing.Size(153, 12);
+			this.LblNewPrijs.TabIndex = 12;
+			this.LblNewPrijs.Text = "Welke prijs heeft het artikel?";
 			// 
 			// TxbNewVoorraad
 			// 
@@ -369,17 +370,17 @@
 			this.TxbNewVoorraad.Name = "TxbNewVoorraad";
 			this.TxbNewVoorraad.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewVoorraad.TabIndex = 3;
-			this.TxbNewVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNewVoorraad_KeyPress);
+			this.TxbNewVoorraad.TextChanged += new System.EventHandler(this.TxbNewVoorraad_TextChanged);
 			// 
-			// label6
+			// LblNewVoorraad
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(6, 62);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(218, 12);
-			this.label6.TabIndex = 14;
-			this.label6.Text = "Is er reeds een voorraad van het artikel?";
+			this.LblNewVoorraad.AutoSize = true;
+			this.LblNewVoorraad.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblNewVoorraad.Location = new System.Drawing.Point(6, 62);
+			this.LblNewVoorraad.Name = "LblNewVoorraad";
+			this.LblNewVoorraad.Size = new System.Drawing.Size(187, 12);
+			this.LblNewVoorraad.TabIndex = 14;
+			this.LblNewVoorraad.Text = "Wat is de voorraad van het artikel?";
 			// 
 			// TxbNewNummer
 			// 
@@ -387,17 +388,17 @@
 			this.TxbNewNummer.Name = "TxbNewNummer";
 			this.TxbNewNummer.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewNummer.TabIndex = 2;
-			this.TxbNewNummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNewNummer_KeyPress);
+			this.TxbNewNummer.TextChanged += new System.EventHandler(this.TxbNewNummer_TextChanged);
 			// 
-			// label3
+			// LblNewNummer
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(6, 33);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(208, 12);
-			this.label3.TabIndex = 7;
-			this.label3.Text = "Welk nummer moet het artikel krijgen?";
+			this.LblNewNummer.AutoSize = true;
+			this.LblNewNummer.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LblNewNummer.Location = new System.Drawing.Point(6, 33);
+			this.LblNewNummer.Name = "LblNewNummer";
+			this.LblNewNummer.Size = new System.Drawing.Size(208, 12);
+			this.LblNewNummer.TabIndex = 7;
+			this.LblNewNummer.Text = "Welk nummer moet het artikel krijgen?";
 			// 
 			// CbbNewAfdeling
 			// 
@@ -408,6 +409,7 @@
 			this.CbbNewAfdeling.Size = new System.Drawing.Size(171, 21);
 			this.CbbNewAfdeling.TabIndex = 1;
 			this.CbbNewAfdeling.Text = "Afdeling:";
+			this.CbbNewAfdeling.TextChanged += new System.EventHandler(this.CbbNewAfdeling_TextChanged);
 			// 
 			// label2
 			// 
@@ -423,7 +425,7 @@
 			// 
 			this.BtnAlterArtikel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.BtnAlterArtikel.BackColor = System.Drawing.SystemColors.Control;
-			this.BtnAlterArtikel.Location = new System.Drawing.Point(3, 234);
+			this.BtnAlterArtikel.Location = new System.Drawing.Point(3, 254);
 			this.BtnAlterArtikel.Name = "BtnAlterArtikel";
 			this.BtnAlterArtikel.Size = new System.Drawing.Size(177, 23);
 			this.BtnAlterArtikel.TabIndex = 6;
@@ -534,13 +536,13 @@
 		private System.Windows.Forms.FlowLayoutPanel FlpNew;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ComboBox CbbNewAfdeling;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label LblNewNummer;
 		private System.Windows.Forms.TextBox TxbNewNummer;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label LblNewVoorraad;
 		private System.Windows.Forms.TextBox TxbNewVoorraad;
-		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label LblNewPrijs;
 		private System.Windows.Forms.TextBox TxbNewPrijs;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label LblNewOmschrijving;
 		private System.Windows.Forms.TextBox TxbNewOmschrijving;
 		private System.Windows.Forms.Button BtnAlterArtikel;
 		private System.Windows.Forms.Label LblMain;
