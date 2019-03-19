@@ -152,18 +152,19 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 {
   public class StartingScreenFunctions
   {
-
-    /// <summary>
-    /// A Structure which is used to open forms as Mdi children
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public struct GenericFormOpener<T> where T : Form, new()
+		/// <summary>
+		/// A Structure which is used to open forms as Mdi children
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		public struct GenericFormOpener<T> where T : Form, new()
     {
-      // The internal reference to the form
-      public T TheForm { get; private set; }
+			/// <summary>
+			/// The internal reference to the form
+			/// </summary>
+			public T TheForm { get; private set; }
 
       /// <summary>
-      /// Checks whether the given form is already open or not
+      /// Checks whether the given form is already open
       /// </summary>
       /// <returns></returns>
       private bool IsFormOpen()
@@ -183,6 +184,10 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
         return false;
       }
 
+			/// <summary>
+			/// Checks whether the database connection is still working
+			/// </summary>
+			/// <returns></returns>
       private bool IsDbConnValid()
       {
         bool DbConVal = Properties.Settings.Default.DBConnectionValid;
@@ -222,57 +227,6 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 
         // Set the form parent
         TheForm.MdiParent = parent;
-
-        // Open the form
-        TheForm.Show();
-      }
-
-			/// <summary>
-			/// Opens the instance of the T form, additionally saves variable in Global.cs
-			/// </summary>
-			/// <param name="parent"></param>
-			/// <param name="DataToTake"></param>
-			/// <param name="variable"></param>
-      public void Show(Form parent, bool DataToTake=false, List<Tuple<string, int>> variable = null)
-      {
-        // Check whether the current form is open or not
-        if (IsFormOpen())
-        {
-          // The current form is already open
-          return;
-        }
-
-        // Create an instance of the Form
-        TheForm = new T();
-
-        // Check for Database Connection
-        // If there is no Db connection and the form to be opened isn't the settings form
-        if (!IsDbConnValid() && TheForm.Text != "Instellingen")
-        {
-          return;
-        }
-
-        if (DataToTake)
-        {
-					Global.IniVar.Items = variable;
-        }
-
-        // Set the form parent
-        TheForm.MdiParent = parent;
-        //foreach (var (PropertyName, Property) in variable)
-        //{
-        //  var propertyExists = TheForm.GetType().GetProperty(PropertyName);
-        //  AlterItemPopup.IdRef = 
-        //  if (propertyExists == null)
-        //  {
-        //    TheForm.GetType().GetMethod("Tester");
-        //    // The property doesn't exist in the file
-        //    throw new NullReferenceException();
-        //  }
-        //  //TheForm.Initializer
-        //}
-
-
 
         // Open the form
         TheForm.Show();
@@ -331,7 +285,6 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
         return new DataSet();
       }
     }
-
 
 		/// <summary>
 		/// Takes a dataset and adds it to the database

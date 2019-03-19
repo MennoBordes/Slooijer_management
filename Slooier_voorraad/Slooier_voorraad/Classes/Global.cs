@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace Slooier_voorraad.Classes
 {
-  class Global
+	/// <summary>
+	/// A class used to store variables that may need to be used throughout the program
+	/// </summary>
+  public static class Global
   {
-    internal static class IniVar
-    {
-			public static List<Tuple<string,int>> Items;
-    }
-  }
+		#region variables
+
+		public static MagazijnItems AlterItem;
+
+		#endregion
+	}
 }
