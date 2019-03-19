@@ -1,7 +1,9 @@
-﻿using Slooier_voorraad.Classes.CommonFunctions;
+﻿using Slooier_voorraad.Classes;
+using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Windows.Forms;
+
 
 namespace Slooier_voorraad
 {
