@@ -12,27 +12,8 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		public AlterItemPopup()
 		{
 			InitializeComponent();
-      //Tester();
-			this.ConnString = Properties.Settings.Default.DBConnectionString;
+			ConnString = Properties.Settings.Default.DBConnectionString;
 		}
-
-		private void AlterItemPopup_Shown(object sender, EventArgs e)
-		{
-			Tester();
-		}
-
-		public void Tester()
-    {
-      Console.WriteLine("***********************************");
-      var s = Global.IniVar.Items;
-    }
-
-    public int IdRef = 0;
-
-    public void Initializer<U>((string PropertyName, U PropertyValue) variable)
-    {
-      //label15.Text = IdRef.ToString();
-    }
 
 		private void AlterItemPopup_Load(object sender, EventArgs e)
 		{
@@ -41,10 +22,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			//CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 		}
 
-		private void LblMain_SizeChanged(object sender, EventArgs e)
 		{
-			// Set panels to center of the Form
-			//CommonFunctions.SetPanelDimensions(PMain, ClientSize);
 		}
 	}
 }

@@ -66,7 +66,6 @@
 			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
-			this.label15 = new System.Windows.Forms.Label();
 			this.PMain.SuspendLayout();
 			this.PCurrent.SuspendLayout();
 			this.FlpCurrent.SuspendLayout();
@@ -424,14 +423,13 @@
 			this.LblMain.TabIndex = 2;
 			this.LblMain.Text = "verander de inhoud van artikelen";
 			this.LblMain.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.LblMain.SizeChanged += new System.EventHandler(this.LblMain_SizeChanged);
 			// 
 			// DefaultMenuBar
 			// 
 			this.DefaultMenuBar.AutoSize = true;
 			this.DefaultMenuBar.Dock = System.Windows.Forms.DockStyle.Top;
 			this.DefaultMenuBar.Location = new System.Drawing.Point(0, 0);
-			this.DefaultMenuBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.DefaultMenuBar.Margin = new System.Windows.Forms.Padding(4);
 			this.DefaultMenuBar.Name = "DefaultMenuBar";
 			this.DefaultMenuBar.Size = new System.Drawing.Size(872, 27);
 			this.DefaultMenuBar.TabIndex = 20;
@@ -472,23 +470,12 @@
 			// defaultBackGround1
 			// 
 			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackGround1.Controls.Add(this.label15);
 			this.defaultBackGround1.Controls.Add(this.PMain);
 			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
 			this.defaultBackGround1.Name = "defaultBackGround1";
 			this.defaultBackGround1.Size = new System.Drawing.Size(856, 492);
 			this.defaultBackGround1.TabIndex = 24;
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(336, 422);
-			this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(41, 13);
-			this.label15.TabIndex = 17;
-			this.label15.Text = "label15";
 			// 
 			// AlterItemPopup
 			// 
@@ -505,7 +492,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Artikel Aanpassen";
 			this.Load += new System.EventHandler(this.AlterItemPopup_Load);
-			this.Shown += new System.EventHandler(this.AlterItemPopup_Shown);
 			this.PMain.ResumeLayout(false);
 			this.PCurrent.ResumeLayout(false);
 			this.FlpCurrent.ResumeLayout(false);
@@ -518,7 +504,6 @@
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.defaultBackGround1.ResumeLayout(false);
-			this.defaultBackGround1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -564,6 +549,5 @@
 		private UI.OuterFormBorder RightBorder;
 		private UI.OuterFormBorder BottomBorder;
 		private UI.DefaultBackGround defaultBackGround1;
-    private System.Windows.Forms.Label label15;
   }
 }
