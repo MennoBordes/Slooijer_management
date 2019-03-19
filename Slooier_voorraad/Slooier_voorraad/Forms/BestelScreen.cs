@@ -219,7 +219,7 @@ namespace Slooier_voorraad
 
 					var newValue = new BestelItems()
 					{
-						Benaming = currentIndex.Benaming,
+						Benaming = currentIndex.Afdeling,
 						Nummer = currentIndex.Nummer,
 						Omschrijving = currentIndex.Omschrijving,
 						Voorraad = currentIndex.Voorraad,
