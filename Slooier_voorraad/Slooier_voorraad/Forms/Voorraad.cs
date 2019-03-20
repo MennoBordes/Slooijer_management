@@ -223,5 +223,15 @@ namespace Slooier_voorraad.Forms
 			// Open the form
 			mAlterArtikel.Show(ParentForm);
 		}
+
+		/// <summary>
+		/// Gets executed when the form regains focus
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Voorraad_Activated(object sender, EventArgs e)
+		{
+			GetVoorraad();
+		}
 	}
 }
