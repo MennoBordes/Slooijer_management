@@ -272,7 +272,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
 		/// <param name="value"> The string which contains a double </param>
 		/// <param name="defaultValue"> The default return type, in case the string couldn't be converted </param>
 		/// <returns> Returns a double </returns>
-    public static double GetDouble(string value, double defaultValue)
+    public static double GetDoubleFromString(string value, double defaultValue)
     {
       if (!double.TryParse(value, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.CurrentCulture, out double result) &&
         !double.TryParse(value, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.GetCultureInfo("en-US"), out result) &&
@@ -453,7 +453,7 @@ namespace Slooier_voorraad.Classes.StartingScreenFunctions
                 string ItemOmschrijving = Omschrijving;
                 Int32.TryParse(Rows.ItemArray[4].ToString(), out int ItemVoorraad);
                 double temp = 0.0;
-                double Prijs = GetDouble(Rows.ItemArray[3].ToString(), temp);
+                double Prijs = GetDoubleFromString(Rows.ItemArray[3].ToString(), temp);
                 command = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES(@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
 
                 using (NpgsqlCommand cmd = new NpgsqlCommand(command, conn))
