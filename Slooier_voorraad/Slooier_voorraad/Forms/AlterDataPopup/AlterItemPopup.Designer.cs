@@ -335,6 +335,7 @@
 			this.TxbNewOmschrijving.Size = new System.Drawing.Size(171, 68);
 			this.TxbNewOmschrijving.TabIndex = 5;
 			this.TxbNewOmschrijving.TextChanged += new System.EventHandler(this.TxbNewOmschrijving_TextChanged);
+			this.TxbNewOmschrijving.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNewOmschrijving_KeyUp);
 			// 
 			// LblNewOmschrijving
 			// 
@@ -353,6 +354,7 @@
 			this.TxbNewPrijs.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewPrijs.TabIndex = 4;
 			this.TxbNewPrijs.TextChanged += new System.EventHandler(this.TxbNewPrijs_TextChanged);
+			this.TxbNewPrijs.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNewPrijs_KeyUp);
 			// 
 			// LblNewPrijs
 			// 
@@ -371,6 +373,7 @@
 			this.TxbNewVoorraad.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewVoorraad.TabIndex = 3;
 			this.TxbNewVoorraad.TextChanged += new System.EventHandler(this.TxbNewVoorraad_TextChanged);
+			this.TxbNewVoorraad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNewVoorraad_KeyUp);
 			// 
 			// LblNewVoorraad
 			// 
@@ -389,6 +392,7 @@
 			this.TxbNewNummer.Size = new System.Drawing.Size(171, 20);
 			this.TxbNewNummer.TabIndex = 2;
 			this.TxbNewNummer.TextChanged += new System.EventHandler(this.TxbNewNummer_TextChanged);
+			this.TxbNewNummer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNewNummer_KeyUp);
 			// 
 			// LblNewNummer
 			// 

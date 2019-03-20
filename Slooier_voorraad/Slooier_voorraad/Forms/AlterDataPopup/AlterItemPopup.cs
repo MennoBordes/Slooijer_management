@@ -5,6 +5,7 @@ using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -221,6 +222,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		#endregion
 
 		#region Regex
+		#region Validate User Input
 
 		/// <summary>
 		/// Checks whether a given string is valid for the given allowed characters
@@ -241,7 +243,6 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		#endregion
 
-		#region Validate user input
 		private void TxbNewOmschrijving_TextChanged(object sender, EventArgs e)
 		{
 			// If there is no text
@@ -284,7 +285,6 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				_IsPrijsCorrect = true;
 				return;
 			}
-			
 
 			// Get the current NumberFormatInfo object to build the regular expression pattern dynamically.
 			NumberFormatInfo nfi = NumberFormatInfo.CurrentInfo;
@@ -306,10 +306,35 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			AllowedCharacters += nfi.CurrencyDecimalDigits.ToString() + "}?){1}$";
 
 			if (!IsStringValid(TxbNewPrijs.Text, AllowedCharacters))
+			string text = TxbNewPrijs.Text;
 			{
-				LblNewPrijs.ForeColor = System.Drawing.Color.Red;
-				LblNewPrijs.Text = lblPrijs + "\nAlleen getallen (0-9) en de komma(,) zijn toegestaan";
-				return;
+				// Check amount of characters in the string after the ','
+				char CharacterToCheck = ',';
+				int index = text.IndexOf(CharacterToCheck);
+				if (index == -1)
+				{
+					// Check how many numbers are in the text
+					int AmountOfNumbers = text.Count(c => char.IsDigit(c));
+					LblNewPrijs.ForeColor = System.Drawing.Color.Red;
+
+					// Check whether the amount of numbers is 1
+					if (AmountOfNumbers == 1)
+						LblNewPrijs.Text = lblPrijs + "\nPrijzen behoren te bestaan uit minimaal 2 getallen, of één getal en 2 getallen na de komma.";
+					else
+						LblNewPrijs.Text = lblPrijs + "\nAlleen getallen (0-9) en de komma(,) zijn toegestaan.";
+					_IsPrijsCorrect = false;
+					return;
+				}
+				var CharsAfterIndex = text.Substring(index + 1).Length;
+				Console.WriteLine(CharsAfterIndex > 1);
+				if (CharsAfterIndex != 2)
+				{
+					LblNewPrijs.ForeColor = System.Drawing.Color.Red;
+					LblNewPrijs.Text = lblPrijs + "\nPrijzen behoren te bestaan uit minimaal 2 getallen, of één getal en 2 getallen na de komma.";
+					_IsPrijsCorrect = false;
+					return;
+				}
+
 			}
 			LblNewPrijs.ForeColor = System.Drawing.Color.Black;
 			LblNewPrijs.Text = lblPrijs;
@@ -323,6 +348,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
 				LblNewVoorraad.Text = lblVoorraad;
+				_IsVoorraadCorrect = false;
 				return;
 			}
 
@@ -338,10 +364,12 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewVoorraad.ForeColor = System.Drawing.Color.Red;
 				LblNewVoorraad.Text = lblVoorraad + "\nAlleen getallen (0-9) zijn toegestaan";
+				_IsVoorraadCorrect = false;
 				return;
 			}
 			LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
 			LblNewVoorraad.Text = lblVoorraad;
+			_IsVoorraadCorrect = true;
 		}
 
 		private void TxbNewNummer_TextChanged(object sender, EventArgs e)
@@ -351,6 +379,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewNummer.ForeColor = System.Drawing.Color.Black;
 				LblNewNummer.Text = lblNummer;
+				_IsNummerCorrect = false;
 				return;
 			}
 
@@ -366,10 +395,12 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewNummer.ForeColor = System.Drawing.Color.Red;
 				LblNewNummer.Text = lblNummer + "\nAlleen letters (a-zA-Z) en getallen (0-9) zijn toegestaan";
+				_IsNummerCorrect = false;
 				return;
 			}
 			LblNewNummer.ForeColor = System.Drawing.Color.Black;
 			LblNewNummer.Text = lblNummer;
+			_IsNummerCorrect = true;
 		}
 
 		private void CbbNewAfdeling_TextChanged(object sender, EventArgs e)
@@ -384,5 +415,39 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		#endregion
 
+		#region Check If Button Should Be Enabled
+
+		/// <summary>
+		/// Checks whether the button should be enabled or not.
+		/// </summary>
+		private void IsAlterButtonEnabled()
+		{
+			if (!_IsNummerCorrect || !_IsOmschrijvingCorrect || !_IsPrijsCorrect || !_IsVoorraadCorrect)
+				BtnAlterArtikel.Enabled = false;
+			else
+				BtnAlterArtikel.Enabled = true;
+		}
+
+		private void TxbNewOmschrijving_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbNewPrijs_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbNewVoorraad_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbNewNummer_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		#endregion
 	}
 }
