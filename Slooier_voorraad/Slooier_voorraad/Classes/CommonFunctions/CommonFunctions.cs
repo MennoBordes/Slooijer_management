@@ -178,6 +178,23 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 			}
 			return Result;
 		}
+
+		/// <summary>
+		/// Checks whether a given string is valid for the given allowed characters
+		/// </summary>
+		/// <param name="StringToCheck">The string to check</param>
+		/// <param name="AllowedCharacters">The allowed characters to check against</param>
+		/// <returns></returns>
+		public static bool IsStringValid(string StringToCheck, string AllowedCharacters)
+		{
+			System.Text.RegularExpressions.Regex regexItem = new System.Text.RegularExpressions.Regex(AllowedCharacters);
+
+			if (regexItem.IsMatch(StringToCheck))
+			{
+				return true;
+			}
+			return false;
+		}
 	}
 }
 

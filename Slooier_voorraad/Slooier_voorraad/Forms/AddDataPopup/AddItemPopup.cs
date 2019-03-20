@@ -3,9 +3,7 @@ using NpgsqlTypes;
 using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms.AddDataPopup
@@ -45,7 +43,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			CommonFunctions.SetPanelDimensions(PSecundary, PMain);
 			CommonFunctions.SetPanelDimensions(FlpMain, PSecundary);
 		}
-		
+
 		/// <summary>
 		/// Retrieve and store all afdelingen to a combobox
 		/// </summary>
@@ -53,7 +51,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		{
 			var result = CommonFunctions.GetAfdelingen();
 			CbbBenaming.Items.Clear();
-			foreach(string item in result)
+			foreach (string item in result)
 			{
 				CbbBenaming.Items.Add(item);
 			}
@@ -70,8 +68,9 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 				}
 				string Afdeling = CbbBenaming.GetItemText(CbbBenaming.SelectedItem);
 
+				string AllowedCharacters = "^[a-zA-Z0-9 ]*$";
 				string Nummer = TxbNummer.Text;
-				if (IsStringValid(Nummer))
+				if (CommonFunctions.IsStringValid(Nummer, AllowedCharacters))
 				{
 					if (Nummer.Length == 0)
 					{
@@ -87,7 +86,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 				}
 
 				string Omschrijving = TxbOmschrijving.Text;
-				if (IsStringValid(Omschrijving))
+				if (CommonFunctions.IsStringValid(Omschrijving, AllowedCharacters))
 				{
 					if (Omschrijving.Length == 0)
 					{
@@ -105,12 +104,13 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 				if (TxbPrijs.Text.Length < 4)
 				{
-						string TekstToDisplay = "Er is geen geldige prijs ingevuld. Vul een geldige prijs in.\nBijvoorbeeld:\t120,00\t0,99\t25,22\t220,0\t18,20";
-						FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-						return;
+					string TekstToDisplay = "Er is geen geldige prijs ingevuld. Vul een geldige prijs in.\nBijvoorbeeld:\t120,00\t0,99\t25,22\t220,0\t18,20";
+					FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					return;
 				}
-				var regexItem = new Regex("^[0-9,]*$");
-				if (!regexItem.IsMatch(TxbPrijs.Text))
+
+				AllowedCharacters = "^[0-9,]*$";
+				if (!CommonFunctions.IsStringValid(TxbPrijs.Text, AllowedCharacters))
 				{
 					string message = $"De opgegeven waarde in Prijs mag geen andere tekens bevatten dan:\n(0-9 ,)";
 					string header = "Verkeerd teken gevonden";
@@ -247,17 +247,6 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			string message = $"De opgegeven waarde in {WhereFrom} mag geen andere tekens bevatten dan:\n(a-z A-Z 0-9)";
 			string header = "Verkeerd teken gevonden";
 			FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-		}
-
-		private bool IsStringValid(string StringToCheck)
-		{
-			var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
-
-			if (regexItem.IsMatch(StringToCheck))
-			{
-				return true;
-			}
-			return false;
 		}
 	}
 }

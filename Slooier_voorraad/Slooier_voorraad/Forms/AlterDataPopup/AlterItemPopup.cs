@@ -221,27 +221,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		#endregion
 
-		#region Regex
 		#region Validate User Input
-
-		/// <summary>
-		/// Checks whether a given string is valid for the given allowed characters
-		/// </summary>
-		/// <param name="StringToCheck">The string to check</param>
-		/// <param name="AllowedCharacters">The allowed characters to check against</param>
-		/// <returns></returns>
-		private bool IsStringValid(string StringToCheck, string AllowedCharacters)
-		{
-			Regex regexItem = new Regex(AllowedCharacters);
-
-			if (regexItem.IsMatch(StringToCheck))
-			{
-				return true;
-			}
-			return false;
-		}
-
-		#endregion
 
 		private void TxbNewOmschrijving_TextChanged(object sender, EventArgs e)
 		{
@@ -262,7 +242,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			// .,/-+ allows those characters to be used
 			AllowedCharacters = @"^[\p{L}\w\.,+/ -]+$";
 
-			if (!IsStringValid(TxbNewOmschrijving.Text, AllowedCharacters))
+			if (!CommonFunctions.IsStringValid(TxbNewOmschrijving.Text, AllowedCharacters))
 			{
 				LblNewOmschrijving.ForeColor = System.Drawing.Color.Red;
 				LblNewOmschrijving.Text = lblOmschrijving + "\nDe volgende tekens mogen niet gebruikt worden: " +
@@ -305,8 +285,8 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			// Determine the number of fractional digits in currency values.
 			AllowedCharacters += nfi.CurrencyDecimalDigits.ToString() + "}?){1}$";
 
-			if (!IsStringValid(TxbNewPrijs.Text, AllowedCharacters))
 			string text = TxbNewPrijs.Text;
+			if (!CommonFunctions.IsStringValid(text, AllowedCharacters))
 			{
 				// Check amount of characters in the string after the ','
 				char CharacterToCheck = ',';
@@ -360,7 +340,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			// .,/-+ allows those characters to be used
 			AllowedCharacters = @"^[0-9]+$";
 
-			if (!IsStringValid(TxbNewVoorraad.Text, AllowedCharacters))
+			if (!CommonFunctions.IsStringValid(TxbNewVoorraad.Text, AllowedCharacters))
 			{
 				LblNewVoorraad.ForeColor = System.Drawing.Color.Red;
 				LblNewVoorraad.Text = lblVoorraad + "\nAlleen getallen (0-9) zijn toegestaan";
@@ -391,7 +371,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			// .,/-+ allows those characters to be used
 			AllowedCharacters = @"^[A-Za-z0-9]+$";
 
-			if (!IsStringValid(TxbNewNummer.Text, AllowedCharacters))
+			if (!CommonFunctions.IsStringValid(TxbNewNummer.Text, AllowedCharacters))
 			{
 				LblNewNummer.ForeColor = System.Drawing.Color.Red;
 				LblNewNummer.Text = lblNummer + "\nAlleen letters (a-zA-Z) en getallen (0-9) zijn toegestaan";
