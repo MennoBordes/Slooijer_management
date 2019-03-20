@@ -3,6 +3,7 @@ using NpgsqlTypes;
 using Slooier_voorraad.Classes;
 using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
+using Slooier_voorraad.Classes.UserInput;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -225,34 +226,28 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		private void TxbNewOmschrijving_TextChanged(object sender, EventArgs e)
 		{
-			// If there is no text
-			if (TxbNewOmschrijving.Text.Length <= 0)
+			var InputResult = UserInputChecker.UserOmschrijvingInput(TxbNewOmschrijving.Text);
+
+			switch (InputResult)
 			{
-				LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
-				LblNewOmschrijving.Text = lblOmschrijving;
-				_IsOmschrijvingCorrect = true;
-				return;
+				case UserInputChecker.InputResult.Valid:
+					LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
+					LblNewOmschrijving.Text = lblOmschrijving;
+					_IsOmschrijvingCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
+					LblNewOmschrijving.Text = lblOmschrijving;
+					_IsOmschrijvingCorrect = true;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblNewOmschrijving.ForeColor = System.Drawing.Color.Red;
+					string ErrorDisplay = lblOmschrijving + "\nDe volgende tekens mogen niet gebruikt worden: " +
+						"(!@#$%^&*()=[]{};:'<>?)";
+					LblNewOmschrijving.Text = ErrorDisplay;
+					_IsOmschrijvingCorrect = false;
+					return;
 			}
-
-			// Defining the allowed characters
-			string AllowedCharacters;
-
-			// \p{L} allows all normal text
-			// \w\ allows all numbers
-			// .,/-+ allows those characters to be used
-			AllowedCharacters = @"^[\p{L}\w\.,+/ -]+$";
-
-			if (!CommonFunctions.IsStringValid(TxbNewOmschrijving.Text, AllowedCharacters))
-			{
-				LblNewOmschrijving.ForeColor = System.Drawing.Color.Red;
-				LblNewOmschrijving.Text = lblOmschrijving + "\nDe volgende tekens mogen niet gebruikt worden: " +
-					"(!@#$%^&*()=[]{};:'<>?)";
-				_IsOmschrijvingCorrect = false;
-				return;
-			}
-			LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
-			LblNewOmschrijving.Text = lblOmschrijving;
-			_IsOmschrijvingCorrect = true;
 		}
 
 		private void TxbNewPrijs_TextChanged(object sender, EventArgs e)
@@ -323,64 +318,50 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		private void TxbNewVoorraad_TextChanged(object sender, EventArgs e)
 		{
-			// If there is no text
-			if (TxbNewVoorraad.Text.Length <= 0)
+			var InputResult = UserInputChecker.UserVoorraadInput(TxbNewVoorraad.Text);
+
+			switch (InputResult)
 			{
-				LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
-				LblNewVoorraad.Text = lblVoorraad;
-				_IsVoorraadCorrect = false;
-				return;
+				case UserInputChecker.InputResult.Valid:
+					LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
+					LblNewVoorraad.Text = lblVoorraad;
+					_IsVoorraadCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
+					LblNewVoorraad.Text = lblVoorraad;
+					_IsVoorraadCorrect = false;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblNewVoorraad.ForeColor = System.Drawing.Color.Red;
+					LblNewVoorraad.Text = lblVoorraad + "\nAlleen getallen (0-9) zijn toegestaan";
+					_IsVoorraadCorrect = false;
+					return;
 			}
-
-			// Defining the allowed characters
-			string AllowedCharacters;
-
-			// \p{L} allows all normal text
-			// \w\ allows all numbers
-			// .,/-+ allows those characters to be used
-			AllowedCharacters = @"^[0-9]+$";
-
-			if (!CommonFunctions.IsStringValid(TxbNewVoorraad.Text, AllowedCharacters))
-			{
-				LblNewVoorraad.ForeColor = System.Drawing.Color.Red;
-				LblNewVoorraad.Text = lblVoorraad + "\nAlleen getallen (0-9) zijn toegestaan";
-				_IsVoorraadCorrect = false;
-				return;
-			}
-			LblNewVoorraad.ForeColor = System.Drawing.Color.Black;
-			LblNewVoorraad.Text = lblVoorraad;
-			_IsVoorraadCorrect = true;
 		}
 
 		private void TxbNewNummer_TextChanged(object sender, EventArgs e)
 		{
-			// If there is no text
-			if (TxbNewNummer.Text.Length <= 0)
+			var InputResult = UserInputChecker.UserNummerInput(TxbNewNummer.Text);
+
+			switch (InputResult)
 			{
-				LblNewNummer.ForeColor = System.Drawing.Color.Black;
-				LblNewNummer.Text = lblNummer;
-				_IsNummerCorrect = false;
-				return;
+				case UserInputChecker.InputResult.Valid:
+					LblNewNummer.ForeColor = System.Drawing.Color.Black;
+					LblNewNummer.Text = lblNummer;
+					_IsNummerCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblNewNummer.ForeColor = System.Drawing.Color.Black;
+					LblNewNummer.Text = lblNummer;
+					_IsNummerCorrect = false;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblNewNummer.ForeColor = System.Drawing.Color.Red;
+					LblNewNummer.Text = lblNummer + "\nAlleen letters (a-zA-Z) en getallen (0-9) zijn toegestaan";
+					_IsNummerCorrect = false;
+					return;
 			}
-
-			// Defining the allowed characters
-			string AllowedCharacters;
-
-			// \p{L} allows all normal text
-			// \w\ allows all numbers
-			// .,/-+ allows those characters to be used
-			AllowedCharacters = @"^[A-Za-z0-9]+$";
-
-			if (!CommonFunctions.IsStringValid(TxbNewNummer.Text, AllowedCharacters))
-			{
-				LblNewNummer.ForeColor = System.Drawing.Color.Red;
-				LblNewNummer.Text = lblNummer + "\nAlleen letters (a-zA-Z) en getallen (0-9) zijn toegestaan";
-				_IsNummerCorrect = false;
-				return;
-			}
-			LblNewNummer.ForeColor = System.Drawing.Color.Black;
-			LblNewNummer.Text = lblNummer;
-			_IsNummerCorrect = true;
 		}
 
 		private void CbbNewAfdeling_TextChanged(object sender, EventArgs e)
