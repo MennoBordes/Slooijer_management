@@ -103,7 +103,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			if (AlterItemInDB())
 			{
 				FlexibleMessageBox.Show("Het artikel is aangepast", "Succes");
-				this.Dispose();
+				Dispose();
 			}
 			else
 			{
@@ -162,7 +162,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		private bool AlterItemInDB()
 		{
 			int ItemId = CurrentItem.Id;
-			using(var conn = new NpgsqlConnection(ConnString))
+			using (var conn = new NpgsqlConnection(ConnString))
 			{
 				conn.Open();
 
@@ -171,7 +171,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				string querySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
 				using (var cmd = new NpgsqlCommand(querySelect, conn))
 				{
-					var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text){Value = NewAfdeling};
+					var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text) { Value = NewAfdeling };
 					cmd.Parameters.Add(ParAfd);
 					cmd.Prepare();
 					using (var SqlReader = cmd.ExecuteReader())
@@ -184,7 +184,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 					}
 				}
 
-				if(NewAfdelingId == int.MinValue)
+				if (NewAfdelingId == int.MinValue)
 				{
 					return false;
 				}
@@ -192,7 +192,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				string query = "UPDATE voorraad SET nummer = @Nummer, omschrijving = @Omschrijving, " +
 												"voorraad = @Voorraad, afdeling = @Afdeling, prijs = @Prijs " +
 												"WHERE id = @Id;";
-				using(var cmd = new NpgsqlCommand(query, conn))
+				using (var cmd = new NpgsqlCommand(query, conn))
 				{
 					var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = NewNummer };
 					cmd.Parameters.Add(ParNum);
