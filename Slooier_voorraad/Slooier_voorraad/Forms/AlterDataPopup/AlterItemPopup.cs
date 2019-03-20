@@ -252,68 +252,30 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		private void TxbNewPrijs_TextChanged(object sender, EventArgs e)
 		{
-			// If there is no text
-			if (TxbNewPrijs.Text.Length <= 0)
+			var InputResult = UserInputChecker.UserPrijsInput(TxbNewPrijs.Text);
+
+			switch (InputResult)
 			{
-				LblNewPrijs.ForeColor = System.Drawing.Color.Black;
-				LblNewPrijs.Text = lblPrijs;
-				_IsPrijsCorrect = true;
-				return;
-			}
-
-			// Get the current NumberFormatInfo object to build the regular expression pattern dynamically.
-			NumberFormatInfo nfi = NumberFormatInfo.CurrentInfo;
-
-			// Define the regular expression pattern.
-			string AllowedCharacters;
-			AllowedCharacters = @"^\s*[";
-			// Get the positive and negative sign symbols.
-			AllowedCharacters += Regex.Escape(nfi.PositiveSign + nfi.NegativeSign) + @"]?\s?";
-			// Get the currency symbol.
-			AllowedCharacters += Regex.Escape(nfi.CurrencySymbol) + @"?\s?";
-			// Add integral digits to the pattern.
-			AllowedCharacters += @"(\d*";
-			// Add the decimal separator.
-			AllowedCharacters += Regex.Escape(nfi.CurrencyDecimalSeparator) + "?";
-			// Add the fractional digits.
-			AllowedCharacters += @"\d{";
-			// Determine the number of fractional digits in currency values.
-			AllowedCharacters += nfi.CurrencyDecimalDigits.ToString() + "}?){1}$";
-
-			string text = TxbNewPrijs.Text;
-			if (!CommonFunctions.IsStringValid(text, AllowedCharacters))
-			{
-				// Check amount of characters in the string after the ','
-				char CharacterToCheck = ',';
-				int index = text.IndexOf(CharacterToCheck);
-				if (index == -1)
-				{
-					// Check how many numbers are in the text
-					int AmountOfNumbers = text.Count(c => char.IsDigit(c));
+				case UserInputChecker.InputResult.Valid:
+					LblNewPrijs.ForeColor = System.Drawing.Color.Black;
+					LblNewPrijs.Text = lblPrijs;
+					_IsPrijsCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblNewPrijs.ForeColor = System.Drawing.Color.Black;
+					LblNewPrijs.Text = lblPrijs;
+					_IsPrijsCorrect = true;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
 					LblNewPrijs.ForeColor = System.Drawing.Color.Red;
-
-					// Check whether the amount of numbers is 1
-					if (AmountOfNumbers == 1)
-						LblNewPrijs.Text = lblPrijs + "\nPrijzen behoren te bestaan uit minimaal 2 getallen, of één getal en 2 getallen na de komma.";
-					else
-						LblNewPrijs.Text = lblPrijs + "\nAlleen getallen (0-9) en de komma(,) zijn toegestaan.";
+					string ErrorDisplay = lblPrijs + 
+						"\nAlleen getallen (0-9) en de komma(,) zijn toegestaan." + 
+						"\nPrijzen behoren te bestaan uit minimaal 2 getallen, " +
+						"of één getal en 2 getallen na de komma.";
+					LblNewPrijs.Text = ErrorDisplay;
 					_IsPrijsCorrect = false;
 					return;
-				}
-				var CharsAfterIndex = text.Substring(index + 1).Length;
-				Console.WriteLine(CharsAfterIndex > 1);
-				if (CharsAfterIndex != 2)
-				{
-					LblNewPrijs.ForeColor = System.Drawing.Color.Red;
-					LblNewPrijs.Text = lblPrijs + "\nPrijzen behoren te bestaan uit minimaal 2 getallen, of één getal en 2 getallen na de komma.";
-					_IsPrijsCorrect = false;
-					return;
-				}
-
 			}
-			LblNewPrijs.ForeColor = System.Drawing.Color.Black;
-			LblNewPrijs.Text = lblPrijs;
-			_IsPrijsCorrect = true;
 		}
 
 		private void TxbNewVoorraad_TextChanged(object sender, EventArgs e)

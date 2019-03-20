@@ -1,4 +1,7 @@
-﻿namespace Slooier_voorraad.Classes.UserInput
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
+
+namespace Slooier_voorraad.Classes.UserInput
 {
 	public class UserInputChecker
 	{
@@ -91,6 +94,29 @@
 			// .,/-+ allows those characters to be used
 			AllowedCharacters = @"^[0-9]+$";
 
+			return UserInput(TextToCheck, AllowedCharacters);
+		}
+
+		public static InputResult UserPrijsInput(string TextToCheck)
+		{
+			// Get the current NumberFormatInfo object to build the regular expression pattern dynamically.
+			NumberFormatInfo nfi = NumberFormatInfo.CurrentInfo;
+
+			// Define the regular expression pattern.
+			string AllowedCharacters;
+			AllowedCharacters = @"^\s*[";
+			// Get the positive and negative sign symbols.
+			AllowedCharacters += Regex.Escape(nfi.PositiveSign + nfi.NegativeSign) + @"]?\s?";
+			// Get the currency symbol.
+			AllowedCharacters += Regex.Escape(nfi.CurrencySymbol) + @"?\s?";
+			// Add integral digits to the pattern.
+			AllowedCharacters += @"(\d*";
+			// Add the decimal separator.
+			AllowedCharacters += Regex.Escape(nfi.CurrencyDecimalSeparator) + "?";
+			// Add the fractional digits.
+			AllowedCharacters += @"\d{";
+			// Determine the number of fractional digits in currency values.
+			AllowedCharacters += nfi.CurrencyDecimalDigits.ToString() + "}?){1}$";
 			return UserInput(TextToCheck, AllowedCharacters);
 		}
 	}
