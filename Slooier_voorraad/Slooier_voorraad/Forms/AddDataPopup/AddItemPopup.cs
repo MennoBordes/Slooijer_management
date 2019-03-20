@@ -165,6 +165,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 							while (SqlReader.Read())
 							{
 								AfdelingId = SqlReader.GetInt32(0);
+								break;
 							}
 						}
 					}
