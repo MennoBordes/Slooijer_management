@@ -15,7 +15,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 	/// <summary>
 	/// A class that contains a number of common functions, which are called from multiple places
 	/// </summary>
-	public class CommonFunctions
+	public static class CommonFunctions
   {
 		/// <summary>
 		/// Returns a list of items, as returned from the database
@@ -200,7 +200,7 @@ namespace Slooier_voorraad.Classes.CommonFunctions
 
 namespace Slooier_voorraad.Classes.StartingScreenFunctions
 {
-	public class StartingScreenFunctions
+	public static class StartingScreenFunctions
   {
 		/// <summary>
 		/// A Structure which is used to open forms as Mdi children
