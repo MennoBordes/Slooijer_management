@@ -73,7 +73,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			TxbCurrentPrijs.Text = CurrentItem.Prijs.ToString();
 			TxbCurrentVoorraad.Text = CurrentItem.Voorraad.ToString();
 
-			CurrentId = CurrentItem.Id;
+			_CurrentId = CurrentItem.Id;
 
 			LblNewNummer.Text = lblNummer;
 			LblNewOmschrijving.Text = lblOmschrijving;
@@ -85,13 +85,18 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 
 		#region Private Variables		
 
-		private int CurrentId;
-		private string NewAfdeling;
-		private int NewAfdelingId;
-		private string NewNummer;
-		private string NewOmschrijving;
-		private int NewVoorraad;
-		private double NewPrijs;
+		private int _CurrentId;
+		private string _NewAfdeling;
+		private int _NewAfdelingId;
+		private string _NewNummer;
+		private string _NewOmschrijving;
+		private int _NewVoorraad;
+		private double _NewPrijs;
+
+		private bool _IsNummerCorrect = true;
+		private bool _IsVoorraadCorrect = true;
+		private bool _IsPrijsCorrect = true;
+		private bool _IsOmschrijvingCorrect = true;
 
 		#endregion
 
@@ -120,17 +125,17 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 		private void CheckFilled()
 		{
 			// Get the currently selected afdeling
-			NewAfdeling = CbbNewAfdeling.SelectedItem.ToString();
+			_NewAfdeling = CbbNewAfdeling.SelectedItem.ToString();
 
 			// Get the description of the item
 			if (TxbNewOmschrijving.Text.Length == 0)
-				NewOmschrijving = CurrentItem.Omschrijving;
+				_NewOmschrijving = CurrentItem.Omschrijving;
 			else
-				NewOmschrijving = TxbNewOmschrijving.Text.ToString();
+				_NewOmschrijving = TxbNewOmschrijving.Text.ToString();
 
 			// Get the price of the item
 			if (TxbNewPrijs.Text.Length == 0)
-				NewPrijs = CurrentItem.Prijs;
+				_NewPrijs = CurrentItem.Prijs;
 			else
 			{
 				// Convert from string to double
@@ -139,20 +144,20 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				clone.NumberFormat.NumberGroupSeparator = ".";
 				string value = TxbNewPrijs.Text;
 				double Prijs = double.Parse(value, clone);
-				NewPrijs = Prijs;
+				_NewPrijs = Prijs;
 			}
 
 			// Get the nummer of the item
 			if (TxbNewNummer.Text.Length == 0)
-				NewNummer = CurrentItem.Nummer;
+				_NewNummer = CurrentItem.Nummer;
 			else
-				NewNummer = TxbNewNummer.Text;
+				_NewNummer = TxbNewNummer.Text;
 
 			// Get the stock of the item
 			if (TxbNewVoorraad.Text.Length == 0)
-				NewVoorraad = CurrentItem.Voorraad;
+				_NewVoorraad = CurrentItem.Voorraad;
 			else
-				NewVoorraad = int.Parse(TxbNewVoorraad.Text);
+				_NewVoorraad = int.Parse(TxbNewVoorraad.Text);
 		}
 
 		/// <summary>
@@ -167,24 +172,24 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				conn.Open();
 
 				// Retrieves the id of the selected department
-				NewAfdelingId = int.MinValue;
+				_NewAfdelingId = int.MinValue;
 				string querySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
 				using (var cmd = new NpgsqlCommand(querySelect, conn))
 				{
-					var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text) { Value = NewAfdeling };
+					var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text) { Value = _NewAfdeling };
 					cmd.Parameters.Add(ParAfd);
 					cmd.Prepare();
 					using (var SqlReader = cmd.ExecuteReader())
 					{
 						while (SqlReader.Read())
 						{
-							NewAfdelingId = SqlReader.GetInt32(0);
+							_NewAfdelingId = SqlReader.GetInt32(0);
 							break;
 						}
 					}
 				}
 
-				if (NewAfdelingId == int.MinValue)
+				if (_NewAfdelingId == int.MinValue)
 				{
 					return false;
 				}
@@ -194,15 +199,15 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 												"WHERE id = @Id;";
 				using (var cmd = new NpgsqlCommand(query, conn))
 				{
-					var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = NewNummer };
+					var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = _NewNummer };
 					cmd.Parameters.Add(ParNum);
-					var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = NewOmschrijving };
+					var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = _NewOmschrijving };
 					cmd.Parameters.Add(ParOms);
-					var parVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = NewVoorraad };
+					var parVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = _NewVoorraad };
 					cmd.Parameters.Add(parVoo);
-					var parAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = NewAfdelingId };
+					var parAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Integer) { Value = _NewAfdelingId };
 					cmd.Parameters.Add(parAfd);
-					var parPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = NewPrijs };
+					var parPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = _NewPrijs };
 					cmd.Parameters.Add(parPri);
 					var parId = new NpgsqlParameter("Id", NpgsqlDbType.Integer) { Value = ItemId };
 					cmd.Parameters.Add(parId);
@@ -244,6 +249,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
 				LblNewOmschrijving.Text = lblOmschrijving;
+				_IsOmschrijvingCorrect = true;
 				return;
 			}
 
@@ -260,10 +266,12 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 				LblNewOmschrijving.ForeColor = System.Drawing.Color.Red;
 				LblNewOmschrijving.Text = lblOmschrijving + "\nDe volgende tekens mogen niet gebruikt worden: " +
 					"(!@#$%^&*()=[]{};:'<>?)";
+				_IsOmschrijvingCorrect = false;
 				return;
 			}
 			LblNewOmschrijving.ForeColor = System.Drawing.Color.Black;
 			LblNewOmschrijving.Text = lblOmschrijving;
+			_IsOmschrijvingCorrect = true;
 		}
 
 		private void TxbNewPrijs_TextChanged(object sender, EventArgs e)
@@ -273,8 +281,10 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			{
 				LblNewPrijs.ForeColor = System.Drawing.Color.Black;
 				LblNewPrijs.Text = lblPrijs;
+				_IsPrijsCorrect = true;
 				return;
 			}
+			
 
 			// Get the current NumberFormatInfo object to build the regular expression pattern dynamically.
 			NumberFormatInfo nfi = NumberFormatInfo.CurrentInfo;
@@ -303,6 +313,7 @@ namespace Slooier_voorraad.Forms.AlterDataPopup
 			}
 			LblNewPrijs.ForeColor = System.Drawing.Color.Black;
 			LblNewPrijs.Text = lblPrijs;
+			_IsPrijsCorrect = true;
 		}
 
 		private void TxbNewVoorraad_TextChanged(object sender, EventArgs e)
