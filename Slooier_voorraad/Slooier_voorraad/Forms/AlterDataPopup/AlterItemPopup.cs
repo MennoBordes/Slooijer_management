@@ -3,10 +3,11 @@ using Slooier_voorraad.Classes.CommonFunctions;
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace Slooier_voorraad.Forms.AlterDataPopup
 {
-	public partial class AlterItemPopup : FormInheriter
+	public partial class AlterItemPopup : Form
 	{
 		#region Variables
 		string ConnString;
