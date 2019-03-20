@@ -116,6 +116,7 @@
     <Compile Include="Classes\Global.cs" />
     <Compile Include="Classes\MagazijnItems.cs" />
     <Compile Include="Classes\MigraDoc\MigraDocFunctions.cs" />
+    <Compile Include="Classes\UserInput\UserInputChecker.cs" />
     <Compile Include="Controls\DefaultHeaderBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
