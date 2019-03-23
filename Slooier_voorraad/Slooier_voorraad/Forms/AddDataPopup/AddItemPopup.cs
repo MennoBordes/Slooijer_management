@@ -334,7 +334,26 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void TxbVoorraad_TextChanged(object sender, EventArgs e)
 		{
+			var InputResult = UserInputChecker.UserVoorraadInput(TxbVoorraad.Text);
 
+			switch (InputResult)
+			{
+				case UserInputChecker.InputResult.Valid:
+					LblVoorraad.ForeColor = System.Drawing.Color.Black;
+					LblVoorraad.Text = lblVoorraad;
+					_IsVoorraadCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblVoorraad.ForeColor = System.Drawing.Color.Black;
+					LblVoorraad.Text = lblVoorraad;
+					_IsVoorraadCorrect = false;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblVoorraad.ForeColor = System.Drawing.Color.Red;
+					LblVoorraad.Text = lblVoorraad + "\nAlleen getallen (0-9) zijn toegestaan";
+					_IsVoorraadCorrect = false;
+					return;
+			}
 		}
 
 		private void TxbNummer_TextChanged(object sender, EventArgs e)
