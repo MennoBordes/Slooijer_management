@@ -262,6 +262,7 @@
 			// 
 			// FlpNew
 			// 
+			this.FlpNew.AutoScroll = true;
 			this.FlpNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.FlpNew.Controls.Add(this.label13);
 			this.FlpNew.Controls.Add(this.label12);
@@ -272,6 +273,7 @@
 			this.FlpNew.Name = "FlpNew";
 			this.FlpNew.Size = new System.Drawing.Size(448, 287);
 			this.FlpNew.TabIndex = 15;
+			this.FlpNew.WrapContents = false;
 			// 
 			// label13
 			// 
@@ -301,6 +303,7 @@
 			// 
 			// tableLayoutPanel1
 			// 
+			this.tableLayoutPanel1.AutoSize = true;
 			this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.95454F));
@@ -324,7 +327,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 217);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(440, 214);
 			this.tableLayoutPanel1.TabIndex = 15;
 			// 
 			// TxbNewOmschrijving
@@ -332,7 +335,7 @@
 			this.TxbNewOmschrijving.Location = new System.Drawing.Point(258, 126);
 			this.TxbNewOmschrijving.Multiline = true;
 			this.TxbNewOmschrijving.Name = "TxbNewOmschrijving";
-			this.TxbNewOmschrijving.Size = new System.Drawing.Size(171, 68);
+			this.TxbNewOmschrijving.Size = new System.Drawing.Size(171, 82);
 			this.TxbNewOmschrijving.TabIndex = 5;
 			this.TxbNewOmschrijving.TextChanged += new System.EventHandler(this.TxbNewOmschrijving_TextChanged);
 			this.TxbNewOmschrijving.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNewOmschrijving_KeyUp);
@@ -429,7 +432,7 @@
 			// 
 			this.BtnAlterArtikel.BackColor = System.Drawing.SystemColors.Control;
 			this.BtnAlterArtikel.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.BtnAlterArtikel.Location = new System.Drawing.Point(3, 254);
+			this.BtnAlterArtikel.Location = new System.Drawing.Point(3, 251);
 			this.BtnAlterArtikel.Name = "BtnAlterArtikel";
 			this.BtnAlterArtikel.Size = new System.Drawing.Size(440, 23);
 			this.BtnAlterArtikel.TabIndex = 6;
