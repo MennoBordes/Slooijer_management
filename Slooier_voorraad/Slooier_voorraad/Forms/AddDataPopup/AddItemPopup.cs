@@ -2,6 +2,7 @@
 using NpgsqlTypes;
 using Slooier_voorraad.Classes.CommonFunctions;
 using Slooier_voorraad.Classes.CustomMessageBox;
+using Slooier_voorraad.Classes.UserInput;
 using System;
 using System.Globalization;
 using System.Windows.Forms;
@@ -279,7 +280,28 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void TxbOmschrijving_TextChanged(object sender, EventArgs e)
 		{
+			var InputResult = UserInputChecker.UserOmschrijvingInput(TxbOmschrijving.Text);
 
+			switch (InputResult)
+			{
+				case UserInputChecker.InputResult.Valid:
+					LblOmschrijving.ForeColor = System.Drawing.Color.Black;
+					LblOmschrijving.Text = lblOmschrijving;
+					_IsOmschrijvingCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblOmschrijving.ForeColor = System.Drawing.Color.Black;
+					LblOmschrijving.Text = lblOmschrijving;
+					_IsOmschrijvingCorrect = true;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblOmschrijving.ForeColor = System.Drawing.Color.Red;
+					string ErrorDisplay = lblOmschrijving + "\nDe volgende tekens mogen niet gebruikt worden: " +
+						"(!@#$%^&*()=[]{};:'<>?)";
+					LblOmschrijving.Text = ErrorDisplay;
+					_IsOmschrijvingCorrect = false;
+					return;
+			}
 		}
 
 		private void TxbPrijs_TextChanged(object sender, EventArgs e)
