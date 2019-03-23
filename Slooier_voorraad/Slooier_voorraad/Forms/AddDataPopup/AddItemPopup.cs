@@ -306,7 +306,30 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void TxbPrijs_TextChanged(object sender, EventArgs e)
 		{
+			var InputResult = UserInputChecker.UserPrijsInput(TxbPrijs.Text);
 
+			switch (InputResult)
+			{
+				case UserInputChecker.InputResult.Valid:
+					LblPrijs.ForeColor = System.Drawing.Color.Black;
+					LblPrijs.Text = lblPrijs;
+					_IsPrijsCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblPrijs.ForeColor = System.Drawing.Color.Black;
+					LblPrijs.Text = lblPrijs;
+					_IsPrijsCorrect = true;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblPrijs.ForeColor = System.Drawing.Color.Red;
+					string ErrorDisplay = lblPrijs +
+						"\nAlleen getallen (0-9) en de komma(,) zijn toegestaan." +
+						"\nPrijzen behoren te bestaan uit minimaal 2 getallen, " +
+						"of één getal en 2 getallen na de komma.";
+					LblPrijs.Text = ErrorDisplay;
+					_IsPrijsCorrect = false;
+					return;
+			}
 		}
 
 		private void TxbVoorraad_TextChanged(object sender, EventArgs e)
