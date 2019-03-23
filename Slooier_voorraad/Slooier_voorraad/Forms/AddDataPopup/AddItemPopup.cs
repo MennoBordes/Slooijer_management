@@ -381,5 +381,39 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		}
 
 		#endregion
+
+		#region Check If Button Should Be Enabled
+
+		/// <summary>
+		/// Checks whether the button should be enabled or not.
+		/// </summary>
+		private void IsAlterButtonEnabled()
+		{
+			if (!_IsNummerCorrect || !_IsOmschrijvingCorrect || !_IsPrijsCorrect || !_IsVoorraadCorrect)
+				BtnAddToDb.Enabled = false;
+			else
+				BtnAddToDb.Enabled = true;
+		}
+
+		private void TxbOmschrijving_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbPrijs_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbVoorraad_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+
+		private void TxbNummer_KeyUp(object sender, KeyEventArgs e)
+		{
+			IsAlterButtonEnabled();
+		}
+		#endregion
 	}
 }
