@@ -19,7 +19,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		private const string lblPrijs = "Welke prijs heeft het artikel?";
 		private const string lblVoorraad = "Wat is de voorraad van het artikel?";
 		private const string lblNummer = "Welk nummer moet het artikel krijgen?";
-		private const string NotFilledIn = "Niet alle gegevens zijn ingevuld. \r Vul alle benodigde velden in!";
+		private const string NotFilledIn = "\nNiet alle gegevens zijn ingevuld. \r Vul alle benodigde velden in!";
 
 		#endregion
 
@@ -56,7 +56,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		}
 
 		/// <summary>
-		/// Retrieve and store all afdelingen to a combobox
+		/// Retrieve and store all departments in a combobox.
 		/// </summary>
 		private void GetBenamingen()
 		{
@@ -72,178 +72,81 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void BtnAddToDb_Click(object sender, EventArgs e)
 		{
+			// Check if all required inputs are filled
 			if (!CheckAllFilled())
 			{
+				string message = "Niet alle gegevens zijn ingevuld. \rVul alle benodigde velden in!";
 				string header = "Niet Ingevuld";
-				FlexibleMessageBox.Show(NotFilledIn, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 				return;
 			}
-			try
+
+			// Check whether the given item already exists
+			if (DoesItemExist())
 			{
-				if (CbbAfdeling.SelectedIndex < 0)
-				{
-					FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer A.U.B. een afdeling!", "Selecteer een afdeling!");
-					return;
-				}
-				string Afdeling = CbbAfdeling.GetItemText(CbbAfdeling.SelectedItem);
-
-				string AllowedCharacters = "^[a-zA-Z0-9 ]*$";
-				string Nummer = TxbNummer.Text;
-				if (CommonFunctions.IsStringValid(Nummer, AllowedCharacters))
-				{
-					if (Nummer.Length == 0)
-					{
-						string TekstToDisplay = "Let op!\nEr is geen nummer ingevuld.\nWeet u zeker dat er geen nummer ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een nummer in te vullen";
-						DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen nummer ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-						if (result == DialogResult.No) { return; }
-					}
-				}
-				else
-				{
-					StringInValidDisplay("Nummer");
-					return;
-				}
-
-				string Omschrijving = TxbOmschrijving.Text;
-				if (CommonFunctions.IsStringValid(Omschrijving, AllowedCharacters))
-				{
-					if (Omschrijving.Length == 0)
-					{
-						string TekstToDisplay = "Let op!\nEr is geen omschrijving ingevuld.\nWeet u zeker dat er geen omschrijving ingevuld hoeft te worden?\n\nJa om door te gaan, Nee om een omschrijving in te vullen";
-						DialogResult result = FlexibleMessageBox.Show(TekstToDisplay, "Geen omschrijving ingevuld", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-						if (result == DialogResult.No) { return; }
-					}
-				}
-				else
-				{
-					StringInValidDisplay("Omschrijving");
-					return;
-				}
-
-
-				if (TxbPrijs.Text.Length < 4)
-				{
-					string TekstToDisplay = "Er is geen geldige prijs ingevuld. Vul een geldige prijs in.\nBijvoorbeeld:\t120,00\t0,99\t25,22\t220,0\t18,20";
-					FlexibleMessageBox.Show(TekstToDisplay, "Geen prijs ingevuld", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					return;
-				}
-
-				AllowedCharacters = "^[0-9,]*$";
-				if (!CommonFunctions.IsStringValid(TxbPrijs.Text, AllowedCharacters))
-				{
-					string message = $"De opgegeven waarde in Prijs mag geen andere tekens bevatten dan:\n(0-9 ,)";
-					string header = "Verkeerd teken gevonden";
-					FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-					return;
-				}
-
-				var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
-				clone.NumberFormat.NumberDecimalSeparator = ",";
-				clone.NumberFormat.NumberGroupSeparator = ".";
-				string value = TxbPrijs.Text;
-				double Prijs = double.Parse(value, clone);
-
-				double Voorraad = 0;
-				if (TxbVoorraad.Text.Length > 0)
-				{
-					Voorraad = int.Parse(TxbVoorraad.Text);
-				}
-
-				using (var conn = new NpgsqlConnection(ConnString))
-				{
-					conn.Open();
-					using (var cmd = new NpgsqlCommand())
-					{
-						cmd.Connection = conn;
-						cmd.CommandText = string.Format(@"SELECT nummer FROM voorraad WHERE nummer LIKE @nummer");
-						cmd.Parameters.AddWithValue("nummer", Nummer);
-						cmd.Prepare();
-						using (var reader = cmd.ExecuteReader())
-						{
-							while (reader.Read())
-							{
-								string text = $"Het opgegeven nummer bestaat al: {Nummer}";
-								string header = $"{Nummer} bestaat al";
-								FlexibleMessageBox.Show(text, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
-								return;
-							}
-						}
-					}
-					int AfdelingId = int.MinValue;
-					string querySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
-					using (var cmd = new NpgsqlCommand(querySelect, conn))
-					{
-						var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text)
-						{
-							Value = Afdeling
-						};
-						cmd.Parameters.Add(ParAfd);
-						cmd.Prepare();
-						using (var SqlReader = cmd.ExecuteReader())
-						{
-							while (SqlReader.Read())
-							{
-								AfdelingId = SqlReader.GetInt32(0);
-								break;
-							}
-						}
-					}
-					try
-					{
-						if (AfdelingId != int.MinValue)
-						{
-							string queryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
-							using (var cmd = new NpgsqlCommand(queryInsert, conn))
-							{
-								var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = Nummer };
-								cmd.Parameters.Add(ParNum);
-								var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = Omschrijving };
-								cmd.Parameters.Add(ParOms);
-								var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = Voorraad };
-								cmd.Parameters.Add(ParVoo);
-								var ParAfd = new NpgsqlParameter("AfdelingId", NpgsqlDbType.Integer) { Value = AfdelingId };
-								cmd.Parameters.Add(ParAfd);
-								var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = Prijs };
-								cmd.Parameters.Add(ParPri);
-								cmd.Prepare();
-								cmd.ExecuteNonQuery();
-							}
-							FlexibleMessageBox.Show("Het artikel is toegevoegd", "Succes");
-							TxbNummer.Clear();
-							TxbOmschrijving.Clear();
-							TxbPrijs.Clear();
-							TxbVoorraad.Clear();
-							CbbAfdeling.SelectedIndex = -1;
-						}
-					}
-					catch (Exception ex)
-					{
-						FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
-					}
-				}
+				string message = "Het opgegeven nummer bestaat al. \rHeeft u het juiste nummer ingevuld?";
+				string header = "Artikel bestaat al!";
+				FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				return;
 			}
-			catch (Exception ex)
+
+			// Add the item to the database
+			if (AddItemToDB())
 			{
-				FlexibleMessageBox.Show(ex.Message, "ER IS IETS FOUT GEGAAN!");
+				FlexibleMessageBox.Show("Het artikel is toegevoegd", "Succes");
+				// Reset user input
+				TxbNummer.Clear();
+				TxbOmschrijving.Clear();
+				TxbPrijs.Clear();
+				TxbVoorraad.Clear();
+				CbbAfdeling.SelectedIndex = 0;
+			}
+			else
+			{
+				string message = "Er is iets fout gegaan, probeer het opnieuw.\r" +
+					"Neem contact op met de helpdesk indien dit probleem zich blijft voordoen";
+				string header = "An Error Occured";
+				FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 
-		private void StringInValidDisplay(string WhereFrom)
+		/// <summary>
+		/// Checks whether the nummer of the item already exists in the database.
+		/// </summary>
+		/// <returns></returns>
+		private bool DoesItemExist()
 		{
-			string message = $"De opgegeven waarde in {WhereFrom} mag geen andere tekens bevatten dan:\n(a-z A-Z 0-9)";
-			string header = "Verkeerd teken gevonden";
-			FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+			using (var conn = new NpgsqlConnection(ConnString))
+			{
+				conn.Open();
+
+				string QuerySelect = "SELECT nummer FROM voorraad WHERE nummer LIKE @Nummer;";
+				using (var cmd = new NpgsqlCommand(QuerySelect, conn))
+				{
+					var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Integer) { Value = _Nummer };
+					cmd.Parameters.Add(ParNum);
+					cmd.Prepare();
+
+					using (var reader = cmd.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							return true;
+						}
+					}
+				}
+			}
+			return false;
 		}
 
 		#region Private Variables		
 
-		private int _CurrentId;
 		private string _Afdeling;
 		private int _AfdelingId;
-		private string _NewNummer;
-		private string _NewOmschrijving;
-		private int _NewVoorraad;
-		private double _NewPrijs;
+		private string _Nummer;
+		private string _Omschrijving;
+		private int _Voorraad;
+		private double _Prijs;
 
 		private bool _IsNummerCorrect = true;
 		private bool _IsVoorraadCorrect = true;
@@ -253,7 +156,60 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		#endregion
 
 		/// <summary>
-		/// get and store all new/altered values
+		/// Alters the item's content in the database, returns true if succesfull
+		/// </summary>
+		/// <returns></returns>
+		private bool AddItemToDB()
+		{
+			using (var conn = new NpgsqlConnection(ConnString))
+			{
+				conn.Open();
+
+				// Retrieve the id of the department in which the item will be placed
+				_AfdelingId = int.MinValue;
+				string QuerySelect = "SELECT id FROM afdelingen WHERE afdelingnaam = @Afdeling;";
+				using (var cmd = new NpgsqlCommand(QuerySelect, conn))
+				{
+					var ParAfd = new NpgsqlParameter("Afdeling", NpgsqlDbType.Text) { Value = _Afdeling };
+					cmd.Parameters.Add(ParAfd);
+					cmd.Prepare();
+					using (var SqlReader = cmd.ExecuteReader())
+					{
+						while (SqlReader.Read())
+						{
+							_AfdelingId = SqlReader.GetInt32(0);
+							break;
+						}
+					}
+				}
+
+				if (_AfdelingId == int.MinValue)
+				{
+					return false;
+				}
+
+				string QueryInsert = "INSERT INTO voorraad(nummer, omschrijving, voorraad, afdeling, prijs) VALUES (@Nummer, @Omschrijving, @Voorraad, @AfdelingId, @Prijs);";
+				using (var cmd = new NpgsqlCommand(QueryInsert, conn))
+				{
+					var ParNum = new NpgsqlParameter("Nummer", NpgsqlDbType.Text) { Value = _Nummer };
+					cmd.Parameters.Add(ParNum);
+					var ParOms = new NpgsqlParameter("Omschrijving", NpgsqlDbType.Text) { Value = _Omschrijving };
+					cmd.Parameters.Add(ParOms);
+					var ParVoo = new NpgsqlParameter("Voorraad", NpgsqlDbType.Integer) { Value = _Voorraad };
+					cmd.Parameters.Add(ParVoo);
+					var ParAfd = new NpgsqlParameter("AfdelingId", NpgsqlDbType.Integer) { Value = _AfdelingId };
+					cmd.Parameters.Add(ParAfd);
+					var ParPri = new NpgsqlParameter("Prijs", NpgsqlDbType.Double) { Value = _Prijs };
+					cmd.Parameters.Add(ParPri);
+					cmd.Prepare();
+					cmd.ExecuteNonQuery();
+				}
+			}
+			return true;
+		}
+
+		/// <summary>
+		/// Get and store all new/altered values. Returns true if all are filled in.
 		/// </summary>
 		/// <returns></returns>
 		private bool CheckAllFilled()
@@ -266,35 +222,65 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 			// Get the description of the item
 			if (TxbOmschrijving.Text.Length == 0)
+			{
+				LblOmschrijving.ForeColor = System.Drawing.Color.Red;
+				LblOmschrijving.Text = lblOmschrijving + NotFilledIn;
 				OneNotFilledIn = true;
+			}
 			else
-				_NewOmschrijving = TxbOmschrijving.Text.ToString();
+			{
+				LblOmschrijving.ForeColor = System.Drawing.Color.Black;
+				LblOmschrijving.Text = lblOmschrijving;
+				_Omschrijving = TxbOmschrijving.Text.ToString();
+			}
 
 			// Get the price of the item
 			if (TxbPrijs.Text.Length == 0)
+			{
+				LblPrijs.ForeColor = System.Drawing.Color.Red;
+				LblPrijs.Text = lblPrijs + NotFilledIn;
 				OneNotFilledIn = true;
+			}
 			else
 			{
+				LblPrijs.ForeColor = System.Drawing.Color.Black;
+				LblPrijs.Text = lblPrijs;
 				// Convert from string to double
 				var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
 				clone.NumberFormat.NumberDecimalSeparator = ",";
 				clone.NumberFormat.NumberGroupSeparator = ".";
 				string value = TxbPrijs.Text;
 				double Prijs = double.Parse(value, clone);
-				_NewPrijs = Prijs;
+				_Prijs = Prijs;
 			}
 
 			// Get the nummer of the item
 			if (TxbNummer.Text.Length == 0)
+			{
+				LblNummer.ForeColor = System.Drawing.Color.Red;
+				LblNummer.Text = lblNummer + NotFilledIn;
 				OneNotFilledIn = true;
+			}
 			else
-				_NewNummer = TxbNummer.Text;
+			{
+				LblNummer.ForeColor = System.Drawing.Color.Black;
+				LblNummer.Text = lblNummer;
+				_Nummer = TxbNummer.Text;
+			}
 
 			// Get the stock of the item
 			if (TxbVoorraad.Text.Length == 0)
+			{
+				LblVoorraad.ForeColor = System.Drawing.Color.Red;
+				LblVoorraad.Text = lblVoorraad + NotFilledIn;
 				OneNotFilledIn = true;
+			}
 			else
-				_NewVoorraad = int.Parse(TxbVoorraad.Text);
+			{
+				LblVoorraad.ForeColor = System.Drawing.Color.Black;
+				LblVoorraad.Text = lblVoorraad;
+				_Voorraad = int.Parse(TxbVoorraad.Text);
+			}
 
 			if (OneNotFilledIn)
 				return false;

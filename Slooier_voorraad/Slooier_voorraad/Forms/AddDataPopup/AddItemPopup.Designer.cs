@@ -57,10 +57,10 @@
 			// CbbAfdeling
 			// 
 			this.CbbAfdeling.FormattingEnabled = true;
-			this.CbbAfdeling.Location = new System.Drawing.Point(3, 29);
+			this.CbbAfdeling.Location = new System.Drawing.Point(3, 16);
 			this.CbbAfdeling.MaxDropDownItems = 20;
 			this.CbbAfdeling.Name = "CbbAfdeling";
-			this.CbbAfdeling.Size = new System.Drawing.Size(171, 21);
+			this.CbbAfdeling.Size = new System.Drawing.Size(189, 21);
 			this.CbbAfdeling.TabIndex = 1;
 			this.CbbAfdeling.Text = "Afdeling:";
 			// 
@@ -80,14 +80,14 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(3, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(148, 26);
+			this.label2.Size = new System.Drawing.Size(182, 13);
 			this.label2.TabIndex = 6;
 			this.label2.Text = "Onder welke afdeling valt het artikel?";
 			// 
 			// LblNummer
 			// 
 			this.LblNummer.AutoSize = true;
-			this.LblNummer.Location = new System.Drawing.Point(3, 53);
+			this.LblNummer.Location = new System.Drawing.Point(3, 40);
 			this.LblNummer.Name = "LblNummer";
 			this.LblNummer.Size = new System.Drawing.Size(154, 13);
 			this.LblNummer.TabIndex = 7;
@@ -95,9 +95,9 @@
 			// 
 			// TxbNummer
 			// 
-			this.TxbNummer.Location = new System.Drawing.Point(3, 69);
+			this.TxbNummer.Location = new System.Drawing.Point(3, 56);
 			this.TxbNummer.Name = "TxbNummer";
-			this.TxbNummer.Size = new System.Drawing.Size(171, 20);
+			this.TxbNummer.Size = new System.Drawing.Size(189, 20);
 			this.TxbNummer.TabIndex = 2;
 			this.TxbNummer.TextChanged += new System.EventHandler(this.TxbNummer_TextChanged);
 			this.TxbNummer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNummer_KeyUp);
@@ -105,18 +105,18 @@
 			// LblOmschrijving
 			// 
 			this.LblOmschrijving.AutoSize = true;
-			this.LblOmschrijving.Location = new System.Drawing.Point(3, 183);
+			this.LblOmschrijving.Location = new System.Drawing.Point(3, 157);
 			this.LblOmschrijving.Name = "LblOmschrijving";
-			this.LblOmschrijving.Size = new System.Drawing.Size(147, 26);
+			this.LblOmschrijving.Size = new System.Drawing.Size(181, 13);
 			this.LblOmschrijving.TabIndex = 9;
 			this.LblOmschrijving.Text = "Welke omschrijving heeft het artikel?";
 			// 
 			// TxbOmschrijving
 			// 
-			this.TxbOmschrijving.Location = new System.Drawing.Point(3, 212);
+			this.TxbOmschrijving.Location = new System.Drawing.Point(3, 173);
 			this.TxbOmschrijving.Multiline = true;
 			this.TxbOmschrijving.Name = "TxbOmschrijving";
-			this.TxbOmschrijving.Size = new System.Drawing.Size(171, 68);
+			this.TxbOmschrijving.Size = new System.Drawing.Size(189, 68);
 			this.TxbOmschrijving.TabIndex = 5;
 			this.TxbOmschrijving.TextChanged += new System.EventHandler(this.TxbOmschrijving_TextChanged);
 			this.TxbOmschrijving.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbOmschrijving_KeyUp);
@@ -124,9 +124,9 @@
 			// BtnAddToDb
 			// 
 			this.BtnAddToDb.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.BtnAddToDb.Location = new System.Drawing.Point(0, 294);
+			this.BtnAddToDb.Location = new System.Drawing.Point(0, 306);
 			this.BtnAddToDb.Name = "BtnAddToDb";
-			this.BtnAddToDb.Size = new System.Drawing.Size(177, 23);
+			this.BtnAddToDb.Size = new System.Drawing.Size(195, 23);
 			this.BtnAddToDb.TabIndex = 6;
 			this.BtnAddToDb.Text = "Toevoegen";
 			this.BtnAddToDb.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
 			// LblPrijs
 			// 
 			this.LblPrijs.AutoSize = true;
-			this.LblPrijs.Location = new System.Drawing.Point(3, 144);
+			this.LblPrijs.Location = new System.Drawing.Point(3, 118);
 			this.LblPrijs.Name = "LblPrijs";
 			this.LblPrijs.Size = new System.Drawing.Size(141, 13);
 			this.LblPrijs.TabIndex = 12;
@@ -143,9 +143,9 @@
 			// 
 			// TxbPrijs
 			// 
-			this.TxbPrijs.Location = new System.Drawing.Point(3, 160);
+			this.TxbPrijs.Location = new System.Drawing.Point(3, 134);
 			this.TxbPrijs.Name = "TxbPrijs";
-			this.TxbPrijs.Size = new System.Drawing.Size(171, 20);
+			this.TxbPrijs.Size = new System.Drawing.Size(189, 20);
 			this.TxbPrijs.TabIndex = 4;
 			this.TxbPrijs.TextChanged += new System.EventHandler(this.TxbPrijs_TextChanged);
 			this.TxbPrijs.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbPrijs_KeyUp);
@@ -153,17 +153,17 @@
 			// LblVoorraad
 			// 
 			this.LblVoorraad.AutoSize = true;
-			this.LblVoorraad.Location = new System.Drawing.Point(3, 92);
+			this.LblVoorraad.Location = new System.Drawing.Point(3, 79);
 			this.LblVoorraad.Name = "LblVoorraad";
-			this.LblVoorraad.Size = new System.Drawing.Size(139, 26);
+			this.LblVoorraad.Size = new System.Drawing.Size(173, 13);
 			this.LblVoorraad.TabIndex = 14;
 			this.LblVoorraad.Text = "Wat is de voorraad van het artikel?";
 			// 
 			// TxbVoorraad
 			// 
-			this.TxbVoorraad.Location = new System.Drawing.Point(3, 121);
+			this.TxbVoorraad.Location = new System.Drawing.Point(3, 95);
 			this.TxbVoorraad.Name = "TxbVoorraad";
-			this.TxbVoorraad.Size = new System.Drawing.Size(171, 20);
+			this.TxbVoorraad.Size = new System.Drawing.Size(189, 20);
 			this.TxbVoorraad.TabIndex = 3;
 			this.TxbVoorraad.TextChanged += new System.EventHandler(this.TxbVoorraad_TextChanged);
 			this.TxbVoorraad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbVoorraad_KeyUp);
@@ -182,13 +182,14 @@
 			this.PSecundary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.PSecundary.Controls.Add(this.FlpMain);
 			this.PSecundary.Controls.Add(this.BtnAddToDb);
-			this.PSecundary.Location = new System.Drawing.Point(165, 35);
+			this.PSecundary.Location = new System.Drawing.Point(131, 32);
 			this.PSecundary.Name = "PSecundary";
-			this.PSecundary.Size = new System.Drawing.Size(179, 319);
+			this.PSecundary.Size = new System.Drawing.Size(197, 331);
 			this.PSecundary.TabIndex = 16;
 			// 
 			// FlpMain
 			// 
+			this.FlpMain.AutoScroll = true;
 			this.FlpMain.Controls.Add(this.label2);
 			this.FlpMain.Controls.Add(this.CbbAfdeling);
 			this.FlpMain.Controls.Add(this.LblNummer);
@@ -200,10 +201,12 @@
 			this.FlpMain.Controls.Add(this.LblOmschrijving);
 			this.FlpMain.Controls.Add(this.TxbOmschrijving);
 			this.FlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.FlpMain.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.FlpMain.Location = new System.Drawing.Point(0, 0);
 			this.FlpMain.Name = "FlpMain";
-			this.FlpMain.Size = new System.Drawing.Size(177, 294);
+			this.FlpMain.Size = new System.Drawing.Size(195, 306);
 			this.FlpMain.TabIndex = 15;
+			this.FlpMain.WrapContents = false;
 			// 
 			// HeaderBar
 			// 
