@@ -50,10 +50,10 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		private void GetBenamingen()
 		{
 			var result = CommonFunctions.GetAfdelingen();
-			CbbBenaming.Items.Clear();
+			CbbAfdeling.Items.Clear();
 			foreach (string item in result)
 			{
-				CbbBenaming.Items.Add(item);
+				CbbAfdeling.Items.Add(item);
 			}
 		}
 
@@ -61,12 +61,12 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		{
 			try
 			{
-				if (CbbBenaming.SelectedIndex < 0)
+				if (CbbAfdeling.SelectedIndex < 0)
 				{
 					FlexibleMessageBox.Show("Geen Afdeling geselecteerd.\nSelecteer A.U.B. een afdeling!", "Selecteer een afdeling!");
 					return;
 				}
-				string Afdeling = CbbBenaming.GetItemText(CbbBenaming.SelectedItem);
+				string Afdeling = CbbAfdeling.GetItemText(CbbAfdeling.SelectedItem);
 
 				string AllowedCharacters = "^[a-zA-Z0-9 ]*$";
 				string Nummer = TxbNummer.Text;
@@ -194,7 +194,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 							TxbOmschrijving.Clear();
 							TxbPrijs.Clear();
 							TxbVoorraad.Clear();
-							CbbBenaming.SelectedIndex = -1;
+							CbbAfdeling.SelectedIndex = -1;
 						}
 					}
 					catch (Exception ex)

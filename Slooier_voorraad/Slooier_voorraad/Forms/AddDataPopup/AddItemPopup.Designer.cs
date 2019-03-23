@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.CbbBenaming = new System.Windows.Forms.ComboBox();
+			this.CbbAfdeling = new System.Windows.Forms.ComboBox();
 			this.LblMain = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.LblNummer = new System.Windows.Forms.Label();
@@ -54,15 +54,15 @@
 			this.defaultBackGround1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// CbbBenaming
+			// CbbAfdeling
 			// 
-			this.CbbBenaming.FormattingEnabled = true;
-			this.CbbBenaming.Location = new System.Drawing.Point(3, 29);
-			this.CbbBenaming.MaxDropDownItems = 20;
-			this.CbbBenaming.Name = "CbbBenaming";
-			this.CbbBenaming.Size = new System.Drawing.Size(171, 21);
-			this.CbbBenaming.TabIndex = 1;
-			this.CbbBenaming.Text = "Afdeling:";
+			this.CbbAfdeling.FormattingEnabled = true;
+			this.CbbAfdeling.Location = new System.Drawing.Point(3, 29);
+			this.CbbAfdeling.MaxDropDownItems = 20;
+			this.CbbAfdeling.Name = "CbbAfdeling";
+			this.CbbAfdeling.Size = new System.Drawing.Size(171, 21);
+			this.CbbAfdeling.TabIndex = 1;
+			this.CbbAfdeling.Text = "Afdeling:";
 			// 
 			// LblMain
 			// 
@@ -185,7 +185,7 @@
 			// FlpMain
 			// 
 			this.FlpMain.Controls.Add(this.label2);
-			this.FlpMain.Controls.Add(this.CbbBenaming);
+			this.FlpMain.Controls.Add(this.CbbAfdeling);
 			this.FlpMain.Controls.Add(this.LblNummer);
 			this.FlpMain.Controls.Add(this.TxbNummer);
 			this.FlpMain.Controls.Add(this.LblVoorraad);
@@ -282,7 +282,7 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.ComboBox CbbBenaming;
+		private System.Windows.Forms.ComboBox CbbAfdeling;
 		private System.Windows.Forms.Label LblMain;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label LblNummer;
