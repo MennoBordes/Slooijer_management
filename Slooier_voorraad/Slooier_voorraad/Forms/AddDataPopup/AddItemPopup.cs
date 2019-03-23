@@ -10,7 +10,16 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 {
 	public partial class AddItemPopup : Form
 	{
+		#region Variables
+
 		string ConnString;
+
+		private const string lblOmschrijving = "Welke omschrijving heeft het artikel?";
+		private const string lblPrijs = "Welke prijs heeft het artikel?";
+		private const string lblVoorraad = "Wat is de voorraad van het artikel?";
+		private const string lblNummer = "Welk nummer moet het artikel krijgen?";
+
+		#endregion
 
 		#region Initializers
 
@@ -248,5 +257,23 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			string header = "Verkeerd teken gevonden";
 			FlexibleMessageBox.Show(message, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 		}
+
+		#region Private Variables		
+
+		private int _CurrentId;
+		private string _NewAfdeling;
+		private int _NewAfdelingId;
+		private string _NewNummer;
+		private string _NewOmschrijving;
+		private int _NewVoorraad;
+		private double _NewPrijs;
+
+		private bool _IsNummerCorrect = true;
+		private bool _IsVoorraadCorrect = true;
+		private bool _IsPrijsCorrect = true;
+		private bool _IsOmschrijvingCorrect = true;
+
+		#endregion
+
 	}
 }
