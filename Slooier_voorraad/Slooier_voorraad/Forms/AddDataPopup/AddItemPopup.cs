@@ -275,5 +275,28 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		#endregion
 
+		#region Validate User Input
+
+		private void TxbOmschrijving_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TxbPrijs_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TxbVoorraad_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void TxbNummer_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		#endregion
 	}
 }

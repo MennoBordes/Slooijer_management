@@ -99,6 +99,7 @@
 			this.TxbNummer.Name = "TxbNummer";
 			this.TxbNummer.Size = new System.Drawing.Size(171, 20);
 			this.TxbNummer.TabIndex = 2;
+			this.TxbNummer.TextChanged += new System.EventHandler(this.TxbNummer_TextChanged);
 			this.TxbNummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNummer_KeyPress);
 			// 
 			// LblOmschrijving
@@ -117,6 +118,7 @@
 			this.TxbOmschrijving.Name = "TxbOmschrijving";
 			this.TxbOmschrijving.Size = new System.Drawing.Size(171, 68);
 			this.TxbOmschrijving.TabIndex = 5;
+			this.TxbOmschrijving.TextChanged += new System.EventHandler(this.TxbOmschrijving_TextChanged);
 			// 
 			// BtnAddToDb
 			// 
@@ -144,6 +146,7 @@
 			this.TxbPrijs.Name = "TxbPrijs";
 			this.TxbPrijs.Size = new System.Drawing.Size(171, 20);
 			this.TxbPrijs.TabIndex = 4;
+			this.TxbPrijs.TextChanged += new System.EventHandler(this.TxbPrijs_TextChanged);
 			this.TxbPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbPrijs_KeyPress);
 			// 
 			// LblVoorraad
@@ -161,6 +164,7 @@
 			this.TxbVoorraad.Name = "TxbVoorraad";
 			this.TxbVoorraad.Size = new System.Drawing.Size(171, 20);
 			this.TxbVoorraad.TabIndex = 3;
+			this.TxbVoorraad.TextChanged += new System.EventHandler(this.TxbVoorraad_TextChanged);
 			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			// 
 			// PMain
