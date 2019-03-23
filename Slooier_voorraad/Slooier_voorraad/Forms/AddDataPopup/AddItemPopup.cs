@@ -229,8 +229,8 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		#region Private Variables		
 
 		private int _CurrentId;
-		private string _NewAfdeling;
-		private int _NewAfdelingId;
+		private string _Afdeling;
+		private int _AfdelingId;
 		private string _NewNummer;
 		private string _NewOmschrijving;
 		private int _NewVoorraad;
