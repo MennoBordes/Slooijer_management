@@ -17,6 +17,9 @@ namespace Slooier_voorraad.Forms
 
 		List<MagazijnItems> ListMagazijnItems = new List<MagazijnItems>();
 		List<BestelItems> ListBestelItems = new List<BestelItems>();
+
+		private const int MaxColumnWidth = 400;
+
 		#region Initializers
 
 		public Voorraad()
@@ -36,6 +39,7 @@ namespace Slooier_voorraad.Forms
 		}
 
 		#endregion
+
 		private void GetVoorraad()
 		{
 			ListMagazijnItems = CommonFunctions.GetMagazijnItems(ListMagazijnItems, ConnString);
@@ -55,6 +59,11 @@ namespace Slooier_voorraad.Forms
 			foreach (DataGridViewColumn column in DgvVoorraad.Columns)
 			{
 				column.ReadOnly = true;
+				if (column.Width > MaxColumnWidth)
+				{
+					column.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+					column.Width = MaxColumnWidth;
+				}
 			}
 			DgvVoorraad.Columns["Bestellen"].ReadOnly = false;
 		}
@@ -216,7 +225,7 @@ namespace Slooier_voorraad.Forms
 				};
 
 			// Get the first result of the linq query
-			MagazijnItems items =  MatchingObject.FirstOrDefault();
+			MagazijnItems items = MatchingObject.FirstOrDefault();
 
 			// Save the result in the global file
 			Global.AlterItem = items;

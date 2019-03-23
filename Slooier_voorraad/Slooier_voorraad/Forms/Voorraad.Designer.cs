@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
 			this.PMain = new System.Windows.Forms.Panel();
 			this.PSecRight = new System.Windows.Forms.Panel();
 			this.GbVoorraad = new System.Windows.Forms.GroupBox();
@@ -36,18 +37,27 @@
 			this.BtnSearch = new System.Windows.Forms.Button();
 			this.BtnRefresh = new System.Windows.Forms.Button();
 			this.TxbSearch = new System.Windows.Forms.TextBox();
-			this.defaultHeaderBar1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
-			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
-			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
 			this.BottomBorder = new Slooier_voorraad.UI.OuterFormBorder();
-			this.defaultBackGround1 = new Slooier_voorraad.UI.DefaultBackGround();
+			this.RightBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.LeftBorder = new Slooier_voorraad.UI.OuterFormBorder();
+			this.defaultHeaderBar1 = new Slooier_voorraad.Controls.DefaultHeaderBar();
+			this.defaultBackGround1.SuspendLayout();
 			this.PMain.SuspendLayout();
 			this.PSecRight.SuspendLayout();
 			this.GbVoorraad.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DgvVoorraad)).BeginInit();
 			this.PSecLeft.SuspendLayout();
-			this.defaultBackGround1.SuspendLayout();
 			this.SuspendLayout();
+			// 
+			// defaultBackGround1
+			// 
+			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
+			this.defaultBackGround1.Controls.Add(this.PMain);
+			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
+			this.defaultBackGround1.Name = "defaultBackGround1";
+			this.defaultBackGround1.Size = new System.Drawing.Size(969, 507);
+			this.defaultBackGround1.TabIndex = 5;
 			// 
 			// PMain
 			// 
@@ -133,26 +143,16 @@
 			this.TxbSearch.Size = new System.Drawing.Size(100, 20);
 			this.TxbSearch.TabIndex = 0;
 			// 
-			// defaultHeaderBar1
+			// BottomBorder
 			// 
-			this.defaultHeaderBar1.AutoSize = true;
-			this.defaultHeaderBar1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.defaultHeaderBar1.Location = new System.Drawing.Point(0, 0);
-			this.defaultHeaderBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-			this.defaultHeaderBar1.Name = "defaultHeaderBar1";
-			this.defaultHeaderBar1.Size = new System.Drawing.Size(985, 27);
-			this.defaultHeaderBar1.TabIndex = 1;
-			// 
-			// LeftBorder
-			// 
-			this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
-			this.LeftBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
-			this.LeftBorder.Dock = System.Windows.Forms.DockStyle.Left;
-			this.LeftBorder.Location = new System.Drawing.Point(0, 27);
-			this.LeftBorder.Name = "LeftBorder";
-			this.LeftBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
-			this.LeftBorder.Size = new System.Drawing.Size(8, 515);
-			this.LeftBorder.TabIndex = 2;
+			this.BottomBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Cursor = System.Windows.Forms.Cursors.SizeNS;
+			this.BottomBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.BottomBorder.Location = new System.Drawing.Point(8, 534);
+			this.BottomBorder.Name = "BottomBorder";
+			this.BottomBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.BottomBorder.Size = new System.Drawing.Size(969, 8);
+			this.BottomBorder.TabIndex = 4;
 			// 
 			// RightBorder
 			// 
@@ -165,26 +165,26 @@
 			this.RightBorder.Size = new System.Drawing.Size(8, 515);
 			this.RightBorder.TabIndex = 3;
 			// 
-			// BottomBorder
+			// LeftBorder
 			// 
-			this.BottomBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
-			this.BottomBorder.Cursor = System.Windows.Forms.Cursors.SizeNS;
-			this.BottomBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.BottomBorder.Location = new System.Drawing.Point(8, 534);
-			this.BottomBorder.Name = "BottomBorder";
-			this.BottomBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
-			this.BottomBorder.Size = new System.Drawing.Size(969, 8);
-			this.BottomBorder.TabIndex = 4;
+			this.LeftBorder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Cursor = System.Windows.Forms.Cursors.SizeWE;
+			this.LeftBorder.Dock = System.Windows.Forms.DockStyle.Left;
+			this.LeftBorder.Location = new System.Drawing.Point(0, 27);
+			this.LeftBorder.Name = "LeftBorder";
+			this.LeftBorder.OutBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(57)))), ((int)(((byte)(182)))));
+			this.LeftBorder.Size = new System.Drawing.Size(8, 515);
+			this.LeftBorder.TabIndex = 2;
 			// 
-			// defaultBackGround1
+			// defaultHeaderBar1
 			// 
-			this.defaultBackGround1.BackColor = System.Drawing.Color.Gainsboro;
-			this.defaultBackGround1.Controls.Add(this.PMain);
-			this.defaultBackGround1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.defaultBackGround1.Location = new System.Drawing.Point(8, 27);
-			this.defaultBackGround1.Name = "defaultBackGround1";
-			this.defaultBackGround1.Size = new System.Drawing.Size(969, 507);
-			this.defaultBackGround1.TabIndex = 5;
+			this.defaultHeaderBar1.AutoSize = true;
+			this.defaultHeaderBar1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.defaultHeaderBar1.Location = new System.Drawing.Point(0, 0);
+			this.defaultHeaderBar1.Margin = new System.Windows.Forms.Padding(4);
+			this.defaultHeaderBar1.Name = "defaultHeaderBar1";
+			this.defaultHeaderBar1.Size = new System.Drawing.Size(985, 27);
+			this.defaultHeaderBar1.TabIndex = 1;
 			// 
 			// Voorraad
 			// 
@@ -203,13 +203,13 @@
 			this.Activated += new System.EventHandler(this.Voorraad_Activated);
 			this.Load += new System.EventHandler(this.Voorraad_Load);
 			this.Shown += new System.EventHandler(this.Voorraad_Shown);
+			this.defaultBackGround1.ResumeLayout(false);
 			this.PMain.ResumeLayout(false);
 			this.PSecRight.ResumeLayout(false);
 			this.GbVoorraad.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.DgvVoorraad)).EndInit();
 			this.PSecLeft.ResumeLayout(false);
 			this.PSecLeft.PerformLayout();
-			this.defaultBackGround1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
