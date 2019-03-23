@@ -358,7 +358,26 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void TxbNummer_TextChanged(object sender, EventArgs e)
 		{
+			var InputResult = UserInputChecker.UserNummerInput(TxbNummer.Text);
 
+			switch (InputResult)
+			{
+				case UserInputChecker.InputResult.Valid:
+					LblNummer.ForeColor = System.Drawing.Color.Black;
+					LblNummer.Text = lblNummer;
+					_IsNummerCorrect = true;
+					return;
+				case UserInputChecker.InputResult.NoText:
+					LblNummer.ForeColor = System.Drawing.Color.Black;
+					LblNummer.Text = lblNummer;
+					_IsNummerCorrect = false;
+					return;
+				case UserInputChecker.InputResult.InValidChar:
+					LblNummer.ForeColor = System.Drawing.Color.Red;
+					LblNummer.Text = lblNummer + "\nAlleen letters (a-zA-Z) en getallen (0-9) zijn toegestaan";
+					_IsNummerCorrect = false;
+					return;
+			}
 		}
 
 		#endregion
