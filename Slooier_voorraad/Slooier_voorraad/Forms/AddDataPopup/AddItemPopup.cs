@@ -65,6 +65,8 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			{
 				CbbAfdeling.Items.Add(item);
 			}
+			// Automatically select the top most afdeling
+			CbbAfdeling.SelectedItem = CbbAfdeling.Items[0];
 		}
 
 		private void BtnAddToDb_Click(object sender, EventArgs e)
