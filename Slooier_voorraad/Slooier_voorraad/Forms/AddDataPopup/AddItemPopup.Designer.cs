@@ -31,14 +31,14 @@
 			this.CbbBenaming = new System.Windows.Forms.ComboBox();
 			this.LblMain = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.LblNummer = new System.Windows.Forms.Label();
 			this.TxbNummer = new System.Windows.Forms.TextBox();
-			this.label4 = new System.Windows.Forms.Label();
+			this.LblOmschrijving = new System.Windows.Forms.Label();
 			this.TxbOmschrijving = new System.Windows.Forms.TextBox();
 			this.BtnAddToDb = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
+			this.LblPrijs = new System.Windows.Forms.Label();
 			this.TxbPrijs = new System.Windows.Forms.TextBox();
-			this.label6 = new System.Windows.Forms.Label();
+			this.LblVoorraad = new System.Windows.Forms.Label();
 			this.TxbVoorraad = new System.Windows.Forms.TextBox();
 			this.PMain = new System.Windows.Forms.Panel();
 			this.PSecundary = new System.Windows.Forms.Panel();
@@ -82,16 +82,16 @@
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(148, 26);
 			this.label2.TabIndex = 6;
-			this.label2.Text = "Onder welke afdeling valt het item?";
+			this.label2.Text = "Onder welke afdeling valt het artikel?";
 			// 
-			// label3
+			// LblNummer
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(3, 53);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(145, 13);
-			this.label3.TabIndex = 7;
-			this.label3.Text = "Welk nummer heeft het item?";
+			this.LblNummer.AutoSize = true;
+			this.LblNummer.Location = new System.Drawing.Point(3, 53);
+			this.LblNummer.Name = "LblNummer";
+			this.LblNummer.Size = new System.Drawing.Size(154, 13);
+			this.LblNummer.TabIndex = 7;
+			this.LblNummer.Text = "Welk nummer heeft het artikel?";
 			// 
 			// TxbNummer
 			// 
@@ -101,14 +101,14 @@
 			this.TxbNummer.TabIndex = 2;
 			this.TxbNummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNummer_KeyPress);
 			// 
-			// label4
+			// LblOmschrijving
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(3, 183);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(147, 26);
-			this.label4.TabIndex = 9;
-			this.label4.Text = "Welke omschrijving heeft het item?";
+			this.LblOmschrijving.AutoSize = true;
+			this.LblOmschrijving.Location = new System.Drawing.Point(3, 183);
+			this.LblOmschrijving.Name = "LblOmschrijving";
+			this.LblOmschrijving.Size = new System.Drawing.Size(147, 26);
+			this.LblOmschrijving.TabIndex = 9;
+			this.LblOmschrijving.Text = "Welke omschrijving heeft het artikel?";
 			// 
 			// TxbOmschrijving
 			// 
@@ -129,14 +129,14 @@
 			this.BtnAddToDb.UseVisualStyleBackColor = true;
 			this.BtnAddToDb.Click += new System.EventHandler(this.BtnAddToDb_Click);
 			// 
-			// label5
+			// LblPrijs
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 144);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(132, 13);
-			this.label5.TabIndex = 12;
-			this.label5.Text = "Welke prijs heeft het item?";
+			this.LblPrijs.AutoSize = true;
+			this.LblPrijs.Location = new System.Drawing.Point(3, 144);
+			this.LblPrijs.Name = "LblPrijs";
+			this.LblPrijs.Size = new System.Drawing.Size(141, 13);
+			this.LblPrijs.TabIndex = 12;
+			this.LblPrijs.Text = "Welke prijs heeft het artikel?";
 			// 
 			// TxbPrijs
 			// 
@@ -146,14 +146,14 @@
 			this.TxbPrijs.TabIndex = 4;
 			this.TxbPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbPrijs_KeyPress);
 			// 
-			// label6
+			// LblVoorraad
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(3, 92);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(164, 26);
-			this.label6.TabIndex = 14;
-			this.label6.Text = "Is er reeds een voorraad van het item?";
+			this.LblVoorraad.AutoSize = true;
+			this.LblVoorraad.Location = new System.Drawing.Point(3, 92);
+			this.LblVoorraad.Name = "LblVoorraad";
+			this.LblVoorraad.Size = new System.Drawing.Size(139, 26);
+			this.LblVoorraad.TabIndex = 14;
+			this.LblVoorraad.Text = "Wat is de voorraad van het artikel?";
 			// 
 			// TxbVoorraad
 			// 
@@ -186,13 +186,13 @@
 			// 
 			this.FlpMain.Controls.Add(this.label2);
 			this.FlpMain.Controls.Add(this.CbbBenaming);
-			this.FlpMain.Controls.Add(this.label3);
+			this.FlpMain.Controls.Add(this.LblNummer);
 			this.FlpMain.Controls.Add(this.TxbNummer);
-			this.FlpMain.Controls.Add(this.label6);
+			this.FlpMain.Controls.Add(this.LblVoorraad);
 			this.FlpMain.Controls.Add(this.TxbVoorraad);
-			this.FlpMain.Controls.Add(this.label5);
+			this.FlpMain.Controls.Add(this.LblPrijs);
 			this.FlpMain.Controls.Add(this.TxbPrijs);
-			this.FlpMain.Controls.Add(this.label4);
+			this.FlpMain.Controls.Add(this.LblOmschrijving);
 			this.FlpMain.Controls.Add(this.TxbOmschrijving);
 			this.FlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.FlpMain.Location = new System.Drawing.Point(0, 0);
@@ -285,14 +285,14 @@
 		private System.Windows.Forms.ComboBox CbbBenaming;
 		private System.Windows.Forms.Label LblMain;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label LblNummer;
 		private System.Windows.Forms.TextBox TxbNummer;
-		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.Label LblOmschrijving;
 		private System.Windows.Forms.TextBox TxbOmschrijving;
 		private System.Windows.Forms.Button BtnAddToDb;
-		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label LblPrijs;
 		private System.Windows.Forms.TextBox TxbPrijs;
-		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.Label LblVoorraad;
 		private System.Windows.Forms.TextBox TxbVoorraad;
 		private System.Windows.Forms.Panel PMain;
 		private System.Windows.Forms.FlowLayoutPanel FlpMain;
