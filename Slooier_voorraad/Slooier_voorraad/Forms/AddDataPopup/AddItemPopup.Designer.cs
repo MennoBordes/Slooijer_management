@@ -100,7 +100,6 @@
 			this.TxbNummer.Size = new System.Drawing.Size(171, 20);
 			this.TxbNummer.TabIndex = 2;
 			this.TxbNummer.TextChanged += new System.EventHandler(this.TxbNummer_TextChanged);
-			this.TxbNummer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbNummer_KeyPress);
 			this.TxbNummer.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbNummer_KeyUp);
 			// 
 			// LblOmschrijving
@@ -149,7 +148,6 @@
 			this.TxbPrijs.Size = new System.Drawing.Size(171, 20);
 			this.TxbPrijs.TabIndex = 4;
 			this.TxbPrijs.TextChanged += new System.EventHandler(this.TxbPrijs_TextChanged);
-			this.TxbPrijs.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbPrijs_KeyPress);
 			this.TxbPrijs.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbPrijs_KeyUp);
 			// 
 			// LblVoorraad
@@ -168,7 +166,6 @@
 			this.TxbVoorraad.Size = new System.Drawing.Size(171, 20);
 			this.TxbVoorraad.TabIndex = 3;
 			this.TxbVoorraad.TextChanged += new System.EventHandler(this.TxbVoorraad_TextChanged);
-			this.TxbVoorraad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxbVoorraad_KeyPress);
 			this.TxbVoorraad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxbVoorraad_KeyUp);
 			// 
 			// PMain

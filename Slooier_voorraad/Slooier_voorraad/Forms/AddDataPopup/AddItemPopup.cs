@@ -219,39 +219,6 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 			}
 		}
 
-		private void TxbPrijs_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			// Is the key pressed an number or a comma?
-			if (e.KeyChar != (char)Keys.Back && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
-			{
-				e.Handled = true;
-			}
-			// Only allow one comma 
-			if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void TxbVoorraad_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			// Is the key pressed a number?
-			bool res = char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back;
-			if (!res)
-			{
-				e.Handled = true;
-			}
-		}
-
-		private void TxbNummer_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			bool res = char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back;
-			if (!res)
-			{
-				e.Handled = true;
-			}
-		}
-
 		private void StringInValidDisplay(string WhereFrom)
 		{
 			string message = $"De opgegeven waarde in {WhereFrom} mag geen andere tekens bevatten dan:\n(a-z A-Z 0-9)";
