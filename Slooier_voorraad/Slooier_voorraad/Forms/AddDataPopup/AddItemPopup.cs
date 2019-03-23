@@ -19,6 +19,7 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		private const string lblPrijs = "Welke prijs heeft het artikel?";
 		private const string lblVoorraad = "Wat is de voorraad van het artikel?";
 		private const string lblNummer = "Welk nummer moet het artikel krijgen?";
+		private const string NotFilledIn = "Niet alle gegevens zijn ingevuld. \r Vul alle benodigde velden in!";
 
 		#endregion
 
@@ -71,6 +72,12 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 
 		private void BtnAddToDb_Click(object sender, EventArgs e)
 		{
+			if (!CheckAllFilled())
+			{
+				string header = "Niet Ingevuld";
+				FlexibleMessageBox.Show(NotFilledIn, header, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+				return;
+			}
 			try
 			{
 				if (CbbAfdeling.SelectedIndex < 0)
@@ -244,6 +251,56 @@ namespace Slooier_voorraad.Forms.AddDataPopup
 		private bool _IsOmschrijvingCorrect = true;
 
 		#endregion
+
+		/// <summary>
+		/// get and store all new/altered values
+		/// </summary>
+		/// <returns></returns>
+		private bool CheckAllFilled()
+		{
+			// Keeps track of whether all boxes have been filled
+			bool OneNotFilledIn = false;
+
+			// Get the currently selected afdeling
+			_Afdeling = CbbAfdeling.SelectedItem.ToString();
+
+			// Get the description of the item
+			if (TxbOmschrijving.Text.Length == 0)
+				OneNotFilledIn = true;
+			else
+				_NewOmschrijving = TxbOmschrijving.Text.ToString();
+
+			// Get the price of the item
+			if (TxbPrijs.Text.Length == 0)
+				OneNotFilledIn = true;
+			else
+			{
+				// Convert from string to double
+				var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+				clone.NumberFormat.NumberDecimalSeparator = ",";
+				clone.NumberFormat.NumberGroupSeparator = ".";
+				string value = TxbPrijs.Text;
+				double Prijs = double.Parse(value, clone);
+				_NewPrijs = Prijs;
+			}
+
+			// Get the nummer of the item
+			if (TxbNummer.Text.Length == 0)
+				OneNotFilledIn = true;
+			else
+				_NewNummer = TxbNummer.Text;
+
+			// Get the stock of the item
+			if (TxbVoorraad.Text.Length == 0)
+				OneNotFilledIn = true;
+			else
+				_NewVoorraad = int.Parse(TxbVoorraad.Text);
+
+			if (OneNotFilledIn)
+				return false;
+			else
+				return true;
+		}
 
 		#region Validate User Input
 
